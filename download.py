@@ -5,10 +5,11 @@ import logging
 import re
 import json
 
+MAX_REGION_ID = 100
+
 
 def get_links_in_region(region: int, capacity: str = 18, rooms: int = 2) -> Set[str]:
     urls = set()
-    # "https://www.e-chalupy.cz/jizni_cechy/ubytovani/#zalozka_prehled"
     response = requests.post("https://www.e-chalupy.cz/hledam/#zalozka_prehled",
                              data={"fkapacita": str(capacity),
                                    "fpokoje": str(rooms),
@@ -31,9 +32,9 @@ def get_links_in_region(region: int, capacity: str = 18, rooms: int = 2) -> Set[
     return urls
 
 
-def get_urls():
+def get_urls() -> Set[str]:
     property_urls = set()
-    for region in range(1, 100):
+    for region in range(1, MAX_REGION_ID):
         # filter out regions (not ending with .php)
         property_urls |= set(filter(lambda x: x.endswith(".php"), get_links_in_region(region)))
     logging.info(f"total found {len(property_urls)}")
@@ -70,7 +71,8 @@ def get_property_info(url: str) -> Dict[str, Any]:
         "numeric_ratings": [re.search(rating_match, i.text, re.UNICODE).group(1) for i in
                             prop.find_all(class_="recenze") if re.search(rating_match, i.text, re.UNICODE)],
         "place": clean(prop.find(class_="kamdal").text),
-        "pricelist": prop.find(id="cenik").text,
+        "pricelist": [clean(i.text) for i in prop.find(id="cenik").find_all("td")] if prop.find(id="cenik") else [],
+        "images": [(i.get("title"), i.get("href")) for i in prop.find(id="nahledy").find_all("a")],
         "text": prop.text,
     }
     if gps:
