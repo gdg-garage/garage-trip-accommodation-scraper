@@ -8,6 +8,7 @@ import re
 # global stats
 counters = defaultdict(int)
 ratings = []
+prices = []
 
 # limits
 MIN_BEDS = 22
@@ -17,6 +18,7 @@ MAX_RESTAURANT_DISTANCE = 1500
 
 # regex
 distance_extractor = re.compile(r"(\d*[.,]?\d+)\s*(min|m|km)")
+price_extractor = re.compile(r"(\d+\.? ?\d+)\s?Kč")
 
 
 def numeric_stats(data):
@@ -25,6 +27,7 @@ def numeric_stats(data):
         "min": min(data),
         "mean": statistics.mean(data),
         "median": statistics.median(data),
+        "samples": len(data)
     }
 
 
@@ -79,11 +82,58 @@ def restaurant_distance(properties: Iterable[Dict[str, Any]]):
             i["restaurant_distance_m"] = extract_normalized_distance(restaurant_dist)
 
 
+def extract_normalized_price(properties: Iterable[Dict[str, Any]]):
+    global prices
+    for prop in properties:
+        price_list = prop.get("pricelist", [])
+        if not price_list:
+            counters["pricelist_missing"] += 1
+            continue
+        price_header = price_list[0]
+        if "apartmán" in price_header:
+            filter_out("apartman", prop)
+            continue
+        if "polop" in price_header:
+            prop["half-board"] = "true"
+            counters["half_board"] += 1
+        if "snídaní" in price_header:
+            prop["breakfast"] = "true"
+            counters["breakfast"] += 1
+        price = -1
+        for price_candidate in price_list[1:]:
+            if not (price_candidate.lower().startswith("let") or price_candidate.lower().startswith("mimo")):
+                continue
+            if price_candidate.lower().startswith("cen"):
+                break
+            price_search = price_extractor.search(price_candidate)
+            if not price_search:
+                counters["idiotic_price_format"] += 1
+                continue
+            price = int(price_search.group(1).replace('.', '').replace(' ', ''))
+            break
+        if price == -1:
+            counters["price_not_found"] += 1
+            continue
+        if "za týden" in price_header:
+            price /= 7
+        if "za osobu" in price_header:
+            if not prop.get("capacity"):
+                continue
+            price *= int(prop.get("capacity"))
+        if "pokoj" in price_header:
+            if not prop.get("rooms"):
+                continue
+            price *= int(prop.get("rooms"))
+        prop["price"] = price
+        prices.append(price)
+
+
 def enhance(properties: Iterable[Dict[str, Any]]):
     add_homepage(properties)
     ratings_stats(properties)
     distances_to_map(properties)
     restaurant_distance(properties)
+    extract_normalized_price(properties)
 
 
 def filter_out(reason: str, item: Dict[str, Any]):
@@ -162,6 +212,7 @@ def main():
     filtering(properties)
     print()
     print(f"global ratings stats: {numeric_stats(ratings)}")
+    print(f"prices stats: {numeric_stats(prices)}")
     print()
     counter_stats(properties)
 
