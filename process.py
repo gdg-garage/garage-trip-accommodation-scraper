@@ -117,19 +117,19 @@ def filtering(properties: Iterable[Dict[str, Any]]):
         if capacity == -1:
             filter_out("capacity_missing", i)
         elif capacity < MIN_BEDS:
-            filter_out("small_capacity", i)
+            filter_out(f"small_capacity_<{MIN_BEDS}", i)
         elif capacity > MAX_BEDS:
-            filter_out("too_big", i)
+            filter_out(f"too_big_>{MAX_BEDS}", i)
         rooms = i.get("rooms", -1)
         if not rooms or rooms == -1:
             filter_out("missing_rooms", i)
         elif int(rooms) < MIN_ROOMS:
-            filter_out("not_enough_rooms", i)
+            filter_out(f"not_enough_rooms_<{MIN_ROOMS}", i)
         restaurant_dist = i.get("restaurant_distance_m", -1)
         if restaurant_dist == -1:
             filter_out("restaurant_distance_invalid", i)
         if restaurant_dist > MAX_RESTAURANT_DISTANCE:
-            filter_out("restaurant_distance_too_big", i)
+            filter_out(f"restaurant_distance_too_big_>{MAX_RESTAURANT_DISTANCE}", i)
 
     for i in properties:
         if i.get("filtered", False):
