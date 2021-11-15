@@ -157,7 +157,7 @@ def filtering(properties: Iterable[Dict[str, Any]]):
 
 
 def main():
-    properties = [i for i in load_data()]
+    properties = list(load_data())
     enhance(properties)
     filtering(properties)
     print()
