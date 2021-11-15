@@ -113,6 +113,8 @@ def extract_normalized_distance(dist: str) -> float:
 
 def filtering(properties: Iterable[Dict[str, Any]]):
     for i in properties:
+        if i.get("GPS"):
+            counters["gps_present"] += 1
         capacity = int(i.get("capacity", -1))
         if capacity == -1:
             filter_out("capacity_missing", i)
