@@ -4,6 +4,7 @@ import statistics
 from collections import defaultdict
 from typing import Iterable, Dict, Any, List
 import re
+import csv
 
 # global stats
 counters = defaultdict(int)
@@ -18,8 +19,9 @@ distances = {
 # limits
 MIN_BEDS = 22
 MAX_BEDS = 30
-MIN_ROOMS = 4
+MIN_ROOMS = 5
 MAX_RESTAURANT_DISTANCE = 1500
+MAX_PRICE = 15000
 
 # regex
 distance_extractor = re.compile(r"(\d*[.,]?\d+)\s*(min|m|km)")
@@ -200,7 +202,7 @@ def filtering(properties: Iterable[Dict[str, Any]]):
             filter_out("missing_rooms", i)
         elif int(rooms) < MIN_ROOMS:
             filter_out(f"not_enough_rooms_<{MIN_ROOMS}", i)
-        restaurant_dist = i.get("restaurant_distance_m", -1)
+        restaurant_dist = i.get("restaurace_distance_m", -1)
         if restaurant_dist == -1:
             filter_out("restaurant_distance_invalid", i)
         if restaurant_dist > MAX_RESTAURANT_DISTANCE:
@@ -213,6 +215,9 @@ def filtering(properties: Iterable[Dict[str, Any]]):
             filter_out(f"no_parking", i)
         if not is_equipment_present(["gril"], i):
             filter_out(f"no_grill", i)
+        price = i.get("price")
+        if price and int(price) > MAX_PRICE:
+            filter_out(f"expensive", i)
 
     for i in properties:
         if i.get("filtered", False):
@@ -231,6 +236,17 @@ def main():
         print(f"distance to {name} stats: {numeric_stats(samples)}")
     print()
     counter_stats(properties)
+
+    fieldnames = set()
+    for prop in properties:
+        fieldnames |= set(prop.keys())
+    with open('out.csv', 'w', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=list(fieldnames))
+
+        writer.writeheader()
+        for prop in properties:
+            prop.pop("text")
+            writer.writerow(prop)
 
 
 if __name__ == '__main__':
