@@ -130,6 +130,8 @@ def filtering(properties: Iterable[Dict[str, Any]]):
             filter_out("restaurant_distance_invalid", i)
         if restaurant_dist > MAX_RESTAURANT_DISTANCE:
             filter_out(f"restaurant_distance_too_big_>{MAX_RESTAURANT_DISTANCE}", i)
+        if not any(("inter" in j.lower() or "wi-fi" in j.lower() for j in i.get("equipment"))):
+            filter_out(f"no_internet", i)
 
     for i in properties:
         if i.get("filtered", False):
