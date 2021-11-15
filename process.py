@@ -9,6 +9,11 @@ import re
 counters = defaultdict(int)
 ratings = []
 prices = []
+distances = {
+    "les": [],
+    "restaurace": [],
+    "obchod": [],
+}
 
 # limits
 MIN_BEDS = 22
@@ -74,12 +79,20 @@ def ratings_stats(properties: Iterable[Dict[str, Any]]):
         counters["rating_present"] += 1
 
 
-def restaurant_distance(properties: Iterable[Dict[str, Any]]):
+def add_distances(properties: Iterable[Dict[str, Any]]):
     for i in properties:
-        restaurant_dist = i.get("distances_map", {}).get("restaurace")
-        if restaurant_dist:
-            counters["restaurant_distance_present"] += 1
-            i["restaurant_distance_m"] = extract_normalized_distance(restaurant_dist)
+        for place in distances.keys():
+            poi_dist = i.get("distances_map", {}).get(place)
+            if not poi_dist:
+                counters[f"distance_to_{place}_missing"] += 1
+                continue
+            counters[f"{place}_distance_present"] += 1
+            distance = extract_normalized_distance(poi_dist)
+            if distance == -1:
+                counters[f"distance_to_{place}_malformed"] += 1
+                continue
+            i[f"{place}_distance_m"] = distance
+            distances[place].append(distance)
 
 
 def extract_normalized_price(properties: Iterable[Dict[str, Any]]):
@@ -91,13 +104,13 @@ def extract_normalized_price(properties: Iterable[Dict[str, Any]]):
             continue
         price_header = price_list[0]
         if "apartmán" in price_header:
-            filter_out("apartman", prop)
+            prop["apartman"] = True
             continue
         if "polop" in price_header:
-            prop["half-board"] = "true"
+            prop["half-board"] = True
             counters["half_board"] += 1
         if "snídaní" in price_header:
-            prop["breakfast"] = "true"
+            prop["breakfast"] = True
             counters["breakfast"] += 1
         price = -1
         for price_candidate in price_list[1:]:
@@ -132,7 +145,7 @@ def enhance(properties: Iterable[Dict[str, Any]]):
     add_homepage(properties)
     ratings_stats(properties)
     distances_to_map(properties)
-    restaurant_distance(properties)
+    add_distances(properties)
     extract_normalized_price(properties)
 
 
@@ -173,6 +186,8 @@ def filtering(properties: Iterable[Dict[str, Any]]):
     for i in properties:
         if i.get("GPS"):
             counters["gps_present"] += 1
+        if i.get("apartman"):
+            filter_out("apartman", i)
         capacity = int(i.get("capacity", -1))
         if capacity == -1:
             filter_out("capacity_missing", i)
@@ -190,8 +205,6 @@ def filtering(properties: Iterable[Dict[str, Any]]):
             filter_out("restaurant_distance_invalid", i)
         if restaurant_dist > MAX_RESTAURANT_DISTANCE:
             filter_out(f"restaurant_distance_too_big_>{MAX_RESTAURANT_DISTANCE}", i)
-        if not is_equipment_present(["inter", "wi-fi", "wifi"], i):
-            filter_out(f"no_internet", i)
         if not is_equipment_present(["inter", "wi-fi", "wifi"], i):
             filter_out(f"no_internet", i)
         if not is_equipment_present(["společenská místnost"], i):
@@ -213,6 +226,9 @@ def main():
     print()
     print(f"global ratings stats: {numeric_stats(ratings)}")
     print(f"prices stats: {numeric_stats(prices)}")
+    print()
+    for name, samples in distances.items():
+        print(f"distance to {name} stats: {numeric_stats(samples)}")
     print()
     counter_stats(properties)
 
