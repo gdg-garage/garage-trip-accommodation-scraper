@@ -251,6 +251,10 @@ def main():
         writer.writeheader()
         for prop in properties:
             prop.pop("text")
+            rating = prop.get("rating_stats")
+            if rating:
+                prop["rating_mean"] = rating.get("mean")
+                prop["rating_median"] = rating.get("median")
             writer.writerow(prop)
 
 
