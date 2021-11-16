@@ -188,6 +188,8 @@ def filtering(properties: Iterable[Dict[str, Any]]):
     for i in properties:
         if i.get("GPS"):
             counters["gps_present"] += 1
+            if float(i.get("GPS").get("E")) > 16.6:
+                filter_out("too_much_east", i)
         if i.get("apartman"):
             filter_out("apartman", i)
         capacity = int(i.get("capacity", -1))
@@ -218,6 +220,9 @@ def filtering(properties: Iterable[Dict[str, Any]]):
         price = i.get("price")
         if price and int(price) > MAX_PRICE:
             filter_out(f"expensive", i)
+        area = i.get("url").split('/')[3]
+        if area in {"jeseniky", "beskydy", "jizni_morava", "slovensko_chaty", }:
+            filter_out(f"blocklisted_area", i)
 
     for i in properties:
         if i.get("filtered", False):
