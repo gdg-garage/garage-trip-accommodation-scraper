@@ -245,6 +245,7 @@ def main():
     fieldnames = set()
     for prop in properties:
         fieldnames |= set(prop.keys())
+    fieldnames |= {"rating_mean", "rating_median"}
     with open('out.csv', 'w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=list(fieldnames))
 
