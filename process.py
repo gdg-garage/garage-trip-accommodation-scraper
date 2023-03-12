@@ -139,7 +139,7 @@ def extract_normalized_price(properties: Iterable[Dict[str, Any]]):
             if not prop.get("rooms"):
                 continue
             price *= int(prop.get("rooms"))
-        prop["price"] = price
+        prop["price (per day per object)"] = round(price)
         prices.append(price)
 
 
