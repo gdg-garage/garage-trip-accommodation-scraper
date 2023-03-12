@@ -1,10 +1,10 @@
+import csv
 import gzip
 import json
+import re
 import statistics
 from collections import defaultdict
 from typing import Iterable, Dict, Any, List
-import re
-import csv
 
 # global stats
 counters = defaultdict(int)
@@ -18,14 +18,14 @@ distances = {
 
 # limits
 MIN_BEDS = 22
-MAX_BEDS = 30
-MIN_ROOMS = 5
+MAX_BEDS = 42
+MIN_ROOMS = 7
 MAX_RESTAURANT_DISTANCE = 1500
 MAX_PRICE = 15000
 
 # regex
 distance_extractor = re.compile(r"(\d*[.,]?\d+)\s*(min|m|km)")
-price_extractor = re.compile(r"(\d+\.? ?\d+)\s?Kč")
+price_extractor = re.compile(r"(\d+\.? ?\d+)\s?(?:,\-)?Kč")
 
 
 def numeric_stats(data):
@@ -104,6 +104,7 @@ def extract_normalized_price(properties: Iterable[Dict[str, Any]]):
         if not price_list:
             counters["pricelist_missing"] += 1
             continue
+        # todo: this may be massively improved by iterating over the sections
         price_header = price_list[0]
         if "apartmán" in price_header:
             prop["apartman"] = True
@@ -118,6 +119,7 @@ def extract_normalized_price(properties: Iterable[Dict[str, Any]]):
         for price_candidate in price_list[1:]:
             if not (price_candidate.lower().startswith("let") or price_candidate.lower().startswith("mimo")):
                 continue
+            # There is no price in the first section (continue may be ok)
             if price_candidate.lower().startswith("cen"):
                 break
             price_search = price_extractor.search(price_candidate)
@@ -131,6 +133,8 @@ def extract_normalized_price(properties: Iterable[Dict[str, Any]]):
             continue
         if "za týden" in price_header:
             price /= 7
+        # todo: za vikend
+        # todo: when there is only prices per person we probably do not like the object (but we have to iterate all the price sections to determine this properly)
         if "za osobu" in price_header:
             if not prop.get("capacity"):
                 continue
@@ -242,12 +246,33 @@ def main():
     print()
     counter_stats(properties)
 
-    fieldnames = set()
+    fieldnames = [
+        "name",
+        "locality",
+        "capacity",
+        "rooms",
+        "price (per day per object)",
+        "homepage",
+        "url",
+        "breakfast",
+        "half-board",
+        "rating_mean",
+        "rating_median",
+        "rating_samples",
+        "les_distance_m",
+        "restaurace_distance_m",
+        "obchod_distance_m",
+        "filtered"
+    ]
+    all_fieldnames = set()
     for prop in properties:
-        fieldnames |= set(prop.keys())
-    fieldnames |= {"rating_mean", "rating_median"}
+        all_fieldnames |= set(prop.keys())
+    for fn in all_fieldnames:
+        if fn not in fieldnames:
+            fieldnames.append(fn)
+
     with open('out.csv', 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=list(fieldnames))
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
         for prop in properties:
@@ -256,6 +281,7 @@ def main():
             if rating:
                 prop["rating_mean"] = rating.get("mean")
                 prop["rating_median"] = rating.get("median")
+                prop["rating_samples"] = rating.get("samples")
             writer.writerow(prop)
 
 
