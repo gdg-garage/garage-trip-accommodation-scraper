@@ -49,6 +49,7 @@ def add_homepage(properties: Iterable[Dict[str, Any]]):
     extract homepage link
     """
     for i in properties:
+        i["contact_links"] = list(set(i.get("contact_links", [])) - {"#"})
         links = [l for l in i.get("contact_links", []) if "face" not in l]
         if len(links) == 1:
             i["homepage"] = links[0]
@@ -155,9 +156,15 @@ def enhance(properties: Iterable[Dict[str, Any]]):
     extract_normalized_price(properties)
 
 
-def filter_out(reason: str, item: Dict[str, Any]):
+def filter_out(reason: str, item: Dict[str, Any], soft: bool = False):
+    if soft:
+        reason += "_soft"
     counters[f"filtered_{reason}"] += 1
-    item["filtered"] = True
+    if "filtered_reasons" not in item:
+        item["filtered_reasons"] = set()
+    item["filtered_reasons"].add(reason)
+    if not soft:
+        item["filtered"] = True
 
 
 def extract_normalized_distance(dist: str) -> float:
@@ -192,7 +199,8 @@ def filtering(properties: Iterable[Dict[str, Any]]):
     for i in properties:
         if i.get("GPS"):
             counters["gps_present"] += 1
-            if float(i.get("GPS").get("E")) > 16.6:
+            # 16.6 (moved because of Beskydy)
+            if float(i.get("GPS").get("E")) > 19:
                 filter_out("too_much_east", i)
         if i.get("apartman"):
             filter_out("apartman", i)
@@ -210,9 +218,9 @@ def filtering(properties: Iterable[Dict[str, Any]]):
             filter_out(f"not_enough_rooms_<{MIN_ROOMS}", i)
         restaurant_dist = i.get("restaurace_distance_m", -1)
         if restaurant_dist == -1:
-            filter_out("restaurant_distance_invalid", i)
+            filter_out("restaurant_distance_invalid", i, soft=True)
         if restaurant_dist > MAX_RESTAURANT_DISTANCE:
-            filter_out(f"restaurant_distance_too_big_>{MAX_RESTAURANT_DISTANCE}", i)
+            filter_out(f"restaurant_distance_too_big_>{MAX_RESTAURANT_DISTANCE}", i, soft=True)
         if not is_equipment_present(["inter", "wi-fi", "wifi"], i):
             filter_out(f"no_internet", i)
         if not is_equipment_present(["společenská místnost"], i):
@@ -220,12 +228,13 @@ def filtering(properties: Iterable[Dict[str, Any]]):
         if not is_equipment_present(["parko"], i):
             filter_out(f"no_parking", i)
         if not is_equipment_present(["gril"], i):
-            filter_out(f"no_grill", i)
+            filter_out(f"no_grill", i, soft=True)
         price = i.get("price")
         if price and int(price) > MAX_PRICE:
             filter_out(f"expensive", i)
         area = i.get("url").split('/')[3]
-        if area in {"jeseniky", "beskydy", "jizni_morava", "slovensko_chaty", }:
+        i["area"] = area
+        if area in {"jeseniky", "slovensko_chaty"}:
             filter_out(f"blocklisted_area", i)
 
     for i in properties:
