@@ -1,3 +1,4 @@
+import copy
 import csv
 import gzip
 import json
@@ -242,6 +243,56 @@ def filtering(properties: Iterable[Dict[str, Any]]):
             counters["filtered"] += 1
 
 
+def store(properties, store_csv=True, store_json=True):
+    if store_csv:
+        fieldnames = [
+            "name",
+            "locality",
+            "capacity",
+            "rooms",
+            "price (per day per object)",
+            "homepage",
+            "url",
+            "breakfast",
+            "half-board",
+            "rating_mean",
+            "rating_median",
+            "rating_samples",
+            "les_distance_m",
+            "restaurace_distance_m",
+            "obchod_distance_m",
+            "filtered"
+        ]
+        all_fieldnames = set()
+        for prop in properties:
+            all_fieldnames |= set(prop.keys())
+        for fn in all_fieldnames:
+            if fn not in fieldnames:
+                fieldnames.append(fn)
+
+        with open('out.csv', 'w', newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+            writer.writeheader()
+            for csv_prop in properties:
+                prop = copy.deepcopy(csv_prop)
+                prop.pop("text")
+                rating = prop.get("rating_stats")
+                if rating:
+                    prop["rating_mean"] = rating.get("mean")
+                    prop["rating_median"] = rating.get("median")
+                    prop["rating_samples"] = rating.get("samples")
+                writer.writerow(prop)
+
+    if store_json:
+        def list_filtered_reasons(x):
+            for k, v in x.items():
+                if type(v) is set:
+                    x[k] = list(v)
+            return x
+        json.dump(list(map(list_filtered_reasons, properties)), open("out.json", 'w'))
+
+
 def main():
     properties = list(load_data())
     enhance(properties)
@@ -254,44 +305,7 @@ def main():
         print(f"distance to {name} stats: {numeric_stats(samples)}")
     print()
     counter_stats(properties)
-
-    fieldnames = [
-        "name",
-        "locality",
-        "capacity",
-        "rooms",
-        "price (per day per object)",
-        "homepage",
-        "url",
-        "breakfast",
-        "half-board",
-        "rating_mean",
-        "rating_median",
-        "rating_samples",
-        "les_distance_m",
-        "restaurace_distance_m",
-        "obchod_distance_m",
-        "filtered"
-    ]
-    all_fieldnames = set()
-    for prop in properties:
-        all_fieldnames |= set(prop.keys())
-    for fn in all_fieldnames:
-        if fn not in fieldnames:
-            fieldnames.append(fn)
-
-    with open('out.csv', 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-        writer.writeheader()
-        for prop in properties:
-            prop.pop("text")
-            rating = prop.get("rating_stats")
-            if rating:
-                prop["rating_mean"] = rating.get("mean")
-                prop["rating_median"] = rating.get("median")
-                prop["rating_samples"] = rating.get("samples")
-            writer.writerow(prop)
+    store(properties)
 
 
 if __name__ == '__main__':

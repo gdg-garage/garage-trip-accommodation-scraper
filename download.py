@@ -75,6 +75,7 @@ def get_property_info(url: str) -> Dict[str, Any]:
         "images": [(i.get("title"), i.get("href")) for i in prop.find(id="nahledy").find_all("a")],
         "text": prop.text,
     }
+    # TODO there are extra ratings (on the main page there is a random subset), detect it and download them all.
     if gps:
         data.update({
             "GPS": {
