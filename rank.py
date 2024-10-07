@@ -9,12 +9,13 @@ OBJECTS_JSON_PATH = "out.json"
 INCLUDE_IMAGES = False
 # model="llama3",
 # model="llama3.2:7b",
-# model="gemma2",
-# model="llama3.1",
 # model="llava:34b",
 # model = "llava-llama3",
+
 MODEL = "llama3.1"
-PROMPT_VERSION = "v2"
+# MODEL = "gemma2"
+
+PROMPT_VERSION = "v3"
 PROMPTS = {
     "v2": """"
 I want to go to organize an event for more then 25 of my friends. 
