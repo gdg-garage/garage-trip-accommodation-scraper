@@ -15,7 +15,8 @@ INCLUDE_IMAGES = False
 # model = "llava-llama3",
 MODEL = "llama3.1"
 PROMPT_VERSION = "v2"
-PROMPT = """
+PROMPTS = {
+    "v2": """"
 I want to go to organize an event for more then 25 of my friends. 
 Anything with lower capacity would need to be really amazing for us to consider. In general capacity around 30 places is ideal because we have more flexibility.
 We are looking for accommodation and we needs something with a nice common room to play board games, therefore we need many chairs and tables. 
@@ -47,7 +48,42 @@ Your task is to rate the described object based on our requirements in json form
 
 {}
 Make sure to reply with only the valid JSON and nothing more and only in english!
-"""
+""",
+    "v3": """"
+I want to organize an event for more then 25 of my friends. 
+Anything with lower capacity would need to be really amazing for us to consider. In general capacity around 30 places is ideal because we have more flexibility.
+We are looking for accommodation and we needs something with a nice common room to play board games, therefore we need many chairs and tables. 
+We prefer not to have more than 5 people in one room.
+We also love PC games so we need a place where to put the desktops and ideally a good internet connection.
+Places where the owner stays with us are probably not great because we have long nights and that may be uncomfortable for the owner. So places like guesthouses (penzion in Czech) are not great.
+Also apartments are a no-go for us we need to rent the whole property.
+We do not care about winter amenities because our event is happening in September.
+
+The descriptions I will provide will be in Czech but always reply in English.
+
+Make sure to take the visitor reviews with a grain of salt mainly when there is not enough of them.
+
+We already visited the following 2 accommodations with my friends and we really liked it.
+
+The structured description of the first accommodation follows:
+{}
+
+The structured description of the second accommodation follows:
+{}
+
+The structured description of the accommodation which should be rated follows:
+{}
+
+Your task is to rate the described object based on our requirements in json format containing the following fields (and only that):
+* "rating": which is a number between 0 and 1 where 1 means very suitable object for the event.
+* "description": max one sentence description for the object. Examples: "Fancy wooden cottage with sauna.", "Moldy dump."
+* "owner_in_house": boolean, if the owner is present in the house which may be mentioned in the equipment or visitor reviews.
+* "explanation": Explain the motivation for the rating.
+
+{}
+Make sure to reply with only the valid JSON and nothing more and only in english!
+""",
+}
 
 
 #
@@ -159,8 +195,9 @@ def main():
             print(f"{processed}/{len(properties)}")
             continue
 
-        prompt = PROMPT.format(format_property(centrum_slapy), format_property(simia), format_property(p),
-                               "Do not forget to use attached images of the accommodation for the analysis.\n" if INCLUDE_IMAGES else "")
+        prompt = PROMPTS[PROMPT_VERSION].format(
+            format_property(centrum_slapy), format_property(simia), format_property(p),
+            "Do not forget to use attached images of the accommodation for the analysis.\n" if INCLUDE_IMAGES else "")
         # print(prompt)
 
         images = []
