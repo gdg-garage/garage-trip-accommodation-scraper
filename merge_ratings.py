@@ -1,6 +1,8 @@
 import csv
 import json
 
+from utils import numeric_stats
+
 
 def main():
     ratings = json.load(open("ratings.json"))
@@ -10,6 +12,7 @@ def main():
     with open('out.csv', 'r') as file:
         reader = csv.DictReader(file)
         for r in reader:
+            prop_ratings = []
             if r["id"] in ratings:
                 for rating_name, rating_value in ratings[r["id"]].items():
                     if type(rating_value) is dict:
@@ -17,6 +20,13 @@ def main():
                             r[rating_name + "_" + k] = v
                     else:
                         r[rating_name] = rating_value
+                    if "rating" in rating_value:
+                        prop_ratings.append(rating_value["rating"])
+
+            if prop_ratings:
+                ratings_stats = numeric_stats(prop_ratings)
+                for k, v in ratings_stats.items():
+                    r[f"ratings_{k}"] = v
 
             properties.append(r)
 

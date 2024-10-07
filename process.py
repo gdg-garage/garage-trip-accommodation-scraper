@@ -3,9 +3,10 @@ import csv
 import gzip
 import json
 import re
-import statistics
 from collections import defaultdict
 from typing import Iterable, Dict, Any, List
+
+from utils import numeric_stats
 
 # global stats
 counters = defaultdict(int)
@@ -27,16 +28,6 @@ MAX_PRICE = 15000
 # regex
 distance_extractor = re.compile(r"(\d*[.,]?\d+)\s*(min|m|km)")
 price_extractor = re.compile(r"(\d+\.? ?\d+)\s?(?:,\-)?Kč")
-
-
-def numeric_stats(data):
-    return {
-        "max": max(data),
-        "min": min(data),
-        "mean": statistics.mean(data),
-        "median": statistics.median(data),
-        "samples": len(data)
-    }
 
 
 def load_data() -> Iterable[Dict[str, Any]]:
