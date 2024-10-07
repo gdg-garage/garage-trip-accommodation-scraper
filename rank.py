@@ -115,6 +115,9 @@ def main():
 
     print(f"loaded {len(properties)} objects")
 
+    properties = [p for p in properties if not p.get("filtered", False)]
+    print(f"filtered to {len(properties)} objects")
+
     simia = find_by_name("chalupa simia", properties)
     centrum_slapy = find_by_name("drevníky resort slapy", properties)
 
@@ -145,9 +148,6 @@ def main():
     ratings = json.load(open("ratings.json"))
 
     for p in properties:
-        if p.get("filtered", False):
-            continue
-
         print(p["name"], p["url"])
 
         result_id = f"{MODEL}_{PROMPT_VERSION}"
@@ -155,6 +155,8 @@ def main():
         present_ratings = ratings.get(p["id"], {})
         if result_id in present_ratings:
             print(f"already rated with {MODEL} and prompt {PROMPT_VERSION} skip")
+            processed += 1
+            print(f"{processed}/{len(properties)}")
             continue
 
         prompt = PROMPT.format(format_property(centrum_slapy), format_property(simia), format_property(p),
@@ -177,15 +179,16 @@ def main():
             print(rating)
             # print("---")
 
-            processed += 1
-
-            # if processed > 2:
-            #     break
-
             present_ratings[result_id] = rating
             ratings[p["id"]] = present_ratings
         except:
             print(f"rating failed")
+
+        processed += 1
+        # if processed > 2:
+        #     break
+
+        print(f"{processed}/{len(properties)}")
 
         json.dump(ratings, open("ratings.json", "w"))
 
