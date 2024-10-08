@@ -12,7 +12,8 @@ INCLUDE_IMAGES = False
 # model="llava:34b",
 # model = "llava-llama3",
 
-MODEL = "llama3.1"
+# MODEL = "llama3.1"
+MODEL = "llama3.2"
 # MODEL = "gemma2"
 
 PROMPT_VERSION = "v3"

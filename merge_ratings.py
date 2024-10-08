@@ -20,7 +20,7 @@ def main():
                             r[rating_name + "_" + k] = v
                     else:
                         r[rating_name] = rating_value
-                    if "rating" in rating_value:
+                    if "rating" in rating_value and "v3" in rating_name:
                         prop_ratings.append(rating_value["rating"])
 
             if prop_ratings:
