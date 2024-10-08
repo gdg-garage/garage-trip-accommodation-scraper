@@ -20,7 +20,7 @@ def main():
                             r[rating_name + "_" + k] = v
                     else:
                         r[rating_name] = rating_value
-                    if "rating" in rating_value and "v3" in rating_name:
+                    if "rating" in rating_value and "v3" in rating_name and "llama3.2_v3" != rating_name:
                         prop_ratings.append(float(rating_value["rating"]))
 
             if prop_ratings:
