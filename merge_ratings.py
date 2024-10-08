@@ -21,7 +21,7 @@ def main():
                     else:
                         r[rating_name] = rating_value
                     if "rating" in rating_value and "v3" in rating_name:
-                        prop_ratings.append(rating_value["rating"])
+                        prop_ratings.append(float(rating_value["rating"]))
 
             if prop_ratings:
                 ratings_stats = numeric_stats(prop_ratings)
