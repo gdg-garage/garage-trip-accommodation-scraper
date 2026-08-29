@@ -1,2 +1,4 @@
 ollama
 requests
+beautifulsoup4
+tqdm
