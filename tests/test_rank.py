@@ -4,36 +4,39 @@ from rank import extract_json_response, format_property, find_by_name
 
 class TestRank(unittest.TestCase):
     def test_extract_json_response_clean(self):
-        raw = '{"rating": 0.85, "description": "Spacious cottage", "owner_in_house": false, "explanation": "Fits all criteria"}'
+        raw = '{"description": "Spacious cottage with huge common room", "rating": 0.85, "owner_in_house": false, "explanation": "Fits all criteria"}'
         data = extract_json_response(raw)
         self.assertIsNotNone(data)
+        self.assertEqual(data["description"], "Spacious cottage with huge common room")
         self.assertEqual(data["rating"], 0.85)
         self.assertEqual(data["owner_in_house"], False)
 
     def test_extract_json_response_with_markdown_fences(self):
         raw = """```json
 {
-  "rating": 0.9,
   "description": "Great place with large common area",
+  "rating": 0.9,
   "owner_in_house": false,
   "explanation": "Perfect for board games"
 }
 ```"""
         data = extract_json_response(raw)
         self.assertIsNotNone(data)
+        self.assertEqual(data["description"], "Great place with large common area")
         self.assertEqual(data["rating"], 0.9)
 
     def test_extract_json_response_with_surrounding_text(self):
         raw = """Here is my evaluation of the accommodation:
 {
-  "rating": 0.75,
   "description": "Good cottage but slightly expensive",
+  "rating": 0.75,
   "owner_in_house": false,
   "explanation": "Decent tables and space"
 }
 Hope this helps organize your trip!"""
         data = extract_json_response(raw)
         self.assertIsNotNone(data)
+        self.assertEqual(data["description"], "Good cottage but slightly expensive")
         self.assertEqual(data["rating"], 0.75)
 
     def test_extract_json_response_invalid(self):
@@ -53,6 +56,7 @@ Hope this helps organize your trip!"""
     def test_format_property(self):
         prop = {
             "name": "Chalupa Test",
+            "locality": "Krkonoše",
             "capacity": "30",
             "rooms": "8",
             "icons": ["Wi-Fi", "Parkování"],
@@ -64,8 +68,8 @@ Hope this helps organize your trip!"""
         }
         res = format_property(prop)
         self.assertIn("Name: Chalupa Test", res)
-        self.assertIn("Capacity: 30", res)
-        self.assertIn("Rooms: 8", res)
+        self.assertIn("Capacity: 30 beds", res)
+        self.assertIn("Rooms: 8 rooms", res)
         self.assertIn("Wi-Fi, Parkování", res)
         self.assertIn("Popis chalupy pro hosty", res)
         self.assertIn("Super pobyt", res)
@@ -73,3 +77,4 @@ Hope this helps organize your trip!"""
 
 if __name__ == '__main__':
     unittest.main()
+

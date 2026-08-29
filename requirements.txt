@@ -2,3 +2,5 @@ ollama
 requests
 beautifulsoup4
 tqdm
+curl_cffi>=0.7.0
+playwright>=1.40.0

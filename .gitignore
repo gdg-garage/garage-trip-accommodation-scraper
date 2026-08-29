@@ -39,5 +39,7 @@ htmlcov/
 .idea/
 .vscode/
 
-# Scraped images
+# Scraped images and HTML
 imgs/
+html/
+.cf_session.json

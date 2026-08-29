@@ -1,75 +1,82 @@
 # 🏡 Garage Trip Accommodation Scraper & AI Ranker
 
-An intelligent web scraping, data processing, and LLM-powered ranking pipeline designed for finding, filtering, and scoring holiday cottages and chalets (*chaty a chalupy*) on [e-chalupy.cz](https://www.e-chalupy.cz).
+A distributed, decoupled web scraping, offline DOM parsing, and LLM-powered ranking pipeline designed for discovering, filtering, and evaluating holiday cottages and chalets (*chaty a chalupy*) on [e-chalupy.cz](https://www.e-chalupy.cz).
 
-Specially optimized for planning **large group weekend trips** (25–40 people), such as board game weekends, LAN gaming parties, and team offsites.
-
----
-
-## 📌 Features
-
-- **Automated Web Scraping**: Crawls and parses structured details from hundreds of properties across Czech regions on `e-chalupy.cz`.
-- **Heuristic Filtering & Normalization**:
-  - Capacity & Room count validation (e.g., 22–42 beds, min 7 rooms).
-  - Price normalization per day and per property across various pricing schemes (per week, per person/night, off-season).
-  - Walking and driving distance calculations to key Points of Interest (forests, restaurants, grocery stores).
-  - Essential amenities detection (Wi-Fi, large common room / *společenská místnost*, grill, dedicated parking).
-  - Geolocation filtering (GPS coordinate constraints and region blocklists).
-- **AI Ranking with Local LLMs via Ollama**:
-  - Leverages local open models (e.g. `llama3.2`, `llama3.1`, `gemma2`) or multimodal vision models (e.g. `llava`) to evaluate suitability, comfort, owner presence, and common space layout.
-  - Few-shot structured prompt templates with baseline calibration examples.
-- **Multimodal Visual Analysis**: Downloads accommodation photos for visual inspection of common rooms, seating, and table capacity.
-- **Collaborative Scoring**: Integrates automated LLM evaluations with manual human ratings into a unified CSV ready for Google Sheets or spreadsheet analysis.
+Specially engineered for organizing **large group weekend retreats** (25–40 people), such as board game weekends, LAN gaming parties, and developer offsites.
 
 ---
 
-## 🏗 Pipeline Architecture
+## 💡 Concept & Motivation
+
+### The Problem: Finding Cottages for 25–40 Friends
+Planning a weekend getaway for 30 friends is notoriously tedious on traditional holiday rental websites:
+- **Search filters are too crude**: Listing filters can tell you total bed count, but they don't tell you whether a cottage has a massive common room (*společenská místnost*) with enough tables and chairs for everyone to sit together, or if the beds are cramped into 10-person dormitories.
+- **Hidden Gotchas**: Many large properties are actually guesthouses (*penzióny*) where the owner lives on-site, or multiple separate apartments in one building without a central gathering space.
+- **Complex Pricing Models**: Pricing is listed in various formats (per week, per night, per person, seasonal vs. off-season), making manual price comparison difficult.
+- **Subjective Suitability**: Deciding if a cottage is great for desktop PC gaming (power sockets, stable Wi-Fi) or tabletop board games requires reading between the lines of long Czech descriptions and guest reviews.
+
+### The Solution: Hybrid Heuristic + LLM Pipeline
+This project solves the challenge through a two-tier evaluation strategy:
+1. **Rule-Based Heuristic Normalization**: Filters out hundreds of non-viable properties automatically by parsing capacities, bed-to-room ratios, distances to restaurants and forests, price caps, and required amenities (Wi-Fi, parking, grill).
+2. **AI-Powered Evaluation with Gemma 2**: Sends candidate cottages (structured specs + plain text description + guest reviews + photos) to a local LLM via Ollama (`gemma2`) to evaluate layout comfort, table space, privacy (owner on-site detection), and group suitability, returning structured scores with **description first**.
+
+---
+
+## 🧩 Architectural Philosophy: Why 5 Decoupled Stages?
+
+To enable **team collaboration** and **prevent server blocking**, the workflow is decoupled into 5 independent stages:
 
 ```
-                       +-------------------+
-                       |  e-chalupy.cz     |
-                       +---------+---------+
-                                 |
-                                 v  (download.py / make scrape)
-                       +-------------------+
-                       |  properties.json  |
-                       +---------+---------+
-                                 |
-                                 v  (process.py / make process)
-                  +--------------+--------------+
-                  |                             |
-                  v                             v
-            +-----------+                 +-----------+
-            |  out.csv  |                 | out.json  |
-            +-----+-----+                 +-----+-----+
-                  |                             |
-                  |                +------------+------------+
-                  |                |                         |
-                  |                v (get_images.py)         v (rank.py)
-                  |          +-----------+             +-----------+
-                  |          |   imgs/   |             |   Ollama  |
-                  |          +-----+-----+             +-----+-----+
-                  |                |                         |
-                  |                +------------>------------+
-                  |                                          |
-                  |                                          v
-                  |                                    +------------+
-                  |                                    |ratings.json|
-                  |                                    +-----+------+
-                  |                                          |
-                  |         +------------------------+       |
-                  |         | manual-ratings.csv     |       |
-                  |         +-----------+------------+       |
-                  |                     |                    |
-                  |                     v (add_manual_ratings.py)
-                  |                     |                    |
-                  +------------>--------+----------<---------+
-                                        |
-                                        v (merge_ratings.py / make merge)
-                                +---------------+
-                                | out-rated.csv |
-                                +---------------+
+[ e-chalupy.cz search ] 
+        |
+        v  Step 1: scrape_links.py (make links)
+   [ urls.txt ]
+        |
+        +-------------------------+-------------------------+
+        | (Worker Shard 0)        | (Worker Shard 1)        | (Worker Shard 2)
+        v                         v                         v
+ download_html.py          download_html.py          download_html.py
+   (--shard-id 0)            (--shard-id 1)            (--shard-id 2)
+        |                         |                         |
+        +-------------------------+-------------------------+
+                                  |
+                                  v
+                            [ html/*.html ]
+                                  |
+                 +----------------+----------------+
+                 |                                 |
+                 v Step 4: parse_dom.py            v Step 3: download_images.py
+           (Offline DOM)                     (Distributed Shards)
+                 |                                 |
+                 v                                 v
+        [ properties.json ]                    [ imgs/*.jpg ]
+        [ out.csv / out.json ]                     |
+                 |                                 |
+                 +----------------+----------------+
+                                  |
+                                  v  Step 5: rank.py (Ollama + gemma2)
+                           [ ratings.json ]
+                                  |
+                                  v  Step 6: merge_ratings.py
+                          [ out-rated.csv ]
 ```
+
+### Why Decouple & Distribute?
+1. **Polite & Anti-Blocking**: Instead of hammering `e-chalupy.cz` from a single IP, link discovery is isolated into a tiny lightweight query. The heavy HTML/image downloads can be partitioned among multiple team members across different networks using **worker sharding** (`--total-shards N --shard-id I`) with built-in delays, random jitter, and retry backoffs.
+2. **Instant Offline Iteration**: Once HTML files are saved locally into `html/`, all DOM parsing, regex adjustments, heuristic tweaks, and price recalculations run **100% offline in milliseconds** without making a single network request to the live website.
+3. **Resilience & Resumption**: Every downloading stage automatically checks if a file already exists on disk and skips it. If a network connection drops or a teammate is interrupted, restarting picks up right where it left off.
+4. **Reproducible AI Experimentation**: Parsed structured data is saved to `out.json`, allowing team members to test different LLM models (`gemma2`, `llama3.1`, `llava`), prompt versions (`--prompt-version v4`), and multimodal visual prompts with `--dry-run` and incremental caching in `ratings.json`.
+
+---
+
+## 📌 5-Stage Pipeline Overview
+
+1. **Link Extractor (`scrape_links.py`)**: Crawls search index pages across regions and outputs `urls.txt`.
+2. **Distributed HTML Downloader (`download_html.py`)**: Downloads raw HTML pages into `html/` with polite rate-limiting, jitter, automatic retry backoff, and worker sharding.
+3. **Distributed Image Downloader (`download_images.py`)**: Downloads property photos into `imgs/` with sharding and rate-limiting.
+4. **Offline DOM Parser & Heuristic Filter (`parse_dom.py`)**: Parses local HTML files offline, normalizes prices and distances, applies capacity/amenity filters, and produces `properties.json`, `out.csv`, and `out.json`.
+5. **Gemma-Powered LLM Analyzer (`rank.py`)**: Evaluates candidate cottages with local Ollama LLMs (defaulting to newest **`gemma2`**), returning **description first**, suitability scores, owner presence detection, and constraint reasoning.
+
 
 ---
 
@@ -77,16 +84,15 @@ Specially optimized for planning **large group weekend trips** (25–40 people),
 
 ### 1. Prerequisites
 - Python 3.10+
-- [Ollama](https://ollama.com/) (for AI evaluation)
-- Desired LLM model pulled locally:
+- [Ollama](https://ollama.com/) running locally or on a LAN server
+- Pull the newest Gemma model:
   ```bash
-  ollama pull llama3.2
-  # Or for multimodal vision evaluations:
+  ollama pull gemma2
+  # Or for multimodal visual evaluation with images:
   ollama pull llava
   ```
 
 ### 2. Installation
-Clone repository and install required dependencies:
 ```bash
 git clone https://github.com/gdg-garage/garage-trip-accommodation-scraper.git
 cd garage-trip-accommodation-scraper
@@ -95,123 +101,155 @@ pip install -r requirements.txt
 
 ---
 
-## 🛠 Step-by-Step Workflow
+## 👥 Distributed Team Collaboration Guide
 
-### Step 1: Scrape Accommodations
-Download property listings from `e-chalupy.cz`:
+When scraping hundreds of properties, multiple team members can share the download workload to minimize requests to `e-chalupy.cz` and prevent rate-limiting:
+
+### 1. Extract Links (1 person runs this)
 ```bash
-make scrape
-# Or with custom filters:
-python3 download.py --capacity 20 --rooms 6 --max-region 100 -o properties.json
+make links
+# Generates urls.txt
+```
+Share `urls.txt` with your team.
+
+### 2. Distribute HTML Downloads (e.g. across 3 teammates)
+- **Teammate 1**:
+  ```bash
+  python3 download_html.py --total-shards 3 --shard-id 0
+  ```
+- **Teammate 2**:
+  ```bash
+  python3 download_html.py --total-shards 3 --shard-id 1
+  ```
+- **Teammate 3**:
+  ```bash
+  python3 download_html.py --total-shards 3 --shard-id 2
+  ```
+
+Teammates simply zip and share their `html/` folders (e.g. `tar -czvf html_shard0.tar.gz html/`), and merge all `.html` files into a single `html/` directory!
+
+### 3. Distribute Image Downloads (optional)
+Similarly, image downloads can be sharded:
+```bash
+python3 download_images.py --total-shards 3 --shard-id 0
 ```
 
-### Step 2: Enrich & Filter Data
-Extract normalized prices, distance calculations, and filter based on party size:
+### 4. Parse Offline & Filter (runs 100% locally)
+Once HTML files are in `html/`, run the DOM parser without any network access:
 ```bash
-make process
-# Or customize thresholds:
-python3 process.py --min-beds 22 --max-beds 40 --min-rooms 7 --max-price 16000
+make parse
 ```
-This produces:
-- `out.csv`: Filtered table with all attributes.
-- `out.json`: Structured JSON for programmatic steps.
+This extracts structured records into `properties.json`, `out.csv`, and `out.json`.
 
-### Step 3 (Optional): Download Images
-Download property photos for visual LLM evaluation or manual gallery browsing:
-```bash
-make images
-# Or download a subset:
-python3 get_images.py --limit 50 --output-dir imgs
-```
-
-### Step 4: AI Ranking with Ollama
-Run local LLMs to evaluate cottage descriptions and reviews:
+### 5. Rank with Ollama (Gemma 2)
 ```bash
 make rank
-# Or run with a specific model or prompt version:
-python3 rank.py --model llama3.2 --prompt-version v3
-# Or with multimodal visual inspection:
-python3 rank.py --model llava --with-images
+# Or with specific parameters:
+python3 rank.py --model gemma2 --prompt-version v4
 ```
-Ratings are saved incrementally into `ratings.json`.
 
-### Step 5: Merge Ratings & Export
-Combine model ratings and manual human votes with the property dataset:
+### 6. Merge Ratings & Export
 ```bash
 make merge
-# Or with specific input paths:
-python3 merge_ratings.py --ratings ratings.json --input-csv out.csv --output-csv out-rated.csv
+# Creates out-rated.csv with all AI & human ratings
 ```
 
 ---
 
 ## 📖 CLI Reference
 
-### `download.py`
+### 1. `scrape_links.py`
 | Argument | Default | Description |
 |---|---|---|
-| `--capacity` | `18` | Minimum capacity query parameter for e-chalupy search. |
-| `--rooms` | `2` | Minimum rooms query parameter. |
+| `--capacity` | `18` | Minimum capacity query parameter. |
+| `--rooms` | `2` | Minimum room count query parameter. |
 | `--max-region` | `100` | Scan region IDs from 1 to `max-region`. |
-| `--output`, `-o` | `properties.json` | Destination JSON lines file. |
-| `--limit` | `None` | Max number of properties to scrape. |
-| `--timeout` | `15` | HTTP request timeout in seconds. |
-| `--verbose`, `-v` | `False` | Enable debug logging. |
+| `--output`, `-o` | `urls.txt` | Output file for extracted URLs. |
+| `--delay` | `0.5` | Polite delay between region requests in seconds. |
+| `--append` | `False` | Append and merge with existing output file. |
 
-### `process.py`
+### 2. `download_html.py`
 | Argument | Default | Description |
 |---|---|---|
-| `--input`, `-i` | `properties.json.gz` / `properties.json` | Path to scraped input. |
-| `--output-csv` | `out.csv` | Output CSV path. |
-| `--output-json` | `out.json` | Output JSON path. |
-| `--min-beds` | `22` | Minimum bed count. |
-| `--max-beds` | `42` | Maximum bed count. |
-| `--min-rooms` | `7` | Minimum room count. |
-| `--max-price` | `15000` | Maximum daily rental cost (CZK). |
+| `--input`, `-i` | `urls.txt` | Input URLs list. |
+| `--output-dir`, `-o` | `html` | Destination directory for `.html` files. |
+| `--total-shards`, `-n` | `1` | Total number of distributed worker shards. |
+| `--shard-id`, `-s` | `0` | Zero-indexed shard ID (`0..total_shards-1`). |
+| `--delay` | `0.5` | Base delay between HTTP requests in seconds. |
+| `--jitter` | `0.3` | Random jitter added to delay. |
+| `--timeout` | `15` | Request timeout in seconds. |
+| `--force` | `False` | Overwrite existing cached `.html` files. |
+| `--cf-clearance` | `None` | Manual Cloudflare `cf_clearance` cookie token (or `CF_CLEARANCE` env var). |
+| `--user-agent` | `None` | User-Agent matching the `cf_clearance` token (or `USER_AGENT` env var). |
+| `--session-file` | `.cf_session.json` | Path to session cache file. |
+| `--no-browser` | `False` | Pure HTTP mode (skip launching Playwright browser). |
+| `--headless` | `False` | Run browser in headless mode during Cloudflare solving. |
+| `--force-auth` | `False` | Force re-running browser solver even if session cache exists. |
+
+#### Cloudflare & Remote Server Usage:
+- **Local Machine (Auto Solver):**
+  ```bash
+  python3 download_html.py --total-shards 4 --shard-id 0
+  ```
+  Automatically solves Cloudflare Turnstile in ~2 seconds, saves the session to `.cf_session.json`, and downloads rapidly via `curl_cffi`.
+- **Remote / Headless Server (No GUI / No Playwright):**
+  Share the generated `.cf_session.json` file to the remote server, or pass the token directly:
+  ```bash
+  CF_CLEARANCE="<token>" USER_AGENT="<user_agent>" python3 download_html.py --no-browser -n 4 -s 1
+  ```
+
+### 3. `download_images.py`
+| Argument | Default | Description |
+|---|---|---|
+| `--html-dir`, `-d` | `html` | Directory with downloaded HTML pages. |
+| `--input-json`, `-j` | `None` | Alternative input JSON with image URLs. |
+| `--output-dir`, `-o` | `imgs` | Destination images directory. |
+| `--total-shards`, `-n` | `1` | Total number of worker shards. |
+| `--shard-id`, `-s` | `0` | Zero-indexed shard ID. |
+| `--delay` | `0.2` | Polite delay between image downloads. |
+
+### 4. `parse_dom.py`
+| Argument | Default | Description |
+|---|---|---|
+| `--html-dir`, `-d` | `html` | Directory of local HTML files to parse. |
+| `--output-properties` | `properties.json`| Raw extracted properties JSONL. |
+| `--output-csv`, `-c` | `out.csv` | Enriched & filtered CSV table. |
+| `--output-json`, `-j` | `out.json` | Candidate accommodations JSON. |
+| `--min-beds` | `22` | Minimum required bed capacity. |
+| `--max-beds` | `42` | Maximum capacity limit. |
+| `--min-rooms` | `7` | Minimum bedroom count. |
+| `--max-price` | `15000` | Maximum daily rental cost in CZK. |
 | `--max-restaurant-dist`| `1500` | Max distance to restaurant in meters. |
-| `--no-csv` / `--no-json` | `False` | Skip exporting CSV or JSON. |
 
-### `rank.py`
+### 5. `rank.py`
 | Argument | Default | Description |
 |---|---|---|
-| `--model`, `-m` | `llama3.2` | Ollama model tag. |
-| `--prompt-version`, `-p` | `v3` | Prompt template (`v2` or `v3`). |
-| `--with-images` | `False` | Attach downloaded photos to Ollama request. |
-| `--limit` | `None` | Max candidate cottages to evaluate in this run. |
-| `--dry-run` | `False` | Test prompt rendering without sending requests to Ollama. |
-
-### `merge_ratings.py`
-| Argument | Default | Description |
-|---|---|---|
-| `--ratings`, `-r` | `ratings.json` | Ratings source JSON. |
-| `--input-csv`, `-i` | `out.csv` | Input property CSV. |
-| `--output-csv`, `-o` | `out-rated.csv` | Merged output CSV. |
+| `--model`, `-m` | `gemma2` | Ollama model name. |
+| `--prompt-version`, `-p` | `v4` | Prompt template (`v4`, `v3`). |
+| `--with-images` | `False` | Attach local photos for multimodal vision models. |
+| `--limit` | `None` | Max unrated accommodations to evaluate. |
+| `--dry-run` | `False` | Print prompts without sending Ollama requests. |
 
 ---
 
-## 📊 Output Data Dictionary
+## 🤖 LLM Response Schema
 
-In `out.csv` and `out-rated.csv`:
-- `name`: Cottage name.
-- `locality`: Region and town.
-- `capacity`: Maximum number of guests.
-- `rooms`: Number of bedrooms.
-- `price (per day per object)`: Calculated normalized cost in CZK per day.
-- `homepage`: External direct website of the property if available.
-- `url`: Direct link to property on e-chalupy.cz.
-- `les_distance_m`: Distance to forest in meters.
-- `restaurace_distance_m`: Distance to nearest restaurant in meters.
-- `obchod_distance_m`: Distance to grocery shop in meters.
-- `rating_mean`, `rating_median`, `rating_samples`: Statistics on guest reviews from e-chalupy.cz.
-- `ratings_mean`, `ratings_median`: Aggregated score across AI evaluations (0.0 to 1.0).
-- `filtered`: Boolean flag indicating if the property violated any hard criteria.
-- `filtered_reasons`: Comma-separated list of criteria violations (e.g. `small_capacity_<22`, `no_internet`).
+When evaluated by Ollama, each accommodation is scored with **description first**:
+
+```json
+{
+  "description": "Spacious mountain chalet with massive common room, 8 bedrooms, and excellent board game tables.",
+  "rating": 0.92,
+  "owner_in_house": false,
+  "explanation": "Perfect fit for 30 people: dedicated large common room with chairs, 8 separate bedrooms preventing overcrowded rooms, high-speed Wi-Fi, and exclusive private rental."
+}
+```
 
 ---
 
 ## 🧪 Testing
 
-Run the automated test suite with Python's built-in `unittest` runner:
+Run the full automated test suite (36 unit tests):
 ```bash
 make test
 # Or directly:
@@ -222,4 +260,5 @@ python3 -m unittest discover -s tests -v
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
+
