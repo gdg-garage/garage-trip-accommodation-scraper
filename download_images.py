@@ -7,13 +7,18 @@ import random
 import time
 import urllib.parse
 from typing import List, Tuple, Set, Optional, Dict, Any
-import requests
-from bs4 import BeautifulSoup
+
+from download_html import (
+    get_authenticated_session,
+    DEFAULT_SESSION_FILE,
+    DEFAULT_USER_AGENT,
+    CHALLENGE_TITLE,
+    HAS_CURL_CFFI,
+)
 
 DEFAULT_OUTPUT_DIR = "imgs"
 DEFAULT_DELAY = 0.2
 DEFAULT_TIMEOUT = 15
-DEFAULT_USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
 
 def collect_images_from_json(json_path: str) -> List[Tuple[str, str]]:
@@ -32,12 +37,16 @@ def collect_images_from_json(json_path: str) -> List[Tuple[str, str]]:
 
 def collect_images_from_html_dir(html_dir: str) -> List[Tuple[str, str]]:
     """Scan local HTML files and extract image thumbnail and full-size links."""
+    from bs4 import BeautifulSoup
+
     images: List[Tuple[str, str]] = []
     html_files = sorted(glob.glob(os.path.join(html_dir, "*.html")))
     for html_file in html_files:
         try:
             with open(html_file, "r", encoding="utf-8", errors="ignore") as f:
                 soup = BeautifulSoup(f.read(), "html.parser")
+            
+            # 1. Legacy nahledy container
             nahledy = soup.find(id="nahledy")
             if nahledy:
                 for a in nahledy.find_all("a"):
@@ -47,6 +56,25 @@ def collect_images_from_html_dir(html_dir: str) -> List[Tuple[str, str]]:
                             href = "https://www.e-chalupy.cz/" + href.lstrip("/")
                         title = a.get("title") or ""
                         images.append((title, href))
+            
+            # 2. Full-size photo links (/foto/...)
+            for a in soup.find_all("a"):
+                href = a.get("href")
+                if href and "/foto/" in href and any(href.lower().endswith(ext) for ext in (".jpg", ".jpeg", ".png", ".webp")):
+                    if not href.startswith("http"):
+                        href = "https://www.e-chalupy.cz/" + href.lstrip("/")
+                    title = a.get("title") or a.get("alt") or ""
+                    images.append((title, href))
+
+            # 3. Direct /foto/ img tags
+            for img in soup.find_all("img"):
+                src = img.get("src")
+                if src and "/foto/" in src and any(src.lower().endswith(ext) for ext in (".jpg", ".jpeg", ".png", ".webp")):
+                    if not src.startswith("http"):
+                        src = "https://www.e-chalupy.cz/" + src.lstrip("/")
+                    title = img.get("alt") or img.get("title") or ""
+                    images.append((title, src))
+
         except Exception as e:
             logging.warning(f"Error reading {html_file}: {e}")
     return images
@@ -68,27 +96,43 @@ def get_shard_items(items: List[Any], total_shards: int, shard_id: int) -> List[
 
 def download_image_with_retry(
     url: str,
-    session: requests.Session,
+    session: Any,
     timeout: int = DEFAULT_TIMEOUT,
     max_retries: int = 3,
-) -> Optional[bytes]:
-    """Download image with retry on network error."""
+) -> Tuple[Optional[bytes], int, bool]:
+    """
+    Download image with retry on network error and Cloudflare challenge detection.
+    Returns (image_bytes, status_code, is_challenge_blocked).
+    """
     for attempt in range(1, max_retries + 1):
         try:
             response = session.get(url, timeout=timeout)
+            
+            # Check for Cloudflare challenge in body or status
+            is_cf_blocked = response.status_code == 403 or (
+                response.content and b"Just a moment..." in response.content[:1000]
+            )
+            if is_cf_blocked:
+                return None, response.status_code, True
+
             if response.status_code == 200:
-                return response.content
+                # Validate it's not an HTML error response disguised as 200
+                if response.content.startswith(b"<!DOCTYPE html>") and b"Just a moment" in response.content[:1000]:
+                    return None, response.status_code, True
+                return response.content, response.status_code, False
             elif response.status_code == 404:
-                return None
+                return None, 404, False
             elif response.status_code in (429, 503):
                 time.sleep(1.0 * attempt)
-        except requests.RequestException:
+        except Exception as e:
+            logging.debug(f"Error downloading {url}: {e}")
             time.sleep(0.5 * attempt)
-    return None
+            
+    return None, 0, False
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Step 3: Download property images with distributed sharding and polite rate-limiting.")
+    parser = argparse.ArgumentParser(description="Step 3: Download property images with distributed sharding and Cloudflare session support.")
     parser.add_argument("--input-json", "-j", type=str, default=None, help="Input JSON file (e.g. out.json or properties.json)")
     parser.add_argument("--html-dir", "-d", type=str, default="html", help="Directory containing downloaded HTML pages (used if --input-json is not given)")
     parser.add_argument("--output-dir", "-o", type=str, default=DEFAULT_OUTPUT_DIR, help=f"Destination images directory (default: {DEFAULT_OUTPUT_DIR})")
@@ -98,12 +142,32 @@ def parse_args():
     parser.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT, help=f"HTTP request timeout in seconds (default: {DEFAULT_TIMEOUT})")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of images to download in this run")
     parser.add_argument("--force", action="store_true", help="Overwrite existing cached images instead of skipping")
+    parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose debug logging")
+
+    # Cloudflare session options
+    parser.add_argument("--cf-clearance", type=str, default=None, help="Manual Cloudflare cf_clearance cookie value (or set CF_CLEARANCE env var)")
+    parser.add_argument("--user-agent", type=str, default=None, help="User-Agent string matching cf_clearance (or set USER_AGENT env var)")
+    parser.add_argument("--session-file", type=str, default=DEFAULT_SESSION_FILE, help=f"Path to session cache file (default: {DEFAULT_SESSION_FILE})")
+    parser.add_argument("--no-browser", action="store_true", help="Do not attempt to open a browser for Cloudflare challenge solving")
+    parser.add_argument("--headless", action="store_true", help="Run browser in headless mode when solving challenge")
+    parser.add_argument("--force-auth", action="store_true", help="Force re-running Cloudflare browser solver")
+
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    os.makedirs(args.output_dir, exist_ok=True)
+    log_level = logging.DEBUG if args.verbose else logging.INFO
+    logging.basicConfig(level=log_level, format="%(asctime)s [%(levelname)s] %(message)s")
+
+    if os.path.islink(args.output_dir) and not os.path.exists(args.output_dir):
+        try:
+            os.makedirs(os.path.realpath(args.output_dir), exist_ok=True)
+        except Exception:
+            os.remove(args.output_dir)
+            os.makedirs(args.output_dir, exist_ok=True)
+    else:
+        os.makedirs(args.output_dir, exist_ok=True)
 
     if args.input_json and os.path.exists(args.input_json):
         raw_images = collect_images_from_json(args.input_json)
@@ -128,13 +192,20 @@ def main():
 
     total_count = len(shard_images)
     print(f"--- Image Downloader ---")
-    print(f"Total unique images: {len(unique_images)}")
+    print(f"Total unique images found: {len(unique_images)}")
     print(f"Assigned shard: {args.shard_id + 1}/{args.total_shards} ({total_count} images assigned to this worker)")
     print(f"Output directory: {args.output_dir}/")
+    print(f"Engine: {'curl_cffi (Chrome impersonation)' if HAS_CURL_CFFI else 'standard requests'}")
     print(f"Delay: {args.delay}s\n")
 
-    session = requests.Session()
-    session.headers.update({"User-Agent": DEFAULT_USER_AGENT})
+    session = get_authenticated_session(
+        cf_clearance=args.cf_clearance,
+        user_agent=args.user_agent,
+        session_file=args.session_file,
+        no_browser=args.no_browser,
+        headless=args.headless,
+        force_refresh=args.force_auth,
+    )
 
     downloaded = 0
     skipped = 0
@@ -150,7 +221,20 @@ def main():
                 print(f"Progress: [{idx}/{total_count}] (Downloaded: {downloaded}, Cached/Skipped: {skipped}, Failed: {failed})")
             continue
 
-        content = download_image_with_retry(img_url, session=session, timeout=args.timeout)
+        content, status_code, is_blocked = download_image_with_retry(img_url, session=session, timeout=args.timeout)
+
+        # Handle Cloudflare block
+        if is_blocked and not args.no_browser:
+            logging.info("Cloudflare challenge encountered on image download. Refreshing session...")
+            session = get_authenticated_session(
+                session_file=args.session_file,
+                no_browser=False,
+                headless=args.headless,
+                target_url=img_url,
+                force_refresh=True,
+            )
+            content, status_code, is_blocked = download_image_with_retry(img_url, session=session, timeout=args.timeout)
+
         if content:
             with open(target_path, "wb") as f:
                 f.write(content)
@@ -173,3 +257,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
