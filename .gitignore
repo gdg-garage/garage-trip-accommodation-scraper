@@ -1,6 +1,4 @@
-*.json
 *.gz
-*.csv
 
 # Python
 __pycache__/
@@ -39,7 +37,16 @@ htmlcov/
 .idea/
 .vscode/
 
-# Scraped images and HTML
+# Scraped images, HTML, and raw dumps
 imgs/
+images/
 html/
+raw_regions/
+data/
+*.mhtml
+*.jpg
+*.jpeg
+*.png
+*.webp
 .cf_session.json
+.daily_crawl_ledger.json

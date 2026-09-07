@@ -17,26 +17,18 @@ def extract_html_from_file(file_path: str) -> str:
     if file_path.endswith('.mhtml'):
         try:
             with open(file_path, 'rb') as f:
-                raw = f.read(8 * 1024 * 1024)
-            # Find boundary
-            boundary_match = re.search(rb'boundary=\"?([^\";\r\n]+)\"?', raw)
-            if boundary_match:
-                parts = raw.split(b'--' + boundary_match.group(1))
-                for part in parts:
-                    if b'text/html' in part.lower():
-                        header_end = part.find(b'\r\n\r\n')
-                        if header_end == -1:
-                            header_end = part.find(b'\n\n')
-                        body = part[header_end+4:] if header_end != -1 else part
-                        import quopri
-                        if b'quoted-printable' in part.lower():
-                            body = quopri.decodestring(body)
-                        return body.decode('utf-8', errors='ignore')
+                msg = email.message_from_binary_file(f, policy=policy.default)
+            for part in msg.walk():
+                if part.get_content_type() == 'text/html':
+                    payload = part.get_payload(decode=True)
+                    charset = part.get_content_charset() or 'utf-8'
+                    return payload.decode(charset, errors='ignore')
         except Exception as e:
             print(f"Warning parsing MHTML {file_path}: {e}", file=sys.stderr)
 
     with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
         return f.read()
+
 
 
 def extract_accommodation_links(html_content: str, base_url: str = BASE_URL) -> list:

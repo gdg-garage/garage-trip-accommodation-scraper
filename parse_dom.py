@@ -33,7 +33,9 @@ def clean(s: Optional[str]) -> str:
 def parse_html_content(html_text: str, source_filename: str = "") -> Optional[Dict[str, Any]]:
     """Parse raw HTML string and extract structured accommodation details."""
     soup = BeautifulSoup(html_text, 'html.parser')
-    prop = soup.find(class_="chata")
+    
+    # Support both legacy .chata container and modern 2026 layout
+    prop = soup.find(class_="chata") or soup.find(class_="p-detail") or soup.find("main") or soup.body
     if not prop:
         return None
 
@@ -42,35 +44,64 @@ def parse_html_content(html_text: str, source_filename: str = "") -> Optional[Di
     if canonical_link and canonical_link.get("href"):
         url = canonical_link.get("href")
     else:
-        # Fallback based on filename
         base_name = os.path.basename(source_filename).replace(".html", "")
         parts = base_name.split("_", 1)
-        if len(parts) == 2:
+        if len(parts) == 2 and not base_name.startswith("http"):
             url = f"https://www.e-chalupy.cz/{parts[0]}/{parts[1]}.php"
         else:
-            url = f"https://www.e-chalupy.cz/{base_name}.php"
+            url = f"https://www.e-chalupy.cz/{base_name}"
 
     # ID, Name, Locality
     cislo_elem = prop.find(id="cislo_o")
-    prop_id = cislo_elem.text.strip() if cislo_elem else ""
-
     h1_elem = prop.find("h1")
     name = h1_elem.text.strip() if h1_elem else ""
+    
+    if cislo_elem:
+        prop_id = cislo_elem.text.strip()
+    else:
+        id_m = re.search(r"\((\d+)\)", name) or re.search(r"-o(\d+)", url)
+        prop_id = id_m.group(1) if id_m else ""
 
     h2_elem = prop.find("h2")
     locality = h2_elem.text.strip() if h2_elem else ""
 
     # Capacity & Rooms
     kapacita_elem = prop.find(id="kapacita")
-    capacity_text = clean(kapacita_elem.text) if kapacita_elem else ""
-    capacity_match = re.search(r"(?:\d*\saž\s)?(\d+)\sosob(?:\s\|\s(\d+)?)?", capacity_text)
-    capacity_val = capacity_match.group(1) if capacity_match else None
-    rooms_val = capacity_match.group(2) if capacity_match else None
+    capacity_val = None
+    rooms_val = None
+    
+    if kapacita_elem:
+        capacity_text = clean(kapacita_elem.text)
+        capacity_match = re.search(r"(?:\d*\saž\s)?(\d+)\sosob(?:\s\|\s(\d+)?)?", capacity_text)
+        if capacity_match:
+            capacity_val = capacity_match.group(1)
+            rooms_val = capacity_match.group(2)
+            
+    # Modern layout capacity & rooms fallback
+    if not capacity_val:
+        cap_m = re.search(r"(\d+)\s+osob", prop.text)
+        if cap_m:
+            capacity_val = cap_m.group(1)
+            
+    if not rooms_val:
+        rooms_el = prop.find(class_=re.compile(r"icon-rooms|bedrooms", re.I))
+        if rooms_el:
+            r_m = re.search(r"(\d+)", rooms_el.text)
+            if r_m:
+                rooms_val = r_m.group(1)
+        if not rooms_val:
+            r_m = re.search(r"(\d+)\s+ložnic", prop.text)
+            if r_m:
+                rooms_val = r_m.group(1)
 
     # Icons & Equipment
     ikony_elem = prop.find(id="ikony")
     icons = [i.get("alt") for i in ikony_elem.find_all() if i.get("alt")] if ikony_elem else []
     equipment = [j.get("alt") for i in prop.find_all(class_="prehled") for j in i.find_all("img") if j.get("alt")]
+    if not icons and not equipment:
+        # Modern tag badges
+        badges = [t.text.strip() for t in prop.find_all(class_=re.compile(r"tag|badge|param", re.I))]
+        icons = [b for b in badges if b]
 
     # Contacts
     contact_elem = prop.find(id="kontakty")
@@ -78,7 +109,7 @@ def parse_html_content(html_text: str, source_filename: str = "") -> Optional[Di
     contact_links = [i.get("href") for i in contact_elem.find_all("a") if i.get("href")] if contact_elem else []
 
     # Map link
-    vetsi_mapa = prop.find(id="vetsi_mapa")
+    vetsi_mapa = prop.find(id="vetsi_mapa") or prop.find("a", href=re.compile(r"mapy\.cz|google\.com/maps", re.I))
     map_link = vetsi_mapa.get("href") if vetsi_mapa else ""
 
     # Distances
@@ -103,8 +134,8 @@ def parse_html_content(html_text: str, source_filename: str = "") -> Optional[Di
     place = clean(kamdal_elem.text) if kamdal_elem else ""
 
     # Pricelist
-    cenik_elem = prop.find(id="cenik")
-    pricelist = [clean(i.text) for i in cenik_elem.find_all("td")] if cenik_elem else []
+    cenik_elem = prop.find(id="cenik") or prop.find(class_=re.compile(r"cenik|pricing", re.I))
+    pricelist = [clean(i.text) for i in cenik_elem.find_all(["td", "th", "li"])] if cenik_elem else []
 
     # Images
     nahledy_elem = prop.find(id="nahledy")
@@ -116,8 +147,16 @@ def parse_html_content(html_text: str, source_filename: str = "") -> Optional[Di
                 if not href.startswith("http"):
                     href = "https://www.e-chalupy.cz/" + href.lstrip("/")
                 images.append((a.get("title") or "", href))
+    else:
+        # Modern gallery images
+        for img in prop.find_all("img", src=True):
+            src = img["src"]
+            if "/foto/" in src and any(src.lower().endswith(ext) for ext in [".jpg", ".jpeg", ".webp", ".png"]):
+                if not src.startswith("http"):
+                    src = "https://www.e-chalupy.cz/" + src.lstrip("/")
+                images.append((img.get("alt") or "", src))
 
-    gps_match = re.search(r"GPS .*: (\d+\.\d+)N, (\d+\.\d+)E", prop.text)
+    gps_match = re.search(r"GPS .*: (\d+\.\d+)N, (\d+\.\d+)E", prop.text) or re.search(r"(\d{2}\.\d+)N,\s*(\d{2}\.\d+)E", prop.text)
 
     data: Dict[str, Any] = {
         "url": url,
@@ -128,6 +167,7 @@ def parse_html_content(html_text: str, source_filename: str = "") -> Optional[Di
         "rooms": rooms_val,
         "icons": icons,
         "contact_raw": contact_raw,
+
         "contact_links": contact_links,
         "map_link": map_link,
         "distances": distances,

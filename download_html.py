@@ -293,8 +293,9 @@ def parse_args():
     parser.add_argument("--output-dir", "-o", type=str, default=DEFAULT_OUTPUT_DIR, help=f"Output directory for HTML files (default: {DEFAULT_OUTPUT_DIR})")
     parser.add_argument("--total-shards", "-n", type=int, default=1, help="Total number of distributed worker shards (default: 1)")
     parser.add_argument("--shard-id", "-s", type=int, default=0, help="Zero-indexed shard ID for this worker (0..total_shards-1)")
-    parser.add_argument("--delay", type=float, default=DEFAULT_DELAY, help=f"Base delay in seconds between requests (default: {DEFAULT_DELAY})")
-    parser.add_argument("--jitter", type=float, default=DEFAULT_JITTER, help=f"Random extra jitter added to delay (default: {DEFAULT_JITTER})")
+    parser.add_argument("--delay", type=float, default=5.0, help="Base delay in seconds between requests (default: 5.0s)")
+    parser.add_argument("--delay-minutes", type=float, default=None, help="Base delay in minutes between requests (e.g. 1.5 for 90s)")
+    parser.add_argument("--jitter", type=float, default=3.0, help="Random extra jitter in seconds added to delay (default: 3.0s)")
     parser.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT, help=f"HTTP request timeout in seconds (default: {DEFAULT_TIMEOUT})")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of pages to download in this run")
     parser.add_argument("--force", action="store_true", help="Overwrite existing cached HTML files instead of skipping")
@@ -316,6 +317,8 @@ def main():
     log_level = logging.DEBUG if args.verbose else logging.INFO
     logging.basicConfig(level=log_level, format="%(asctime)s [%(levelname)s] %(message)s")
 
+    base_delay = (args.delay_minutes * 60.0) if args.delay_minutes is not None else args.delay
+
     os.makedirs(args.output_dir, exist_ok=True)
 
     all_urls = load_urls(args.input)
@@ -325,12 +328,12 @@ def main():
         shard_urls = shard_urls[:args.limit]
 
     total_count = len(shard_urls)
-    print(f"--- HTML Downloader ---")
+    print(f"--- Ultra-Polite HTML Downloader ---")
     print(f"Total URLs in dataset: {len(all_urls)}")
     print(f"Assigned shard: {args.shard_id + 1}/{args.total_shards} ({total_count} URLs assigned to this worker)")
     print(f"Output directory: {args.output_dir}/")
     print(f"Engine: {'curl_cffi (Chrome impersonation)' if HAS_CURL_CFFI else 'standard requests'}")
-    print(f"Rate limiting: {args.delay}s base delay + up to {args.jitter}s random jitter\n")
+    print(f"Rate limiting: {base_delay:.1f}s base delay + up to {args.jitter:.1f}s random jitter between requests\n")
 
     # Pick first URL as challenge target if solver is triggered
     first_url = shard_urls[0] if shard_urls else "https://www.e-chalupy.cz/"
@@ -360,34 +363,42 @@ def main():
                 print(f"Progress: [{idx}/{total_count}] (Downloaded: {downloaded}, Cached/Skipped: {skipped}, Failed: {failed})")
             continue
 
+        print(f"[{idx}/{total_count}] Downloading {url} ...")
         html_text, status_code, is_blocked = download_page_with_retry(url, session=session, timeout=args.timeout)
 
         # If blocked by Cloudflare and auto-browser is enabled, attempt automatic session refresh
-        if is_blocked and not args.no_browser:
-            logging.info("Attempting automatic session refresh...")
-            session = get_authenticated_session(
-                session_file=args.session_file,
-                no_browser=False,
-                headless=args.headless,
-                target_url=url,
-                force_refresh=True,
-            )
-            # Retry download with new session
-            html_text, status_code, is_blocked = download_page_with_retry(url, session=session, timeout=args.timeout)
+        if is_blocked:
+            print(f"  ⚠️ Encountered Cloudflare challenge or rate limit. Cooling down for 2 minutes...")
+            time.sleep(120)
+            if not args.no_browser:
+                logging.info("Attempting automatic session refresh...")
+                session = get_authenticated_session(
+                    session_file=args.session_file,
+                    no_browser=False,
+                    headless=args.headless,
+                    target_url=url,
+                    force_refresh=True,
+                )
+                html_text, status_code, is_blocked = download_page_with_retry(url, session=session, timeout=args.timeout)
 
-        if html_text:
+        if html_text and not is_blocked:
             with open(target_path, "w", encoding="utf-8") as f:
                 f.write(html_text)
             downloaded += 1
+            print(f"  ✓ Saved to {filename} ({len(html_text):,} bytes)")
         else:
             failed += 1
+            print(f"  ✗ Failed to download ({status_code})")
 
-        if idx % 10 == 0 or idx == total_count:
-            print(f"Progress: [{idx}/{total_count}] (Downloaded: {downloaded}, Cached/Skipped: {skipped}, Failed: {failed})")
+        print(f"Progress: [{idx}/{total_count}] (Downloaded: {downloaded}, Cached: {skipped}, Failed: {failed})")
 
         # Polite rate-limiting sleep
         if idx < total_count:
-            sleep_duration = args.delay + random.uniform(0, args.jitter)
+            sleep_duration = base_delay + random.uniform(0, args.jitter)
+            if sleep_duration >= 60:
+                print(f"  ⏳ Sleeping for {sleep_duration / 60:.1f} minutes ({sleep_duration:.0f}s) before next request...\n")
+            else:
+                print(f"  ⏳ Sleeping for {sleep_duration:.1f}s before next request...\n")
             time.sleep(sleep_duration)
 
     print("\n--- Shard Download Finished ---")
@@ -399,4 +410,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 

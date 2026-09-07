@@ -73,9 +73,29 @@ To enable **team collaboration** and **prevent server blocking**, the workflow i
 
 1. **Link Extractor (`scrape_links.py`)**: Crawls search index pages across regions and outputs `urls.txt`.
 2. **Distributed HTML Downloader (`download_html.py`)**: Downloads raw HTML pages into `html/` with polite rate-limiting, jitter, automatic retry backoff, and worker sharding.
-3. **Distributed Image Downloader (`download_images.py`)**: Downloads property photos into `imgs/` with sharding and rate-limiting.
+3. **Image Downloader Tools**:
+   - **Single Property Image Downloader (`download_property_images.py` & `extract_property_images.py`)**: Extracts full-resolution gallery photo URLs for a specific property and downloads them into `images/<slug>/` with graceful timeouts, exponential retries, polite delays, and image verification without triggering captchas.
+   - **Distributed Bulk Image Downloader (`download_images.py`)**: Downloads property photos across all properties with worker sharding and rate-limiting.
 4. **Offline DOM Parser & Heuristic Filter (`parse_dom.py`)**: Parses local HTML files offline, normalizes prices and distances, applies capacity/amenity filters, and produces `properties.json`, `out.csv`, and `out.json`.
 5. **Gemma-Powered LLM Analyzer (`rank.py`)**: Evaluates candidate cottages with local Ollama LLMs (defaulting to newest **`gemma2`**), returning **description first**, suitability scores, owner presence detection, and constraint reasoning.
+
+
+## 📦 Export Dataset & Methodology
+
+### Current Candidate Dataset (1,199 Properties)
+- **Export Date**: **`2026-08-29`**
+- **Query Scope**: 25+ person accommodations (`persons=25`), exported in two comprehensive categories to ensure zero missed listings:
+  1. **Cottages & Chalets (*Chaty a chalupy*)**: [`raw_regions/search_25_plus_cottages.mhtml`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/raw_regions/search_25_plus_cottages.mhtml) (**771 links**)
+  2. **Other Types (*Apartmány, penziony, roubenky, etc.*)**: [`raw_regions/search_25_plus_others.mhtml`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/raw_regions/search_25_plus_others.mhtml) (**899 links**)
+- **Overlap & Deduplication**: 471 properties appear in both categories; deduplicating gives **1,199 total unique accommodations**.
+- **Extracted URLs**: [`urls.txt`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/urls.txt) (**1,199 lines**)
+
+### How to Extract & Reproduce
+```bash
+python3 extract_links.py raw_regions/search_25_plus_cottages.mhtml raw_regions/search_25_plus_others.mhtml --output urls.txt
+```
+This extracts, normalizes, and deduplicates all unique accommodation URLs into [`urls.txt`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/urls.txt).
+
 
 
 ---
@@ -98,6 +118,7 @@ git clone https://github.com/gdg-garage/garage-trip-accommodation-scraper.git
 cd garage-trip-accommodation-scraper
 pip install -r requirements.txt
 ```
+
 
 ---
 
@@ -198,7 +219,35 @@ make merge
   CF_CLEARANCE="<token>" USER_AGENT="<user_agent>" python3 download_html.py --no-browser -n 4 -s 1
   ```
 
-### 3. `download_images.py`
+### 3. Image Downloaders
+
+#### Single-Property Gallery Extractor (`extract_property_images.py`)
+Extracts full-resolution gallery photos specifically belonging to a single property (excluding recommendation cards and similar properties):
+```bash
+python3 extract_property_images.py o358
+# Or save to JSON manifest:
+python3 extract_property_images.py o358 -o hribek_images.json
+```
+
+#### Single-Property Image Downloader (`download_property_images.py`)
+Downloads gallery photos with graceful timeouts, exponential retries, polite pacing, and image validation:
+```bash
+python3 download_property_images.py o358
+# Or download a sample with custom delay:
+python3 download_property_images.py o358 --limit 5 --delay 0.5
+```
+| Argument | Default | Description |
+|---|---|---|
+| `property` | *Required* | HTML file path, property slug, or ID (e.g. `o358` or `html/benecko-...html`). |
+| `--output-dir`, `-o` | `images/<slug>/` | Destination directory for downloaded photos. |
+| `--limit`, `-l` | `None` | Max images to download (useful for quick previews/testing). |
+| `--delay` | `0.8` | Base delay between image downloads in seconds. |
+| `--jitter` | `0.4` | Random jitter added to delay. |
+| `--timeout`, `-t` | `15` | Request timeout per image in seconds. |
+| `--max-retries` | `3` | Max retry attempts with exponential backoff on transient errors. |
+| `--force`, `-f` | `False` | Overwrite existing cached images instead of skipping. |
+
+#### Distributed Bulk Image Downloader (`download_images.py`)
 | Argument | Default | Description |
 |---|---|---|
 | `--html-dir`, `-d` | `html` | Directory with downloaded HTML pages. |
@@ -208,11 +257,21 @@ make merge
 | `--shard-id`, `-s` | `0` | Zero-indexed shard ID. |
 | `--delay` | `0.2` | Polite delay between image downloads. |
 
-### 4. `parse_dom.py`
+### 4. `web_crawler_bridge.py`
+Local bridge server for slow, human-like background HTML crawling through your trusted Chrome browser:
+```bash
+python3 web_crawler_bridge.py --daily-limit 50
+```
+- Dashboard at `http://localhost:8765`
+- Enforces strict persistent daily limit (50/day in `.daily_crawl_ledger.json`)
+- Randomly shuffles unprocessed queue to avoid regional suspicion
+- Polite 30s – 5.5 min delays between pages
+
+### 5. `parse_dom.py`
 | Argument | Default | Description |
 |---|---|---|
 | `--html-dir`, `-d` | `html` | Directory of local HTML files to parse. |
-| `--output-properties` | `properties.json`| Raw extracted properties JSONL. |
+| `--output-properties` | `properties.json`| Raw extracted properties JSON. |
 | `--output-csv`, `-c` | `out.csv` | Enriched & filtered CSV table. |
 | `--output-json`, `-j` | `out.json` | Candidate accommodations JSON. |
 | `--min-beds` | `22` | Minimum required bed capacity. |
@@ -221,7 +280,7 @@ make merge
 | `--max-price` | `15000` | Maximum daily rental cost in CZK. |
 | `--max-restaurant-dist`| `1500` | Max distance to restaurant in meters. |
 
-### 5. `rank.py`
+### 6. `rank.py`
 | Argument | Default | Description |
 |---|---|---|
 | `--model`, `-m` | `gemma2` | Ollama model name. |
@@ -249,7 +308,7 @@ When evaluated by Ollama, each accommodation is scored with **description first*
 
 ## 🧪 Testing
 
-Run the full automated test suite (36 unit tests):
+Run the full automated test suite (46 unit tests):
 ```bash
 make test
 # Or directly:
@@ -261,4 +320,5 @@ python3 -m unittest discover -s tests -v
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
 

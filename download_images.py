@@ -138,19 +138,21 @@ def parse_args():
     parser.add_argument("--output-dir", "-o", type=str, default=DEFAULT_OUTPUT_DIR, help=f"Destination images directory (default: {DEFAULT_OUTPUT_DIR})")
     parser.add_argument("--total-shards", "-n", type=int, default=1, help="Total number of distributed worker shards (default: 1)")
     parser.add_argument("--shard-id", "-s", type=int, default=0, help="Zero-indexed shard ID for this worker (0..total_shards-1)")
-    parser.add_argument("--delay", type=float, default=DEFAULT_DELAY, help=f"Polite delay between image requests in seconds (default: {DEFAULT_DELAY})")
+    parser.add_argument("--delay", type=float, default=2.0, help="Base delay in seconds between image downloads (default: 2.0s)")
+    parser.add_argument("--delay-minutes", type=float, default=None, help="Delay in minutes between image downloads (e.g. 0.5 for 30s)")
+    parser.add_argument("--jitter", type=float, default=1.0, help="Random jitter in seconds added to delay (default: 1.0s)")
     parser.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT, help=f"HTTP request timeout in seconds (default: {DEFAULT_TIMEOUT})")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of images to download in this run")
     parser.add_argument("--force", action="store_true", help="Overwrite existing cached images instead of skipping")
     parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose debug logging")
 
     # Cloudflare session options
-    parser.add_argument("--cf-clearance", type=str, default=None, help="Manual Cloudflare cf_clearance cookie value (or set CF_CLEARANCE env var)")
-    parser.add_argument("--user-agent", type=str, default=None, help="User-Agent string matching cf_clearance (or set USER_AGENT env var)")
+    parser.add_argument("--cf-clearance", type=str, default=None, help="Manual Cloudflare cf_clearance cookie value")
+    parser.add_argument("--user-agent", type=str, default=None, help="User-Agent string matching cf_clearance")
     parser.add_argument("--session-file", type=str, default=DEFAULT_SESSION_FILE, help=f"Path to session cache file (default: {DEFAULT_SESSION_FILE})")
     parser.add_argument("--no-browser", action="store_true", help="Do not attempt to open a browser for Cloudflare challenge solving")
     parser.add_argument("--headless", action="store_true", help="Run browser in headless mode when solving challenge")
-    parser.add_argument("--force-auth", action="store_true", help="Force re-running Cloudflare browser solver")
+    parser.add_argument("--force-auth", action="store_true", help="Force re-running Cloudflare browser solver even if session cache exists")
 
     return parser.parse_args()
 
@@ -160,43 +162,37 @@ def main():
     log_level = logging.DEBUG if args.verbose else logging.INFO
     logging.basicConfig(level=log_level, format="%(asctime)s [%(levelname)s] %(message)s")
 
-    if os.path.islink(args.output_dir) and not os.path.exists(args.output_dir):
-        try:
-            os.makedirs(os.path.realpath(args.output_dir), exist_ok=True)
-        except Exception:
-            os.remove(args.output_dir)
-            os.makedirs(args.output_dir, exist_ok=True)
-    else:
-        os.makedirs(args.output_dir, exist_ok=True)
+    base_delay = (args.delay_minutes * 60.0) if args.delay_minutes is not None else args.delay
+
+    os.makedirs(args.output_dir, exist_ok=True)
 
     if args.input_json and os.path.exists(args.input_json):
-        raw_images = collect_images_from_json(args.input_json)
+        images = collect_images_from_json(args.input_json)
     elif os.path.exists(args.html_dir):
-        raw_images = collect_images_from_html_dir(args.html_dir)
-    elif os.path.exists("out.json"):
-        raw_images = collect_images_from_json("out.json")
+        images = collect_images_from_html_dir(args.html_dir)
     else:
-        raise FileNotFoundError(f"Neither --input-json nor HTML dir '{args.html_dir}' was found. Run download_html.py first.")
+        print(f"Error: Neither valid JSON file '{args.input_json}' nor HTML directory '{args.html_dir}' found.")
+        return
 
     # Deduplicate image URLs
-    unique_images: List[Tuple[str, str]] = []
-    seen_urls: Set[str] = set()
-    for title, img_url in raw_images:
-        if img_url and img_url not in seen_urls:
-            seen_urls.add(img_url)
-            unique_images.append((title, img_url))
+    seen = set()
+    unique_images = []
+    for title, url in images:
+        if url not in seen:
+            seen.add(url)
+            unique_images.append((title, url))
 
     shard_images = get_shard_items(unique_images, args.total_shards, args.shard_id)
+
     if args.limit:
         shard_images = shard_images[:args.limit]
 
     total_count = len(shard_images)
-    print(f"--- Image Downloader ---")
+    print(f"--- Ultra-Polite Image Downloader ---")
     print(f"Total unique images found: {len(unique_images)}")
     print(f"Assigned shard: {args.shard_id + 1}/{args.total_shards} ({total_count} images assigned to this worker)")
     print(f"Output directory: {args.output_dir}/")
-    print(f"Engine: {'curl_cffi (Chrome impersonation)' if HAS_CURL_CFFI else 'standard requests'}")
-    print(f"Delay: {args.delay}s\n")
+    print(f"Rate limiting: {base_delay:.1f}s base delay + up to {args.jitter:.1f}s random jitter between downloads\n")
 
     session = get_authenticated_session(
         cf_clearance=args.cf_clearance,
@@ -221,32 +217,42 @@ def main():
                 print(f"Progress: [{idx}/{total_count}] (Downloaded: {downloaded}, Cached/Skipped: {skipped}, Failed: {failed})")
             continue
 
+        print(f"[{idx}/{total_count}] Downloading image: {img_url} ...")
         content, status_code, is_blocked = download_image_with_retry(img_url, session=session, timeout=args.timeout)
 
         # Handle Cloudflare block
-        if is_blocked and not args.no_browser:
-            logging.info("Cloudflare challenge encountered on image download. Refreshing session...")
-            session = get_authenticated_session(
-                session_file=args.session_file,
-                no_browser=False,
-                headless=args.headless,
-                target_url=img_url,
-                force_refresh=True,
-            )
-            content, status_code, is_blocked = download_image_with_retry(img_url, session=session, timeout=args.timeout)
+        if is_blocked:
+            print(f"  ⚠️ Cloudflare challenge encountered on image download. Cooling down for 2 minutes...")
+            time.sleep(120)
+            if not args.no_browser:
+                logging.info("Refreshing session...")
+                session = get_authenticated_session(
+                    session_file=args.session_file,
+                    no_browser=False,
+                    headless=args.headless,
+                    target_url=img_url,
+                    force_refresh=True,
+                )
+                content, status_code, is_blocked = download_image_with_retry(img_url, session=session, timeout=args.timeout)
 
-        if content:
+        if content and not is_blocked:
             with open(target_path, "wb") as f:
                 f.write(content)
             downloaded += 1
+            print(f"  ✓ Saved to {filename} ({len(content):,} bytes)")
         else:
             failed += 1
+            print(f"  ✗ Failed ({status_code})")
 
-        if idx % 25 == 0 or idx == total_count:
-            print(f"Progress: [{idx}/{total_count}] (Downloaded: {downloaded}, Cached/Skipped: {skipped}, Failed: {failed})")
+        print(f"Progress: [{idx}/{total_count}] (Downloaded: {downloaded}, Cached: {skipped}, Failed: {failed})")
 
-        if args.delay > 0 and idx < total_count:
-            time.sleep(args.delay)
+        if idx < total_count:
+            sleep_duration = base_delay + random.uniform(0, args.jitter)
+            if sleep_duration >= 60:
+                print(f"  ⏳ Sleeping for {sleep_duration / 60:.1f} minutes ({sleep_duration:.0f}s) before next image...\n")
+            elif sleep_duration > 0:
+                print(f"  ⏳ Sleeping for {sleep_duration:.1f}s before next image...\n")
+            time.sleep(sleep_duration)
 
     print("\n--- Image Shard Download Finished ---")
     print(f"Total processed in this shard: {total_count}")
@@ -257,4 +263,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
