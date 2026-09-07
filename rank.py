@@ -255,13 +255,22 @@ def main():
 
         images = []
         if args.with_images:
-            for img_pair in p.get("images", []):
-                if isinstance(img_pair, (list, tuple)) and len(img_pair) >= 2:
-                    img_url = img_pair[1]
-                    img_filename = urllib.parse.quote(img_url, safe='')
-                    img_path = os.path.abspath(os.path.join("imgs", img_filename))
-                    if os.path.exists(img_path):
-                        images.append(img_path)
+            slug = p.get("slug") or (p.get("url", "").strip("/").split("/")[-1] if p.get("url") else "")
+            prop_dir = os.path.join("images", slug)
+            if os.path.isdir(prop_dir):
+                for f in sorted(os.listdir(prop_dir)):
+                    if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
+                        images.append(os.path.abspath(os.path.join(prop_dir, f)))
+            else:
+                for img_pair in p.get("images", []):
+                    if isinstance(img_pair, (list, tuple)) and len(img_pair) >= 2:
+                        img_url = img_pair[1]
+                        img_filename = urllib.parse.quote(img_url, safe='')
+                        for d in ("images", "imgs"):
+                            img_path = os.path.abspath(os.path.join(d, img_filename))
+                            if os.path.exists(img_path):
+                                images.append(img_path)
+
 
         if args.dry_run:
             print(f"[DRY RUN] Generated prompt ({len(prompt)} chars) for {name}")
