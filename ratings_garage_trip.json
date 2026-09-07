@@ -1,0 +1,31 @@
+{
+  "358": {
+    "property_id": "358",
+    "name": "Hříbek",
+    "overall_score": 0.85,
+    "common_room_score": 0.9,
+    "tables_and_workspace_score": 0.85,
+    "sleeping_comfort_score": 0.7,
+    "toilets_ratio_score": 0.9,
+    "wellness_score": 0.95,
+    "image_reasoning": "The common room photos show ample seating and a large table suitable for gatherings and laptop work. The kitchen photos confirm multiple fridges, ovens, and dishwashers. Bedrooms appear spacious but the exact layout is unclear from the images. Two saunas are visible in separate photos, one Finnish sauna with benches and another infra-sauna. A hot tub and pool are also present.",
+    "tables_confirmed_by_images": true,
+    "owner_on_site_risk": false,
+    "pros": [
+      "Large common room suitable for gatherings and workshops",
+      "Well-equipped kitchen for large groups",
+      "Multiple saunas and a hot tub",
+      "Outdoor pool and spacious grounds",
+      "Exclusive whole-object rental",
+      "Separate bedrooms with en-suite bathrooms"
+    ],
+    "cons": [
+      "Bedroom layout could be more clearly defined in photos",
+      "Limited information on internet speed and reliability",
+      "Distance from nearest town may require car travel for supplies"
+    ],
+    "verdict": "Hříbek appears to be a promising option for garage-trip.cz, offering ample space for gatherings, workshops, and relaxation. The photos confirm key features like the common room, kitchen, and sauna facilities. However, further communication is needed to clarify bedroom layouts and internet capabilities.",
+    "evaluated_images_count": 8,
+    "model_used": "gemma2"
+  }
+}

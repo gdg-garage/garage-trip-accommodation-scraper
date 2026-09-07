@@ -1,0 +1,226 @@
+#!/usr/bin/env python3
+"""
+Pass 1: Extract structured, normalized property features using Ollama (Gemma 2).
+Extracts capacity, beds, bedroom distribution, toilets, showers, sauna, common room,
+tables, and pricing from raw accommodation descriptions.
+"""
+
+import argparse
+import glob
+import json
+import os
+import re
+import sys
+import time
+from typing import Dict, Any, List, Optional
+from bs4 import BeautifulSoup
+import ollama
+
+DEFAULT_MODEL = "gemma2"
+DEFAULT_INPUT_DIR = "html"
+DEFAULT_OUTPUT = "properties_structured.json"
+
+EXTRACTION_SYSTEM_PROMPT = """You are a precise data extractor analyzing Czech cottage accommodations for a 25-30 person group retreat (garage-trip.cz).
+Analyze the accommodation details and return ONLY a valid JSON object matching the requested schema.
+Keep all string values concise (1-2 sentences max). Do not output markdown fences or explanatory text.
+
+JSON Schema to follow:
+{
+  "capacity_total": <integer: max total guests>,
+  "beds_regular": <integer: regular fixed beds>,
+  "beds_extra": <integer: přistýlky / sofa beds>,
+  "bedrooms_count": <integer: number of separate bedrooms>,
+  "bedroom_layout": [<list of short strings, e.g. "1x 2-bed", "2x 4-bed">],
+  "toilets_count": <integer: number of separate WC/toilets>,
+  "bathrooms_count": <integer: number of bathrooms>,
+  "showers_count": <integer: number of showers>,
+  "has_sauna": <boolean>,
+  "sauna_type": <string: "finnish", "infra", "barrel", "none">,
+  "sauna_notes": <string: brief note on sauna capacity or location>,
+  "has_hot_tub_or_whirlpool": <boolean>,
+  "has_pool": <boolean>,
+  "common_room_description": <string: brief note on main living room / společenská místnost size>,
+  "tables_and_workspace": <string: brief note on tables and seating capacity for 25-30 people>,
+  "kitchen_details": <string: brief note on stoves, fridges, dishwashers for large groups>,
+  "wifi_available": <boolean>,
+  "exclusive_private_rental": <boolean: is the whole house rented exclusively?>,
+  "owner_lives_on_site": <boolean or null>,
+  "price_whole_house_night_czk": <integer or null: price per night for whole house>,
+  "price_notes": <string: brief note on pricing / fees>
+}
+"""
+
+
+
+def extract_text_sections_from_html(html_text: str, filename: str = "") -> Dict[str, Any]:
+    """Extract clean property title, URL, ID, and text sections from raw HTML."""
+    soup = BeautifulSoup(html_text, "html.parser")
+
+    # Name and ID
+    h1 = soup.find("h1")
+    raw_title = h1.text.strip() if h1 else ""
+    id_match = re.search(r"\((\d+)\)", raw_title) or re.search(r"-o(\d+)", filename)
+    prop_id = id_match.group(1) if id_match else ""
+    name = re.sub(r"\s*\(\d+\)\s*$", "", raw_title).strip() or "Ubytování"
+
+    # Canonical URL
+    canon = soup.find("link", rel="canonical")
+    canonical_url = canon["href"] if canon and canon.get("href") else f"https://www.e-chalupy.cz/{filename.replace('.html', '')}"
+
+    # Extract all text blocks under headings (Popis, Vybavení, Pokoje, Ceník, etc.)
+    sections = []
+    
+    # Priority sections
+    for h2 in soup.find_all(["h2", "h3"]):
+        h_title = h2.text.strip()
+        body_parts = []
+        sibling = h2.find_next_sibling()
+        while sibling and sibling.name not in ["h1", "h2", "footer"]:
+            t = sibling.text.strip()
+            if t and len(t) > 3:
+                body_parts.append(t)
+            sibling = sibling.find_next_sibling()
+        if body_parts:
+            sections.append(f"### {h_title}\n" + "\n".join(body_parts))
+
+    # Also grab parameter tables / badges
+    params = []
+    for tag in soup.find_all(class_=re.compile(r"param|detail|spec|item|badge|tag", re.I)):
+        t = tag.text.strip()
+        if t and len(t) < 100 and t not in params:
+            params.append(t)
+
+    full_text = "\n\n".join(sections)
+    if not full_text:
+        # Fallback to general body text
+        main = soup.find("main") or soup.body
+        full_text = main.text if main else ""
+
+    # Keep most informative 4500 characters
+    return {
+        "id": prop_id,
+        "name": name,
+        "url": canonical_url,
+        "filename": os.path.basename(filename),
+        "params": " | ".join(params[:25]),
+        "text": full_text[:4500],
+    }
+
+
+def extract_features_with_llm(property_info: Dict[str, Any], model: str = DEFAULT_MODEL) -> Dict[str, Any]:
+    """Call Ollama to extract structured fields in JSON format."""
+    user_prompt = f"""Cottage: {property_info['name']} (ID: {property_info['id']})
+URL: {property_info['url']}
+Parameters: {property_info['params']}
+
+Details:
+{property_info['text']}
+
+Return valid JSON with the extracted features."""
+
+    response = ollama.generate(
+        model=model,
+        prompt=f"{EXTRACTION_SYSTEM_PROMPT}\n\n{user_prompt}",
+        format="json",
+        options={"temperature": 0.1, "num_predict": 2048}
+    )
+
+
+    raw_json = response.get("response", "{}")
+    try:
+        data = json.loads(raw_json)
+    except Exception as e:
+        # Attempt to clean potential markdown wrapper
+        cleaned = re.sub(r"^```json\s*", "", raw_json.strip())
+        cleaned = re.sub(r"\s*```$", "", cleaned)
+        data = json.loads(cleaned)
+
+    # Attach core identifiers
+    data["property_id"] = property_info["id"]
+    data["name"] = property_info["name"]
+    data["url"] = property_info["url"]
+    data["source_file"] = property_info["filename"]
+    return data
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Pass 1: Extract structured property features with Ollama.")
+    parser.add_argument("property", nargs="?", default=None, help="Specific property HTML file or ID (e.g. 'o358' or 'html/benecko-...html')")
+    parser.add_argument("--html-dir", "-d", default=DEFAULT_INPUT_DIR, help=f"Directory of HTML files (default: {DEFAULT_INPUT_DIR})")
+    parser.add_argument("--output", "-o", default=DEFAULT_OUTPUT, help=f"Output structured JSON file (default: {DEFAULT_OUTPUT})")
+    parser.add_argument("--model", "-m", default=DEFAULT_MODEL, help=f"Ollama model name (default: {DEFAULT_MODEL})")
+    parser.add_argument("--limit", "-l", type=int, default=None, help="Limit number of properties to process")
+    parser.add_argument("--force", "-f", action="store_true", help="Re-extract already cached properties")
+    args = parser.parse_args()
+
+    # Load existing output if present
+    cached_data: Dict[str, Any] = {}
+    if os.path.exists(args.output) and not args.force:
+        try:
+            with open(args.output, "r", encoding="utf-8") as f:
+                loaded = json.load(f)
+                if isinstance(loaded, dict):
+                    cached_data = loaded
+                elif isinstance(loaded, list):
+                    for item in loaded:
+                        cached_data[item.get("property_id") or item.get("url")] = item
+        except Exception as e:
+            print(f"Warning: could not read {args.output}: {e}")
+
+    # Determine files to process
+    if args.property:
+        from extract_property_images import resolve_html_file
+        try:
+            target_file = resolve_html_file(args.property, args.html_dir)
+            files = [target_file]
+        except Exception as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
+    else:
+        files = sorted(glob.glob(os.path.join(args.html_dir, "*.html")))
+
+    if args.limit:
+        files = files[:args.limit]
+
+    print("=" * 68)
+    print(f" 🧠 Pass 1: Structured Feature Extraction with Ollama ({args.model})")
+    print(f" 📂 HTML Files:   {len(files)} properties")
+    print(f" 💾 Output File:  {args.output}")
+    print("=" * 68)
+
+    processed = 0
+    start_time = time.time()
+
+    for idx, f in enumerate(files, 1):
+        with open(f, "r", encoding="utf-8", errors="ignore") as fh:
+            prop_info = extract_text_sections_from_html(fh.read(), filename=f)
+
+        key = prop_info["id"] or prop_info["url"]
+        if not args.force and key in cached_data:
+            print(f"[{idx:03d}/{len(files):03d}] ⏭️  [Cached] {prop_info['name']} (ID: {prop_info['id']})")
+            continue
+
+        print(f"[{idx:03d}/{len(files):03d}] 🔍 Extracting: {prop_info['name']} (ID: {prop_info['id']})...", end="", flush=True)
+        t0 = time.time()
+        try:
+            extracted = extract_features_with_llm(prop_info, model=args.model)
+            cached_data[key] = extracted
+            processed += 1
+            dur = time.time() - t0
+            print(f" done in {dur:.1f}s | Beds: {extracted.get('capacity_total')} ({extracted.get('bedrooms_count')} rooms) | WCs: {extracted.get('toilets_count')} | Sauna: {extracted.get('has_sauna')}")
+            
+            # Save incrementally after each property
+            with open(args.output, "w", encoding="utf-8") as out_f:
+                json.dump(cached_data, out_f, indent=2, ensure_ascii=False)
+
+        except Exception as e:
+            print(f" ERROR: {e}")
+
+    elapsed = time.time() - start_time
+    print("=" * 68)
+    print(f" 🎉 Completed in {elapsed:.1f}s. Extracted: {processed}, Total in {args.output}: {len(cached_data)}")
+    print("=" * 68)
+
+
+if __name__ == "__main__":
+    main()

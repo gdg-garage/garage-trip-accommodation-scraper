@@ -280,7 +280,7 @@ python3 web_crawler_bridge.py --daily-limit 50
 | `--max-price` | `15000` | Maximum daily rental cost in CZK. |
 | `--max-restaurant-dist`| `1500` | Max distance to restaurant in meters. |
 
-### 6. `rank.py`
+### 6. `rank.py` (Legacy Single-Pass Evaluator)
 | Argument | Default | Description |
 |---|---|---|
 | `--model`, `-m` | `gemma2` | Ollama model name. |
@@ -288,6 +288,37 @@ python3 web_crawler_bridge.py --daily-limit 50
 | `--with-images` | `False` | Attach local photos for multimodal vision models. |
 | `--limit` | `None` | Max unrated accommodations to evaluate. |
 | `--dry-run` | `False` | Print prompts without sending Ollama requests. |
+
+---
+
+## 🎯 Modern Two-Pass AI Evaluation for `garage-trip.cz`
+
+Tailored specifically for retreats of 25–35 people requiring large common spaces, sturdy tables for laptop hacking/board games, high toilet ratios, and private saunas.
+
+### Pass 1: Structured Feature Extraction (`extract_features_llm.py`)
+Parses raw HTML/DOM and extracts normalized, high-signal technical specs into `properties_structured.json` (exact bed layout, separate room counts, shower & toilet counts, sauna type, kitchen appliances, and exclusive private rental confirmation):
+```bash
+# Extract structured features for a single property:
+python3 extract_features_llm.py o358
+
+# Extract all downloaded HTML files:
+python3 extract_features_llm.py -d html -o properties_structured.json
+```
+
+### Pass 2: Multimodal Scoring & Vision Reasoning (`rank_multimodal.py`)
+Combines the structured metadata from Pass 1, property descriptions, and key gallery photos (`images/<slug>/`) to score the cottage:
+```bash
+# Score a specific property:
+python3 rank_multimodal.py 358
+
+# Score all properties with Pass 1 data:
+python3 rank_multimodal.py -s properties_structured.json -o ratings_garage_trip.json
+
+# Use a vision-enabled model (e.g. gemma4 / gemma4:e4b):
+python3 rank_multimodal.py --model gemma4:e4b
+```
+Outputs detailed scores (`overall_score`, `common_room_score`, `tables_and_workspace_score`, `sleeping_comfort_score`, `toilets_ratio_score`, `wellness_score`) and explicit reasoning about visible tables, room distribution, and wellness facilities.
+
 
 ---
 
