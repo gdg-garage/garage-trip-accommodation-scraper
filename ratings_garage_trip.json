@@ -27,5 +27,63 @@
     "verdict": "Hříbek appears to be a promising option for garage-trip.cz, offering ample space for gatherings, workshops, and relaxation. The photos confirm key features like the common room, kitchen, and sauna facilities. However, further communication is needed to clarify bedroom layouts and internet capabilities.",
     "evaluated_images_count": 8,
     "model_used": "gemma2"
+  },
+  "3649": {
+    "property_id": "3649",
+    "name": "Chalupa Nový Svět",
+    "overall_score": 0.75,
+    "common_room_score": 0.8,
+    "tables_and_workspace_score": 0.7,
+    "sleeping_comfort_score": 0.6,
+    "toilets_ratio_score": 0.9,
+    "wellness_score": 0.8,
+    "image_reasoning": "The common room appears spacious with a large table suitable for group activities. Photos show multiple smaller tables scattered throughout the space, potentially good for individual work or board games. Bedrooms appear to be standard size, some with bunk beds and others with double beds. The sauna looks clean and well-maintained, though the hot tub/pool is absent. Kitchen photos show ample counter space and several appliances.",
+    "tables_confirmed_by_images": true,
+    "owner_on_site_risk": false,
+    "pros": [
+      "Spacious common room with large table",
+      "Multiple smaller tables for individual work/games",
+      "Sauna available",
+      "Good toilet and shower ratio",
+      "Large property with outdoor space"
+    ],
+    "cons": [
+      "Some bedrooms may have bunk beds, potentially less comfortable for adults",
+      "No hot tub or pool",
+      "Photos don't clearly show kitchen equipment details",
+      "Limited information about wifi availability"
+    ],
+    "verdict": "Chalupa Nový Svět shows promise as a potential venue for garage-trip.cz, offering a spacious common room and sauna facilities. However, further investigation into bedroom comfort and kitchen equipment is recommended.",
+    "evaluated_images_count": 8,
+    "model_used": "gemma2"
+  },
+  "12738": {
+    "property_id": "12738",
+    "name": "Chalupa Simia",
+    "overall_score": 0.85,
+    "common_room_score": 0.9,
+    "tables_and_workspace_score": 0.75,
+    "sleeping_comfort_score": 0.8,
+    "toilets_ratio_score": 0.6,
+    "wellness_score": 0.8,
+    "image_reasoning": "Photos show a spacious common room (photos 8-11) with ample seating and at least two large tables suitable for laptops and board games. Smaller common room visible in photo 11 could be used for quieter activities. Bedrooms appear comfortable with private bathrooms (photos 12-14). Sauna is present and looks well-maintained, though hot tub/pool are not visible.",
+    "tables_confirmed_by_images": true,
+    "owner_on_site_risk": false,
+    "pros": [
+      "Spacious common room with multiple tables",
+      "Private bathrooms in each bedroom",
+      "Well-equipped kitchen for large groups",
+      "Sauna available",
+      "Exclusive whole-object rental"
+    ],
+    "cons": [
+      "Limited information on toilet/shower capacity",
+      "Photos don't confirm hot tub/pool availability",
+      "Potential noise from other guests in shared spaces",
+      "Location may be remote for some attendees"
+    ],
+    "verdict": "Chalupa Simia appears to be a promising option for garage-trip.cz, offering a spacious common room, comfortable bedrooms, and sauna facilities. However, further information is needed regarding bathroom capacity and the availability of a hot tub/pool. It's recommended to contact the owner directly to clarify these details.",
+    "evaluated_images_count": 8,
+    "model_used": "gemma2"
   }
 }

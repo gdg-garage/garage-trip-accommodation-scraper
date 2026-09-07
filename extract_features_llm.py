@@ -37,7 +37,8 @@ JSON Schema to follow:
   "has_sauna": <boolean>,
   "sauna_type": <string: "finnish", "infra", "barrel", "none">,
   "sauna_notes": <string: brief note on sauna capacity or location>,
-  "has_hot_tub_or_whirlpool": <boolean>,
+  "has_hot_tub_or_whirlpool": <boolean: true if hot tub, outdoor bathing barrel / koupací sud, whirlpool or vířivka is present>,
+  "hot_tub_notes": <string: brief note on hot tub / koupací sud capacity or location>,
   "has_pool": <boolean>,
   "common_room_description": <string: brief note on main living room / společenská místnost size>,
   "tables_and_workspace": <string: brief note on tables and seating capacity for 25-30 people>,
@@ -67,12 +68,18 @@ def extract_text_sections_from_html(html_text: str, filename: str = "") -> Dict[
     canon = soup.find("link", rel="canonical")
     canonical_url = canon["href"] if canon and canon.get("href") else f"https://www.e-chalupy.cz/{filename.replace('.html', '')}"
 
-    # Extract all text blocks under headings (Popis, Vybavení, Pokoje, Ceník, etc.)
-    sections = []
-    
-    # Priority sections
+    # Extract all relevant text blocks under headings (Popis, Vybavení, Pokoje, Ceník, etc.)
+    # Exclude external / irrelevant sections
+    ignored_headings = [
+        "další objekty", "podobné", "okolí", "výlety", "poloha",
+        "hodnocení", "volné termíny", "sport a zábava", "kontakt"
+    ]
+    sec_map: Dict[str, str] = {}
+
     for h2 in soup.find_all(["h2", "h3"]):
         h_title = h2.text.strip()
+        if any(k in h_title.lower() for k in ignored_headings):
+            continue
         body_parts = []
         sibling = h2.find_next_sibling()
         while sibling and sibling.name not in ["h1", "h2", "footer"]:
@@ -81,7 +88,10 @@ def extract_text_sections_from_html(html_text: str, filename: str = "") -> Dict[
                 body_parts.append(t)
             sibling = sibling.find_next_sibling()
         if body_parts:
-            sections.append(f"### {h_title}\n" + "\n".join(body_parts))
+            content = "\n".join(body_parts)
+            # Retain the most complete content under this heading
+            if h_title not in sec_map or len(content) > len(sec_map[h_title]):
+                sec_map[h_title] = content
 
     # Also grab parameter tables / badges
     params = []
@@ -90,21 +100,53 @@ def extract_text_sections_from_html(html_text: str, filename: str = "") -> Dict[
         if t and len(t) < 100 and t not in params:
             params.append(t)
 
-    full_text = "\n\n".join(sections)
+    full_text = "\n\n".join(f"### {k}\n{v}" for k, v in sec_map.items())
     if not full_text:
-        # Fallback to general body text
         main = soup.find("main") or soup.body
         full_text = main.text if main else ""
 
-    # Keep most informative 4500 characters
+    # Keep up to 14,000 characters to capture the complete property specs
     return {
         "id": prop_id,
         "name": name,
         "url": canonical_url,
         "filename": os.path.basename(filename),
-        "params": " | ".join(params[:25]),
-        "text": full_text[:4500],
+        "params": " | ".join(params[:30]),
+        "text": full_text[:14000],
     }
+
+
+FEATURE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "capacity_total": {"type": ["integer", "null"]},
+        "beds_regular": {"type": ["integer", "null"]},
+        "beds_extra": {"type": ["integer", "null"]},
+        "bedrooms_count": {"type": ["integer", "null"]},
+        "bedroom_layout": {"type": "array", "items": {"type": "string"}},
+        "toilets_count": {"type": ["integer", "null"]},
+        "bathrooms_count": {"type": ["integer", "null"]},
+        "showers_count": {"type": ["integer", "null"]},
+        "has_sauna": {"type": ["boolean", "null"]},
+        "sauna_type": {"type": ["string", "null"]},
+        "sauna_notes": {"type": ["string", "null"]},
+        "has_hot_tub_or_whirlpool": {"type": ["boolean", "null"]},
+        "hot_tub_notes": {"type": ["string", "null"]},
+        "has_pool": {"type": ["boolean", "null"]},
+        "common_room_description": {"type": ["string", "null"]},
+        "tables_and_workspace": {"type": ["string", "null"]},
+        "kitchen_details": {"type": ["string", "null"]},
+        "wifi_available": {"type": ["boolean", "null"]},
+        "exclusive_private_rental": {"type": ["boolean", "null"]},
+        "owner_lives_on_site": {"type": ["boolean", "null"]},
+        "price_whole_house_night_czk": {"type": ["integer", "null"]},
+        "price_notes": {"type": ["string", "null"]}
+    },
+    "required": [
+        "capacity_total", "bedrooms_count", "toilets_count",
+        "has_sauna", "has_hot_tub_or_whirlpool", "exclusive_private_rental"
+    ]
+}
 
 
 def extract_features_with_llm(property_info: Dict[str, Any], model: str = DEFAULT_MODEL) -> Dict[str, Any]:
@@ -116,21 +158,26 @@ Parameters: {property_info['params']}
 Details:
 {property_info['text']}
 
-Return valid JSON with the extracted features."""
+Extract all features according to the JSON schema."""
 
-    response = ollama.generate(
-        model=model,
-        prompt=f"{EXTRACTION_SYSTEM_PROMPT}\n\n{user_prompt}",
-        format="json",
-        options={"temperature": 0.1, "num_predict": 2048}
-    )
-
-
-    raw_json = response.get("response", "{}")
     try:
+        response = ollama.generate(
+            model=model,
+            prompt=f"{EXTRACTION_SYSTEM_PROMPT}\n\n{user_prompt}",
+            format=FEATURE_SCHEMA,
+            options={"temperature": 0.1, "num_predict": 2048}
+        )
+        raw_json = response.get("response", "{}")
         data = json.loads(raw_json)
     except Exception as e:
-        # Attempt to clean potential markdown wrapper
+        # Fallback to general format="json" if model doesn't support schema enforcement
+        response = ollama.generate(
+            model=model,
+            prompt=f"{EXTRACTION_SYSTEM_PROMPT}\n\n{user_prompt}",
+            format="json",
+            options={"temperature": 0.1, "num_predict": 2048}
+        )
+        raw_json = response.get("response", "{}")
         cleaned = re.sub(r"^```json\s*", "", raw_json.strip())
         cleaned = re.sub(r"\s*```$", "", cleaned)
         data = json.loads(cleaned)

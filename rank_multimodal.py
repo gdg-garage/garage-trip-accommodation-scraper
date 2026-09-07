@@ -141,7 +141,7 @@ def evaluate_property_garage_trip(
     if html_file and os.path.isfile(html_file):
         from extract_features_llm import extract_text_sections_from_html
         with open(html_file, "r", encoding="utf-8", errors="ignore") as fh:
-            raw_desc = extract_text_sections_from_html(fh.read())["text"][:3500]
+            raw_desc = extract_text_sections_from_html(fh.read())["text"][:12000]
 
     user_prompt = f"""=== ACCOMMODATION DATA ===
 Property Name: {name} (ID: {property_id})
