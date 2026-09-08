@@ -213,6 +213,29 @@ FEATURE_SCHEMA = {
 FEATURE_SCHEMA["required"] = list(FEATURE_SCHEMA["properties"].keys())
 
 
+def sanitize_czech_text(text: str) -> str:
+    """Normalize quotes and control characters to avoid breaking JSON string formatting."""
+    # Replace all double-quote variants with single quotes
+    t = re.sub(r'["„“”«»`]', "'", text)
+    # Remove non-standard control characters
+    t = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', ' ', t)
+    # Collapse multiple blank lines
+    t = re.sub(r'\n{3,}', '\n\n', t)
+    return t.strip()
+
+
+def parse_json_safely(raw: str) -> Dict[str, Any]:
+    """Parse JSON string with fallback repair for control characters and trailing commas."""
+    cleaned = re.sub(r"^```json\s*", "", raw.strip(), flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s*```$", "", cleaned)
+    try:
+        return json.loads(cleaned, strict=False)
+    except Exception:
+        # Remove trailing commas before } or ]
+        fixed = re.sub(r",\s*([\]}])", r"\1", cleaned)
+        return json.loads(fixed, strict=False)
+
+
 def extract_features_with_llm(property_info: Dict[str, Any], model: str = DEFAULT_MODEL) -> Dict[str, Any]:
     """Call Ollama to extract structured fields in JSON format with ground-truth verification."""
     official = property_info.get("official_meta", {})
@@ -220,6 +243,9 @@ def extract_features_with_llm(property_info: Dict[str, Any], model: str = DEFAUL
     beds_str = official.get('beds_text') or "Not specified in header"
     rooms_str = f"{official.get('bedrooms_count')} bedrooms" if official.get('bedrooms_count') else "Not specified in header"
     badges_str = ", ".join(official.get('amenity_badges', [])) or "None"
+
+    # Sanitize text to avoid unescaped double quotes inside Czech descriptions
+    sanitized_text = sanitize_czech_text(property_info.get("text", ""))[:7500]
 
     user_prompt = f"""Cottage: {property_info['name']} (ID: {property_info['id']})
 URL: {property_info['url']}
@@ -230,31 +256,29 @@ Verified Header Parameters:
 - Amenity Badges: {badges_str}
 
 Details & Description:
-{property_info['text']}
+{sanitized_text}
 
-Extract all features according to the JSON schema."""
+Extract all features according to the JSON schema. Use single quotes for any quotes inside string values."""
 
     try:
         response = ollama.generate(
             model=model,
             prompt=f"{EXTRACTION_SYSTEM_PROMPT}\n\n{user_prompt}",
             format=FEATURE_SCHEMA,
-            options={"temperature": 0.1, "num_predict": 2048}
+            options={"temperature": 0.1, "num_ctx": 8192, "num_predict": 2048}
         )
-        raw_json = response.get("response", "{}")
-        data = json.loads(raw_json)
+        raw_json = response.get("response", "") if isinstance(response, dict) else response.response
+        data = parse_json_safely(raw_json)
     except Exception as e:
-        # Fallback to general format="json" if model doesn't support schema enforcement
+        # Fallback to general format="json" with 8k context if schema enforcement failed
         response = ollama.generate(
             model=model,
             prompt=f"{EXTRACTION_SYSTEM_PROMPT}\n\n{user_prompt}",
             format="json",
-            options={"temperature": 0.1, "num_predict": 2048}
+            options={"temperature": 0.1, "num_ctx": 8192, "num_predict": 2048}
         )
-        raw_json = response.get("response", "{}")
-        cleaned = re.sub(r"^```json\s*", "", raw_json.strip())
-        cleaned = re.sub(r"\s*```$", "", cleaned)
-        data = json.loads(cleaned)
+        raw_json = response.get("response", "") if isinstance(response, dict) else response.response
+        data = parse_json_safely(raw_json)
 
     # Apply deterministic ground-truth overrides from verified HTML fields
     if official.get("capacity_persons") is not None:
