@@ -291,34 +291,29 @@ python3 web_crawler_bridge.py --daily-limit 50
 
 ---
 
-## 🎯 Modern Two-Pass AI Evaluation for `garage-trip.cz`
-
-Tailored specifically for retreats of 25–35 people requiring large common spaces, sturdy tables for laptop hacking/board games, high toilet ratios, and private saunas.
-
-### Pass 1: Structured Feature Extraction (`extract_features_llm.py`)
-Parses raw HTML/DOM and extracts normalized, high-signal technical specs into `properties_structured.json` (exact bed layout, separate room counts, shower & toilet counts, sauna type, kitchen appliances, and exclusive private rental confirmation):
+### Pass 1: Text-Only Scoring (`score_text_pass1.py`)
+Scores all 366 properties from `properties_structured.json` using the 100-point rubric tailored for 25–35 techies/gamers (capacity, tables/common room, beds, toilets, sauna, beer tap) and ranks them:
 ```bash
-# Extract structured features for a single property:
-python3 extract_features_llm.py o358
-
-# Extract all downloaded HTML files:
-python3 extract_features_llm.py -d html -o properties_structured.json
+python3 score_text_pass1.py --input properties_structured.json --top 42 -o rankings_text_pass1.json
 ```
+
+### Gallery Photos & Google Drive Archive (`download_top_candidates_images.py`)
+Downloads complete photo galleries for the top candidate properties with polite pacing (random jitter per photo, 8–12s between cottages):
+```bash
+python3 download_top_candidates_images.py --rankings rankings_text_pass1.json --top 42 -o images
+```
+
+> [!TIP]
+> **Google Drive Gallery Backup**:
+> Because full image galleries are ~375 MB across 1,900+ photos, raw images are gitignored and archived in Google Drive for team collaboration:
+> - **Google Drive Path**: `My Drive/Garage Trip 7.0 2026/accommodation_candidates_photos/`
 
 ### Pass 2: Multimodal Scoring & Vision Reasoning (`rank_multimodal.py`)
-Combines the structured metadata from Pass 1, property descriptions, and key gallery photos (`images/<slug>/`) to score the cottage:
+Uses vision-capable `gemma4:e4b` to inspect common room photos, verify tables and seating for laptops/board games, review bedroom comfort, and evaluate saunas/wellness:
 ```bash
-# Score a specific property:
-python3 rank_multimodal.py 358
-
-# Score all properties with Pass 1 data:
-python3 rank_multimodal.py -s properties_structured.json -o ratings_garage_trip.json
-
-# Use a vision-enabled model (e.g. gemma4 / gemma4:e4b):
-python3 rank_multimodal.py --model gemma4:e4b
+python3 rank_multimodal.py --rankings rankings_text_pass1.json --top 42 -o rankings_final_multimodal.json
 ```
-Outputs detailed scores (`overall_score`, `common_room_score`, `tables_and_workspace_score`, `sleeping_comfort_score`, `toilets_ratio_score`, `wellness_score`) and explicit reasoning about visible tables, room distribution, and wellness facilities.
-
+Produces final scores, table confirmations, pros, cons, image reasoning, and verdicts for the organizers.
 
 ---
 
