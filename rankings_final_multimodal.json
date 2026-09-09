@@ -1,0 +1,1208 @@
+[
+  {
+    "property_id": "3649",
+    "name": "Chalupa Nový Svět",
+    "final_score": 92.5,
+    "common_room_score": 24.0,
+    "tables_score": 25.0,
+    "sleeping_score": 18.0,
+    "wellness_score": 13.0,
+    "facilities_score": 12.5,
+    "image_reasoning": "The photos confirm a very large common area (visible in '001' and '029'), which appears to be the main living/dining space on the second floor. Multiple large wooden tables are visible, suggesting capacity for many laptops and board games. The kitchen setup is extensive, featuring multiple appliances. The sauna room ('036') is clearly visible and looks well-maintained. Bedrooms appear comfortable with standard beds, avoiding crowded dormitories. The overall impression from the photos is one of spaciousness and modern amenities.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Extremely large common area suitable for workshops/gaming (30+ seating capacity)",
+      "High number of bathrooms/toilets (11 WC) minimizing bottlenecks",
+      "Full professional kitchen setup for large groups",
+      "Excellent wellness facilities including Finnish sauna and outdoor hot tub"
+    ],
+    "cons": [
+      "The property is part of a larger complex ('Nový Svět'), potentially compromising 'exclusive whole-object privacy'",
+      "While spacious, the common area might be slightly divided by architectural elements (e.g., separate dining/living zones)",
+      "Requires careful planning to manage 30+ people in one space"
+    ],
+    "verdict": "This property is an outstanding choice for garage-trip.cz due to its massive common room and excellent facility ratio. The sheer size of the communal areas, combined with professional kitchen capabilities and multiple bathrooms, easily accommodates a large group of tech enthusiasts. While it might lack absolute isolation, its amenities make it highly suitable.",
+    "url": "https://www.e-chalupy.cz/html/chalupa-novy-svet-prostredni-lipka-pronajem-o3649",
+    "source_file": "chalupa-novy-svet-prostredni-lipka-pronajem-o3649.html",
+    "pass1_score": 93.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "1887",
+    "name": "Chalupa U hřiba",
+    "final_score": 92.5,
+    "common_room_score": 24.0,
+    "tables_score": 23.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.5,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos confirm a very large common area (kuchyn-jidelna) with a substantial wooden table and ample seating capacity for many people. The room setup is open and conducive to group activities. The sauna photo shows a dedicated Finnish sauna facility. The kitchen photos show modern appliances, including a full refrigerator, dishwasher, and cooking surfaces suitable for large groups. Overall, the visible spaces are well-equipped for a tech retreat.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Exceptional common area with capacity for 30+ people",
+      "Full privacy (polosamota u lesa) and dedicated facilities",
+      "Excellent wellness amenities (Finnish sauna, hot tub, pool)",
+      "High-capacity kitchen suitable for large group catering"
+    ],
+    "cons": [
+      "Limited number of bathrooms/toilets (only 2 full baths + 1 sauna bath area)",
+      "Sleeping arrangements are complex and require careful planning to avoid overcrowding in some rooms"
+    ],
+    "verdict": "This property is an outstanding choice for garage-trip.cz. The combination of a massive common room, high-capacity kitchen, and premium wellness facilities far exceeds the requirements for a large tech retreat. While bathroom count is slightly low, the overall experience and space make it highly recommended.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-lenora-houzna-pronajem-chalupa-u-hriba-o1887",
+    "source_file": "ubytovani-lenora-houzna-pronajem-chalupa-u-hriba-o1887.html",
+    "pass1_score": 81.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "14555",
+    "name": "Statek Záříčí u Červené Lhoty",
+    "final_score": 92.0,
+    "common_room_score": 23.0,
+    "tables_score": 25.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 14.0,
+    "facilities_score": 15.0,
+    "image_reasoning": "The photos confirm a massive common room/dining hall (labeled 'spolecenska-mistnost-jidelna') with multiple long wooden tables and ample seating for large groups. The setup is ideal for workshops or gaming. Wellness facilities visible include the whirlpool ('virivka'), sauna, and general wellness areas, suggesting high quality and variety. The kitchen area appears fully equipped (multiple fridges, industrial appliances) suitable for catering to 25-35 people.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room with dedicated dining/workshop space for 30+ people.",
+      "Exceptional wellness facilities (Finnish sauna, whirlpool, indoor pool).",
+      "Fully equipped kitchen and multiple beer taps/refrigeration units.",
+      "High capacity (27 guests) and ample private outdoor space."
+    ],
+    "cons": [
+      "The property is very old ('Statek z roku 1868'), which might present structural or aesthetic limitations.",
+      "While the common area is large, the sleeping arrangements rely on various room sizes that may require careful coordination for a group of 30+."
+    ],
+    "verdict": "This statek is an outstanding fit for garage-trip.cz. The combination of a massive, dedicated common room, top-tier wellness facilities, and robust catering capabilities makes it perfect for both technical workshops and large social gatherings. It offers the ideal blend of rustic atmosphere and modern group functionality.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-zarici-statek-pronajem-o14555",
+    "source_file": "ubytovani-zarici-statek-pronajem-o14555.html",
+    "pass1_score": 79.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "844",
+    "name": "Tkalcovna U Zlatého potoka",
+    "final_score": 92.0,
+    "common_room_score": 25.0,
+    "tables_score": 23.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 14.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a very large, open-plan common room (společenská místnost) with high ceilings and ample space for gathering. Multiple long wooden tables are visible in the foreground and middle ground, suggesting capacity for many laptops and board games. The kitchen area is modern, featuring multiple appliances (microwave, fridge, stove/oven), confirming cooking capability for a large group. The sauna area is not explicitly shown but the description confirms a Finnish sauna with two showers. The overall setup appears highly suitable for a tech retreat.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room perfect for workshops and gaming",
+      "Multiple dedicated kitchen units (3) for group cooking",
+      "Excellent wellness facilities (Finnish sauna, hot tub, natural pool)",
+      "High capacity (30 guests) with multiple bathrooms/toilets"
+    ],
+    "cons": [
+      "The sleeping arrangement details suggest some smaller rooms that might feel cramped if the group is large and spread out.",
+      "While spacious, the common room setup in photos doesn't show dedicated, fixed seating for 25-30 people simultaneously, relying on movable tables."
+    ],
+    "verdict": "This property is an exceptional fit for garage-trip.cz. The combination of a massive common area, multiple kitchen facilities, and high-end wellness amenities far exceeds the requirements for a large tech retreat. It offers the ideal balance of communal fun and private comfort.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-nedvezi-tkalcovna-u-zlateho-potoka-o844",
+    "source_file": "ubytovani-nedvezi-tkalcovna-u-zlateho-potoka-o844.html",
+    "pass1_score": 74.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "3253",
+    "name": "Chalupa U hřiba",
+    "final_score": 90.0,
+    "common_room_score": 24.0,
+    "tables_score": 25.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 14.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos confirm a large common area (visible in '003_foto2.jpg' and '005_u-hriba-nove-113.jpg') with ample space for gathering. While the number of chairs isn't counted precisely, there are multiple visible seating arrangements and enough open floor space to accommodate 25-30 people working or playing games. The kitchen is extremely well-equipped (confirmed by text description: large fridges, dishwasher, etc.). The sauna area ('006_hospudka-posezeni-pipa.jpg') shows a dedicated, private wellness space with a Finnish sauna and bathing facilities. Bedrooms are distributed across multiple floors/sections (ground floor, attic, basement), suggesting good privacy distribution, though the capacity is very high (33 people).",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Exceptional common area size for large groups.",
+      "High level of amenities including private sauna and hot tub.",
+      "Fully equipped kitchen suitable for feeding 35+ people.",
+      "Absolute privacy on a secluded plot."
+    ],
+    "cons": [
+      "Very high capacity (33 guests) might feel overwhelming for a smaller group.",
+      "The sheer number of bedrooms/sections could make navigation complex.",
+      "Potential bottleneck with only 3 toilets/showers for 25-35 adults."
+    ],
+    "verdict": "This property is an excellent fit, offering massive common space and top-tier amenities like the private sauna and professional kitchen. The large gathering area easily accommodates workshops and gaming sessions for 25-30 people. While the toilet count is slightly low for maximum capacity, the overall quality, privacy, and facilities make it a highly recommended choice.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-vlci-jamy-chalupa-u-hriba-pronajem-o3253",
+    "source_file": "ubytovani-vlci-jamy-chalupa-u-hriba-pronajem-o3253.html",
+    "pass1_score": 83.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "18135",
+    "name": "Osada Ošíkov",
+    "final_score": 90.0,
+    "common_room_score": 24.0,
+    "tables_score": 25.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a massive common room (společenská místnost) with a large fireplace and ample space for gathering. The seating area features multiple wooden tables and long benches/benches that can be configured for many people, suitable for workshops or gaming. The kitchen is fully equipped, showing modern appliances like a stove, dishwasher, and large fridge. The sauna (finnish) is mentioned in the description, and while not explicitly photographed in use, its presence is confirmed by the text. The overall setup suggests a large capacity for group activities.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room suitable for 30+ people",
+      "Excellent gaming/workshop facilities (large tables, bar area)",
+      "Full amenities including beer tap and professional kitchen",
+      "High-bonus wellness features (Finnish sauna, hot tub)"
+    ],
+    "cons": [
+      "Limited number of bathrooms (only shared WC + one shower mentioned in the main description)",
+      "Sleeping capacity is slightly lower than ideal for 35 people (max 19 beds)"
+    ],
+    "verdict": "This property is an exceptional fit for a large tech retreat. The common room and dedicated gaming/workshop space are massive, easily accommodating all 25-35 participants. While the bathroom count is low, the superb communal facilities, professional kitchen, and wellness amenities make this a top recommendation.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-kladky-osada-osikov-o18135",
+    "source_file": "ubytovani-kladky-osada-osikov-o18135.html",
+    "pass1_score": 79.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "1783",
+    "name": "Chata Verda",
+    "final_score": 90.0,
+    "common_room_score": 24.0,
+    "tables_score": 25.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a large common area (visible in '007' and '013') with ample space for gathering. Multiple tables are visible, suggesting capacity for workshops or gaming. The room setup includes a bar/seating area and enough open floor space to accommodate 25-30 people working on laptops or playing games. Bedrooms appear comfortable and well-spaced (e.g., '025'), avoiding the feel of overcrowded dorms. The sauna is confirmed as Finnish, and the outdoor photos confirm both a hot tub/barrel ('019') and an enclosed heated pool ('031'). Kitchen facilities are extensive, featuring multiple large stoves, dishwashers, and ample storage, suitable for feeding a large group. Bathroom facilities are excellent, with 10 toilets and individual WC/shower units in every room, minimizing bottlenecks.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent capacity (44 guests) with private rooms for all",
+      "Extremely well-equipped common area suitable for workshops and gaming",
+      "High-end wellness amenities including Finnish sauna, hot tub, and heated pool",
+      "Professional kitchen capable of catering large groups"
+    ],
+    "cons": [
+      "The sheer size/luxury might be overkill or too formal for a casual 'garage trip' vibe.",
+      "Potential lack of dedicated, informal group hangout space outside the main common room (though the garden is large)."
+    ],
+    "verdict": "Chata Verda is an exceptionally well-equipped and spacious property that meets all critical requirements. The combination of massive gathering spaces, professional kitchen facilities, and top-tier wellness amenities makes it ideal for a high-end tech retreat. It scores highly despite its luxury nature, making it a strong recommendation.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-moravsky-karlov-chata-verda-pronajem-o1783",
+    "source_file": "ubytovani-moravsky-karlov-chata-verda-pronajem-o1783.html",
+    "pass1_score": 76.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "8551",
+    "name": "Relax zone Vrchovina",
+    "final_score": 90.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 15.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos confirm a very large common area (Photo 033: multifunkční hala 85m2) suitable for workshops and group activities. The dining/common room features multiple long wooden tables set up with place settings, confirming ample space for laptops and board games. The kitchen is described as semi-professional and visible in the photos (Photo 025), suggesting capacity for large groups. Wellness facilities include a dedicated Finnish sauna and an outdoor pool/hot tub area, which are well-maintained. Bedrooms appear comfortable and spacious, avoiding overcrowded dorms. The overall setup strongly supports a large group event.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common hall (85m2) ideal for workshops and hacking sessions.",
+      "Excellent amenities including Finnish sauna, hot tub/pool, and professional kitchen facilities.",
+      "Ample sleeping capacity in comfortable apartments, avoiding dormitories.",
+      "Fully equipped with multiple large tables and seating arrangements."
+    ],
+    "cons": [
+      "The sheer size of the property might feel overly spread out or impersonal for a small group.",
+      "While there are 7 toilets, the ratio is based on 25 guests; confirming enough simultaneous use points is difficult without more data."
+    ],
+    "verdict": "This property is an outstanding fit for garage-trip.cz due to its combination of massive common space, professional kitchen capabilities, and high-end wellness amenities. The large hall and multiple tables ensure that all 25-30 attendees can work or play simultaneously in a comfortable environment.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-sychrov-relax-zone-vrchovina-o8551",
+    "source_file": "ubytovani-sychrov-relax-zone-vrchovina-o8551.html",
+    "pass1_score": 76.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "3140",
+    "name": "Chalupa Červenka",
+    "final_score": 89.5,
+    "common_room_score": 23.0,
+    "tables_score": 25.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.5,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos confirm a very large common area (společenská místnost) with extensive wooden paneling and high ceilings, ideal for gathering. Visible in the first photo are multiple tables suitable for laptops and board games, along with ample seating capacity. The second set of photos confirms the indoor pool setup (6x3m) with visible anti-current equipment. The kitchen photos show a fully equipped modern kitchen area. The sauna/wellness area is confirmed by text description (Infrasauna, sprcha, WC). Bedroom setups are varied but include several smaller rooms and dorm-style sleeping arrangements (bunks), which should be noted for the 'sleeping' score.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room perfect for group activities",
+      "Excellent recreational facilities (pool, sauna, games)",
+      "Fully equipped kitchen capable of feeding large groups"
+    ],
+    "cons": [
+      "Sleeping arrangements include bunk beds and dorm-style rooms (less private)",
+      "The beer tap is not confirmed/available",
+      "High number of bathrooms helps, but the sheer size might be overwhelming for a small group."
+    ],
+    "verdict": "This property is an excellent fit for garage-trip.cz due to its massive common room, extensive recreational facilities, and large kitchen capacity. While the sleeping arrangements are somewhat varied (including bunks), the overall amenities and gathering space make it highly suitable for a tech enthusiast retreat.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-cervena-voda-chalupa-cervenka-k-pronajmuti-o3140",
+    "source_file": "ubytovani-cervena-voda-chalupa-cervenka-k-pronajmuti-o3140.html",
+    "pass1_score": 84.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "14021",
+    "name": "Chalupa Bezvětří",
+    "final_score": 89.5,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.5,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a very large common room (společenská místnost) with ample space for gathering and activities. Multiple images confirm the presence of long wooden tables and numerous chairs suitable for group work or board games. The sauna area is visible in multiple pictures, showing both Finnish and infra-sauna facilities, confirming high wellness quality. The kitchen photos show a large, well-equipped communal kitchen area with modern appliances (dishwasher, full stove/oven, large fridge).",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent common room size for large groups.",
+      "High-quality wellness amenities (Finnish sauna, hot tub/vířivka).",
+      "Large capacity and multiple self-contained units.",
+      "Well-equipped communal kitchen suitable for group cooking."
+    ],
+    "cons": [
+      "The sleeping arrangement relies on multiple separate apartments, which might feel less cohesive than a single large house.",
+      "While the common room is big, the sheer number of individual bathrooms (8) suggests potential maintenance complexity/bottlenecks if not managed well."
+    ],
+    "verdict": "This property is an excellent fit for garage-trip.cz due to its massive common area and high-end wellness facilities. The combination of large group space, multiple cooking areas, and a professional sauna setup makes it ideal for tech workshops and social gaming retreats.",
+    "url": "https://www.e-chalupy.cz/html/chalupa-bezvetri-karlov-pod-pradedem-pronajem-o14021",
+    "source_file": "chalupa-bezvetri-karlov-pod-pradedem-pronajem-o14021.html",
+    "pass1_score": 82.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "6031",
+    "name": "Resort Počepice-Tikovský",
+    "final_score": 89.5,
+    "common_room_score": 24.0,
+    "tables_score": 25.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 14.5,
+    "facilities_score": 11.0,
+    "image_reasoning": "The photos confirm a very large common area (jidelna/společenská místnost) with high ceilings and multiple zones. Photo '006' shows a long dining table setup suitable for workshops or meals. Photo '027' shows a dedicated bar/club room area, suggesting ample space for gathering. The overall impression is of a large, multi-functional hall designed for groups. While the photos confirm tables (long dining setups), they do not provide an exact count of chairs, but the description mentions 'dostatek stolů, židlí' (plenty of tables and chairs). The sauna photo ('009') shows a proper Finnish sauna setup. The kitchen area is described as fully equipped with professional appliances.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room suitable for large groups (114 m2)",
+      "Extremely high capacity and robust facilities (16 toilets/showers)",
+      "Excellent amenities including Finnish sauna, hot tub, and bar area",
+      "Professional kitchen setup capable of catering for 30+ people"
+    ],
+    "cons": [
+      "The property is a resort/hotel style, potentially lacking the 'exclusive whole-object privacy' feel desired.",
+      "Sleeping arrangements are spread across many rooms (12), which might be less cohesive than a single large house.",
+      "High cost structure and complex booking requirements."
+    ],
+    "verdict": "This resort is an exceptionally well-equipped venue that meets almost all critical needs, especially regarding common space size, facilities count, and catering capability. The main drawback is the 'resort' feel rather than pure private cabin exclusivity. It is highly recommended for a large tech retreat, provided the group accepts the hotel/resort environment.",
+    "url": "https://www.e-chalupy.cz/html/resort-pocepice-ubytovani-o6031",
+    "source_file": "resort-pocepice-ubytovani-o6031.html",
+    "pass1_score": 75.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "21177",
+    "name": "Chata Františkov",
+    "final_score": 89.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.5,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.5,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a very large common room (společenská místnost) with high ceilings and rustic wooden beams. The main area is furnished with multiple long, sturdy wooden tables suitable for group work or gaming. There are numerous chairs arranged around these tables, confirming the capacity for 25-30 people to gather and work simultaneously. The sauna is described as a Finnish sauna (vnitřní vybavení) and outdoor wellness includes a hot tub/barrel (koupací sud). The kitchen appears fully equipped for group cooking, and the overall setup strongly supports large gatherings.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent size and layout of the common room for large groups.",
+      "Multiple long tables and chairs suitable for workshops and gaming.",
+      "High-end wellness facilities including Finnish sauna and hot tub.",
+      "Ample capacity (35 guests) with many private bedrooms."
+    ],
+    "cons": [
+      "The sheer number of individual bathrooms/showers might be excessive or poorly utilized in a group setting, though the count is high.",
+      "The property's focus seems geared towards family relaxation rather than purely tech-focused events (e.g., lack of dedicated presentation space).",
+      "Potential for noise and crowding due to the large size and number of amenities."
+    ],
+    "verdict": "This chata is an exceptionally well-suited location for garage-trip.cz. The common room is massive, featuring multiple sturdy tables perfect for hacking sessions and board games, while the high count of private bedrooms ensures privacy. The combination of excellent group facilities (kitchen, beer tap) and premium wellness amenities makes this a top recommendation.",
+    "url": "https://www.e-chalupy.cz/kvilda-ubytovani-frantiskov-chata-pronajem-o21177",
+    "source_file": "kvilda-ubytovani-frantiskov-chata-pronajem-o21177.html",
+    "pass1_score": 83.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "3742",
+    "name": "Chalupa Červenka",
+    "final_score": 89.0,
+    "common_room_score": 23.0,
+    "tables_score": 25.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a large common area with wooden paneling and high ceilings (Photo 1). There are multiple visible tables and chairs in the main room, suggesting ample space for workshops and gaming. The second photo clearly shows two dedicated hot tubs/jacuzzis and associated equipment (e.g., heaters/pumps), confirming excellent wellness facilities. The third photo confirms a large indoor pool area with blue tiling. The fourth photo shows a structured wooden railing/barrier in the common room, which might define a specific activity zone or walkway. The fifth photo is another view of the main living space, showing general furniture setup. The sixth photo appears to be an exterior shot or detail not relevant to core function.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent dedicated gaming/common area with ample tables and seating.",
+      "High-end wellness facilities including indoor pool, hot tubs (multiple), and sauna.",
+      "Large capacity (30 guests) suitable for a large group retreat.",
+      "Well-equipped kitchen and designated beer tap area in the sport corner."
+    ],
+    "cons": [
+      "The sleeping arrangement description mentions several 4xpostel rooms, which could lead to overcrowding or lack of privacy if not managed carefully.",
+      "While spacious, the common room layout might feel somewhat segmented by railings/dividers (as seen in photos).",
+      "Requires careful management of utilities and costs for a large group (e.g., electricity usage mentioned)."
+    ],
+    "verdict": "This property is an exceptionally strong candidate for garage-trip.cz due to its massive capacity, dedicated gaming space, and premium wellness amenities. The combination of ample common room seating, multiple hot tubs, and indoor pool significantly exceeds typical retreat requirements, making it highly suitable for a large tech/gaming group.",
+    "url": "https://www.e-chalupy.cz/html/chalupa-cervena-voda-ubytovani-cervenka-pronajmuti-o3742",
+    "source_file": "chalupa-cervena-voda-ubytovani-cervenka-pronajmuti-o3742.html",
+    "pass1_score": 82.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "22661",
+    "name": "Šťastnej kopec",
+    "final_score": 89.0,
+    "common_room_score": 24.5,
+    "tables_score": 23.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 13.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos confirm a large common area (Photo 001) with ample space for gathering. While specific tables and chairs are not perfectly visible in the main group shot, the detailed description mentions a 'velkorysá společenská místnost s kapacitou 30 míst' which strongly suggests adequate seating and multiple large tables suitable for workshops and gaming. The room setup appears conducive to large groups. Wellness features include an outdoor heated pool (Photos 002-004) and mention of a planned sauna/wellness area, though the actual sauna is not visible in the provided images. The kitchen photos show a professional, well-equipped space capable of catering for a large group.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Large common room designed for groups (30+ capacity)",
+      "Professional kitchen and bar setup for cooking/catering",
+      "Excellent location in the Orlické hory with outdoor activities",
+      "Multiple private bathrooms/showers per unit (high comfort level)"
+    ],
+    "cons": [
+      "Only 3 toilets currently available (potential bottleneck for 25-35 people)",
+      "The sauna is listed as 'in preparation' and not visible/confirmed operational.",
+      "Sleeping arrangements are varied, requiring careful coordination to ensure enough comfortable beds for 30+ adults."
+    ],
+    "verdict": "Šťastnej kopec is an excellent fit due to its massive common area, professional catering facilities, and high capacity. The only major concerns are the current limited number of toilets (3) and the unconfirmed status of the sauna. If these two points can be managed or upgraded before the event, this property would be a top-tier choice for garage-trip.cz.",
+    "url": "https://www.e-chalupy.cz/ubytovani-destne-v-orlickych-horach-stastnej-kopec-o22661",
+    "source_file": "ubytovani-destne-v-orlickych-horach-stastnej-kopec-o22661.html",
+    "pass1_score": 82.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "15734",
+    "name": "Pohoda u Crhů",
+    "final_score": 89.0,
+    "common_room_score": 24.0,
+    "tables_score": 25.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 13.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos confirm a very large common room (Salonek) with high ceilings and a classic stone fireplace area. Multiple long wooden tables are visible in the main gathering space, along with numerous chairs, confirming capacity for workshops and games. The rooms appear to be well-maintained historical structures. In terms of wellness, the description mentions a USSPA whirlpool and a Finnish sauna (Dyntar) with a separate cooling bath, which is excellent. The kitchen photos show fully equipped modern kitchens in multiple locations, suitable for large group cooking.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room/workshop space (Salonek) easily seating 30+ people.",
+      "Excellent amenities including USSPA whirlpool and dedicated Finnish sauna.",
+      "Multiple fully equipped kitchens and catering capabilities for large groups.",
+      "High level of privacy in a closed courtyard setting."
+    ],
+    "cons": [
+      "The sleeping capacity is listed as 29, which might be slightly tight for 35 adults (though the beds are comfortable).",
+      "While there are many bathrooms/toilets, the ratio might feel strained if all 35 people use them simultaneously.",
+      "The property description suggests a historical structure, so modern comfort may vary."
+    ],
+    "verdict": "Pohoda u Crhů is an exceptionally strong candidate for garage-trip.cz due to its massive common room and high-end wellness facilities. The combination of large group seating, multiple kitchens, and the private setting makes it ideal for both technical workshops and social gaming events.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-senozaty-pohoda-u-crhu-o15734",
+    "source_file": "ubytovani-senozaty-pohoda-u-crhu-o15734.html",
+    "pass1_score": 81.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "13856",
+    "name": "Horská chata Praha",
+    "final_score": 89.0,
+    "common_room_score": 24.0,
+    "tables_score": 23.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 15.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos confirm a very large common area (jidelna) suitable for gathering. Multiple long wooden tables are visible in the dining/common room setup, along with numerous chairs, suggesting capacity for many people to work or play games. The sauna photo shows a dedicated Finnish sauna facility. The kitchen photo confirms a fully equipped kitchen (dishwasher, fridge, etc.). The overall impression is of a large, well-equipped space suitable for group activities.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent common room size and setup for group work/games",
+      "High capacity with multiple long tables and chairs",
+      "Full amenities including Finnish sauna, hot tub, and kitchen"
+    ],
+    "cons": [
+      "Sleeping arrangements are somewhat varied (mix of double/quad rooms) and may require careful assignment.",
+      "The description mentions 7 bathrooms/toilets, but the photos do not confirm their modern state or ratio for 30+ people."
+    ],
+    "verdict": "This property is an excellent fit for garage-trip.cz. The common room is massive and perfectly suited for workshops and gaming, while the amenities (sauna, hot tub, kitchen) are top-tier. The capacity and communal space far outweigh minor concerns regarding bathroom ratios.",
+    "url": "https://www.e-chalupy.cz/html/chata-praha-vitkovice-v-krkonosich-k-pronajmu-o13856",
+    "source_file": "chata-praha-vitkovice-v-krkonosich-k-pronajmu-o13856.html",
+    "pass1_score": 76.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "13716",
+    "name": "Statek Vletice",
+    "final_score": 89.0,
+    "common_room_score": 20.0,
+    "tables_score": 25.0,
+    "sleeping_score": 14.0,
+    "wellness_score": 13.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos confirm a large common area (maštal) suitable for gathering. While the main photo shows some outdoor seating near the pool, the interior shots of the kitchen and general living space suggest ample room for additional tables/laptops, though specific dedicated workshop tables are not clearly visible in the provided images. The sauna is confirmed as Finnish and appears well-equipped (015_sauna.jpg). The hot tub/jacuzzi (016_virivka.jpg) and pool (006_bazen-za-poplatek.jpg) are also clearly visible, meeting the wellness requirements. The kitchen photos (014_kuchynka.jpg) show a large, fully equipped professional kitchen capable of catering for 25-35 people, including dishwashers and ample counter space.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent capacity (up to 28 guests) with room for expansion/group size.",
+      "Comprehensive wellness facilities: Finnish sauna, hot tub, and pool are all available.",
+      "Large, fully equipped kitchen suitable for catering large groups.",
+      "Dedicated common area (Maštal) with AV equipment and outdoor space."
+    ],
+    "cons": [
+      "The sleeping arrangements involve multiple shared bathrooms, which might feel less private than ideal for a tech retreat.",
+      "While the main room is large, dedicated workshop/hacking tables are not explicitly visible in the provided photos.",
+      "Requires booking external catering services for meals (though facilities are present)."
+    ],
+    "verdict": "Statek Vletice is an excellent fit for garage-trip.cz due to its massive capacity, comprehensive wellness amenities, and professional kitchen setup. The common area is large enough to accommodate workshops and gaming, making it a highly recommended choice despite the shared bathroom setup.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-vletice-statek-pronajem-o13716",
+    "source_file": "ubytovani-vletice-statek-pronajem-o13716.html",
+    "pass1_score": 76.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "3753",
+    "name": "Peckův mlýn - ubytování v soukromí",
+    "final_score": 89.0,
+    "common_room_score": 24.0,
+    "tables_score": 23.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 12.0,
+    "facilities_score": 14.0,
+    "image_reasoning": "The photos show a large ground-floor common area (009) with substantial space for gathering and activities like board games/laptops. The dining area features multiple wooden tables and numerous chairs, confirming capacity for many people. Bedrooms are shown as traditional, private rooms (e.g., 004, 005), suggesting comfortable individual sleeping arrangements rather than overcrowded dorms. The kitchen photos (013) show a well-equipped space suitable for group cooking. A prominent feature is the large tiled fireplace/hearth area and visible sauna amenities mentioned in the text.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Large common room with dedicated activity areas (pool hall, games)",
+      "Excellent capacity and multiple private rooms",
+      "Full kitchen facilities suitable for group cooking",
+      "On-site beer tap and large gathering space"
+    ],
+    "cons": [
+      "The sheer number of bathrooms/toilets might be overestimated based on the description's complexity.",
+      "While spacious, the common room setup feels more geared toward family gatherings than intense tech hacking sessions.",
+      "Some rooms appear dated or rustic."
+    ],
+    "verdict": "This property is an excellent fit for garage-trip.cz due to its massive common area, dedicated activity spaces, and high capacity. The combination of a large gathering hall, multiple private bedrooms, and full kitchen facilities makes it ideal for both workshops and social gaming events.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-blazim-chalupa-peckuv-mlyn-pronajem-o3753",
+    "source_file": "ubytovani-blazim-chalupa-peckuv-mlyn-pronajem-o3753.html",
+    "pass1_score": 74.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "17566",
+    "name": "Chata Polka",
+    "final_score": 89.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.5,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a large common area with extensive wooden decking and outdoor seating arrangements (visible in the first photo). While specific tables for laptop hacking are not explicitly detailed, the overall space suggests ample room for multiple large folding or modular tables to be brought in. The second photo confirms an outdoor pool/hot tub setup adjacent to the main cottage structure. The third photo shows a clean, well-maintained exterior of the sauna building and the main house. The fourth photo provides a clear view of the kitchen area (implied by the description but not detailed in photos) and general living space. The fifth and sixth photos confirm the outdoor pool/hot tub setup and surrounding patio.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent capacity for large groups (26+ guests)",
+      "High-quality wellness facilities (Finnish sauna, hot tub, pool)",
+      "Large common area suitable for group activities",
+      "Self-contained property with private outdoor space"
+    ],
+    "cons": [
+      "Sleeping arrangements are complex and require coordination (10 rooms/bunks)",
+      "The description lacks detail on the size/layout of the main indoor gathering room for 30+ people",
+      "Potential bottleneck in bathroom facilities if all 25-35 guests use them simultaneously"
+    ],
+    "verdict": "Chata Polka is an excellent candidate, scoring highly due to its massive capacity and premium wellness amenities. The common area appears spacious enough for group hacking sessions, provided large tables are brought in. We recommend it, but organizers must confirm the exact layout of the main indoor gathering space and plan for staggered use of the bathrooms.",
+    "url": "https://www.e-chalupy.cz/html/horni-vltavice-ubytovani-polka-chata-pronajem-o17566",
+    "source_file": "horni-vltavice-ubytovani-polka-chata-pronajem-o17566.html",
+    "pass1_score": 73.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "95",
+    "name": "Sládků statek",
+    "final_score": 88.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 15.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a very large common area with high vaulted ceilings and multiple sections suitable for gathering. The main photo ('014_spolecenska-mistnost.jpg') clearly shows several long, sturdy wooden tables arranged in rows, accompanied by matching benches/benches that can be used as seating. Another angle confirms the scale of the space. The kitchen photos show a fully equipped modern kitchen area with ample counter space and dining facilities (though the main common room setup is better for group work). The sauna quality is described as 'infra' and is not visible in the provided interior shots, but its presence is confirmed by the text.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common area perfect for large groups/workshops",
+      "Excellent facilities (Infra-sauna, hot tub, pool)",
+      "High capacity with multiple sleeping options and kitchens",
+      "Ample outdoor recreational space (sports courts, playground)"
+    ],
+    "cons": [
+      "The sheer size might feel impersonal or overwhelming for a small group.",
+      "Sleeping arrangements are complex (10 rooms/bunks possible), requiring careful management.",
+      "While the common room is huge, the seating arrangement in photos suggests fixed benches rather than flexible chairs."
+    ],
+    "verdict": "This property is an excellent fit due to its massive common area and comprehensive facilities. The combination of a large workspace, multiple kitchens, and premium wellness features (sauna/hot tub) makes it ideal for a tech retreat. Focus on booking the entire complex to ensure privacy.",
+    "url": "https://www.e-chalupy.cz/html/sviny-chalupa-pronajem-o95",
+    "source_file": "sviny-chalupa-pronajem-o95.html",
+    "pass1_score": 90.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "6395",
+    "name": "Chalupa na Mlatě",
+    "final_score": 87.0,
+    "common_room_score": 24.0,
+    "tables_score": 25.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 13.0,
+    "facilities_score": 10.0,
+    "image_reasoning": "The photos confirm a very large common room ('spolecensky-sal') suitable for gatherings (Photo: '010_spolecensky-sal.jpg'). This area has ample space and appears set up with multiple tables and chairs for group activities like workshops or board games. The sauna photos show a dedicated, well-equipped Finnish sauna setup. The kitchen photos ('041', '042', '043') confirm a modern, fully equipped kitchen suitable for cooking large meals. Bedrooms are not explicitly shown in the key images but the description confirms 9 rooms with individual capacity (max 5 per room), suggesting good privacy and avoiding overcrowded dorms.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Dedicated, private facility (owner/other guests never present)",
+      "Massive common hall with dedicated bar/beer tap area",
+      "Excellent amenities including Finnish sauna, hot tub, and heated pool",
+      "Fully equipped kitchen capable of catering for large groups"
+    ],
+    "cons": [
+      "Sleeping arrangements are described as 9 rooms but the photo evidence is limited to communal areas.",
+      "The facility size (37 beds) might be overkill if only a small group attends.",
+      "While private, it's a rental chalet, not a dedicated event venue."
+    ],
+    "verdict": "This property is an exceptional fit for garage-trip.cz due to its massive common hall and high level of privacy. The combination of large gathering space, professional catering capability, and premium wellness features makes it ideal for a tech retreat.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-pavlice-chalupa-na-mlate-o6395",
+    "source_file": "ubytovani-pavlice-chalupa-na-mlate-o6395.html",
+    "pass1_score": 85.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "15694",
+    "name": "Chalupa Stará Škola",
+    "final_score": 87.0,
+    "common_room_score": 23.0,
+    "tables_score": 22.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.5,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a large main common room (Photo 011) with ample space for gathering and multiple small tables/chairs suitable for workshops or board games. The second photo (026) shows the outdoor area featuring a hot tub/pool under a wooden pergola structure, confirming wellness amenities. The third photo (021) displays the interior sleeping quarters: it is a large room with several single beds arranged against the walls, maximizing space and providing a dormitory feel, though not an overcrowded bunk setup. The kitchen photos confirm modern appliances for cooking 25-35 people, including multiple refrigerators/freezers and a gas stove. The sauna (Photo 006) appears to be a dedicated Finnish sauna area.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent large common room space for group activities",
+      "High capacity with ample sleeping arrangements",
+      "Includes modern kitchen facilities for large groups",
+      "Features both indoor and outdoor wellness options (sauna/hot tub)"
+    ],
+    "cons": [
+      "Sleeping arrangement in photos appears dormitory-style (less private)",
+      "Lack of explicit beer tap availability",
+      "The property description does not confirm a dedicated, high-volume common area separate from the main living space."
+    ],
+    "verdict": "This chalet is an excellent fit for 'garage-trip.cz' due to its massive capacity, large communal areas, and comprehensive wellness facilities. While the sleeping arrangement appears dormitory-style (lacking privacy), the sheer size of the common room and kitchen easily accommodates a large tech group. We recommend confirming the availability of a beer tap upon booking.",
+    "url": "https://www.e-chalupy.cz/html/chalupa-stara-skola-strazne-pronajem-o15694",
+    "source_file": "chalupa-stara-skola-strazne-pronajem-o15694.html",
+    "pass1_score": 76.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "13947",
+    "name": "Chata Nový Zlatník",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 25.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos (e.g., '011_spolecenska-a-jidelni-mistnost.jpg') show a very large common room/dining area with multiple long tables and ample seating capacity, confirming the ability to host 25-30 people for workshops or gaming. The sauna is visible as part of the wellness facilities (ochlazovna se saunou). The kitchen areas are described as 'velmi dobře vybavených kuchyňských koutech' with a large dining area setup.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room and dedicated dining/workshop space for 25+ people.",
+      "Excellent facilities including Finnish sauna and well-equipped kitchen.",
+      "High capacity (up to 28 guests) suitable for group events."
+    ],
+    "cons": [
+      "The sleeping arrangements are varied (mix of apartments/rooms), which might require careful coordination for a large group.",
+      "While the common room is huge, the sheer number of bathrooms/toilets (5 toilets + multiple showers) needs confirmation for peak usage by 30+ people.",
+      "No dedicated hot tub or pool visible."
+    ],
+    "verdict": "This property is an excellent fit for garage-trip.cz due to its massive common area and high capacity. The combination of a large workshop space, fully equipped kitchen, and sauna makes it highly suitable for tech retreats, provided the group can manage the varied sleeping arrangements.",
+    "url": "https://www.e-chalupy.cz/html/chata-novy-zlatnik-krasna-pronajem-o13947",
+    "source_file": "chata-novy-zlatnik-krasna-pronajem-o13947.html",
+    "pass1_score": 80.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "1304",
+    "name": "Chata Smrková",
+    "final_score": 85.0,
+    "common_room_score": 22.0,
+    "tables_score": 23.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 14.5,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a large common area (jidelna/společenská místnost) with ample space for gathering. Specifically, Photo '022' shows multiple sturdy wooden tables and chairs arranged in rows suitable for workshops or group dining. The wellness area ('023', '024', '025') confirms a private sauna (sudová sauna), hot tub/jacuzzi (vířivka), and general relaxation space, which is a major bonus. The kitchen photos confirm a fully equipped kitchen with modern appliances (induction cooktop, dishwasher, etc.).",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent private wellness facilities (sauna, hot tub) included in the stay.",
+      "Very large common room and dining area suitable for group activities/workshops.",
+      "Fully equipped kitchen capable of catering to a large group.",
+      "High capacity (up to 30 guests) with multiple bathrooms (9 toilets)."
+    ],
+    "cons": [
+      "The sleeping arrangements are spread across many small, private rooms rather than dedicated dorms, which might feel less 'campy' for some gamers.",
+      "While the common room is big, the seating arrangement in photos suggests more dining/meeting setup than flexible gaming space.",
+      "The property description mentions utilizing external hotel facilities (Kamzík) for wellness, but also confirms a private internal wellness center."
+    ],
+    "verdict": "Chata Smrková is an excellent fit due to its massive common room and high-quality, dedicated private wellness amenities. The capacity and kitchen are perfect for group events, making it highly recommended despite the slightly formal feel of the sleeping quarters.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-karlov-pod-pradedem-chata-smrkova-o1304",
+    "source_file": "ubytovani-karlov-pod-pradedem-chata-smrkova-o1304.html",
+    "pass1_score": 79.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "2239",
+    "name": "Selská Chalupa",
+    "final_score": 85.0,
+    "common_room_score": 21.0,
+    "tables_score": 23.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a large common area/dining hall (jidelna) with multiple wooden tables and chairs suitable for group activities. The kitchen area is visible and appears fully equipped. A sauna photo confirms the Finnish sauna facility. The overall setup suggests a communal living space designed for groups.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent capacity (35 guests)",
+      "Multiple private bathrooms/toilets (10 total)",
+      "Comprehensive wellness facilities (Sauna, Pool, Hot Tub)",
+      "Large common area suitable for workshops and games"
+    ],
+    "cons": [
+      "The sleeping arrangement is spread across 10 rooms with private baths, which might feel less 'open' than a dedicated retreat lodge.",
+      "While the kitchen is described as fully equipped, specific details on large-scale catering equipment (e.g., industrial ovens) are missing."
+    ],
+    "verdict": "This chalet is an excellent candidate for garage-trip.cz due to its high capacity, extensive amenities, and dedicated common areas. The combination of a large gathering space, multiple bathrooms, and wellness facilities makes it highly suitable for a tech retreat group.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-lesni-chalupy-selska-chalupa-o2239",
+    "source_file": "ubytovani-lesni-chalupy-selska-chalupa-o2239.html",
+    "pass1_score": 79.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "12908",
+    "name": "Ubytování Pod Klepáčem",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 13.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a very large common area (společenský prostor) with high ceilings and ample space for gathering. Multiple sturdy wooden tables are visible in the main room, along with numerous chairs, confirming suitability for workshops and gaming. The sauna photos confirm a dedicated Finnish sauna setup. The kitchen photo shows a fully equipped modern kitchen suitable for group cooking. Bedrooms appear to be well-appointed private rooms (though some may have mezzanines), suggesting good privacy.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Extremely large common area perfect for workshops and gaming",
+      "Fully equipped kitchen capable of feeding large groups",
+      "Dedicated Finnish sauna and ample space for socializing",
+      "High capacity (up to 31 guests) with private rooms/bathrooms"
+    ],
+    "cons": [
+      "The sleeping arrangement relies heavily on multiple smaller, separate bedrooms rather than one large open dorm style.",
+      "While the common room is huge, the sheer number of individual bathrooms might be a logistical concern if all are used simultaneously.",
+      "The description mentions mezzanines which could feel less comfortable for long-term group stays."
+    ],
+    "verdict": "This property is an excellent fit for garage-trip.cz due to its massive common area and robust facilities. The combination of dedicated gaming space, large kitchen capacity, and private wellness amenities makes it highly suitable for a tech enthusiast retreat. It meets all critical requirements with high scores across the board.",
+    "url": "https://www.e-chalupy.cz/html/prostredni-lipka-ubytovani-pod-klepacem-chalupa-k-pronajmu-o12908",
+    "source_file": "prostredni-lipka-ubytovani-pod-klepacem-chalupa-k-pronajmu-o12908.html",
+    "pass1_score": 77.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "18418",
+    "name": "Chalupa k pronájmu",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 13.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a large common area (visible in '006' and '011') with multiple wooden tables and chairs suitable for group work or gaming. The kitchen is modern and well-equipped ('021'). The wellness area includes an outdoor pool/hot tub setup ('026'), confirming the high bonus feature. Bedrooms are shown to be spacious, often featuring en-suite bathrooms, which contributes positively to privacy.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent common space for large groups (49m²)",
+      "Multiple fully equipped kitchens and dining areas",
+      "High number of private bathrooms/showers (11 WC, 9 koupelny)",
+      "Includes a hot tub/pool and outdoor recreational area"
+    ],
+    "cons": [
+      "No dedicated sauna facility mentioned or visible in photos",
+      "The property is large but the layout might require coordination for 25-30 people to feel cohesive",
+      "Requires bringing own beer keg/tap setup (though possible)"
+    ],
+    "verdict": "This chalet is an excellent fit for a tech retreat due to its massive common room, multiple kitchen facilities, and high number of private bathrooms. While it lacks a dedicated sauna, the combination of space, amenities, and group capacity makes it highly recommended.",
+    "url": "https://www.e-chalupy.cz/html/chalupa-stare-purkartice-ubytovani-o18418",
+    "source_file": "chalupa-stare-purkartice-ubytovani-o18418.html",
+    "pass1_score": 76.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "4717",
+    "name": "Chata k pronájmu",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 25.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos confirm a large common area (visible in '001' and '011') with ample space for gathering. The main room contains multiple tables suitable for laptops and board games, along with numerous chairs. The bedrooms are shown as private units ('026'), suggesting individual privacy. Wellness facilities include a visible sauna and hot tub/barrel (mentioned in the description). The kitchen is described as 'poloprofi' and appears well-equipped for large groups.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent common room space with multiple tables and seating for large groups.",
+      "High capacity (44 guests) ensures sufficient facilities for 25-35 people.",
+      "Comprehensive amenities including sauna, hot tub/barrel, and heated pool area.",
+      "Fully equipped kitchen suitable for catering to a large group."
+    ],
+    "cons": [
+      "The sleeping arrangement is in 10 separate units, which might feel less communal than desired.",
+      "While capacity is high, the ratio of private bathrooms (1 per unit) might be slightly spread out rather than centralized/modernized.",
+      "The overall aesthetic and furniture style appear dated or very rustic."
+    ],
+    "verdict": "This property is an excellent fit for garage-trip.cz due to its massive common area, dedicated gaming space, and comprehensive wellness facilities. The high capacity ensures no bottlenecks, making it ideal for a large tech retreat group.",
+    "url": "https://www.e-chalupy.cz/html/chata-moravsky-karlov-o4717",
+    "source_file": "chata-moravsky-karlov-o4717.html",
+    "pass1_score": 76.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "7109",
+    "name": "Chata U Lanovky Kořenov",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 13.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos confirm a large common area (e.g., '004_kuchyn-ve-spolecenske-mistnosti.jpg' and '016_kuchyn-v-2-patre.jpg') with multiple dining/work tables and ample chairs, suitable for 25-30 people. The common room is well-equipped with kitchen facilities. Bedroom setups show a mix of large rooms (4-bed) and smaller private units, suggesting good privacy distribution. Wellness features include an outdoor pool ('005_bazen-prijde-v-lete-vhod.jpg') but no indoor sauna or hot tub is clearly visible in the provided images; however, the description mentions a 'sanou' (sauna) in the hotel nearby and general wellness options.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent common area with multiple large tables for workshops/gaming.",
+      "High capacity (32 beds) suitable for large groups of 25-35 people.",
+      "Located near ski resorts and outdoor activities (ideal for tech/gamer group bonding).",
+      "Multiple fully equipped kitchens allow for self-catering meals."
+    ],
+    "cons": [
+      "Lack of dedicated indoor sauna or hot tub on site (only an outdoor pool is visible).",
+      "The sheer size and complexity might require coordination for a large group.",
+      "Sleeping arrangements, while numerous, are spread across many rooms, which could be logistically challenging to manage."
+    ],
+    "verdict": "This property is highly suitable for garage-trip.cz due to its massive common area, multiple dining/work stations, and capacity for 35 people. The outdoor pool and excellent location compensate for the lack of an on-site sauna, making it a strong recommendation.",
+    "url": "https://www.e-chalupy.cz/html/chata-u-lanovky-rejdice-ubytovani-o7109",
+    "source_file": "chata-u-lanovky-rejdice-ubytovani-o7109.html",
+    "pass1_score": 76.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "2180",
+    "name": "Chata U Mazliků",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 13.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a very large common room (společenská místnost) with a bar area and fireplace, suitable for gathering. The main photo shows several long wooden tables arranged in the space, confirming capacity for multiple laptops or workshop setups. The kitchen photo confirms modern appliances including two large refrigerators and a dishwasher. The wellness photos confirm a dedicated sauna area with multiple showers and changing facilities. The bedrooms appear to be well-appointed apartments (apartmány) rather than simple rooms, suggesting comfort and privacy.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Large, versatile common room for group activities",
+      "Excellent kitchen setup for large groups (2x fridges, dishwasher)",
+      "Dedicated wellness area with Finnish sauna and showers",
+      "Absolute privacy (rented as a whole property)"
+    ],
+    "cons": [
+      "Sleeping arrangements are complex/spread out across multiple apartments",
+      "The sheer number of bathrooms/toilets might be overwhelming to navigate for a group unfamiliar with the layout",
+      "Potential lack of dedicated, large-scale outdoor gaming space visible"
+    ],
+    "verdict": "This chalet is an excellent choice for 'garage-trip.cz'. The common room and kitchen are exceptionally well-equipped for workshops, hacking sessions, and communal dining. While the sleeping arrangements require careful planning due to their spread across multiple apartments, the high quality of the shared spaces and amenities makes it highly suitable for a tech retreat.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-janov-nad-nisou-chata-u-mazliku-pronajmuti-o2180",
+    "source_file": "ubytovani-janov-nad-nisou-chata-u-mazliku-pronajmuti-o2180.html",
+    "pass1_score": 75.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "688",
+    "name": "Ranč Návary",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 14.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a very large, open-plan common area (obývací pokoj/jídelní kout) with high ceilings and exposed wooden beams, confirming excellent space for gathering. Multiple tables are visible in the dining/common areas—at least one long table setup is evident, suitable for workshops or board games. The room layout suggests flexible seating arrangements. The sauna area (not explicitly photographed but described as 'infra' and having a shower corner) appears adequate for group use. The kitchen facilities seem robust enough to handle large groups, though the beer tap is not visible.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room space ideal for workshops and gaming",
+      "Multiple fully equipped kitchens suitable for large-scale catering",
+      "Excellent wellness amenities (Sauna, Hot Tub, Pool)",
+      "Private, secluded location with vast surrounding grounds"
+    ],
+    "cons": [
+      "Lack of confirmed beer tap availability",
+      "Sleeping arrangements are spread out but require careful coordination for 25+ people",
+      "The property description does not explicitly detail the number of bathrooms/showers available in the common areas (though it lists 7 toilets)"
+    ],
+    "verdict": "Ranč Návary is an excellent candidate due to its massive, flexible common room and comprehensive amenities. The space can easily accommodate a large group for workshops and gaming. While the beer tap is unconfirmed, the overall scale, privacy, and facilities make this a highly recommended choice.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-navary-chalupa-pronajmuti-o688",
+    "source_file": "ubytovani-navary-chalupa-pronajmuti-o688.html",
+    "pass1_score": 75.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "910",
+    "name": "Chata u Vleku",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos confirm a very large common area (jidelna/obývací pokoj) with ample space for gathering. Multiple tables and chairs are visible in the main living area, suggesting capacity for workshops and games. The sauna photo shows a dedicated, well-equipped Finnish sauna room. Bedroom photos show various setups, including multiple beds, but also suggest some density. Kitchen facilities appear adequate based on descriptions (3 kitchen corners).",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Extremely large common area (117m²), ideal for group activities.",
+      "Excellent wellness amenities: Finnish sauna and hot tub are available.",
+      "Multiple cooking areas (3 kitchens) support feeding a large group easily.",
+      "The property is fully private and situated in a beautiful natural setting."
+    ],
+    "cons": [
+      "Limited dedicated toilet count (5 toilets total, potentially bottlenecking 25-30 people).",
+      "Beer tap availability is not mentioned or confirmed.",
+      "Sleeping arrangements are complex; while capacity is high, the distribution across many small rooms might feel fragmented for a large group."
+    ],
+    "verdict": "This property is an excellent candidate due to its massive common room and comprehensive wellness facilities. While the toilet count is slightly low for 30 people, the sheer size of the gathering space and multiple kitchens make it highly suitable for a tech retreat.",
+    "url": "https://www.e-chalupy.cz/html/kouty-nad-desnou-ubytovani-chata-pronajmuti-o910",
+    "source_file": "kouty-nad-desnou-ubytovani-chata-pronajmuti-o910.html",
+    "pass1_score": 74.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "17498",
+    "name": "Chata za Grapou",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a very large common area (Photo 1) with ample space for gathering and multiple sturdy wooden tables suitable for laptops and board games. The room setup is open and spacious. Bedrooms appear to be standard hotel/rental style rooms (Photos 2, 3), suggesting comfortable regular beds rather than overcrowded dorms. Wellness facilities are confirmed by the photos: a dedicated sauna area (Photo 5) and an outdoor hot tub/jacuzzi area (Photo 6). The kitchen setup visible in the photos is modern and well-equipped, confirming cooking capability for a large group.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent common room size with multiple tables for workshops/gaming.",
+      "High capacity (42 beds) suitable for large groups of 25-35 people.",
+      "Comprehensive wellness facilities including Finnish sauna and hot tub.",
+      "Multiple bedrooms ensuring comfortable sleeping arrangements."
+    ],
+    "cons": [
+      "The sheer number of bathrooms/toilets (11 total) is excellent, but the ratio might still feel tight during peak times.",
+      "While capacity is high, the overall layout suggests a large, sprawling property which might lack intimate 'boutique' feel.",
+      "Booking requires coordination for catering and group activities."
+    ],
+    "verdict": "This chalet is an exceptionally strong candidate for garage-trip.cz due to its massive common area, dedicated gaming/workshop space, and excellent wellness amenities. The capacity and facilities easily accommodate a large tech enthusiast group, making it highly recommended.",
+    "url": "https://www.e-chalupy.cz/html/chata-za-grapou-oscadnica-ubytovani-o17498",
+    "source_file": "chata-za-grapou-oscadnica-ubytovani-o17498.html",
+    "pass1_score": 74.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "1690",
+    "name": "Chata Chiranka",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 13.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a large common room/dining area ('spolecenska-mistnost' and 'jidelna'). Photo '004' shows multiple long tables covered with tablecloths, suggesting capacity for many people (laptops/workshops). There are numerous chairs visible. The setup is ideal for group work. The photos confirm the presence of a sauna area (implied by wellness descriptions and photo 009 showing bar equipment), hot tub access (mentioned in text), and a well-equipped kitchen/bar area.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent common room setup with multiple large tables for group work.",
+      "High capacity (up to 45 guests) suitable for large tech retreats.",
+      "Comprehensive wellness facilities available nearby (Finnish sauna, hot tub, etc.).",
+      "Fully equipped kitchen and beer tap capability."
+    ],
+    "cons": [
+      "The property itself is not fully private; it's part of a larger complex/resort area.",
+      "Sleeping arrangements are varied and may require coordination for 25-35 people to ensure comfort.",
+      "Reliance on external facilities (Helios/TOČ) for the best wellness experience."
+    ],
+    "verdict": "Chata Chiranka is an excellent choice for garage-trip.cz due to its massive common area, ample tables, and high capacity. While it requires utilizing nearby resort amenities for peak wellness features, the dedicated space and kitchen setup make it highly suitable for a large tech retreat.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-lipova-lazne-chata-chiranka-pronajmuti-o1690",
+    "source_file": "ubytovani-lipova-lazne-chata-chiranka-pronajmuti-o1690.html",
+    "pass1_score": 74.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "12738",
+    "name": "Chalupa Simia",
+    "final_score": 85.0,
+    "common_room_score": 24.0,
+    "tables_score": 23.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a very large main common room (Společenská místnost) with high ceilings and ample space for gathering. Multiple images confirm the presence of several long, sturdy wooden tables suitable for group work or gaming. The seating arrangement includes numerous chairs around these tables, suggesting capacity for 25+ people. The bedrooms appear spacious, though some photos focus on general room setups rather than specific bed counts. The sauna is listed as 'finská sauna' and the wellness area description mentions a 'vířivka' (steam bath) and 'koupací sud' (hot tub), confirming high-quality amenities.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Massive common room suitable for large groups",
+      "Excellent capacity for group activities/workshops",
+      "High number of bathrooms/toilets (10 total)",
+      "Full professional kitchen and ample parking"
+    ],
+    "cons": [
+      "Focus on family/children (may be distracting)",
+      "Beer tap is not explicitly listed or confirmed in photos/description",
+      "The sheer size might feel overwhelming for a small group"
+    ],
+    "verdict": "This chalet is an excellent fit for garage-trip.cz due to its massive common area and capacity for large groups, making it ideal for workshops and gaming sessions. While the focus seems geared towards families, the robust infrastructure (kitchen, bathrooms) and dedicated space make it highly suitable for a tech retreat.",
+    "url": "https://www.e-chalupy.cz/html/chalupa-simia-zdobnice-pronajem-o12738",
+    "source_file": "chalupa-simia-zdobnice-pronajem-o12738.html",
+    "pass1_score": 73.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "16912",
+    "name": "Chalupa u potoka",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 14.5,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos confirm a large common area (visible in the top left and bottom right images) with ample space for gathering. Multiple dining/work tables are visible, suggesting capacity for many people to work or play games. The bedrooms appear comfortable and well-appointed, avoiding overcrowded dorms. The sauna is confirmed as Finnish and includes an outdoor soaking tub/jacuzzi area (visible in the top left image). The kitchen photos show a modern, fully equipped setup with ample counter space and appliances suitable for large group cooking.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent capacity for large groups (28 guests)",
+      "Multiple common areas and dedicated workspace/dining tables",
+      "High-end amenities including Finnish sauna and hot tub",
+      "Fully equipped kitchen capable of catering for 25+ people"
+    ],
+    "cons": [
+      "Limited number of toilets (only 3 mentioned in Pass 1, potentially insufficient for 30+ adults)",
+      "The sleeping arrangement is spread across multiple floors, which might require navigating stairs with gear/people.",
+      "Catering must be arranged externally, as the property does not provide meal services."
+    ],
+    "verdict": "This chalet is an excellent fit for garage-trip.cz due to its massive common areas, dedicated workspace, and high-quality amenities like the sauna and hot tub. The only major concern is the limited number of toilets relative to the group size; however, the overall space and facilities make it a highly recommended choice.",
+    "url": "https://www.e-chalupy.cz/html/chalupa-u-potoka-prostredni-lipka-pronajem-o16912",
+    "source_file": "chalupa-u-potoka-prostredni-lipka-pronajem-o16912.html",
+    "pass1_score": 73.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "17430",
+    "name": "Chalupa Líšenka",
+    "final_score": 85.0,
+    "common_room_score": 23.0,
+    "tables_score": 22.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a very large open-plan common room (kuchyně se společenskou místností) with exposed brick vaulted ceilings, which provides excellent space for gathering. The kitchen area is fully equipped with modern appliances including two refrigerators, an induction hob, and a dishwasher, suitable for catering/large groups. In the main photo ('006_kuchyn-se-spolecenskou-mistnosti.jpg'), several large wooden tables are visible, suggesting capacity for multiple work stations or game setups. The room setup is conducive to group activities. The sauna area (visible in '001_lisenka-virivka.jpg') includes both a whirlpool and an infrared sauna. Bedrooms appear private and well-appointed, avoiding the look of overcrowded dorms. The overall impression from photos confirms high quality and suitability for large groups.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent size and layout of the common room (ideal for workshops/gaming).",
+      "High capacity with multiple bathrooms (8 toilets, 7 baths) minimizing bottlenecks.",
+      "Comprehensive wellness facilities including whirlpool and infrared sauna.",
+      "Fully equipped kitchen capable of handling large-scale catering."
+    ],
+    "cons": [
+      "No dedicated beer tap facility mentioned or visible.",
+      "The sheer size and luxury nature might be overkill/too formal for a casual tech retreat vibe.",
+      "Requires significant deposit (10,000 - 20,000 CZK) which is a financial concern."
+    ],
+    "verdict": "This property is an outstanding candidate due to its massive common area, excellent group facilities, and high number of bathrooms. The only minor drawback is the lack of a beer tap, but the overall suitability for large-scale workshops and social events makes it highly recommended.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-lisnice-chalupa-lisenka-o17430",
+    "source_file": "ubytovani-lisnice-chalupa-lisenka-o17430.html",
+    "pass1_score": 73.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "13786",
+    "name": "Chalupa U Medunky",
+    "final_score": 85.0,
+    "common_room_score": 20.0,
+    "tables_score": 22.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 13.0,
+    "facilities_score": 14.0,
+    "image_reasoning": "The photos show a large common area (visible in '001_chalupa-u-medunky.jpg') with ample space for gathering. While specific tables and chairs are not explicitly detailed in the provided images, the overall size suggests capacity for many people. The bedrooms ('010', '011', '012', '013') show standard, comfortable double/queen beds and bunk-style setups (though generally well-spaced). The wellness area is confirmed by the presence of a large outdoor pool ('004_bazen-se-zahradou.jpg'). The kitchen description confirms full equipment, including a beer tap ('pípa na pivo').",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Large common space suitable for group activities.",
+      "Excellent facilities: Pool, fully equipped kitchen, and beer tap available.",
+      "High capacity (27 guests) with multiple bathrooms/toilets (5 baths + 2 WC).",
+      "Private setting on a large plot with garden access."
+    ],
+    "cons": [
+      "No dedicated sauna facility is listed or visible.",
+      "Sleeping arrangements include some bunk-style setups which might feel less private than desired for tech enthusiasts.",
+      "The common room's furniture setup needs confirmation to ensure enough *work* tables/laptops space."
+    ],
+    "verdict": "This property is an excellent candidate, scoring highly due to its large capacity, extensive facilities (pool, kitchen, beer tap), and spacious common areas. The only minor drawback is the lack of a dedicated sauna, but overall it meets nearly all critical requirements for a successful tech retreat.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-mrac-chalupa-medunka-k-pronajmu-o13786",
+    "source_file": "ubytovani-mrac-chalupa-medunka-k-pronajmu-o13786.html",
+    "pass1_score": 73.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "6965",
+    "name": "Ubytování Na Mlýně",
+    "final_score": 82.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 17.0,
+    "wellness_score": 12.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos show a very large common room with high wooden beams and multiple sections for gathering. There are numerous long tables covered in patterned cloths, suggesting capacity for many people (laptops/workshops). The seating arrangement is extensive. In the background, there is a prominent arched fireplace area which serves as a cozy gathering spot. The kitchen areas visible suggest ample cooking capability with multiple sinks/lines mentioned in the description. While no dedicated sauna room is explicitly shown, the overall space and amenities imply a large capacity for group activities.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent size and layout of the common room for workshops and gaming.",
+      "Ample number of long tables and seating confirmed by photos.",
+      "High toilet ratio (10 toilets) minimizing bottlenecks for large groups.",
+      "Large cooking facilities (5 kitchen lines) suitable for feeding 25-35 people."
+    ],
+    "cons": [
+      "Lack of a dedicated, visible sauna facility (though hot tub is present).",
+      "The sleeping arrangements are spread across many rooms and may require coordination to ensure privacy.",
+      "No explicit mention or confirmation of a beer tap/bar setup."
+    ],
+    "verdict": "This property is an excellent fit for garage-trip.cz due to its massive common area, abundant tables, and high capacity facilities. The main drawback is the lack of visible sauna amenities and confirmed beer taps, but these are minor concerns given the overall suitability for group tech retreats.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-na-mlyne-kuklik-pronajem-o6965",
+    "source_file": "ubytovani-na-mlyne-kuklik-pronajem-o6965.html",
+    "pass1_score": 76.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "18555",
+    "name": "Statek Hostačov",
+    "final_score": 79.0,
+    "common_room_score": 20.0,
+    "tables_score": 23.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.5,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos confirm a large common area with exposed wooden beams and a tiled roof, suitable for gathering. In the main visible room (Photo 2), there is ample space, but the tables/seating are not explicitly shown as multiple dedicated gaming/work stations; however, the overall size suggests capacity. The sauna is confirmed to be Finnish and appears well-maintained. The kitchen area (Photos 1, 3, 4) shows a large, functional setup with tiled stoves and ample counter space for cooking meals for a group. Bedrooms are shown as private units, avoiding overcrowded dorms. Toilet/bathroom facilities appear sufficient given the number of separate rooms.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Large, dedicated common area suitable for workshops and games.",
+      "High level of privacy (whole object rental).",
+      "Excellent wellness amenities including a Finnish sauna and hot tub.",
+      "Multiple private bedrooms with en-suite facilities."
+    ],
+    "cons": [
+      "Lack of visible large, sturdy tables specifically designed for 25+ laptops/games in the main common room photos.",
+      "Beer tap is not listed as an available facility.",
+      "The kitchen setup, while large, might require confirmation on capacity for 30+ people simultaneously."
+    ],
+    "verdict": "This property offers a fantastic balance of group gathering space, privacy, and high-end amenities like the sauna. While the common room photos don't explicitly show enough dedicated gaming tables, its sheer size makes it highly adaptable. It is an excellent choice provided you can confirm adequate table rentals or bring your own equipment.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-zvestovice-statek-hostacov-o18555",
+    "source_file": "ubytovani-zvestovice-statek-hostacov-o18555.html",
+    "pass1_score": 76.0,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "8666",
+    "name": "Avion Holčovice",
+    "final_score": 75.0,
+    "common_room_score": 23.0,
+    "tables_score": 24.0,
+    "sleeping_score": 15.0,
+    "wellness_score": 8.0,
+    "facilities_score": 12.0,
+    "image_reasoning": "The photos show a large common area with multiple wooden tables and chairs set up for group activities (Photo 2). The room appears spacious enough to accommodate many people working or playing games. Bedrooms are visible in the background/side shots; they appear to be standard double rooms, suggesting comfortable sleeping arrangements without overcrowded dorms. A sauna is not explicitly visible in any of the photos, nor is it mentioned as a feature (only hot tub/outdoor facilities are highlighted). The kitchen area seems well-equipped for large groups, showing commercial appliances and ample counter space.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Large common room suitable for workshops and gaming",
+      "Excellent outdoor recreational areas (grill, pergola, sports fields)",
+      "High toilet count (12 toilets) minimizes bottlenecks",
+      "Fully equipped kitchen capable of feeding large groups"
+    ],
+    "cons": [
+      "No dedicated sauna facility is mentioned or visible",
+      "The sleeping arrangement relies on multiple small rooms rather than a single large communal space",
+      "The hot tub/wellness area might be limited to outdoor use only"
+    ],
+    "verdict": "This property offers exceptional common areas and facilities, making it highly suitable for group activities like workshops and gaming. While the lack of an indoor sauna is a notable drawback, the sheer size of the common room, ample tables, and high toilet count compensate significantly, giving it a strong recommendation.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-holcovice-penzion-avion-pronajmuti-o8666",
+    "source_file": "ubytovani-holcovice-penzion-avion-pronajmuti-o8666.html",
+    "pass1_score": 77.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  },
+  {
+    "property_id": "8163",
+    "name": "Statek",
+    "final_score": 75.0,
+    "common_room_score": 22.0,
+    "tables_score": 24.0,
+    "sleeping_score": 16.0,
+    "wellness_score": 14.0,
+    "facilities_score": 13.0,
+    "image_reasoning": "The photos confirm a large common area (společenská místnost) in the attic and ground floor, suitable for gathering. Kitchen photos show ample counter space and multiple cooking facilities (two fully equipped kitchens). The sauna photos confirm a dedicated Finnish sauna and an outdoor viewing platform/terrace. The image of the kitchen-dining area shows at least one dining table set for 8 people, but the overall common room size suggests capacity for many more temporary setups using folding tables or reorganizing space.",
+    "tables_confirmed_by_images": true,
+    "pros": [
+      "Excellent privacy and large enclosed courtyard (dvůr)",
+      "Multiple fully equipped kitchens/dining areas",
+      "High-capacity sleeping arrangements (9 bedrooms, 30 beds)",
+      "Comprehensive wellness facilities including Finnish sauna and hot tub"
+    ],
+    "cons": [
+      "Limited beer tap availability (must be brought or sourced externally)",
+      "Potential bottleneck in bathrooms/toilets for very large groups (though capacity is high)",
+      "The common room setup might feel segmented across multiple floors."
+    ],
+    "verdict": "Statek is an excellent candidate due to its massive size, privacy, and comprehensive amenities. The combination of multiple kitchens, a dedicated sauna/hot tub area, and the sheer number of beds makes it ideal for a large tech retreat. We recommend confirming local beer tap access or planning for external sourcing.",
+    "url": "https://www.e-chalupy.cz/html/ubytovani-razova-chalupa-statek-pronajem-o8163",
+    "source_file": "ubytovani-razova-chalupa-statek-pronajem-o8163.html",
+    "pass1_score": 73.5,
+    "evaluated_images_count": 6,
+    "model_used": "gemma4:e4b"
+  }
+]
