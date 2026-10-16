@@ -213,7 +213,97 @@ Reason specifically about the tables, seating, bedrooms, and sauna visible in th
     eval_data["pass1_score"] = property_data.get("score_total")
     eval_data["evaluated_images_count"] = len(selected_images)
     eval_data["model_used"] = model
+
+    apply_layout_to_item(eval_data, html_dir=html_dir)
     return eval_data
+
+
+_CANDIDATES_CACHE: Optional[Dict[str, Any]] = None
+
+
+def get_candidates_cache(candidates_path: str = "booking_candidates_20_40.json") -> Dict[str, Any]:
+    global _CANDIDATES_CACHE
+    if _CANDIDATES_CACHE is None:
+        _CANDIDATES_CACHE = {}
+        if os.path.exists(candidates_path):
+            try:
+                with open(candidates_path, "r", encoding="utf-8") as f:
+                    cands = json.load(f)
+                for c in cands:
+                    if c.get("slug"):
+                        _CANDIDATES_CACHE[c["slug"]] = c
+                    if c.get("id"):
+                        _CANDIDATES_CACHE[c["id"]] = c
+            except Exception:
+                pass
+    return _CANDIDATES_CACHE
+
+
+def classify_property_layout(
+    slug: str,
+    name: str,
+    html_dir: str = DEFAULT_HTML_DIR,
+    candidates_path: str = "booking_candidates_20_40.json",
+    property_data: Optional[Dict[str, Any]] = None,
+) -> Dict[str, bool]:
+    """Classify accommodation layout: single_building (bool) and exclusive_areal (bool)."""
+    cache = get_candidates_cache(candidates_path)
+    cand = cache.get(slug) or (cache.get(property_data.get("property_id")) if property_data else None) or {}
+    breakdowns = cand.get("breakdowns") or (property_data.get("breakdowns") if property_data else []) or []
+    single_building = len(breakdowns) <= 1
+
+    name_l = name.lower()
+    exclusive_areal = True
+    for kw in ["resort", "areál", "areal", "kemp", "camp", "hotel"]:
+        if kw in name_l:
+            exclusive_areal = False
+            break
+
+    if exclusive_areal:
+        html_file = os.path.join(html_dir, f"{slug}.html")
+        if os.path.exists(html_file):
+            try:
+                with open(html_file, "r", encoding="utf-8", errors="ignore") as f:
+                    soup = BeautifulSoup(f.read(), "html.parser")
+                d_elem = soup.find(attrs={"data-testid": "property-description"})
+                if d_elem:
+                    desc_text = d_elem.get_text(" ", strip=True).lower()
+                    for kw in [
+                        "on-site restaurant",
+                        "restaurace v areálu",
+                        "lyžařská škola v areálu",
+                        "ski school on site",
+                        "rekreační areál",
+                        "rekreačním areálu",
+                    ]:
+                        if kw in desc_text:
+                            exclusive_areal = False
+                            break
+            except Exception:
+                pass
+
+    return {
+        "single_building": single_building,
+        "exclusive_areal": exclusive_areal,
+    }
+
+
+def apply_layout_to_item(item: Dict[str, Any], html_dir: str = DEFAULT_HTML_DIR):
+    """Enrich item with layout booleans and apply privacy deduction if needed."""
+    slug = item.get("slug") or str(item.get("property_id"))
+    name = item.get("name", slug)
+    layout = classify_property_layout(slug, name, html_dir=html_dir, property_data=item)
+
+    item["single_building"] = layout["single_building"]
+    item["exclusive_areal"] = layout["exclusive_areal"]
+
+    if "raw_final_score" not in item:
+        item["raw_final_score"] = float(item.get("final_score", 0.0))
+
+    if not layout["exclusive_areal"]:
+        item["final_score"] = max(0.0, round(item["raw_final_score"] - 8.0, 1))
+    else:
+        item["final_score"] = item["raw_final_score"]
 
 
 def save_rankings(ratings: Dict[str, Any], json_path: str, csv_path: str):
@@ -226,7 +316,8 @@ def save_rankings(ratings: Dict[str, Any], json_path: str, csv_path: str):
         json.dump(sorted_ratings, f, indent=2, ensure_ascii=False)
 
     fieldnames = [
-        "rank", "final_score", "pass1_score", "name", "slug", "capacity_total",
+        "rank", "final_score", "pass1_score", "name", "slug",
+        "single_building", "exclusive_areal", "capacity_total",
         "bedrooms_count", "beds_regular", "tables_confirmed_by_images",
         "common_room_score", "tables_score", "sleeping_score", "wellness_score",
         "facilities_score", "evaluated_images_count", "url", "verdict",
@@ -241,6 +332,8 @@ def save_rankings(ratings: Dict[str, Any], json_path: str, csv_path: str):
                 row["pros"] = "; ".join(row["pros"])
             if isinstance(row.get("cons"), list):
                 row["cons"] = "; ".join(row["cons"])
+            row["single_building"] = "TRUE" if row.get("single_building", True) else "FALSE"
+            row["exclusive_areal"] = "TRUE" if row.get("exclusive_areal", True) else "FALSE"
             writer.writerow(row)
 
 
@@ -276,6 +369,11 @@ def main():
                     ratings = {str(item.get("slug") or item.get("property_id")): item for item in existing}
                 elif isinstance(existing, dict):
                     ratings = existing
+            if ratings:
+                print(" Applying layout classifications (single_building, exclusive_areal)...")
+                for item in ratings.values():
+                    apply_layout_to_item(item, html_dir=args.html_dir)
+                save_rankings(ratings, args.output_json, args.output_csv)
         except Exception as e:
             print(f"Warning: could not load existing {args.output_json}: {e}")
 

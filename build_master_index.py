@@ -155,6 +155,8 @@ def build_master_index(
             "beds_extra": ep.get("beds_extra"),
             "bedrooms_count": ep.get("bedrooms_count"),
             "exclusive_private_rental": ep.get("exclusive_private_rental", True),
+            "single_building": True,
+            "exclusive_areal": True,
             "has_sauna": ep.get("has_sauna", False),
             "sauna_type": ep.get("sauna_type", "none"),
             "has_pool": ep.get("has_pool", False),
@@ -199,6 +201,8 @@ def build_master_index(
                         master[parent_uid]["status"] = "evaluated"
                         if 2026 not in master[parent_uid]["evaluated_years"]:
                             master[parent_uid]["evaluated_years"].append(2026)
+                    master[parent_uid]["single_building"] = b_rank.get("single_building", master[parent_uid].get("single_building", True))
+                    master[parent_uid]["exclusive_areal"] = b_rank.get("exclusive_areal", master[parent_uid].get("exclusive_areal", True))
                 continue
 
         # Booking-exclusive property
@@ -206,6 +210,8 @@ def build_master_index(
         rank_info = booking_rankings.get(slug, {})
         final_score = rank_info.get("final_score")
         verdict = rank_info.get("verdict")
+        single_building = rank_info.get("single_building", True)
+        exclusive_areal = rank_info.get("exclusive_areal", bp.get("exclusive_private_rental", False))
         master[uid] = {
             "uid": uid,
             "canonical_name": bp["name"],
@@ -219,7 +225,9 @@ def build_master_index(
             "beds_regular": bp.get("beds_regular"),
             "beds_extra": bp.get("beds_extra"),
             "bedrooms_count": bp.get("bedrooms_count"),
-            "exclusive_private_rental": bp.get("exclusive_private_rental", False),
+            "exclusive_private_rental": exclusive_areal,
+            "single_building": single_building,
+            "exclusive_areal": exclusive_areal,
             "has_sauna": bp.get("has_sauna", False),
             "sauna_type": bp.get("sauna_type", "none"),
             "has_pool": bp.get("has_pool", False),
@@ -247,8 +255,8 @@ def save_master_index(master: Dict[str, Any], json_path: str = DEFAULT_MASTER_JS
         writer = csv.writer(f)
         writer.writerow([
             "UID", "Name", "Sources", "Locality", "Region", "Capacity Total",
-            "Bedrooms", "Beds Regular", "Entire Place", "Sauna", "Pool",
-            "Hot Tub", "Beer Tap", "Booking Score", "Final Score 2026",
+            "Bedrooms", "Beds Regular", "Entire Place", "Single Building", "Exclusive Areal",
+            "Sauna", "Pool", "Hot Tub", "Beer Tap", "Booking Score", "Final Score 2026",
             "Status", "First Seen", "Last Processed", "Primary URL"
         ])
         for uid, p in sorted(master.items(), key=lambda x: (-(x[1].get("latest_final_score") or 0), x[1]["canonical_name"])):
@@ -258,6 +266,8 @@ def save_master_index(master: Dict[str, Any], json_path: str = DEFAULT_MASTER_JS
                 p["locality"], p["region"], p["capacity_total"],
                 p["bedrooms_count"] or "", p["beds_regular"] or "",
                 "YES" if p["exclusive_private_rental"] else "NO",
+                "YES" if p.get("single_building", True) else "NO",
+                "YES" if p.get("exclusive_areal", True) else "NO",
                 "YES" if p["has_sauna"] else "NO",
                 "YES" if p["has_pool"] else "NO",
                 "YES" if p["has_hot_tub"] else "NO",
