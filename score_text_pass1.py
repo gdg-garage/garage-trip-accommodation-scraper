@@ -293,10 +293,16 @@ def main():
     print("=" * 72)
 
     scored_properties = []
-    for prop_id, prop in data.items():
+    items = data.items() if isinstance(data, dict) else [(p.get("property_id") or p.get("slug") or str(i), p) for i, p in enumerate(data)]
+
+    for prop_id, prop in items:
+        # Check exclusive private rental if field exists
+        if prop.get("exclusive_private_rental") is False:
+            continue
         eval_result = calculate_garage_trip_score(prop)
         combined = {
             "property_id": prop_id,
+            "slug": prop.get("slug", prop_id),
             "name": prop.get("name", "Unknown"),
             "url": prop.get("url", ""),
             "source_file": prop.get("source_file", ""),

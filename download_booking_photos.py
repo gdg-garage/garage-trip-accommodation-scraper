@@ -145,6 +145,8 @@ def main():
     parser.add_argument("--output-dir", "-o", default=DEFAULT_OUTPUT_DIR, help="Destination directory for photos")
     parser.add_argument("--limit-photos", "-l", type=int, default=DEFAULT_LIMIT_PER_PROPERTY, help="Max photos per property")
     parser.add_argument("--limit-properties", "-p", type=int, default=None, help="Max properties to process")
+    parser.add_argument("--from-json", "-j", default=None, help="JSON file containing property list/rankings to download photos for")
+    parser.add_argument("--top", "-t", type=int, default=None, help="Top N properties from JSON to download photos for")
     parser.add_argument("--delay", type=float, default=0.2, help="Delay between photo downloads")
     args = parser.parse_args()
 
@@ -155,13 +157,25 @@ def main():
         download_property_photos(args.slug, html_file, args.output_dir, limit=args.limit_photos, delay=args.delay)
         return
 
-    html_files = sorted(glob.glob(os.path.join(args.html_dir, "*.html")))
-    if not html_files:
-        print(f"No HTML files found in {args.html_dir}!")
-        return
+    if args.from_json:
+        with open(args.from_json, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            items = list(data.values())
+        else:
+            items = data
+        if args.top:
+            items = items[:args.top]
+        slugs = [p.get("slug") or p.get("property_id") for p in items if (p.get("slug") or p.get("property_id"))]
+        html_files = [os.path.join(args.html_dir, f"{s}.html") for s in slugs if os.path.exists(os.path.join(args.html_dir, f"{s}.html"))]
+    else:
+        html_files = sorted(glob.glob(os.path.join(args.html_dir, "*.html")))
+        if args.limit_properties and args.limit_properties > 0:
+            html_files = html_files[:args.limit_properties]
 
-    if args.limit_properties and args.limit_properties > 0:
-        html_files = html_files[:args.limit_properties]
+    if not html_files:
+        print(f"No matching HTML files found in {args.html_dir}!")
+        return
 
     print(f"Processing photos for {len(html_files)} properties...")
     total_downloaded = 0

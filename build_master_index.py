@@ -34,6 +34,7 @@ def build_master_index(
     echalupy_structured_path: str = "properties_structured.json",
     echalupy_final_csv_path: str = "rankings_garage_trip_final.csv",
     booking_structured_path: str = "booking_properties_structured.json",
+    booking_final_json_path: str = "rankings_booking_final_multimodal.json",
     cross_validation_path: str = "cross_validation_matches.json",
     existing_master_path: Optional[str] = DEFAULT_MASTER_JSON
 ) -> Dict[str, Any]:
@@ -96,6 +97,16 @@ def build_master_index(
     if os.path.exists(booking_structured_path):
         with open(booking_structured_path, "r", encoding="utf-8") as f:
             booking_structured = json.load(f)
+
+    # Load Booking multimodal rankings
+    booking_rankings = {}
+    if os.path.exists(booking_final_json_path):
+        with open(booking_final_json_path, "r", encoding="utf-8") as f:
+            b_list = json.load(f)
+            for item in b_list:
+                s = item.get("slug") or item.get("property_id")
+                if s:
+                    booking_rankings[s] = item
 
     master: Dict[str, Dict[str, Any]] = {}
     today_str = datetime.now().strftime("%Y-%m-%d")
@@ -174,10 +185,27 @@ def build_master_index(
                 master[parent_uid]["source_ids"]["booking"] = slug
                 master[parent_uid]["urls"]["booking"] = bp["url"]
                 master[parent_uid]["booking_rating"] = bp.get("review_score")
+
+                # If evaluated in Booking pass 2 and score was missing or lower
+                if slug in booking_rankings:
+                    b_rank = booking_rankings[slug]
+                    b_score = b_rank.get("final_score")
+                    b_verdict = b_rank.get("verdict")
+                    if b_score is not None:
+                        current_score = master[parent_uid].get("latest_final_score")
+                        if current_score is None or b_score > current_score:
+                            master[parent_uid]["latest_final_score"] = b_score
+                            master[parent_uid]["latest_verdict"] = b_verdict[:300] if b_verdict else None
+                        master[parent_uid]["status"] = "evaluated"
+                        if 2026 not in master[parent_uid]["evaluated_years"]:
+                            master[parent_uid]["evaluated_years"].append(2026)
                 continue
 
         # Booking-exclusive property
         uid = f"booking_{slug}"
+        rank_info = booking_rankings.get(slug, {})
+        final_score = rank_info.get("final_score")
+        verdict = rank_info.get("verdict")
         master[uid] = {
             "uid": uid,
             "canonical_name": bp["name"],
@@ -201,10 +229,10 @@ def build_master_index(
             "booking_rating": bp.get("review_score"),
             "first_seen_year": 2026,
             "last_processed_date": today_str,
-            "evaluated_years": [],
-            "status": "candidate",
-            "latest_final_score": None,
-            "latest_verdict": None,
+            "evaluated_years": [2026] if final_score is not None else [],
+            "status": "evaluated" if final_score is not None else "candidate",
+            "latest_final_score": final_score,
+            "latest_verdict": verdict[:300] if verdict else None,
             "notes": ""
         }
 

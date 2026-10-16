@@ -1408,10 +1408,12 @@
     "booking_rating": 9.2,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers excellent space, a private setting, and good kitchen facilities necessary for a large retreat. However, the critical lack of confirmed bathroom/toilet count and the potential mismatch between structured data (Pass 1) and physical reality must be addressed. If the bathroom capaci",
     "notes": ""
   },
   "echalupy_16530": {
@@ -2786,10 +2788,12 @@
     "booking_rating": 9.7,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "Chata Jablunka is a strong contender due to its spacious common areas and excellent location. While it lacks dedicated wellness amenities, the confirmed capacity, multiple bathrooms, and visible table space make it highly suitable for tech workshops and gaming events.",
     "notes": ""
   },
   "echalupy_16192": {
@@ -3388,10 +3392,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is highly suitable due to its massive common area and excellent table capacity, making it ideal for workshops and group hacking. While the bathroom count is a concern, the large size and dedicated sauna elevate its score enough for consideration.",
     "notes": ""
   },
   "echalupy_910": {
@@ -3713,10 +3719,12 @@
     "booking_rating": 9.0,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers a good atmosphere with a hot tub and large common space. However, the critical requirement for dedicated, high-capacity tables and sufficient bathroom facilities for 25-35 people is not met or confirmed by the images/data. It would require significant logistical planning to acco",
     "notes": ""
   },
   "echalupy_22224": {
@@ -5722,10 +5730,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 55.0,
+    "latest_verdict": "Chalupa Borovka offers an excellent common area with ample tables and seating capacity crucial for a tech retreat. While the lack of visible sauna or confirmed high bathroom count is a concern, its sheer size and dedicated workspace make it highly recommendable if the group can manage the facilities",
     "notes": ""
   },
   "echalupy_9449": {
@@ -12850,10 +12860,12 @@
     "booking_rating": 9.4,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is highly suitable due to its massive common room and confirmed capacity for large group activities like workshops and gaming. The sheer size of the main area easily accommodates 25-30 people working together. We recommend booking this, but must confirm the actual number of private bat",
     "notes": ""
   },
   "echalupy_16117": {
@@ -12955,10 +12967,12 @@
     "booking_rating": 9.9,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 75.0,
+    "latest_verdict": "This property is a strong candidate due to its massive common area and excellent table setup. The combination of large group capacity, dedicated workspace, and wellness amenities makes it highly suitable for 'garage-trip.cz'. We recommend proceeding with a site visit to confirm the bathroom count an",
     "notes": ""
   },
   "booking_chata-ryba": {
@@ -12990,10 +13004,12 @@
     "booking_rating": 9.2,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "Chata Ryba offers a large, appealing space with good communal vibes and high capacity. However, the critical lack of confirmed modern bathroom facilities (toilets/showers) for 25+ people is a major concern. If the group can manage the limited bathrooms, the common room size and kitchen setup make it",
     "notes": ""
   },
   "booking_tauhaus": {
@@ -13025,10 +13041,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 75.0,
+    "latest_verdict": "Tauhaus is an excellent candidate due to its massive common room and dedicated dining/work areas. The capacity and setup are ideal for a large tech retreat requiring collaborative space. We recommend confirming the number of functional bathrooms and assessing if the current layout supports focused, ",
     "notes": ""
   },
   "booking_pension-u-sebastiana": {
@@ -13060,10 +13078,12 @@
     "booking_rating": 8.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 55.0,
+    "latest_verdict": "This property has a good common area and sufficient seating for group activities, making it suitable for board games. However, the lack of dedicated workspace tables for large hacking sessions and the absence of wellness amenities significantly reduce its appeal for our tech-focused retreat.",
     "notes": ""
   },
   "booking_chata-magistrala": {
@@ -13095,10 +13115,12 @@
     "booking_rating": 9.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers a strong balance of communal space and amenities necessary for a tech retreat. The common area is excellent for group work and gaming, and the sauna adds significant value. However, organizers must verify the exact number and type of bathrooms/toilets to ensure adequate capacity",
     "notes": ""
   },
   "booking_chata-maty": {
@@ -13130,10 +13152,12 @@
     "booking_rating": 9.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 60.0,
+    "latest_verdict": "This chalet is highly suitable due to its massive common room and ample seating capacity, making it ideal for workshops and gaming. While the wellness facilities are lacking a dedicated sauna/hot tub, the overall space, kitchen size, and group setup compensate significantly, giving it a strong recom",
     "notes": ""
   },
   "booking_penzion-mlyn-trestice": {
@@ -13200,10 +13224,12 @@
     "booking_rating": 9.2,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers fantastic amenities and a large common area suitable for socializing and relaxation. However, the lack of confirmed high-volume bathroom facilities and dedicated workshop tables slightly lowers its score. It would be a strong contender if the group prioritizes luxury wellness ov",
     "notes": ""
   },
   "booking_wellness-pension-fulda-cerny-dul-cerny-dul": {
@@ -13270,10 +13296,12 @@
     "booking_rating": 9.9,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 75.0,
+    "latest_verdict": "This property is highly recommended due to its massive common area and excellent table capacity, which are critical for a tech retreat. While the bathroom facilities are somewhat limited for 25-35 people, the overall space and amenities make it a strong contender.",
     "notes": ""
   },
   "booking_pension-piana": {
@@ -13305,10 +13333,12 @@
     "booking_rating": 8.7,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "Pension Piana is a strong candidate due to its massive common room and ample table space, making it ideal for workshops and group activities. The primary concern is the missing high-bonus wellness features (sauna/hot tub) and the conflicting bathroom data; however, its sheer size and communal areas ",
     "notes": ""
   },
   "booking_bohemian-lake-loghouses-stare-splavy": {
@@ -13340,10 +13370,12 @@
     "booking_rating": 7.9,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property has excellent common area potential with ample tables and seating, making it suitable for workshops and gaming. However, the lack of confirmed high-volume bathroom facilities (toilets/showers) and wellness amenities significantly lowers its score. It would require a site visit to confi",
     "notes": ""
   },
   "booking_vila-baska": {
@@ -13375,10 +13407,12 @@
     "booking_rating": 8.3,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 75.0,
+    "latest_verdict": "Vila Baška is an excellent candidate due to its massive common area and strong wellness amenities. However, the critical discrepancy regarding bathroom/toilet facilities must be resolved before booking. If multiple modern bathrooms are confirmed, this property would be highly recommended.",
     "notes": ""
   },
   "booking_beskydy-areal": {
@@ -13410,10 +13444,12 @@
     "booking_rating": 8.7,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers exceptional amenities, particularly for wellness and group gathering. While the sleeping capacity and general space are good, organizers must confirm the number of dedicated bathrooms/toilets to ensure adequate flow for 25-35 people. The large outdoor common area can be adapted ",
     "notes": ""
   },
   "booking_villa-vykmanov": {
@@ -13445,10 +13481,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This villa offers an excellent common area and dining setup perfect for tech workshops and gaming. However, the critical concern remains the lack of clear information regarding sufficient modern bathroom/toilet facilities for 25-35 people. If the bathrooms are adequate, this is a strong contender; o",
     "notes": ""
   },
   "booking_ranch-jestrebice": {
@@ -13480,10 +13518,12 @@
     "booking_rating": 9.1,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property offers fantastic communal spaces and wellness amenities ideal for group bonding. However, the critical lack of sufficient private toilet/bathroom facilities for 25-35 adults poses a significant logistical risk. It is recommended only if plumbing capacity can be confirmed to handle peak",
     "notes": ""
   },
   "booking_chata-polka": {
@@ -13515,10 +13555,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "Chata Polka offers excellent outdoor space and necessary wellness amenities, making it a strong candidate. While the bathroom count is listed as 'None' (a major red flag), the visible common area and tables are ideal for tech workshops and gaming. We recommend proceeding with a site visit to confirm",
     "notes": ""
   },
   "booking_chalupa-nonnetit": {
@@ -13550,10 +13592,12 @@
     "booking_rating": 9.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is a strong candidate due to its excellent common room setup and desirable wellness features. However, organizers must confirm if the three bathrooms are sufficient for 25-35 people during peak times. If bathroom count can be verified or supplemented, it would be highly recommended.",
     "notes": ""
   },
   "booking_koliba-varnsdorf": {
@@ -13585,10 +13629,12 @@
     "booking_rating": 9.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "KOLIBA Varnsdorf is a strong candidate due to its massive common area and excellent kitchen facilities. The space can comfortably accommodate 25-30 people for hacking and gaming sessions. However, organizers must confirm the actual number of bathrooms/toilets and be aware that the wellness features ",
     "notes": ""
   },
   "booking_roubenka-svitavka-cely-areal": {
@@ -13620,10 +13666,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property excels in common space and dining capacity, making it excellent for workshops and group bonding. However, the lack of dedicated wellness facilities (sauna/hot tub) significantly lowers its appeal for a tech retreat. It is a strong contender if the budget allows for sacrificing luxury a",
     "notes": ""
   },
   "booking_roubenka-za-horou": {
@@ -13655,10 +13703,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 78.0,
+    "latest_verdict": "This property is an excellent candidate for garage-trip.cz due to its massive common area, dedicated gaming/workshop tables, and premium wellness amenities. However, organizers must urgently verify the bathroom count (the preliminary data seems incorrect) before booking.",
     "notes": ""
   },
   "booking_hostel-housuv-mlyn": {
@@ -13725,10 +13775,12 @@
     "booking_rating": 7.1,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is highly suitable for the common room and group activities due to its massive open layout and abundant tables. However, organizers must confirm the actual number of functional bathrooms/showers (as preliminary data is contradictory) and note the absence of confirmed high-bonus wellnes",
     "notes": ""
   },
   "booking_vila-bela-pod-pradedem": {
@@ -13760,10 +13812,12 @@
     "booking_rating": 8.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This villa offers strong amenities and comfortable sleeping arrangements, making it appealing. However, organizers must confirm if the existing tables are sufficient for simultaneous laptop use and board gaming for 25+ people. If large, flexible work surfaces can be added or confirmed, this property",
     "notes": ""
   },
   "booking_chata-v-krkonosich-6-rooms-25-beds": {
@@ -13795,10 +13849,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 40.0,
+    "latest_verdict": "This property offers a large, rustic common area and sufficient tables for group activities. However, the critical lack of confirmed private bathrooms/toilets and the presence of bunk beds significantly detract from its suitability for a high-end tech retreat. It would require significant vetting re",
     "notes": ""
   },
   "booking_rezidence-vogelsang": {
@@ -13830,10 +13886,12 @@
     "booking_rating": 8.9,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers excellent communal spaces, including ample tables and a great wellness area, making it highly suitable for the social and activity needs of garage-trip.cz. However, the critical lack of confirmed bathroom/toilet facilities in the provided data is a major red flag that must be re",
     "notes": ""
   },
   "booking_horska-chata-u-spicaku": {
@@ -13865,10 +13923,12 @@
     "booking_rating": 7.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is highly suitable for garage-trip.cz due to its massive common area and abundance of tables/seating necessary for workshops and hacking sessions. While it lacks high-bonus wellness features like a sauna or pool, the excellent capacity, kitchen facilities, and spacious layout make it a",
     "notes": ""
   },
   "booking_vila-praha": {
@@ -13900,10 +13960,12 @@
     "booking_rating": 9.2,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "Vila Prag offers excellent amenities and spacious common areas suitable for a large tech retreat. While the sleeping capacity and wellness features are strong, organizers must confirm adequate toilet/shower ratios and ensure the main room can accommodate dedicated work tables for 30+ people.",
     "notes": ""
   },
   "booking_apartmany-lhota": {
@@ -13935,10 +13997,12 @@
     "booking_rating": 9.1,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers fantastic common areas and high-quality wellness amenities, making it highly appealing. However, the severe discrepancy in bathroom/toilet count (listed as 'None') is a critical red flag that must be verified before booking. If the facilities are adequate, this would be an excel",
     "notes": ""
   },
   "booking_andelsky-dvur": {
@@ -14005,10 +14069,12 @@
     "booking_rating": 8.0,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This chalet offers a highly functional and spacious common area with excellent seating capacity for workshops and gaming. While it lacks dedicated high-end wellness features like a visible hot tub or sauna, its size and comfortable sleeping arrangements make it a strong contender if the group priori",
     "notes": ""
   },
   "booking_bouda-sestidomi-strazne1": {
@@ -14040,10 +14106,12 @@
     "booking_rating": 9.0,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 55.0,
+    "latest_verdict": "This property has an excellent common area and sufficient sleeping capacity to host the group. However, the critical discrepancy regarding bathroom/toilet facilities (Pass 1 data vs. description) and the lack of wellness amenities significantly reduce its score. It would require confirmation on the ",
     "notes": ""
   },
   "booking_vila-hamrska-velke-hamry": {
@@ -14075,10 +14143,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 75.0,
+    "latest_verdict": "This property offers exceptional space and high-end amenities, making it a strong candidate. The common room setup with multiple large tables is ideal for tech workshops and gaming. However, the critical concern regarding bathroom/toilet count must be resolved before booking.",
     "notes": ""
   },
   "booking_holiday-home-harrachov-90": {
@@ -14110,10 +14180,12 @@
     "booking_rating": 7.0,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers a highly functional and spacious common area with ample tables and seating necessary for workshops and gaming. While the sleeping arrangements are good and the kitchen is robust, the final score reflects the slightly rustic feel and potential bottleneck in facilities (though 8 b",
     "notes": ""
   },
   "booking_chata-vista-strazne": {
@@ -14145,10 +14217,12 @@
     "booking_rating": 9.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 55.0,
+    "latest_verdict": "This property offers excellent common area space and confirmed large tables necessary for workshops and gaming. However, the lack of dedicated wellness facilities (sauna/hot tub) is a significant drawback given our high-bonus requirements. It is a viable option if the group prioritizes communal spac",
     "notes": ""
   },
   "booking_holiday-home-machova-roubenka-by-interhome-doksy-stare-splavy": {
@@ -14180,10 +14254,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property offers excellent communal space and dining facilities necessary for group activities like workshops and gaming. However, the complete lack of visible wellness amenities (sauna/hot tub) and potential bathroom bottlenecks significantly lowers its score. It is a strong contender if the gr",
     "notes": ""
   },
   "booking_penzion-patrik-vapenice": {
@@ -14215,10 +14291,12 @@
     "booking_rating": 8.4,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 55.0,
+    "latest_verdict": "This property offers fantastic outdoor amenities and a great location, making it appealing for the wellness aspect of the trip. However, the critical lack of confirmed indoor common room space suitable for 25-30 people to gather comfortably, combined with unknown bathroom capacity, makes it a risky ",
     "notes": ""
   },
   "booking_chalet-anenske-udoli-by-interhome": {
@@ -14250,10 +14328,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This chalet offers an excellent common area and kitchen setup, making it highly suitable for workshops and dining for 25-30 people. However, the critical lack of confirmed bathroom facilities and any wellness amenities significantly lowers its score. It is a strong contender if the bathroom count ca",
     "notes": ""
   },
   "booking_penzion-havana": {
@@ -14285,10 +14365,12 @@
     "booking_rating": 9.1,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 35.0,
+    "latest_verdict": "While the location is excellent and the property offers good privacy in multiple units, it critically lacks a dedicated, large common room suitable for group workshops or hacking sessions. Furthermore, the bathroom facilities are insufficient for a group of this size. It would require significant lo",
     "notes": ""
   },
   "booking_chalupy-na-ralisce": {
@@ -14320,10 +14402,12 @@
     "booking_rating": 9.4,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property has excellent common area potential with ample tables and seating, making it ideal for workshops and gaming. However, severe concerns remain regarding bathroom/toilet facilities and the confirmed kitchen capacity for 30+ people. If plumbing can be verified, this could be a strong candi",
     "notes": ""
   },
   "booking_rychtrova-bouda-benecko": {
@@ -14355,10 +14439,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers exceptional common space, kitchen facilities, and seating capacity needed for workshops and group activities. However, the lack of dedicated wellness amenities (sauna/hot tub) and the conflicting bathroom data significantly reduce its appeal. It is a strong contender if the bath",
     "notes": ""
   },
   "booking_korenov-10-chalupa-na-horach": {
@@ -14390,10 +14476,12 @@
     "booking_rating": 9.0,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This chalet is a strong candidate due to its large common room, ample tables, and comfortable sleeping arrangements. While the bathroom count might be tight for peak usage by 35+ people, the overall setup meets most critical requirements for a successful tech retreat.",
     "notes": ""
   },
   "booking_chalupa-pisecne": {
@@ -14425,10 +14513,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is a strong contender due to its large common area and excellent wellness amenities (pool/sauna). However, organizers must confirm the exact quantity of suitable work tables and seating capacity for 25+ adults. It requires a site visit or detailed confirmation regarding workspace setup",
     "notes": ""
   },
   "booking_apartmany-dalov": {
@@ -14460,10 +14550,12 @@
     "booking_rating": 9.0,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property is highly suitable due to its large capacity and confirmed common areas, making it ideal for workshops and group activities. However, the lack of dedicated wellness facilities (sauna/hot tub) and potential bathroom bottlenecks reduce its score. It would be a strong contender if the toi",
     "notes": ""
   },
   "booking_kvetna-farma": {
@@ -14600,10 +14692,12 @@
     "booking_rating": 8.9,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers an outstanding common area perfect for a tech retreat's social and workshop needs. While the preliminary data raises serious concerns about bathroom facilities, the visible common room space, tables, and sauna make it highly appealing. We recommend proceeding with a site visit t",
     "notes": ""
   },
   "booking_statek-pod-brizou": {
@@ -14635,10 +14729,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers excellent space and desirable amenities like a sauna and hot tub. However, the critical bottleneck is the bathroom/toilet ratio; 3 bathrooms are insufficient for 25-35 adults. If the group can manage with fewer people or if the organizers accept the facility limitation, it remai",
     "notes": ""
   },
   "booking_penzion-pod-lanovkou-jachymov": {
@@ -14670,10 +14766,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This location offers excellent common area facilities perfect for workshops and group gaming. While it lacks dedicated luxury wellness amenities like a sauna or hot tub, its sheer size, ample seating, and high bathroom count make it a strong contender. It is recommended if the focus is on group acti",
     "notes": ""
   },
   "booking_hogo-fogo-kytlice": {
@@ -14705,10 +14803,12 @@
     "booking_rating": 8.3,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property is highly unsuitable for a large tech retreat of 25-35 people. While the setting is beautiful and the individual units are comfortable, the critical infrastructure—specifically shared bathroom facilities, dedicated large common room space, and sufficient sleeping arrangements—is severe",
     "notes": ""
   },
   "booking_chata-v-karlove": {
@@ -14740,10 +14840,12 @@
     "booking_rating": 8.7,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers excellent communal spaces, large tables, and desirable amenities like a sauna and pool. While the capacity is high, organizers must confirm the ratio of bathrooms/toilets to ensure comfort for 25-35 adults. It is a strong candidate if bathroom facilities are adequate.",
     "notes": ""
   },
   "booking_horska-chata-radost-destne-v-orlickych-horach": {
@@ -14810,10 +14912,12 @@
     "booking_rating": 9.7,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "Vila Organica offers a fantastic atmosphere and a very large common area perfect for social gatherings. While the sleeping capacity is good and the sauna is a bonus, organizers must be mindful of the limited number of bathrooms and ensure enough dedicated work tables are brought in or arranged.",
     "notes": ""
   },
   "booking_apartma-ny-u-a-ay-astna1-2ch": {
@@ -14845,10 +14949,12 @@
     "booking_rating": 9.2,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers fantastic outdoor space, excellent wellness amenities (sauna/hot tub), and modern kitchens suitable for a large group. However, the lack of a dedicated indoor common room and unclear bathroom capacity are significant concerns that must be addressed before booking.",
     "notes": ""
   },
   "booking_penzion-v-kopci": {
@@ -14880,10 +14986,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property offers a comfortable, private retreat with good sleeping arrangements and hot tub access. However, the lack of sufficient, robust common area tables and confirmed high-capacity bathroom/kitchen facilities makes it challenging for a large tech workshop requiring intensive group work.",
     "notes": ""
   },
   "booking_holiday-home-penzion-natty-by-interhome": {
@@ -14915,10 +15023,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers excellent communal space, robust tables, and desirable amenities like a sauna and pool, making it highly suitable for group activities. However, the conflicting bathroom/toilet information from the metadata must be resolved before booking. If the bathrooms are confirmed to be ad",
     "notes": ""
   },
   "booking_penzion-a-restaurace-pod-sjezdovkou": {
@@ -14985,10 +15095,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property offers excellent common space and kitchen capacity, making it suitable for group gatherings. However, the lack of dedicated large work tables, multiple bathrooms, and any wellness features significantly reduces its appeal. It is a viable option if budget is primary, but organizers shou",
     "notes": ""
   },
   "booking_horska1-2-rana": {
@@ -15020,10 +15132,12 @@
     "booking_rating": 8.3,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This location offers good overall capacity and strong amenities like the kitchen and sauna. However, the critical lack of visible, dedicated large tables and sufficient bathroom facilities makes it risky for a high-density tech retreat. It would require significant logistical planning to ensure all ",
     "notes": ""
   },
   "booking_chalupy-raz-dva": {
@@ -15055,10 +15169,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is a strong candidate due to its massive common room and excellent table setup for group activities. However, the lack of confirmed multiple bathrooms/toilets is a major logistical concern that must be verified before booking. If the bathroom facilities are adequate, this location woul",
     "notes": ""
   },
   "booking_penzion-krystof": {
@@ -15160,10 +15276,12 @@
     "booking_rating": 9.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This lodge offers fantastic amenities and a large communal space suitable for group bonding. However, the lack of confirmed private bathroom facilities and the primary focus on leisure (dining/spa) over structured work areas slightly lowers its score. It is a strong contender if plumbing capacity ca",
     "notes": ""
   },
   "booking_kypruv-mlyn": {
@@ -15370,10 +15488,12 @@
     "booking_rating": 8.0,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers excellent wellness features and privacy, making it appealing. However, the lack of confirmed capacity for a large indoor common room (for workshops/gaming) and insufficient shared bathroom facilities significantly lowers its score. It would require confirmation that the outdoor ",
     "notes": ""
   },
   "booking_chalupa-v-podkrkonosi-idealni-pro-vetsi-skupiny-a-aktivni-dovolenou-po-cely-rok": {
@@ -15405,10 +15525,12 @@
     "booking_rating": 9.7,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property has an excellent common area and table setup, making it highly suitable for the core needs of garage-trip.cz. However, the critical lack of confirmed bathroom/toilet facilities for 25+ people is a major risk that must be verified before booking.",
     "notes": ""
   },
   "booking_zamecky-dvur-cernousy": {
@@ -15650,10 +15772,12 @@
     "booking_rating": 7.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 35.0,
+    "latest_verdict": "This property has good general ambiance and sufficient sleeping capacity in private rooms. However, the critical lack of confirmed high-capacity bathrooms/showers, combined with insufficient evidence of large-scale catering facilities and no wellness amenities, makes it unsuitable for a large tech r",
     "notes": ""
   },
   "booking_penzion-apartments-benesova-6": {
@@ -15930,10 +16054,12 @@
     "booking_rating": 9.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is a strong contender due to its massive common area and excellent wellness amenities. While the sleeping arrangements are good and the space is spacious, the limited number of bathrooms relative to 30+ guests remains a significant concern that needs confirmation.",
     "notes": ""
   },
   "booking_bret-cz": {
@@ -15965,10 +16091,12 @@
     "booking_rating": 8.3,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 78.0,
+    "latest_verdict": "This property is a strong contender due to its massive common area and excellent gaming/work setup. However, the critical lack of confirmed bathroom/toilet facilities in the preliminary data is a major red flag that must be resolved before booking. If the bathrooms are adequate, this location would ",
     "notes": ""
   },
   "booking_guest-house-pod-rozhlednou": {
@@ -16070,10 +16198,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 55.0,
+    "latest_verdict": "This property offers excellent privacy and a large common area suitable for group work and gaming. However, the conflicting data regarding bathroom count (preliminary vs. description) and the lack of visible industrial-scale kitchen facilities or dedicated communal dining space significantly reduce ",
     "notes": ""
   },
   "booking_chaty-ve-ski-47-relax-avalanche": {
@@ -16105,10 +16235,12 @@
     "booking_rating": 7.3,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property has excellent common areas and private sleeping arrangements, making it suitable for the social aspects of the retreat. However, the critical lack of confirmed multiple bathrooms/showers and large-scale kitchen facilities poses a significant logistical risk for 25-35 adults. It would r",
     "notes": ""
   },
   "booking_penzion-tovarnikova-vila": {
@@ -16175,10 +16307,12 @@
     "booking_rating": 9.2,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property is a strong contender due to its spacious common area and excellent amenities like the sauna and kitchen. However, organizers must confirm the exact number of functional bathrooms/toilets and whether the common room can accommodate 25+ dedicated workstations beyond the visible bench se",
     "notes": ""
   },
   "booking_rekreacni-stredisko-rojana-svratka": {
@@ -16210,10 +16344,12 @@
     "booking_rating": 8.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 35.0,
+    "latest_verdict": "This property has excellent common area space and table capacity for group activities. However, the critical lack of dedicated wellness facilities and the severe discrepancy in bathroom/toilet count (according to Pass 1) make it unsuitable without significant confirmation or upgrades. It is a high-r",
     "notes": ""
   },
   "booking_the-secret-garden-apartments-praha-libus": {
@@ -16385,10 +16521,12 @@
     "booking_rating": 8.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This location offers an outstanding common room and robust wellness amenities perfect for a tech retreat. While the sleeping capacity is slightly low and bathroom count needs verification, the sheer size and setup of the main gathering space make it highly suitable for workshops and gaming.",
     "notes": ""
   },
   "booking_penzion-helena-a-chata-helena": {
@@ -16420,10 +16558,12 @@
     "booking_rating": 9.3,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property has an excellent common area and strong amenities like the pool and kitchen. While the preliminary data on bathrooms/toilets is concerning, the visual evidence of a large gathering space and cooking facilities makes it highly viable. We recommend proceeding with a site visit to confirm",
     "notes": ""
   },
   "booking_apartmany-pod-palavou": {
@@ -16490,10 +16630,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 35.0,
+    "latest_verdict": "While the common area and table setup are excellent for a tech retreat, the critical lack of confirmed private toilet and shower facilities is a major concern. The absence of dedicated high-bonus amenities like a proper sauna also lowers its appeal. It would require significant confirmation on bathr",
     "notes": ""
   },
   "booking_penzion-dolni-dunajovice": {
@@ -16700,10 +16842,12 @@
     "booking_rating": 9.3,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property excels in common area space and dedicated gaming/work tables. However, the critical lack of confirmed bathroom/toilet facilities and the difficulty managing large groups with individual room setups significantly reduce its suitability. It is a strong contender if plumbing capacity can ",
     "notes": ""
   },
   "booking_penzion-prefila": {
@@ -16770,10 +16914,12 @@
     "booking_rating": 6.9,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers a highly scenic and rustic atmosphere with good wellness amenities, making it appealing for a relaxed retreat. However, the limited number of bathrooms/toilets and the potential lack of structured workspace in the main room are significant concerns for 25-35 tech enthusiasts nee",
     "notes": ""
   },
   "booking_retro-chaty-sobesky": {
@@ -17400,10 +17546,12 @@
     "booking_rating": 9.3,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 50.0,
+    "latest_verdict": "This property offers a spacious, comfortable common area ideal for group gatherings and workshops. However, the lack of confirmed high-capacity bathrooms/toilets and missing wellness features (sauna/hot tub) significantly reduce its suitability for a large tech retreat. It is a moderate option requi",
     "notes": ""
   },
   "booking_chata-u-rybnika-bohdalov": {
@@ -17435,10 +17583,12 @@
     "booking_rating": 8.4,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers a great atmosphere and excellent wellness amenities, making it appealing. However, the critical lack of confirmed bathroom/toilet facilities and the basic nature of the sleeping arrangements significantly detract from its suitability for a large, multi-day professional retreat l",
     "notes": ""
   },
   "booking_sokoli-hnizdo": {
@@ -17995,10 +18145,12 @@
     "booking_rating": 9.9,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property offers an excellent common space and kitchen capacity, making it suitable for group activities. However, the severe lack of confirmed bathrooms/toilets (a critical bottleneck) and the absence of visible wellness features significantly reduce its suitability. It would require a mandator",
     "notes": ""
   },
   "booking_penzion-u-prehrady-pozlovice": {
@@ -18170,10 +18322,12 @@
     "booking_rating": 8.9,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers exceptional common space and high-end wellness amenities, making it strong for the social aspects of the retreat. However, the critical lack of confirmed private bathroom/toilet facilities for 25+ people and the focus on family accommodations significantly detract from its suita",
     "notes": ""
   },
   "booking_u-pohody": {
@@ -18450,10 +18604,12 @@
     "booking_rating": 9.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers an excellent, spacious common area and comfortable sleeping arrangements suitable for a tech retreat. However, the critical lack of confirmed bathroom/toilet facilities (metadata states 'None') is a major red flag that must be clarified before booking. If the facility can confir",
     "notes": ""
   },
   "booking_premyslovske-strane": {
@@ -18485,10 +18641,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 35.0,
+    "latest_verdict": "This property has an excellent common area setup with great tables, but the lack of adequate bathroom facilities, dedicated wellness amenities (sauna), and scalable sleeping quarters makes it unsuitable for a large 25-35 person tech retreat. It fails on critical infrastructure points.",
     "notes": ""
   },
   "booking_pod-malinikem": {
@@ -18520,10 +18678,12 @@
     "booking_rating": 9.2,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 55.0,
+    "latest_verdict": "This property offers excellent common area space and kitchen facilities necessary for group activities. However, the lack of confirmed high-capacity bathrooms/toilets, combined with no dedicated wellness amenities, significantly lowers its score. It would require confirmation on bathroom count befor",
     "notes": ""
   },
   "booking_penzion-u-skutilu": {
@@ -18870,10 +19030,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 55.0,
+    "latest_verdict": "This property offers excellent space and atmosphere with a large common room and sauna, making it suitable for group bonding. However, the critical lack of confirmed modern bathroom facilities (toilets/showers) and potentially insufficient dedicated workspace tables significantly lowers its score. I",
     "notes": ""
   },
   "booking_svatojakubsky-pivovar": {
@@ -19185,10 +19347,12 @@
     "booking_rating": 9.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers an excellent atmosphere, spacious common areas, and good amenities like the sauna. However, its maximum capacity (20 guests) is significantly below our required 25-35 people, making it unsuitable for a full retreat. It would only work if we could reduce our group size substantia",
     "notes": ""
   },
   "booking_penzion-amp-bistro-dvorek-dolni-dunajovice": {
@@ -19885,10 +20049,12 @@
     "booking_rating": 9.2,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property has excellent overall ambiance and capacity, making it appealing. However, the critical lack of confirmed large communal work/game tables and the severe uncertainty regarding bathroom facilities (based on preliminary data) make it a high-risk choice. It would require confirmation on re",
     "notes": ""
   },
   "booking_penzion-kobylnice": {
@@ -19920,10 +20086,12 @@
     "booking_rating": 9.1,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property is highly suitable for group activities due to its large common room and comfortable sleeping arrangements. However, the critical lack of confirmed private bathroom/toilet facilities and any wellness amenities significantly lowers the score. It would require confirmation on plumbing ca",
     "notes": ""
   },
   "booking_belvederska-chalupa": {
@@ -19955,10 +20123,12 @@
     "booking_rating": 9.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers excellent common gathering spaces and kitchen facilities crucial for a large retreat. While the lack of visible dedicated wellness amenities (sauna) and precise bathroom counts are concerns, the ample seating and general size make it a strong contender if those elements can be m",
     "notes": ""
   },
   "booking_penzion-kratochval": {
@@ -20760,10 +20930,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property offers an outstanding common area perfect for group collaboration and large gatherings. However, the conflicting data regarding bathroom facilities (preliminary score vs description) and the lack of high-bonus wellness features like a sauna make it risky. It is recommended only if the ",
     "notes": ""
   },
   "booking_beach-pension": {
@@ -20795,10 +20967,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers an excellent common area and sufficient seating capacity crucial for workshops and gaming. While the sleeping arrangements and bathroom facilities might be borderline for a large group of 25-35, the overall space and amenities make it a strong contender if the group can manage w",
     "notes": ""
   },
   "booking_penzion-u-lia-ky": {
@@ -20830,10 +21004,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property offers an excellent common gathering space and sufficient tables, making it good for workshops. However, the lack of confirmed high-capacity kitchen facilities and adequate bathroom/toilet ratios significantly lowers its score. It would require confirmation on group cooking capacity be",
     "notes": ""
   },
   "booking_cyklochata": {
@@ -20865,10 +21041,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "This property offers an excellent common space and table capacity crucial for workshops and gaming. However, the severe lack of bathrooms/toilets and the absence of modern group wellness facilities (sauna/hot tub) significantly detract from its suitability for a large tech retreat. It would require ",
     "notes": ""
   },
   "booking_pension-salma": {
@@ -20900,10 +21078,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 75.0,
+    "latest_verdict": "This property is highly suitable due to its massive common area and excellent recreational facilities. While the bathroom count needs confirmation, the sheer size and setup make it an ideal base for a large tech retreat.",
     "notes": ""
   },
   "booking_chata-u-mysaka-marenice": {
@@ -20935,10 +21115,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 35.0,
+    "latest_verdict": "This location offers excellent space and confirmed large tables necessary for a tech retreat. However, the lack of any visible sauna or hot tub significantly lowers its appeal for our group. We recommend it only if budget is the primary concern, as the facilities are lacking in key wellness areas.",
     "notes": ""
   },
   "booking_penzion-dukla": {
@@ -20970,10 +21152,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 45.0,
+    "latest_verdict": "Penzion Dukla offers a spacious and functional location with a good kitchen setup, making it viable for group accommodation. However, the common room's furniture is geared toward dorm-style living rather than collaborative tech work, and the lack of dedicated wellness amenities lowers its appeal.",
     "notes": ""
   },
   "booking_badurky": {
@@ -21005,10 +21189,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers exceptional space and dining capacity crucial for group activities like hacking and gaming. The sleeping arrangements are comfortable, and the kitchen is adequate. However, organizers must verify the bathroom count and note the absence of high-bonus wellness features (sauna/hot ",
     "notes": ""
   },
   "booking_penzion-u-housku": {
@@ -21075,10 +21261,12 @@
     "booking_rating": 9.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property is a strong contender due to its high capacity, excellent wellness amenities, and spacious common areas. However, the critical lack of confirmed multiple bathrooms/toilets for 25-35 adults poses a significant logistical risk. If the bathroom facilities can be verified as adequate (e.g.",
     "notes": ""
   },
   "booking_penzion-na-krizovatce-polevsko": {
@@ -21355,10 +21543,12 @@
     "booking_rating": 8.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "U Bernarda is an excellent choice for its high-end amenities (spa, pool) and overall capacity. While the sleeping arrangements are less ideal than a dedicated retreat house, the common areas appear spacious enough to accommodate workshops and gaming if supplementary tables are brought in. It scores ",
     "notes": ""
   },
   "booking_ubytovaci-komplex-penzion-athena": {
@@ -21810,10 +22000,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers a very spacious main area with excellent communal dining space and a hot tub, making it suitable for group activities. However, the critical lack of confirmed multiple bathrooms/toilets and the absence of a sauna significantly detract from its suitability for 25-35 tech enthusia",
     "notes": ""
   },
   "booking_pension-u-studny": {
@@ -21985,10 +22177,12 @@
     "booking_rating": 8.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 50.0,
+    "latest_verdict": "This property offers a very large, social common room and ample seating, which is excellent for group activities. However, the critical issues regarding private space, insufficient dedicated bathrooms/showers, and the absence of wellness amenities make it a high-risk choice. It would require signifi",
     "notes": ""
   },
   "booking_penzion-mlyn-zahradky": {
@@ -22300,10 +22494,12 @@
     "booking_rating": null,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 35.0,
+    "latest_verdict": "This property has an attractive modern design and good cooking facilities, but it critically fails on the core requirements of group capacity. The common area lacks enough dedicated work tables and seating for 25-30 tech enthusiasts to hack or workshop comfortably. Furthermore, the lack of confirmed",
     "notes": ""
   },
   "booking_pension-alex": {
@@ -22370,10 +22566,12 @@
     "booking_rating": 8.6,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers a strong rustic ambiance and good wellness amenities (sauna). However, the critical requirements for large group workspace (tables) and private sleeping arrangements are severely lacking. It is better suited for smaller groups seeking a cozy retreat rather than a large tech conf",
     "notes": ""
   },
   "booking_penzion-u-pivovaru-rotor-kunovice": {
@@ -22965,10 +23163,12 @@
     "booking_rating": 8.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 25.0,
+    "latest_verdict": "This property is unsuitable for garage-trip.cz due to its design as multiple small, private holiday units rather than a single large communal venue. The common areas are too limited in size and capacity to comfortably host 25-30 tech enthusiasts working or gaming together.",
     "notes": ""
   },
   "booking_wellness-penzion-eva-dolni-moravice": {
@@ -23315,10 +23515,12 @@
     "booking_rating": 9.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 65.0,
+    "latest_verdict": "This property offers excellent communal space and wellness amenities, making it appealing for group bonding. However, the critical lack of confirmed modern bathroom/toilet facilities for 25-35 adults is a major concern that requires immediate verification before booking.",
     "notes": ""
   },
   "booking_vila-victory": {
@@ -23560,10 +23762,12 @@
     "booking_rating": 9.5,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 58.0,
+    "latest_verdict": "This property offers a beautiful, spacious common area and good wellness amenities like the hot tub. However, the critical lack of confirmed high-volume bathroom facilities (toilets/showers) and insufficient dedicated workspace tables for 25+ people significantly lowers its suitability score. It wou",
     "notes": ""
   },
   "booking_vila-patricie": {
@@ -24470,10 +24674,12 @@
     "booking_rating": 8.8,
     "first_seen_year": 2026,
     "last_processed_date": "2026-10-16",
-    "evaluated_years": [],
-    "status": "candidate",
-    "latest_final_score": null,
-    "latest_verdict": null,
+    "evaluated_years": [
+      2026
+    ],
+    "status": "evaluated",
+    "latest_final_score": 35.0,
+    "latest_verdict": "This property has excellent wellness features and high overall capacity, but the critical lack of confirmed bathroom facilities (metadata says 'None') and insufficient dedicated working space makes it unsuitable for a focused tech retreat. We recommend looking for a venue with guaranteed restroom ra",
     "notes": ""
   },
   "booking_penzion-rozhovice": {

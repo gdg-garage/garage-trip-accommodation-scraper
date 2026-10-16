@@ -307,11 +307,12 @@ python3 download_top_candidates_images.py --rankings rankings_text_pass1.json --
 > **Google Drive Data & Media Archive**:
 > Raw media, scraped HTML, and candidate exports are gitignored and archived in Google Drive for team access:
 > - 📁 **Retreat Folder**: [Garage Trip 7.0 2026](https://drive.google.com/drive/folders/1sf3RsOdqQoInitC5ukjvDsAR-axxs98G)
-> - 🖼️ **Photos Archive**: [accommodation_candidates_photos/](https://drive.google.com/drive/folders/1lrIb23I96fDfNPQxfh_ZYEOWa0X8isnn) (~385 MB, 1,900+ photos)
+> - 🖼️ **e-chalupy Photos**: [accommodation_candidates_photos/](https://drive.google.com/drive/folders/1lrIb23I96fDfNPQxfh_ZYEOWa0X8isnn) (~385 MB, 1,900+ photos)
+> - 🖼️ **Booking Photos**: `accommodation_candidates_booking_photos/` (~218 MB, 1,605 high-res photos across 108 properties)
 > - 📄 **Booking HTML Pages**: [accommodation_candidates_booking_html/](https://drive.google.com/drive/folders/1uNtouJ89cBmhJUQufvJ-GkfOYvaIsPp_) (~541 MB, 382 pages)
 > - 📄 **e-chalupy HTML Pages**: [accommodation_candidates_html/](https://drive.google.com/drive/folders/1RwdFhUVoeKJSaCatEL7NYPET3gzZQuzM) (~97 MB, 366 pages)
 > - 📦 **Raw Search MHTML Dumps**: [accommodation_candidates_raw_regions/](https://drive.google.com/drive/folders/1uGb2vsbUO_KfLRQhyyuXZ62QgYyd1keT) (~736 MB, 5 `.mhtml` files)
-> - 📊 **Google Sheets & CSVs**: Available in the root folder, including `booking_whole_objects_20_40.csv`, `accommodations_master_index.csv`, and [`rankings_garage_trip_final.csv`](https://drive.google.com/file/d/15p28_nwTZUqCYohED7Xiyq5xMUnmvh0S/view).
+> - 📊 **Google Sheets & CSVs**: Available in the root folder, including `rankings_booking_final_multimodal.csv`, `booking_whole_objects_20_40.csv`, `accommodations_master_index.csv`, and [`rankings_garage_trip_final.csv`](https://drive.google.com/file/d/15p28_nwTZUqCYohED7Xiyq5xMUnmvh0S/view).
 
 ### Pass 2: Multimodal Scoring & Vision Reasoning (`rank_multimodal.py`)
 Uses vision-capable `gemma4:e4b` to inspect common room photos, verify tables and seating for laptops/board games, review bedroom comfort, and evaluate saunas/wellness:
@@ -388,6 +389,35 @@ python3 export_booking_whole_objects.py
 - **108 Whole-House Accommodations**: Retained and ranked by review score.
 - **274 Multi-Room Combinations Excluded**: Filtered out public pensions or aparthotels that assemble separate rooms across shared buildings.
 - **Exports**: Saved to [`booking_whole_objects_20_40.json`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_whole_objects_20_40.json) and [`booking_whole_objects_20_40.csv`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_whole_objects_20_40.csv) (and automatically synced to Google Drive).
+
+### 6. Pass 1 Text & Structured Scoring (`score_text_pass1.py`)
+Evaluates all 108 whole-house accommodations against the garage-trip.cz rubric (capacity, bedrooms, tables, wellness, kitchen, privacy):
+```bash
+python3 score_text_pass1.py -i booking_whole_objects_20_40.json -o rankings_booking_text_pass1.json -t 30
+```
+- Saved to [`rankings_booking_text_pass1.json`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/rankings_booking_text_pass1.json).
+
+### 7. Pass 2 Multimodal AI Vision Scoring (`rank_booking_multimodal.py`)
+Inspects downloaded gallery photos using local Apple Silicon GPU (`gemma4:e4b` on Metal) to confirm table sizes, common room space, bed quality, and wellness:
+```bash
+python3 rank_booking_multimodal.py --rankings rankings_booking_text_pass1.json
+```
+- **100% of 108 Whole-House Properties Evaluated**:
+- **Output Files**: Saved to [`rankings_booking_final_multimodal.csv`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/rankings_booking_final_multimodal.csv) and [`rankings_booking_final_multimodal.json`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/rankings_booking_final_multimodal.json) (and synced to Google Drive).
+
+#### Top Booking Accommodations by Final Score:
+| Rank | Score | Name | Capacity | Bedrooms | Tables | Room | Wellness | Tables Confirmed | Notes |
+|:---:|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---|
+| 1 | **78.0** | **Bret CZ** | 28 | 8 | 25/25 | 23/25 | 14/15 | Yes | Outstanding common room, large gaming tables |
+| 2 | **78.0** | **Roubenka za Horou** | 26 | 10 | 20/25 | 23/25 | 14/15 | Yes | 10 bedrooms, Finnish sauna, ideal retreat fit |
+| 3 | **78.0** | **Statek Hostačov** | 33 | 6 | 25/25 | 23/25 | 14/15 | Yes | Dual-listed on e-chalupy; massive hall and tables |
+| 4 | **78.0** | **Sládků statek** | 29 | 10 | 24/25 | 23/25 | 13/15 | Yes | Dual-listed; spacious rustic barn & workshop area |
+| 5 | **78.0** | **Chalupa Líšenka** | 25 | 7 | 24/25 | 23/25 | 14.5/15 | Yes | Dual-listed; premium wellness & dining space |
+| 6 | **75.0** | **Vila Hamrska** | 26 | 7 | 22/25 | 23/25 | 14/15 | Yes | Spacious villa with sauna and outdoor space |
+| 7 | **75.0** | **Pension Salma** | 32 | 8 | 24/25 | 23/25 | 12/15 | Yes | High table count, large dining & lounge room |
+| 8 | **75.0** | **Na jelení stezce** | 28 | 6 | 20/25 | 23/25 | 12/15 | Yes | Modern chalet with sauna and generous living area |
+| 9 | **75.0** | **Vila Baška** | 29 | 6 | 24/25 | 23/25 | 13/15 | Yes | Lake villa with confirmed banquet tables |
+| 10 | **75.0** | **Tauhaus** | 35 | 8 | 24/25 | 23/25 | 12/15 | Yes | Historic converted manor with huge gathering rooms |
 
 ---
 
