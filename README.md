@@ -308,11 +308,11 @@ python3 download_top_candidates_images.py --rankings rankings_text_pass1.json --
 > Raw media, scraped HTML, and candidate exports are gitignored and archived in Google Drive for team access:
 > - 📁 **Retreat Folder**: [Garage Trip 7.0 2026](https://drive.google.com/drive/folders/1sf3RsOdqQoInitC5ukjvDsAR-axxs98G)
 > - 🖼️ **e-chalupy Photos**: [accommodation_candidates_photos/](https://drive.google.com/drive/folders/1lrIb23I96fDfNPQxfh_ZYEOWa0X8isnn) (~385 MB, 1,900+ photos)
-> - 🖼️ **Booking Photos**: `accommodation_candidates_booking_photos/` (~218 MB, 1,605 high-res photos across 108 properties)
+> - 🖼️ **Booking Photos**: [accommodation_candidates_booking_photos/](https://drive.google.com/drive/folders/1F9mFQ7anbhRgEm8RjBjmCt4u0Aw6ItFC) (~218 MB, 1,605 high-res photos across 108 properties)
 > - 📄 **Booking HTML Pages**: [accommodation_candidates_booking_html/](https://drive.google.com/drive/folders/1uNtouJ89cBmhJUQufvJ-GkfOYvaIsPp_) (~541 MB, 382 pages)
 > - 📄 **e-chalupy HTML Pages**: [accommodation_candidates_html/](https://drive.google.com/drive/folders/1RwdFhUVoeKJSaCatEL7NYPET3gzZQuzM) (~97 MB, 366 pages)
 > - 📦 **Raw Search MHTML Dumps**: [accommodation_candidates_raw_regions/](https://drive.google.com/drive/folders/1uGb2vsbUO_KfLRQhyyuXZ62QgYyd1keT) (~736 MB, 5 `.mhtml` files)
-> - 📊 **Google Sheets & CSVs**: Available in the root folder, including `rankings_booking_final_multimodal.csv`, `booking_whole_objects_20_40.csv`, `accommodations_master_index.csv`, and [`rankings_garage_trip_final.csv`](https://drive.google.com/file/d/15p28_nwTZUqCYohED7Xiyq5xMUnmvh0S/view).
+> - 📊 **Google Sheets & CSVs**: Available in the root folder, including [`rankings_booking_final_multimodal.csv`](https://drive.google.com/file/d/1ZVlXoolY0vebUmTOlgH1RBxKhPNfIJOC/view), `booking_whole_objects_20_40.csv`, `accommodations_master_index.csv`, and [`rankings_garage_trip_final.csv`](https://drive.google.com/file/d/15p28_nwTZUqCYohED7Xiyq5xMUnmvh0S/view).
 
 ### Pass 2: Multimodal Scoring & Vision Reasoning (`rank_multimodal.py`)
 Uses vision-capable `gemma4:e4b` to inspect common room photos, verify tables and seating for laptops/board games, review bedroom comfort, and evaluate saunas/wellness:
