@@ -1,6 +1,6 @@
 # 🏡 Garage Trip Accommodation Scraper & AI Ranker
 
-A distributed, decoupled web scraping, offline DOM parsing, and LLM-powered ranking pipeline designed for discovering, filtering, and evaluating holiday cottages and chalets (*chaty a chalupy*) on [e-chalupy.cz](https://www.e-chalupy.cz).
+A decoupled, multi-source web scraping, offline DOM parsing, and LLM-powered ranking pipeline designed for discovering, filtering, and evaluating holiday cottages and chalets (*chaty a chalupy*) on [e-chalupy.cz](https://www.e-chalupy.cz) and [Booking.com](https://www.booking.com).
 
 Specially engineered for organizing **large group weekend retreats** (25–40 people), such as board game weekends, LAN gaming parties, and developer offsites.
 
@@ -24,7 +24,7 @@ This project solves the challenge through a two-tier evaluation strategy:
 
 ## 🧩 Architectural Philosophy: Why 5 Decoupled Stages?
 
-To enable **team collaboration** and **prevent server blocking**, the workflow is decoupled into 5 independent stages:
+To ensure **robustness**, **reproducibility**, and **prevent server blocking**, the workflow is decoupled into independent stages:
 
 ```
 [ e-chalupy.cz search ] 
@@ -32,50 +32,42 @@ To enable **team collaboration** and **prevent server blocking**, the workflow i
         v  Step 1: scrape_links.py (make links)
    [ urls.txt ]
         |
-        +-------------------------+-------------------------+
-        | (Worker Shard 0)        | (Worker Shard 1)        | (Worker Shard 2)
-        v                         v                         v
- download_html.py          download_html.py          download_html.py
-   (--shard-id 0)            (--shard-id 1)            (--shard-id 2)
-        |                         |                         |
-        +-------------------------+-------------------------+
-                                  |
-                                  v
-                            [ html/*.html ]
-                                  |
-                 +----------------+----------------+
-                 |                                 |
-                 v Step 4: parse_dom.py            v Step 3: download_images.py
-           (Offline DOM)                     (Distributed Shards)
-                 |                                 |
-                 v                                 v
-        [ properties.json ]                    [ imgs/*.jpg ]
-        [ out.csv / out.json ]                     |
-                 |                                 |
-                 +----------------+----------------+
-                                  |
-                                  v  Step 5: rank.py (Ollama + gemma2)
-                           [ ratings.json ]
-                                  |
-                                  v  Step 6: merge_ratings.py
-                          [ out-rated.csv ]
+        v  Step 2: download_html.py
+  [ html/*.html ]
+        |
+        +----------------+----------------+
+        |                                 |
+        v Step 4: parse_dom.py            v Step 3: download_images.py
+  (Offline DOM)                     (Bulk / Gallery)
+        |                                 |
+        v                                 v
+[ properties.json ]                   [ images/ ]
+[ out.csv / out.json ]                    |
+        |                                 |
+        +----------------+----------------+
+                         |
+                         v  Step 5: rank.py (Ollama + gemma2 / gemma4)
+                  [ ratings.json ]
+                         |
+                         v  Step 6: merge_ratings.py
+                 [ out-rated.csv ]
 ```
 
-### Why Decouple & Distribute?
-1. **Polite & Anti-Blocking**: Instead of hammering `e-chalupy.cz` from a single IP, link discovery is isolated into a tiny lightweight query. The heavy HTML/image downloads can be partitioned among multiple team members across different networks using **worker sharding** (`--total-shards N --shard-id I`) with built-in delays, random jitter, and retry backoffs.
+### Why Decouple?
+1. **Polite & Anti-Blocking**: Instead of hammering `e-chalupy.cz` with concurrent burst requests, link discovery is isolated into a tiny lightweight query. The heavy HTML and image downloads run with built-in delays, random jitter, and retry backoffs.
 2. **Instant Offline Iteration**: Once HTML files are saved locally into `html/`, all DOM parsing, regex adjustments, heuristic tweaks, and price recalculations run **100% offline in milliseconds** without making a single network request to the live website.
-3. **Resilience & Resumption**: Every downloading stage automatically checks if a file already exists on disk and skips it. If a network connection drops or a teammate is interrupted, restarting picks up right where it left off.
-4. **Reproducible AI Experimentation**: Parsed structured data is saved to `out.json`, allowing team members to test different LLM models (`gemma2`, `llama3.1`, `llava`), prompt versions (`--prompt-version v4`), and multimodal visual prompts with `--dry-run` and incremental caching in `ratings.json`.
+3. **Resilience & Resumption**: Every downloading stage automatically checks if a file already exists on disk and skips it. If a network connection drops or execution is interrupted, restarting picks up right where it left off.
+4. **Reproducible AI Experimentation**: Parsed structured data is saved to `out.json`, allowing testing of different LLM models (`gemma4:e4b`, `gemma2`, `llama3.1`), prompt versions (`--prompt-version v4`), and multimodal visual prompts with `--dry-run` and incremental caching in `ratings.json`.
 
 ---
 
 ## 📌 5-Stage Pipeline Overview
 
 1. **Link Extractor (`scrape_links.py`)**: Crawls search index pages across regions and outputs `urls.txt`.
-2. **Distributed HTML Downloader (`download_html.py`)**: Downloads raw HTML pages into `html/` with polite rate-limiting, jitter, automatic retry backoff, and worker sharding.
+2. **HTML Downloader (`download_html.py`)**: Downloads raw HTML pages into `html/` with polite rate-limiting, jitter, and automatic retry backoff.
 3. **Image Downloader Tools**:
    - **Single Property Image Downloader (`download_property_images.py` & `extract_property_images.py`)**: Extracts full-resolution gallery photo URLs for a specific property and downloads them into `images/<slug>/` with graceful timeouts, exponential retries, polite delays, and image verification without triggering captchas.
-   - **Distributed Bulk Image Downloader (`download_images.py`)**: Downloads property photos across all properties with worker sharding and rate-limiting.
+   - **Bulk Image Downloader (`download_images.py`)**: Downloads property photos across properties with rate-limiting.
 4. **Offline DOM Parser & Heuristic Filter (`parse_dom.py`)**: Parses local HTML files offline, normalizes prices and distances, applies capacity/amenity filters, and produces `properties.json`, `out.csv`, and `out.json`.
 5. **Gemma-Powered LLM Analyzer (`rank.py`)**: Evaluates candidate cottages with local Ollama LLMs (defaulting to newest **`gemma2`**), returning **description first**, suitability scores, owner presence detection, and constraint reasoning.
 
@@ -122,58 +114,37 @@ pip install -r requirements.txt
 
 ---
 
-## 👥 Distributed Team Collaboration Guide
+### 3. Usage & Workflow
 
-When scraping hundreds of properties, multiple team members can share the download workload to minimize requests to `e-chalupy.cz` and prevent rate-limiting:
+1. **Extract Search Links**:
+   ```bash
+   make links
+   # Generates urls.txt
+   ```
 
-### 1. Extract Links (1 person runs this)
-```bash
-make links
-# Generates urls.txt
-```
-Share `urls.txt` with your team.
+2. **Download HTML Pages**:
+   ```bash
+   python3 download_html.py
+   ```
 
-### 2. Distribute HTML Downloads (e.g. across 3 teammates)
-- **Teammate 1**:
-  ```bash
-  python3 download_html.py --total-shards 3 --shard-id 0
-  ```
-- **Teammate 2**:
-  ```bash
-  python3 download_html.py --total-shards 3 --shard-id 1
-  ```
-- **Teammate 3**:
-  ```bash
-  python3 download_html.py --total-shards 3 --shard-id 2
-  ```
+3. **Parse Offline & Filter**:
+   ```bash
+   make parse
+   ```
+   Extracts structured records into `properties.json`, `out.csv`, and `out.json`.
 
-Teammates simply zip and share their `html/` folders (e.g. `tar -czvf html_shard0.tar.gz html/`), and merge all `.html` files into a single `html/` directory!
+4. **Rank with Ollama**:
+   ```bash
+   make rank
+   # Or with specific parameters:
+   python3 rank.py --model gemma2 --prompt-version v4
+   ```
 
-### 3. Distribute Image Downloads (optional)
-Similarly, image downloads can be sharded:
-```bash
-python3 download_images.py --total-shards 3 --shard-id 0
-```
-
-### 4. Parse Offline & Filter (runs 100% locally)
-Once HTML files are in `html/`, run the DOM parser without any network access:
-```bash
-make parse
-```
-This extracts structured records into `properties.json`, `out.csv`, and `out.json`.
-
-### 5. Rank with Ollama (Gemma 2)
-```bash
-make rank
-# Or with specific parameters:
-python3 rank.py --model gemma2 --prompt-version v4
-```
-
-### 6. Merge Ratings & Export
-```bash
-make merge
-# Creates out-rated.csv with all AI & human ratings
-```
+5. **Merge Ratings & Export**:
+   ```bash
+   make merge
+   # Creates out-rated.csv with all AI & human ratings
+   ```
 
 ---
 
@@ -194,8 +165,6 @@ make merge
 |---|---|---|
 | `--input`, `-i` | `urls.txt` | Input URLs list. |
 | `--output-dir`, `-o` | `html` | Destination directory for `.html` files. |
-| `--total-shards`, `-n` | `1` | Total number of distributed worker shards. |
-| `--shard-id`, `-s` | `0` | Zero-indexed shard ID (`0..total_shards-1`). |
 | `--delay` | `0.5` | Base delay between HTTP requests in seconds. |
 | `--jitter` | `0.3` | Random jitter added to delay. |
 | `--timeout` | `15` | Request timeout in seconds. |
@@ -210,13 +179,13 @@ make merge
 #### Cloudflare & Remote Server Usage:
 - **Local Machine (Auto Solver):**
   ```bash
-  python3 download_html.py --total-shards 4 --shard-id 0
+  python3 download_html.py
   ```
   Automatically solves Cloudflare Turnstile in ~2 seconds, saves the session to `.cf_session.json`, and downloads rapidly via `curl_cffi`.
 - **Remote / Headless Server (No GUI / No Playwright):**
   Share the generated `.cf_session.json` file to the remote server, or pass the token directly:
   ```bash
-  CF_CLEARANCE="<token>" USER_AGENT="<user_agent>" python3 download_html.py --no-browser -n 4 -s 1
+  CF_CLEARANCE="<token>" USER_AGENT="<user_agent>" python3 download_html.py --no-browser
   ```
 
 ### 3. Image Downloaders
@@ -247,14 +216,12 @@ python3 download_property_images.py o358 --limit 5 --delay 0.5
 | `--max-retries` | `3` | Max retry attempts with exponential backoff on transient errors. |
 | `--force`, `-f` | `False` | Overwrite existing cached images instead of skipping. |
 
-#### Distributed Bulk Image Downloader (`download_images.py`)
+#### Bulk Image Downloader (`download_images.py`)
 | Argument | Default | Description |
 |---|---|---|
 | `--html-dir`, `-d` | `html` | Directory with downloaded HTML pages. |
 | `--input-json`, `-j` | `None` | Alternative input JSON with image URLs. |
 | `--output-dir`, `-o` | `imgs` | Destination images directory. |
-| `--total-shards`, `-n` | `1` | Total number of worker shards. |
-| `--shard-id`, `-s` | `0` | Zero-indexed shard ID. |
 | `--delay` | `0.2` | Polite delay between image downloads. |
 
 ### 4. `web_crawler_bridge.py`
