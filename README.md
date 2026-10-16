@@ -304,9 +304,14 @@ python3 download_top_candidates_images.py --rankings rankings_text_pass1.json --
 ```
 
 > [!TIP]
-> **Google Drive Gallery Backup**:
-> Because full image galleries are ~375 MB across 1,900+ photos, raw images are gitignored and archived in Google Drive for team collaboration:
-> - **Google Drive Path**: `My Drive/Garage Trip 7.0 2026/accommodation_candidates_photos/`
+> **Google Drive Data & Media Archive**:
+> Raw media, scraped HTML, and candidate exports are gitignored and archived in Google Drive for team access:
+> - 📁 **Retreat Folder**: [Garage Trip 7.0 2026](https://drive.google.com/drive/folders/1sf3RsOdqQoInitC5ukjvDsAR-axxs98G)
+> - 🖼️ **Photos Archive**: [accommodation_candidates_photos/](https://drive.google.com/drive/folders/1lrIb23I96fDfNPQxfh_ZYEOWa0X8isnn) (~385 MB, 1,900+ photos)
+> - 📄 **Booking HTML Pages**: [accommodation_candidates_booking_html/](https://drive.google.com/drive/folders/1uNtouJ89cBmhJUQufvJ-GkfOYvaIsPp_) (~541 MB, 382 pages)
+> - 📄 **e-chalupy HTML Pages**: [accommodation_candidates_html/](https://drive.google.com/drive/folders/1RwdFhUVoeKJSaCatEL7NYPET3gzZQuzM) (~97 MB, 366 pages)
+> - 📦 **Raw Search MHTML Dumps**: [accommodation_candidates_raw_regions/](https://drive.google.com/drive/folders/1uGb2vsbUO_KfLRQhyyuXZ62QgYyd1keT) (~736 MB, 5 `.mhtml` files)
+> - 📊 **Google Sheets & CSVs**: Available in the root folder, including `booking_whole_objects_20_40.csv`, `accommodations_master_index.csv`, and [`rankings_garage_trip_final.csv`](https://drive.google.com/file/d/15p28_nwTZUqCYohED7Xiyq5xMUnmvh0S/view).
 
 ### Pass 2: Multimodal Scoring & Vision Reasoning (`rank_multimodal.py`)
 Uses vision-capable `gemma4:e4b` to inspect common room photos, verify tables and seating for laptops/board games, review bedroom comfort, and evaluate saunas/wellness:
@@ -329,6 +334,131 @@ When evaluated by Ollama, each accommodation is scored with **description first*
   "explanation": "Perfect fit for 30 people: dedicated large common room with chairs, 8 separate bedrooms preventing overcrowded rooms, high-speed Wi-Fi, and exclusive private rental."
 }
 ```
+
+---
+
+## 🏨 Booking.com Integration & Multi-Source Expansion
+
+To complement *e-chalupy.cz* and discover modern villas, wellness chalets, and private buy-out pensions, a complete scraping, filtering, and cross-validation pipeline was added for **Booking.com**:
+
+### 1. Raw Candidate Extraction & Capacity Filtering
+- **Raw Export**: [`booking_cz_25plus_filtered.mhtml`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_cz_25plus_filtered.mhtml) (**70 MB**, 616 property cards) exported from a browser session with property types: *Chalets*, *Holiday homes*, *Villas*, *Country houses*, *Lodges*, *Guest houses*, and *Farm stays*.
+- **Filter Heuristics (`filter_booking_candidates.py`)**:
+  - Parses card text for explicit capacity titles (*"až pro 30 lidí"*), room-by-room bed composition (*"21 beds (14 singles, 2 sofa beds, 5 large doubles)"*), and multi-room combinations.
+  - **Filtered Out (< 20 capacity)**: **201 properties** (tiny 1-bedroom cabins, family suites, glamping pods).
+  - **Filtered Out (> 40 capacity)**: **33 properties** (large hotel complexes / giant youth hostels).
+  - **Retained Suitable Range (20–40 capacity)**: **382 unique accommodations** saved to [`booking_candidates_20_40.json`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_candidates_20_40.json) and [`booking_candidates_20_40.csv`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_candidates_20_40.csv).
+  - **URL Export**: [`booking_urls_20_40.txt`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_urls_20_40.txt) (382 candidate URLs).
+
+### 2. Stealth Detail Page Downloader (`download_booking_html.py`)
+Because Booking.com uses AWS WAF with JavaScript challenges, requests are handled via Playwright:
+```bash
+python3 download_booking_html.py --delay 0.6
+```
+- Reuses authenticated Chrome browser context to clear AWS WAF on launch.
+- Automatically caches full DOM and embedded scripts into [`booking_html/<slug>.html`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_html).
+- Polite pacing (0.8s–1.8s random jitter) and automatic resumption on interruption.
+
+### 3. Structured Feature Extraction (`extract_booking_features.py`)
+Normalizes Booking data to match the schema used in [`properties_structured.json`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/properties_structured.json):
+```bash
+python3 extract_booking_features.py
+```
+- Extracts `schema.org/Hotel` JSON-LD (official names, addresses, localities, regions).
+- Identifies amenities (sauna types, indoor/outdoor pools, hot tubs, Wi-Fi, dishwashers, beer taps).
+- Extracts AI scene captions from image tags (e.g. *"a large kitchen with a wooden table and chairs"*).
+- Produces [`booking_properties_structured.json`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_properties_structured.json) and [`booking_properties_structured.csv`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_properties_structured.csv).
+
+### 4. High-Resolution Photo Downloader (`download_booking_photos.py`)
+Downloads original uncompressed 1280x900 gallery photos from Booking's CDN:
+```bash
+# Download photos for a specific property:
+python3 download_booking_photos.py --slug na-jeleni-stezce --limit-photos 20
+
+# Download photos across all Booking properties:
+python3 download_booking_photos.py --limit-photos 15
+```
+- Saves photos to [`booking_images/<slug>/`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_images) along with a `photos_manifest.json` containing photo IDs and scene captions.
+
+### 5. Whole-House Exclusive Buyout Filter (`export_booking_whole_objects.py`)
+To ensure complete group privacy without sharing premises with strangers, the 382 suitable properties are filtered down to verified **exclusive whole-object rentals** (*Entire holiday home, Entire villa, Entire chalet, Entire private cottage*):
+```bash
+python3 export_booking_whole_objects.py
+```
+- **108 Whole-House Accommodations**: Retained and ranked by review score.
+- **274 Multi-Room Combinations Excluded**: Filtered out public pensions or aparthotels that assemble separate rooms across shared buildings.
+- **Exports**: Saved to [`booking_whole_objects_20_40.json`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_whole_objects_20_40.json) and [`booking_whole_objects_20_40.csv`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/booking_whole_objects_20_40.csv) (and automatically synced to Google Drive).
+
+---
+
+## ⚖️ Comparison: Booking.com vs. e-chalupy.cz
+
+| Feature / Metric | e-chalupy.cz | Booking.com |
+|---|---|---|
+| **Raw Scraped Listings** | 1,199 links / 366 downloaded | 616 search cards |
+| **Filtered Candidates (20–40 cap)** | 84 passed heuristic filter | **382 suitable accommodations** |
+| **Exclusive Whole-House Rentals** | 84 whole chalets | **108 whole villas/chalets** (274 multi-room excluded) |
+| **Pricing Model** | Fixed catalog pricing (weekend & weekly rates in CZK, off-season) independent of dates | Dynamic inventory-driven pricing requiring specific check-in/out dates |
+| **Data Completeness** | Rich Czech descriptions, explicit owner-on-site statements, technical table of WC/shower counts | Standardized verified amenities, guest review ratings (e.g. 9.8), and detailed address metadata |
+| **Photo Quality** | Mixed quality user uploads (often watermarked) | High-resolution 1280x900 CDN photos with automated computer-vision scene captions |
+| **Property Types** | Traditional Czech chalupy, roubenky, and converted mountain lodges | Modern wellness villas, boutique chalets, and private buy-out pensions |
+
+---
+
+## 🔍 Cross-Validation & Overlap Analysis (`cross_validate_sources.py`)
+
+Run cross-validation between Booking and e-chalupy:
+```bash
+python3 cross_validate_sources.py
+```
+
+### Overlap Summary:
+* **Booking Candidates (20–40 capacity)**: **382**
+* **e-chalupy Scraped Catalog**: **366**
+* **Cross-Platform Verified Matches (on Both Portals)**: **11** (100% of matches are whole-house properties)
+* **Booking-Exclusive Accommodations**: **371**
+* **e-chalupy-Exclusive Accommodations**: **355**
+* **Total Combined Unique Accommodations Pool**: **726 properties**
+
+### Verified Dual-Listed Accommodations:
+1. **Wellness roubenka Inffinity** (Booking: 31 cap, 9.4 rating) ⟷ e-chalupy ID `o17068`
+2. **Chata Františkov** (Booking: 38 cap, 9.4 rating) ⟷ e-chalupy ID `o21177` (35 cap)
+3. **Chalupa Javořinka** (Booking: 29 cap, 9.0 rating) ⟷ e-chalupy ID `o21545`
+4. **Sládků statek** (Booking: 29 cap, 9.5 rating) ⟷ e-chalupy ID `o95` (29 cap)
+5. **Statek Hostačov** (Booking: 33 cap) ⟷ e-chalupy ID `o18555` (29 cap)
+6. **Chata Buchtovna** (Booking: 31 cap, 9.6 rating) ⟷ e-chalupy ID `o318`
+7. **Chalupa Borovka** (Booking: 24 cap) ⟷ e-chalupy ID `o23159`
+8. **Chata Urban Filipovice** (Booking: 34 cap, 9.2 rating) ⟷ e-chalupy ID `o4063`
+9. **Chalupa Líšenka** (Booking: 25 cap) ⟷ e-chalupy ID `o17430` (30 cap)
+10. **Relax Zone Vrchovina** (Booking: 25 cap, 9.4 rating) ⟷ e-chalupy ID `o8551` (25 cap)
+11. **Chata Jablůňka** (Booking: 25 cap, 9.7 rating) ⟷ e-chalupy ID `o7357`
+
+---
+
+## 📚 Multi-Year Master Accommodation Index & Registry (`build_master_index.py`)
+
+To prevent duplicate scraping and preserve evaluations across future retreat years, a multi-year master registry tracks all accommodations across both platforms:
+
+```bash
+# Search registry by name, village, or ID:
+python3 build_master_index.py --lookup "Hříbek"
+python3 build_master_index.py --lookup "Františkov"
+
+# Display registry statistics:
+python3 build_master_index.py --stats
+
+# Rebuild / update the master index:
+python3 build_master_index.py --build
+```
+
+### Registry Highlights:
+* **737 Unique Accommodations Tracked**:
+  * Unified records for cross-listed venues (links to both e-chalupy and Booking).
+  * Capacity, bedroom counts, bed breakdowns, and verified amenities (sauna, pool, hot tub, beer tap).
+  * Lifecycle tracking: `first_seen_year` (e.g. 2026), `evaluated_years`, `status` (`candidate`, `evaluated`, `booked`, `rejected`), and AI verdicts.
+* **Output Files**:
+  * [`accommodations_master_index.json`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/accommodations_master_index.json)
+  * [`accommodations_master_index.csv`](file:///Users/tivvit/git/gdg-garage/garage-trip-accommodation-scraper/accommodations_master_index.csv) (synced to Google Drive)
 
 ---
 

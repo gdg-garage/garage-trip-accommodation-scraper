@@ -41,6 +41,8 @@ htmlcov/
 imgs/
 images/
 html/
+booking_html/
+booking_images/
 raw_regions/
 data/
 *.mhtml
@@ -48,5 +50,6 @@ data/
 *.jpeg
 *.png
 *.webp
+booking_test_page.html
 .cf_session.json
 .daily_crawl_ledger.json

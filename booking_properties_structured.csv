@@ -1,0 +1,383 @@
+ID,Slug,Name,Locality,Region,Review Score,Capacity Total,Beds Regular,Beds Extra,Bedrooms,Entire Place,Has Sauna,Has Pool,Has Hot Tub,Beer Tap,Photos Count,URL
+b_001,na-jeleni-stezce,Na jelení stezce,chřibská krásné pole č.e. 5,Usti nad Labem,9.9,28,26,2,6,YES,YES,YES,NO,NO,446,https://www.booking.com/hotel/cz/na-jeleni-stezce.en-gb.html
+b_002,roubenka-inffinity,Wellness roubenka Inffinity,J. A. Komenského 8,Hradec Kralove,9.4,31,30,1,7,YES,NO,NO,NO,NO,235,https://www.booking.com/hotel/cz/roubenka-inffinity.en-gb.html
+b_003,chata-frantiskov,Chata Františkov,Františkov 85,South Bohemia,9.4,38,38,0,13,YES,YES,NO,YES,NO,542,https://www.booking.com/hotel/cz/chata-frantiskov.en-gb.html
+b_005,chata-ryba,Chata Ryba,49 Nádražní,Karlovy Vary Region,9.2,31,29,2,7,YES,YES,NO,NO,NO,275,https://www.booking.com/hotel/cz/chata-ryba.en-gb.html
+b_006,tauhaus,Tauhaus,Rabštejn nad Střelou 72,Pilsen,,35,28,7,8,YES,YES,NO,NO,NO,386,https://www.booking.com/hotel/cz/tauhaus.en-gb.html
+b_007,pension-u-sebastiana,Dům U Sebastiana,Hodousice 32,Pilsen,8.8,28,28,0,8,YES,NO,YES,NO,NO,508,https://www.booking.com/hotel/cz/pension-u-sebastiana.en-gb.html
+b_008,chata-magistrala,Chata Magistrála,Janov nad Nisou 1149,Liberec Region,9.8,32,32,0,6,YES,YES,NO,NO,NO,466,https://www.booking.com/hotel/cz/chata-magistrala.en-gb.html
+b_010,chata-maty,Celá Horská Chata Maty - až 25 lůžek,64,Hradec Kralove,9.5,25,25,0,7,YES,NO,NO,NO,NO,491,https://www.booking.com/hotel/cz/chata-maty.en-gb.html
+b_012,penzion-mlyn-trestice,Penzion Mlyn Trestice,Trestice 32 Trestice 32,Vysocina,9.6,23,19,4,6,NO,YES,NO,NO,NO,179,https://www.booking.com/hotel/cz/penzion-mlyn-trestice.en-gb.html
+b_013,beskiden-prime-exclusiv-chalets,Beskiden Prime Exclusiv Chalets,Prostredni Becva  c.p. 15,Zlin Region,9.2,32,28,4,9,YES,YES,YES,YES,NO,432,https://www.booking.com/hotel/cz/beskiden-prime-exclusiv-chalets.en-gb.html
+b_014,wellness-pension-fulda-cerny-dul-cerny-dul,Wellness Pension Fulda Černý Důl,Černý Důl 257,Hradec Kralove,8.9,36,32,4,1,NO,YES,YES,YES,NO,694,https://www.booking.com/hotel/cz/wellness-pension-fulda-cerny-dul-cerny-dul.en-gb.html
+b_015,horska-chata-boubelka,Horská chata Boubelka,263 Velká Úpa,Hradec Kralove,9.9,26,26,0,8,YES,YES,NO,NO,NO,235,https://www.booking.com/hotel/cz/horska-chata-boubelka.en-gb.html
+b_016,pension-piana,Pension Piana,Velká Úpa,Hradec Kralove,8.7,31,31,0,10,YES,NO,NO,NO,NO,239,https://www.booking.com/hotel/cz/pension-piana.en-gb.html
+b_017,bohemian-lake-loghouses-stare-splavy,Bohemian Lake Loghouses - Staré Splavy,U Rybníčku 45,Liberec Region,7.9,25,25,0,6,YES,NO,NO,NO,NO,164,https://www.booking.com/hotel/cz/bohemian-lake-loghouses-stare-splavy.en-gb.html
+b_019,vila-baska,Vila Baška,Baška 347 347,Moravia-Silesia,8.3,29,27,2,6,YES,NO,YES,YES,NO,271,https://www.booking.com/hotel/cz/vila-baska.en-gb.html
+b_020,beskydy-areal,Beskydy Areal,Prostredni Becva 15,Zlin Region,8.7,34,33,1,11,YES,YES,YES,YES,NO,851,https://www.booking.com/hotel/cz/beskydy-areal.en-gb.html
+b_021,villa-vykmanov,Villa Vykmanov,Mýtinka 11 Vykmanov,Usti nad Labem,,26,25,1,6,YES,NO,NO,NO,NO,304,https://www.booking.com/hotel/cz/villa-vykmanov.en-gb.html
+b_022,ranch-jestrebice,Ranch Jestřebice,Jestřebice 4,Central Bohemia,9.1,22,19,3,4,YES,YES,YES,YES,NO,766,https://www.booking.com/hotel/cz/ranch-jestrebice.en-gb.html
+b_024,chata-polka,Chata Polka,Polka 5,South Bohemia,9.6,36,36,0,10,YES,YES,NO,YES,NO,331,https://www.booking.com/hotel/cz/chata-polka.en-gb.html
+b_025,chalupa-nonnetit,Chalupa Nonnetit,Vápenice,Zlin Region,9.8,29,26,3,5,YES,YES,NO,YES,NO,259,https://www.booking.com/hotel/cz/chalupa-nonnetit.en-gb.html
+b_026,koliba-varnsdorf,KOLIBA Varnsdorf,Okružní 3227,Usti nad Labem,9.5,28,28,0,7,YES,NO,NO,NO,NO,243,https://www.booking.com/hotel/cz/koliba-varnsdorf.en-gb.html
+b_027,roubenka-svitavka-cely-areal,Roubenka Svitávka - chalupa a apartmán,5,Liberec Region,,22,19,3,6,YES,NO,NO,NO,NO,219,https://www.booking.com/hotel/cz/roubenka-svitavka-cely-areal.en-gb.html
+b_028,chalupa-javorinka,Chalupa Javořinka,Velká Úpa 207,Hradec Kralove,9.0,29,27,2,9,YES,NO,NO,YES,NO,460,https://www.booking.com/hotel/cz/chalupa-javorinka.en-gb.html
+b_029,roubenka-za-horou,Roubenka za Horou,Orlické Záhoří 0171,Hradec Kralove,,26,23,3,10,YES,YES,YES,YES,NO,525,https://www.booking.com/hotel/cz/roubenka-za-horou.en-gb.html
+b_030,hostel-housuv-mlyn,Housův Mlýn,Pod Holečkovými sady 383,South Bohemia,7.9,34,34,0,1,NO,NO,NO,NO,NO,376,https://www.booking.com/hotel/cz/hostel-housuv-mlyn.en-gb.html
+b_032,chata-walterovka,Chata WALTEROVKA,962 962,Liberec Region,7.1,28,27,1,8,YES,NO,NO,NO,NO,275,https://www.booking.com/hotel/cz/chata-walterovka.en-gb.html
+b_035,vila-bela-pod-pradedem,Vila Bělá pod Pradědem,160 Adolfovice,Olomouc Region,8.8,29,29,0,7,YES,YES,NO,YES,NO,299,https://www.booking.com/hotel/cz/vila-bela-pod-pradedem.en-gb.html
+b_036,chata-v-krkonosich-6-rooms-25-beds,"Chata v Krkonoších, 6 rooms, 25 beds",Vítkovice 196,Liberec Region,,39,26,13,1,YES,NO,NO,NO,NO,131,https://www.booking.com/hotel/cz/chata-v-krkonosich-6-rooms-25-beds.en-gb.html
+b_037,rezidence-vogelsang,Rezidence VOGELSANG,Podlesí č.p. 1,Pilsen,8.9,32,22,10,6,YES,NO,NO,NO,NO,138,https://www.booking.com/hotel/cz/rezidence-vogelsang.en-gb.html
+b_038,horska-chata-u-spicaku,Horská CHATA U ŠPIČÁKU,135 Antonínov 135,Liberec Region,7.5,35,28,7,7,YES,NO,NO,NO,NO,171,https://www.booking.com/hotel/cz/horska-chata-u-spicaku.en-gb.html
+b_039,vila-praha,Vila Prag,Pod Habrovou 490/8,,9.2,32,32,0,11,YES,YES,YES,YES,NO,355,https://www.booking.com/hotel/cz/vila-praha.en-gb.html
+b_042,apartmany-lhota,Apartmány Lhota,Haškovcova Lhota 8,South Bohemia,9.1,30,25,5,7,YES,YES,YES,YES,NO,377,https://www.booking.com/hotel/cz/apartmany-lhota.en-gb.html
+b_043,andelsky-dvur,Andělský Dvůr,Světce 21,South Bohemia,8.7,24,21,3,5,NO,YES,NO,YES,NO,393,https://www.booking.com/hotel/cz/andelsky-dvur.en-gb.html
+b_044,chalupa-lazenka,Chalupa Lázeňka,Andělská 91,Karlovy Vary Region,8.0,35,34,1,8,YES,NO,NO,NO,NO,411,https://www.booking.com/hotel/cz/chalupa-lazenka.en-gb.html
+b_045,bouda-sestidomi-strazne1,Bouda Šestidomí,Strážné 41,Hradec Kralove,9.0,30,29,1,8,YES,NO,NO,NO,NO,355,https://www.booking.com/hotel/cz/bouda-sestidomi-strazne1.en-gb.html
+b_046,vila-hamrska-velke-hamry,Vila Hamrska,Velké Hamry 656,Liberec Region,9.6,26,25,1,7,YES,YES,YES,YES,NO,546,https://www.booking.com/hotel/cz/vila-hamrska-velke-hamry.en-gb.html
+b_048,sladku-statek-veseli-nad-luznici,Sládků statek,Sviny 25,South Bohemia,9.5,29,29,0,10,YES,YES,YES,NO,NO,299,https://www.booking.com/hotel/cz/sladku-statek-veseli-nad-luznici.en-gb.html
+b_049,holiday-home-harrachov-90,Holiday Home Mountain Serenity & Sauna by Interhome,,Liberec Region,7.0,40,36,4,10,YES,YES,NO,NO,NO,334,https://www.booking.com/hotel/cz/holiday-home-harrachov-90.en-gb.html
+b_051,statek-hostacov,Statek Hostačov,Zvěstovice 57,Vysocina,,33,28,5,6,YES,YES,YES,YES,NO,355,https://www.booking.com/hotel/cz/statek-hostacov.en-gb.html
+b_052,chata-vista-strazne,Chata VISTA Strážné,Strážné 146,Hradec Kralove,9.5,32,32,0,9,YES,NO,NO,NO,NO,166,https://www.booking.com/hotel/cz/chata-vista-strazne.en-gb.html
+b_053,chata-buchtovna,Chata Buchtovna,1072,Liberec Region,9.6,31,30,1,7,YES,NO,NO,NO,NO,406,https://www.booking.com/hotel/cz/chata-buchtovna.en-gb.html
+b_054,holiday-home-machova-roubenka-by-interhome-doksy-stare-splavy,Holiday Home Máchova roubenka by Interhome,,Liberec Region,,24,24,0,6,YES,NO,NO,NO,NO,165,https://www.booking.com/hotel/cz/holiday-home-machova-roubenka-by-interhome-doksy-stare-splavy.en-gb.html
+b_055,penzion-patrik-vapenice,Penzion Mikulčin vrch,Vápenice,Zlin Region,8.4,37,28,9,5,YES,NO,YES,NO,NO,512,https://www.booking.com/hotel/cz/penzion-patrik-vapenice.en-gb.html
+b_056,chalet-anenske-udoli-by-interhome,Chalet Anenské údolí by Interhome,,Liberec Region,9.6,28,25,3,5,YES,NO,NO,NO,NO,574,https://www.booking.com/hotel/cz/chalet-anenske-udoli-by-interhome.en-gb.html
+b_057,chalupa-borovka,Chalupa Borovka,"61, 384 92",South Bohemia,,24,24,0,6,YES,NO,NO,NO,NO,115,https://www.booking.com/hotel/cz/chalupa-borovka.en-gb.html
+b_058,penzion-havana,Apartmány Havana,Pod Svatým Duchem 271,South Bohemia,9.1,39,32,7,9,YES,NO,NO,NO,NO,824,https://www.booking.com/hotel/cz/penzion-havana.en-gb.html
+b_059,chalupy-na-ralisce,Chalupy Na Rališce,Horní Bečva 0595,Zlin Region,9.4,28,24,4,8,YES,YES,NO,YES,NO,470,https://www.booking.com/hotel/cz/chalupy-na-ralisce.en-gb.html
+b_060,chata-urban-filipovice,Chata Urban Filipovice,Filipovice 9,Olomouc Region,9.2,34,34,0,8,YES,NO,YES,NO,NO,259,https://www.booking.com/hotel/cz/chata-urban-filipovice.en-gb.html
+b_061,chalupa-lisenka,Chalupa Líšenka,321,Pardubice Region,,25,25,0,7,YES,YES,NO,YES,NO,355,https://www.booking.com/hotel/cz/chalupa-lisenka.en-gb.html
+b_062,rychtrova-bouda-benecko,Rychtrova bouda Benecko,74,Liberec Region,,34,29,5,11,YES,NO,NO,NO,NO,179,https://www.booking.com/hotel/cz/rychtrova-bouda-benecko.en-gb.html
+b_063,korenov-10-chalupa-na-horach,Kořenov 10 - Horská chalupa pro skupiny a rodiny až 38 osob,10,Liberec Region,9.0,38,38,0,6,YES,YES,NO,NO,NO,243,https://www.booking.com/hotel/cz/korenov-10-chalupa-na-horach.en-gb.html
+b_064,chalupa-pisecne,Slavonice Modletice chalupa s řekou a rybníky pro rodiny,12,South Bohemia,,31,31,0,8,YES,YES,YES,NO,NO,416,https://www.booking.com/hotel/cz/chalupa-pisecne.en-gb.html
+b_065,apartmany-dalov,Apartmány Dalov,"Dalov 72, Dalov",Olomouc Region,9.0,38,38,0,9,YES,NO,NO,NO,NO,326,https://www.booking.com/hotel/cz/apartmany-dalov.en-gb.html
+b_066,relax-zone-sro,Relax Zone Vrchovina,Vrchovina 30,Liberec Region,9.4,25,25,0,5,YES,YES,YES,NO,NO,550,https://www.booking.com/hotel/cz/relax-zone-sro.en-gb.html
+b_067,kvetna-farma,Penzion Květná Zahrada,Květná 40,Pardubice Region,8.7,23,22,1,5,NO,NO,NO,NO,NO,363,https://www.booking.com/hotel/cz/kvetna-farma.en-gb.html
+b_068,apartmany-anicka-zelezna-ruda,Apartmány Anička,Špičák 41,Pilsen,9.3,26,21,5,8,NO,NO,NO,NO,NO,306,https://www.booking.com/hotel/cz/apartmany-anicka-zelezna-ruda.en-gb.html
+b_069,na-mu-dusu-valasske-chalupy-na-kycerce,Na mú dušu - Valašské chalupy na Kyčerce,771,Zlin Region,9.6,25,21,4,7,NO,YES,NO,NO,NO,412,https://www.booking.com/hotel/cz/na-mu-dusu-valasske-chalupy-na-kycerce.en-gb.html
+b_071,horni-strakuv-mlyn,Horní Strakův mlýn,Levínská 62,Usti nad Labem,8.9,25,25,0,8,YES,YES,NO,NO,NO,651,https://www.booking.com/hotel/cz/horni-strakuv-mlyn.en-gb.html
+b_072,chata-jablunka,"Chata Jablunka, Dog friendly, 50m ski slope, 50m restaurant",Velká Úpa 76,Hradec Kralove,9.7,25,25,0,10,YES,NO,NO,NO,NO,107,https://www.booking.com/hotel/cz/chata-jablunka.en-gb.html
+b_073,statek-pod-brizou,Statek Pod Břízou,12,Pardubice Region,,27,26,1,5,YES,YES,NO,YES,NO,259,https://www.booking.com/hotel/cz/statek-pod-brizou.en-gb.html
+b_074,penzion-pod-lanovkou-jachymov,Horská Chata Pod Lanovkou,Bratrství 53,Karlovy Vary Region,,40,40,0,12,YES,NO,NO,NO,NO,339,https://www.booking.com/hotel/cz/penzion-pod-lanovkou-jachymov.en-gb.html
+b_075,hogo-fogo-kytlice,"Lesní chaty ""Hogo Fogo""",U Koupaliště,Usti nad Labem,8.3,26,22,4,5,YES,NO,NO,NO,NO,656,https://www.booking.com/hotel/cz/hogo-fogo-kytlice.en-gb.html
+b_076,chata-v-karlove,Chata v Karlově,Karlov pod Pradědem 26,Moravia-Silesia,8.7,31,26,5,6,YES,YES,YES,NO,NO,531,https://www.booking.com/hotel/cz/chata-v-karlove.en-gb.html
+b_077,horska-chata-radost-destne-v-orlickych-horach,Horská chata Radost,Plasnice 124,Hradec Kralove,9.0,27,27,0,,NO,NO,YES,NO,NO,123,https://www.booking.com/hotel/cz/horska-chata-radost-destne-v-orlickych-horach.en-gb.html
+b_078,vila-organica,Vila Organica,18,Usti nad Labem,9.7,25,20,5,6,YES,YES,NO,NO,NO,461,https://www.booking.com/hotel/cz/vila-organica.en-gb.html
+b_080,apartma-ny-u-a-ay-astna1-2ch,Apartmány U Šťastných,Čistá v Krkonoších 61,Hradec Kralove,9.2,28,28,0,7,YES,YES,YES,YES,NO,531,https://www.booking.com/hotel/cz/apartma-ny-u-a-ay-astna1-2ch.en-gb.html
+b_082,penzion-v-kopci,Penzion V Kopci,Kořenov 26,Liberec Region,9.6,26,22,4,3,YES,NO,YES,YES,NO,552,https://www.booking.com/hotel/cz/penzion-v-kopci.en-gb.html
+b_083,holiday-home-penzion-natty-by-interhome,Holiday Home Penzion Natty by Interhome,,Hradec Kralove,,31,31,0,7,YES,YES,YES,NO,NO,402,https://www.booking.com/hotel/cz/holiday-home-penzion-natty-by-interhome.en-gb.html
+b_086,penzion-a-restaurace-pod-sjezdovkou,Penzion a Restaurace Pod Sjezdovkou,Čenkovice,Pardubice Region,9.1,25,22,3,,NO,NO,NO,NO,NO,582,https://www.booking.com/hotel/cz/penzion-a-restaurace-pod-sjezdovkou.en-gb.html
+b_087,silvestrovska-horska-chata-pro-cca-30-lidi,SILVESTROVSKÁ HORSKÁ CHATA až pro 30 lidí,"50,7037030, 13,8658639",Usti nad Labem,,30,30,0,1,YES,NO,NO,NO,NO,48,https://www.booking.com/hotel/cz/silvestrovska-horska-chata-pro-cca-30-lidi.en-gb.html
+b_088,horska1-2-rana,Horský Ranč,Velká Úpa 97,Hradec Kralove,8.3,25,23,2,5,YES,YES,NO,NO,NO,413,https://www.booking.com/hotel/cz/horska1-2-rana.en-gb.html
+b_089,chalupy-raz-dva,Chalupy Raz Dva,Roprachtice 253 - 254,Liberec Region,,28,28,0,10,YES,YES,NO,NO,NO,386,https://www.booking.com/hotel/cz/chalupy-raz-dva.en-gb.html
+b_090,penzion-krystof,Penzion Kryštof,Dlouhá 114,Usti nad Labem,9.6,38,37,1,7,NO,YES,YES,YES,NO,520,https://www.booking.com/hotel/cz/penzion-krystof.en-gb.html
+b_092,statek-salajna,Statek Salajna,"Salajna 12, Dolní Žandov",Karlovy Vary Region,9.6,26,25,1,2,NO,NO,NO,NO,NO,575,https://www.booking.com/hotel/cz/statek-salajna.en-gb.html
+b_094,bl-beskydy-lodge,BL Beskydy Lodge,Prostredni Becva 15,Zlin Region,9.8,30,28,2,10,YES,YES,NO,YES,NO,726,https://www.booking.com/hotel/cz/bl-beskydy-lodge.en-gb.html
+b_095,kypruv-mlyn,Kyprův mlýn,Knínice 79,Vysocina,7.6,29,25,4,2,NO,NO,YES,NO,NO,622,https://www.booking.com/hotel/cz/kypruv-mlyn.en-gb.html
+b_096,penzion-na-farme-karle,Penzion Na Farmě,Karle 56,Pardubice Region,9.2,36,24,12,3,NO,YES,YES,YES,NO,466,https://www.booking.com/hotel/cz/penzion-na-farme-karle.en-gb.html
+b_097,vila-jachymov,Vila Jáchymov,764 Lidická,Karlovy Vary Region,9.7,25,20,5,8,NO,NO,NO,NO,NO,1196,https://www.booking.com/hotel/cz/vila-jachymov.en-gb.html
+b_100,horska-chata-u-rybnaka,Penzion U Rybníka,Skolska 50,Karlovy Vary Region,8.3,26,26,0,4,NO,NO,NO,NO,NO,431,https://www.booking.com/hotel/cz/horska-chata-u-rybnaka.en-gb.html
+b_101,penzion-u-muzea-liberec,Wellness Penzion U Muzea,Vítězná 713/24,Liberec Region,9.3,25,23,2,8,NO,YES,NO,YES,NO,867,https://www.booking.com/hotel/cz/penzion-u-muzea-liberec.en-gb.html
+b_102,apartman-loucovice,Lipno & Wellness Chata,"Loučovice, loučovice 32",South Bohemia,8.0,29,26,3,5,YES,NO,NO,YES,NO,459,https://www.booking.com/hotel/cz/apartman-loucovice.en-gb.html
+b_104,chalupa-v-podkrkonosi-idealni-pro-vetsi-skupiny-a-aktivni-dovolenou-po-cely-rok,Prostorná chalupa v Podkrkonoší ideální pro větší skupiny a aktivní dovolenou po celý rok,176,Liberec Region,9.7,30,30,0,8,YES,NO,NO,NO,NO,230,https://www.booking.com/hotel/cz/chalupa-v-podkrkonosi-idealni-pro-vetsi-skupiny-a-aktivni-dovolenou-po-cely-rok.en-gb.html
+b_105,zamecky-dvur-cernousy,Zámecký Dvůr Černousy,Černousy 50,Liberec Region,9.1,26,22,4,5,NO,NO,NO,NO,NO,819,https://www.booking.com/hotel/cz/zamecky-dvur-cernousy.en-gb.html
+b_106,houda-bouda,Houda Bouda - Penzion & Apartmány,Boží Dar 53,Karlovy Vary Region,8.7,26,26,0,4,NO,NO,NO,NO,NO,246,https://www.booking.com/hotel/cz/houda-bouda.en-gb.html
+b_107,bozska-usedlost,Božská usedlost,Loktuše 27,Liberec Region,9.7,33,29,4,9,NO,YES,NO,YES,NO,977,https://www.booking.com/hotel/cz/bozska-usedlost.en-gb.html
+b_108,kazmarka,Kazmarka,Karlov pod Pradědem 8,Moravia-Silesia,8.8,20,12,8,2,NO,NO,NO,YES,NO,783,https://www.booking.com/hotel/cz/kazmarka.en-gb.html
+b_110,penzion-u-libusky-29-brno-living-cz,Penzion U Libušky by goodnite cz,náměstí Karla IV. 25/29,South Moravian Region,8.0,26,21,5,2,NO,NO,NO,NO,NO,840,https://www.booking.com/hotel/cz/penzion-u-libusky-29-brno-living-cz.en-gb.html
+b_112,pension-restaurant-stilec,Resort-Restaurant Stilec,Kamenny Ujezd 520,South Bohemia,9.2,29,28,1,11,NO,YES,YES,NO,NO,814,https://www.booking.com/hotel/cz/pension-restaurant-stilec.en-gb.html
+b_113,kemp-indiana,Pensiony a ubytování v kempu Indiana,Opavská Rýmařov - Janovice,Moravia-Silesia,7.5,30,28,2,6,YES,NO,NO,NO,NO,584,https://www.booking.com/hotel/cz/kemp-indiana.en-gb.html
+b_114,penzion-apartments-benesova-6,Hotel Apartments Benešova 6,Benešova 6,Central Bohemia,8.4,30,25,5,10,NO,NO,NO,YES,NO,494,https://www.booking.com/hotel/cz/penzion-apartments-benesova-6.en-gb.html
+b_115,stara-pekarna-47-old-bakery-znojmo,Stará Pekárna/Old Bakery,Velká Mikulášská 459/3,South Moravian Region,9.4,27,26,1,12,NO,NO,NO,NO,NO,907,https://www.booking.com/hotel/cz/stara-pekarna-47-old-bakery-znojmo.en-gb.html
+b_116,penzion-maderic,Penzion Maděřič,Chalúpky 1,South Moravian Region,9.1,25,20,5,,NO,NO,YES,NO,NO,162,https://www.booking.com/hotel/cz/penzion-maderic.en-gb.html
+b_119,apartmany-pec-pod-snezkou,Apartmány Pec pod Sněžkou,Pec pod Sněžkou 288,Hradec Kralove,9.1,36,26,10,6,NO,NO,NO,NO,NO,284,https://www.booking.com/hotel/cz/apartmany-pec-pod-snezkou.en-gb.html
+b_121,pension-city-center-amp-l-opera,Pension City Center,Ječná 12,,7.0,37,37,0,,NO,NO,NO,NO,NO,550,https://www.booking.com/hotel/cz/pension-city-center-amp-l-opera.en-gb.html
+b_122,erlenuv-dvur,Erlenův Dvůr,191 Nýznerovská,Olomouc Region,9.8,29,20,9,6,NO,YES,NO,YES,NO,585,https://www.booking.com/hotel/cz/erlenuv-dvur.en-gb.html
+b_123,penzion-bila-voda,Penzion Bílá voda,Harrachov 168,Liberec Region,9.6,23,22,1,2,NO,NO,NO,NO,NO,1123,https://www.booking.com/hotel/cz/penzion-bila-voda.en-gb.html
+b_124,chalupy-jesenicka-dvojcata,Chalupy Jesenická dvojčata,Loučná Desnou 112,Olomouc Region,9.5,32,30,2,8,YES,YES,NO,YES,NO,235,https://www.booking.com/hotel/cz/chalupy-jesenicka-dvojcata.en-gb.html
+b_126,bret-cz,Bret CZ,Prkenný Důl 56,Hradec Kralove,8.3,28,28,0,8,YES,YES,YES,YES,NO,361,https://www.booking.com/hotel/cz/bret-cz.en-gb.html
+b_127,guest-house-pod-rozhlednou,Wellness Penzion Pod Rozhlednou,"Vrbice 32, Vrbice",Hradec Kralove,9.2,25,25,0,11,NO,YES,YES,YES,NO,597,https://www.booking.com/hotel/cz/guest-house-pod-rozhlednou.en-gb.html
+b_129,penzion-my-lady-ii,Penzion My Lady II,Jabloné v Podještědí,Liberec Region,8.9,21,18,3,4,NO,YES,NO,YES,NO,450,https://www.booking.com/hotel/cz/penzion-my-lady-ii.en-gb.html
+b_131,tavba-gocar-27-osob-8-apartmanu-na-kraji-lesa,"Tavba -Gočár až 27 osob, 8 apartmánů,8 koupelen, 8 kuchyní na kraji lesa","1043 1,2,3,4,5,6,7,8",Liberec Region,9.6,27,27,0,14,YES,NO,NO,NO,NO,369,https://www.booking.com/hotel/cz/tavba-gocar-27-osob-8-apartmanu-na-kraji-lesa.en-gb.html
+b_132,chaty-ve-ski-47-relax-avalanche,Chaty ve Ski-relax Avalanche Dolní Moravice,Dolni Moravice č. ev. 38,Moravia-Silesia,7.3,36,30,6,9,YES,YES,NO,YES,NO,355,https://www.booking.com/hotel/cz/chaty-ve-ski-47-relax-avalanche.en-gb.html
+b_133,penzion-tovarnikova-vila,Penzion Továrníkova vila,Skuhrov nad Bělou 93,Hradec Kralove,8.7,22,16,6,5,NO,NO,NO,NO,NO,251,https://www.booking.com/hotel/cz/penzion-tovarnikova-vila.en-gb.html
+b_135,bouda-u-vleku,Bouda u vleku,115 Velká Úpa,Hradec Kralove,9.2,26,26,0,10,YES,YES,NO,NO,NO,275,https://www.booking.com/hotel/cz/bouda-u-vleku.en-gb.html
+b_136,rekreacni-stredisko-rojana-svratka,Rekreační středisko ROJANA,Hlavní 36,Vysocina,8.6,24,23,1,2,YES,NO,NO,NO,NO,590,https://www.booking.com/hotel/cz/rekreacni-stredisko-rojana-svratka.en-gb.html
+b_137,the-secret-garden-apartments-praha-libus,The Secret Garden Apartments,,,9.6,24,20,4,6,NO,NO,NO,NO,NO,1009,https://www.booking.com/hotel/cz/the-secret-garden-apartments-praha-libus.en-gb.html
+b_138,apartmany-branna-31-trebon,Apartmány Branná 31 Třeboň,Třeboň branná 173,South Bohemia,9.5,28,23,5,8,NO,YES,YES,NO,NO,336,https://www.booking.com/hotel/cz/apartmany-branna-31-trebon.en-gb.html
+b_141,penzion-kersko,Penzion Kersko,326 Kersko,Central Bohemia,8.9,20,18,2,,NO,NO,NO,NO,NO,701,https://www.booking.com/hotel/cz/penzion-kersko.en-gb.html
+b_142,penzion-zeeman,Penzion Zeeman,Rošického 525,South Bohemia,9.0,35,25,10,5,NO,NO,YES,NO,NO,204,https://www.booking.com/hotel/cz/penzion-zeeman.en-gb.html
+b_144,chalupa-prade,"Chalupy v Podkrkonoší- Chalupa Oto, Chalupa Prade",Horní Olešnice 53,Hradec Kralove,8.5,21,21,0,9,YES,YES,YES,YES,NO,436,https://www.booking.com/hotel/cz/chalupa-prade.en-gb.html
+b_145,penzion-helena-a-chata-helena,Penzion Helena a chata Helena,Zámecká 326,Zlin Region,9.3,26,26,0,10,YES,NO,YES,NO,NO,215,https://www.booking.com/hotel/cz/penzion-helena-a-chata-helena.en-gb.html
+b_146,apartmany-pod-palavou,Apartmány pod Pálavou,Starovičky 405,South Moravian Region,9.6,25,20,5,5,NO,NO,NO,NO,NO,523,https://www.booking.com/hotel/cz/apartmany-pod-palavou.en-gb.html
+b_147,chata-alexandra,Chata Alexandra,125,Moravia-Silesia,9.6,35,30,5,7,YES,NO,NO,NO,NO,359,https://www.booking.com/hotel/cz/chata-alexandra.en-gb.html
+b_148,penzion-dolni-dunajovice,Penzion Dolní Dunajovice,U vodárny 380,South Moravian Region,8.7,27,26,1,6,NO,NO,NO,NO,NO,441,https://www.booking.com/hotel/cz/penzion-dolni-dunajovice.en-gb.html
+b_151,stara-skola-mala-upa,Stará škola,70 Dolní Malá Úpa,Hradec Kralove,9.7,27,25,2,6,NO,NO,NO,NO,NO,656,https://www.booking.com/hotel/cz/stara-skola-mala-upa.en-gb.html
+b_152,aspen-spindleruv-mlyn,Pension Aspen,Bedřichov 157,Hradec Kralove,9.1,23,19,4,7,NO,NO,NO,NO,NO,395,https://www.booking.com/hotel/cz/aspen-spindleruv-mlyn.en-gb.html
+b_153,penzion-ostruznik,Penzion Ostruznik,Ostruzna 120,Olomouc Region,9.1,35,33,2,8,NO,YES,YES,YES,NO,422,https://www.booking.com/hotel/cz/penzion-ostruznik.en-gb.html
+b_154,pension-aspen-harrachov,Pension Aspen Harrachov,Harrachov 426,Liberec Region,9.5,22,21,1,11,NO,NO,YES,NO,NO,399,https://www.booking.com/hotel/cz/pension-aspen-harrachov.en-gb.html
+b_155,penzion-blanko,Penzion Blanko,Smrčná 61,South Bohemia,9.3,22,19,3,10,YES,YES,NO,NO,NO,659,https://www.booking.com/hotel/cz/penzion-blanko.en-gb.html
+b_156,penzion-prefila,Penzion Prefila,Bulhary 86 centrum obce,South Moravian Region,9.2,36,26,10,3,NO,NO,YES,NO,YES,217,https://www.booking.com/hotel/cz/penzion-prefila.en-gb.html
+b_157,roubenka-u-potoka,Roubenka u potoka Výprachtice,Výprachtice Vyprachtice 196,Pardubice Region,6.9,28,20,8,6,YES,YES,NO,NO,NO,295,https://www.booking.com/hotel/cz/roubenka-u-potoka.en-gb.html
+b_158,retro-chaty-sobesky,Retro chaty Soběšky,Soběšovice 23,Moravia-Silesia,9.8,29,24,5,9,NO,YES,NO,NO,NO,740,https://www.booking.com/hotel/cz/retro-chaty-sobesky.en-gb.html
+b_160,resort-u-jelena,Resort U Jelena,53,Central Bohemia,8.7,22,21,1,,NO,YES,NO,NO,NO,634,https://www.booking.com/hotel/cz/resort-u-jelena.en-gb.html
+b_161,pension-easy-journey,Pension Easy Journey,Plzeňská 22,,6.7,27,25,2,4,NO,NO,NO,NO,NO,495,https://www.booking.com/hotel/cz/pension-easy-journey.en-gb.html
+b_162,chata-u-kostela-korenov1,Chata u kostela,Příchovice 329 Chata U Kostela,Liberec Region,8.3,25,25,0,2,NO,NO,NO,NO,NO,785,https://www.booking.com/hotel/cz/chata-u-kostela-korenov1.en-gb.html
+b_163,pension-george,pension George,156 Bedřichov,Hradec Kralove,9.5,26,21,5,8,NO,NO,NO,NO,NO,503,https://www.booking.com/hotel/cz/pension-george.en-gb.html
+b_164,penzion-rzehaczek,Penzion Rzehaczek,Dolni Lomna 309,Moravia-Silesia,9.4,26,25,1,9,NO,YES,NO,YES,YES,539,https://www.booking.com/hotel/cz/penzion-rzehaczek.en-gb.html
+b_165,chata-anja,Pension Anja,Suchá Rudná 84,Moravia-Silesia,9.2,30,25,5,5,NO,NO,NO,NO,NO,445,https://www.booking.com/hotel/cz/chata-anja.en-gb.html
+b_167,penzion-a-vino,Penzion a Víno,Čechova 663/15,South Moravian Region,8.0,25,22,3,4,NO,NO,NO,NO,NO,405,https://www.booking.com/hotel/cz/penzion-a-vino.en-gb.html
+b_169,pension-mikulov,Pension Mikulov,Na Jámě 28,South Moravian Region,9.5,30,22,8,5,NO,NO,YES,NO,NO,453,https://www.booking.com/hotel/cz/pension-mikulov.en-gb.html
+b_170,ubytovani-u-nas-doma-baska,Ubytování U nás doma,Kunčičky u Bašky 25,Moravia-Silesia,,20,20,0,,NO,NO,NO,NO,NO,158,https://www.booking.com/hotel/cz/ubytovani-u-nas-doma-baska.en-gb.html
+b_171,penzion-koula,Apartmány Penzion Koula,146,Hradec Kralove,8.8,28,21,7,3,NO,NO,NO,NO,NO,488,https://www.booking.com/hotel/cz/penzion-koula.en-gb.html
+b_172,chata-luna,Chata Luna,Orlické Záhoří 62,Hradec Kralove,8.9,23,23,0,,NO,NO,NO,NO,NO,335,https://www.booking.com/hotel/cz/chata-luna.en-gb.html
+b_174,penzion-fit,penzion FIT,Osvobození 350,Olomouc Region,8.1,20,20,0,,NO,NO,NO,NO,NO,88,https://www.booking.com/hotel/cz/penzion-fit.en-gb.html
+b_175,penzion-natty-s-wellness-primo-u-sjezdovky,Penzion NATTY - s wellness přímo u sjezdovky,Černý Důl 71,Hradec Kralove,9.5,33,28,5,,NO,NO,YES,NO,NO,182,https://www.booking.com/hotel/cz/penzion-natty-s-wellness-primo-u-sjezdovky.en-gb.html
+b_176,penzion-blanka-znojmo,PENZION BLANKA - Znojmo,Nový Šaldorf,South Moravian Region,8.1,30,25,5,2,NO,NO,NO,NO,NO,475,https://www.booking.com/hotel/cz/penzion-blanka-znojmo.en-gb.html
+b_177,penzion-brillia-police-nad-metuji1,Pension BRILLIA,23 Tomkova,Hradec Kralove,6.8,34,34,0,,NO,NO,NO,NO,NO,88,https://www.booking.com/hotel/cz/penzion-brillia-police-nad-metuji1.en-gb.html
+b_179,hnizdo-snu-hradec-kralove,Hnízdo Snů,Úzká 208,Hradec Kralove,8.8,24,18,6,2,NO,NO,NO,NO,NO,197,https://www.booking.com/hotel/cz/hnizdo-snu-hradec-kralove.en-gb.html
+b_181,residence-lipno,Residence Lipno,Lipno nad Vltavou 880,South Bohemia,9.3,27,27,0,12,YES,NO,NO,NO,NO,912,https://www.booking.com/hotel/cz/residence-lipno.en-gb.html
+b_182,chata-u-rybnika-bohdalov,Chaty u rybníka,bohdalov,Vysocina,8.4,40,35,5,9,YES,YES,NO,YES,NO,389,https://www.booking.com/hotel/cz/chata-u-rybnika-bohdalov.en-gb.html
+b_183,sokoli-hnizdo,Sokolí hnízdo,"Rampuše 5, 516 01 Rychnov nad Kněžnou",Hradec Kralove,8.5,34,32,2,3,NO,YES,NO,YES,NO,387,https://www.booking.com/hotel/cz/sokoli-hnizdo.en-gb.html
+b_184,pohoda-na-radosti-pnovany,Pohoda na Radosti,"Pohoda na Radosti - Hracholuská přehrada, Pňovany 350",Pilsen,7.1,28,20,8,,NO,YES,NO,YES,NO,577,https://www.booking.com/hotel/cz/pohoda-na-radosti-pnovany.en-gb.html
+b_185,doubicke-chalupy,Doubické chalupy,214 /1,Usti nad Labem,9.0,30,27,3,12,NO,NO,NO,NO,NO,250,https://www.booking.com/hotel/cz/doubicke-chalupy.en-gb.html
+b_186,buskovsky-mlyn-1580,Buškovský mlýn 1580,Ošťovice 5,Central Bohemia,9.3,22,21,1,2,NO,YES,NO,NO,NO,625,https://www.booking.com/hotel/cz/buskovsky-mlyn-1580.en-gb.html
+b_189,benatky-214,Benátky 214,Benátky,South Moravian Region,9.6,30,29,1,,NO,YES,NO,YES,NO,580,https://www.booking.com/hotel/cz/benatky-214.en-gb.html
+b_190,pension-marislav,Hotel Marislav,"Češnovice 15, Hluboká nad Vltavou",South Bohemia,7.9,22,22,0,,NO,NO,NO,NO,NO,529,https://www.booking.com/hotel/cz/pension-marislav.en-gb.html
+b_192,farma-basarovi,Farma Basarovi,"Prosečné 53, 543 73",Hradec Kralove,9.8,25,24,1,9,NO,NO,NO,NO,NO,620,https://www.booking.com/hotel/cz/farma-basarovi.en-gb.html
+b_193,pension-tibor-a-luna,Pension Tibor a Luna,Černý Důl 254,Hradec Kralove,9.3,28,27,1,4,NO,YES,YES,NO,NO,381,https://www.booking.com/hotel/cz/pension-tibor-a-luna.en-gb.html
+b_194,chalet-severka-carpe-diem,Chalet Severka Carpe Diem,Dolni 243,Liberec Region,9.0,21,21,0,8,NO,YES,YES,YES,NO,462,https://www.booking.com/hotel/cz/chalet-severka-carpe-diem.en-gb.html
+b_195,penzion-posada,Penzion POSADA,11 Masarykovo náměstí,South Moravian Region,9.4,25,25,0,,NO,NO,NO,NO,NO,439,https://www.booking.com/hotel/cz/penzion-posada.en-gb.html
+b_196,penzion-vyhlidka-zelezna-ruda,Penzion a Restaurace Vyhlídka,Hojsova Stráž 7,Pilsen,8.5,25,25,0,1,NO,NO,YES,NO,NO,405,https://www.booking.com/hotel/cz/penzion-vyhlidka-zelezna-ruda.en-gb.html
+b_197,boaetanska1-2-statek,Bořetínský Statek,Bořetín 4,Vysocina,8.1,24,23,1,4,NO,NO,NO,NO,YES,408,https://www.booking.com/hotel/cz/boaetanska1-2-statek.en-gb.html
+b_198,pension-euro,Pension Euro,Pavlovská 76,South Moravian Region,8.7,22,17,5,,NO,NO,YES,NO,NO,411,https://www.booking.com/hotel/cz/pension-euro.en-gb.html
+b_199,penzion-relax-martina,Penzion Relax Martina,Plavská 42,South Bohemia,8.3,37,27,10,6,NO,NO,YES,NO,NO,862,https://www.booking.com/hotel/cz/penzion-relax-martina.en-gb.html
+b_200,penzion-na-rozcesta,Penzion Na Rozcestí,Janov nad Nisou,Liberec Region,8.7,20,20,0,,NO,NO,NO,NO,NO,342,https://www.booking.com/hotel/cz/penzion-na-rozcesta.en-gb.html
+b_201,chalupa-novy-vojirov-cp-27,Chalupa Nový Vojířov čp. 27,Nový Vojířov,South Bohemia,9.9,26,24,2,8,YES,NO,NO,NO,NO,369,https://www.booking.com/hotel/cz/chalupa-novy-vojirov-cp-27.en-gb.html
+b_202,penzion-u-prehrady-pozlovice,Penzion U Přehrady,Pozlovice 64,Zlin Region,8.6,22,17,5,,NO,YES,NO,NO,NO,627,https://www.booking.com/hotel/cz/penzion-u-prehrady-pozlovice.en-gb.html
+b_203,penzion-u-fandy-satov,Penzion U Fandy,355,South Moravian Region,6.1,28,28,0,,NO,NO,NO,NO,NO,264,https://www.booking.com/hotel/cz/penzion-u-fandy-satov.en-gb.html
+b_204,dvur-stran,Dvůr Stráň & Wellness,Stráň 29,Karlovy Vary Region,8.7,29,27,2,3,NO,YES,YES,YES,NO,598,https://www.booking.com/hotel/cz/dvur-stran.en-gb.html
+b_205,penzion-anareta,Penzion Anareta,"Ostravská 159,  Sviadnov",Moravia-Silesia,8.6,23,21,2,2,NO,NO,NO,NO,NO,705,https://www.booking.com/hotel/cz/penzion-anareta.en-gb.html
+b_206,penzion-stonozka,Wellness Penzion Stonozka,Ludvíkov 78,Moravia-Silesia,8.9,23,22,1,7,YES,YES,YES,YES,NO,572,https://www.booking.com/hotel/cz/penzion-stonozka.en-gb.html
+b_208,u-pohody,U Pohody,Dlouhá 481,Usti nad Labem,8.6,25,22,3,4,NO,NO,NO,NO,NO,435,https://www.booking.com/hotel/cz/u-pohody.en-gb.html
+b_209,pension-v-udoli-v-jizerskych-horach,Pension V údolí v Jizerských horách,Antonínov 21 Josefuv dul,Liberec Region,8.8,32,32,0,,NO,NO,YES,NO,NO,775,https://www.booking.com/hotel/cz/pension-v-udoli-v-jizerskych-horach.en-gb.html
+b_210,penzion-pod-radnici,Penzion Pod Radnicí,30 Dukelské náměstí,South Moravian Region,9.1,22,21,1,11,NO,YES,YES,YES,NO,538,https://www.booking.com/hotel/cz/penzion-pod-radnici.en-gb.html
+b_211,pension-fortuna,Pension Fortuna,Halenkov 318,Zlin Region,8.9,25,24,1,9,NO,NO,NO,YES,NO,436,https://www.booking.com/hotel/cz/pension-fortuna.en-gb.html
+b_213,modra-hortenzie,Modrá Hortenzie,Archlebov 427,South Moravian Region,9.4,23,21,2,14,NO,NO,YES,NO,NO,332,https://www.booking.com/hotel/cz/modra-hortenzie.en-gb.html
+b_214,penzion-ma-ja,Na Skok,Josefův důl 945,Liberec Region,9.5,31,30,1,4,NO,NO,NO,NO,NO,388,https://www.booking.com/hotel/cz/penzion-ma-ja.en-gb.html
+b_216,penzion-a-restaurace-v-haji,Penzion a restaurace V Háji,Loučná 169,Usti nad Labem,7.9,39,39,0,,NO,NO,NO,NO,NO,418,https://www.booking.com/hotel/cz/penzion-a-restaurace-v-haji.en-gb.html
+b_217,kohouti-hnizdo,Kohoutí hnízdo,82,Hradec Kralove,9.8,33,31,2,7,YES,YES,NO,NO,NO,595,https://www.booking.com/hotel/cz/kohouti-hnizdo.en-gb.html
+b_218,premyslovske-strane,Designové chalupy v Jeseníkách - Přemyslovské stráně,Rejhotice 227,Olomouc Region,9.6,36,36,0,15,YES,NO,NO,NO,NO,663,https://www.booking.com/hotel/cz/premyslovske-strane.en-gb.html
+b_219,pod-malinikem,Pod Maliníkem,Bedřichov 1666 U hotelu Jelínek v Bedřichově odbočte do zákazu vjezdu,Liberec Region,9.2,29,27,2,6,YES,NO,NO,NO,NO,473,https://www.booking.com/hotel/cz/pod-malinikem.en-gb.html
+b_221,penzion-u-skutilu,Penzion U Skutilů,Tovární 292,Hradec Kralove,9.3,24,20,4,6,NO,NO,NO,NO,NO,497,https://www.booking.com/hotel/cz/penzion-u-skutilu.en-gb.html
+b_222,dvur-liskovy-vrch,Dvůr Lískový vrch,Strážný,South Bohemia,8.7,26,25,1,6,NO,NO,NO,NO,NO,527,https://www.booking.com/hotel/cz/dvur-liskovy-vrch.en-gb.html
+b_224,pod-smrcinou,Pod Smrcinou,"Laz 19, Nova Pec",South Bohemia,8.4,39,29,10,4,NO,NO,NO,NO,NO,626,https://www.booking.com/hotel/cz/pod-smrcinou.en-gb.html
+b_225,penzion-medove-udoli,Medové údolí,Čábuze 26,South Bohemia,9.5,25,22,3,,NO,NO,NO,NO,NO,554,https://www.booking.com/hotel/cz/penzion-medove-udoli.en-gb.html
+b_226,restaurace-a-penzion-u-svate-barbory,Restaurace a penzion U svaté Barbory,Dubice 39,Usti nad Labem,7.7,25,25,0,,NO,NO,NO,NO,NO,153,https://www.booking.com/hotel/cz/restaurace-a-penzion-u-svate-barbory.en-gb.html
+b_227,horska-chata-u-pekaru,Horská chata U Pekařů,Velká Úpa 71,Hradec Kralove,9.0,25,25,0,,NO,NO,NO,NO,NO,555,https://www.booking.com/hotel/cz/horska-chata-u-pekaru.en-gb.html
+b_228,garnet-penzion,Garnet Penzion,Lazecká 17/88,Olomouc Region,9.0,25,25,0,5,NO,NO,NO,NO,NO,380,https://www.booking.com/hotel/cz/garnet-penzion.en-gb.html
+b_229,penzion-zatisi,Penzion Zatisi,Gagarinova 1646,South Moravian Region,8.2,24,24,0,,NO,YES,YES,YES,NO,456,https://www.booking.com/hotel/cz/penzion-zatisi.en-gb.html
+b_230,minerva,MINERVA,Bedřichov 2,Hradec Kralove,9.2,23,19,4,6,NO,NO,NO,NO,NO,393,https://www.booking.com/hotel/cz/minerva.en-gb.html
+b_232,resort-materada-chalupy,Chalupy Mátěráda,Kobylská 223,Zlin Region,,25,25,0,9,YES,YES,NO,NO,NO,905,https://www.booking.com/hotel/cz/resort-materada-chalupy.en-gb.html
+b_233,svatojakubsky-pivovar,Svatojakubský pivovar,Svatojakubský pivovar,South Moravian Region,9.0,36,36,0,,NO,NO,NO,NO,NO,380,https://www.booking.com/hotel/cz/svatojakubsky-pivovar.en-gb.html
+b_234,penzion-farma,Penzion Farma,Nejdecká 673,South Moravian Region,8.5,23,21,2,7,NO,NO,NO,NO,NO,595,https://www.booking.com/hotel/cz/penzion-farma.en-gb.html
+b_235,pivovarska1-2-dva-r-lipan-draa3-4aa,Pivovarský dvůr Lipan,Dražíč 50,South Bohemia,8.8,23,22,1,8,NO,NO,YES,NO,NO,563,https://www.booking.com/hotel/cz/pivovarska1-2-dva-r-lipan-draa3-4aa.en-gb.html
+b_236,penzion-na-rozcesti,Penzion Na Rozcestí,Bulhary 108,South Moravian Region,9.1,27,22,5,1,NO,NO,NO,NO,NO,384,https://www.booking.com/hotel/cz/penzion-na-rozcesti.en-gb.html
+b_237,marina-hubenov,Marina Hubenov,"Hubenov, evidenční číslo 16 Jedná se rekreačním objekt u vody. Cesta z obce Hubenov značena.",Central Bohemia,9.0,29,26,3,,NO,NO,NO,NO,NO,594,https://www.booking.com/hotel/cz/marina-hubenov.en-gb.html
+b_238,penzion-pod-radhostem-u-maleru,Penzion pod Radhoštěm u Maléřů,Dolní Bečva 174 Budova,Zlin Region,9.3,34,25,9,6,NO,NO,NO,NO,NO,495,https://www.booking.com/hotel/cz/penzion-pod-radhostem-u-maleru.en-gb.html
+b_239,konselsky-senk-domazlice,Konšelský šenk Domažlice,Vodní 33,Pilsen,8.1,24,20,4,,NO,NO,NO,NO,NO,508,https://www.booking.com/hotel/cz/konselsky-senk-domazlice.en-gb.html
+b_241,penzion-u-lipy-jestrebi,Splněný sen - penzion Pavlovice,"Pavlovice č.p. 20 Jestřebí, Liberecký kraj",Liberec Region,8.9,20,19,1,2,NO,YES,YES,YES,NO,520,https://www.booking.com/hotel/cz/penzion-u-lipy-jestrebi.en-gb.html
+b_242,ave-restaurant,AVe Restaurant,Dvořákova 122,Usti nad Labem,9.5,20,17,3,2,YES,YES,NO,NO,NO,702,https://www.booking.com/hotel/cz/ave-restaurant.en-gb.html
+b_244,penzion-amp-bistro-dvorek-dolni-dunajovice,"Naturální vinařství DVOREK - Penzion, Bistro & Wellness",Rudé armády 29,South Moravian Region,9.1,23,23,0,,NO,YES,YES,NO,NO,634,https://www.booking.com/hotel/cz/penzion-amp-bistro-dvorek-dolni-dunajovice.en-gb.html
+b_245,penzion-lesni,Penzion Lesni,Lesni 537,Central Bohemia,9.2,25,25,0,5,NO,NO,NO,NO,NO,626,https://www.booking.com/hotel/cz/penzion-lesni.en-gb.html
+b_247,penzion-u-jandu,Penzion U Jandů,Úborsko 2,Pilsen,8.9,26,21,5,,NO,YES,YES,YES,NO,704,https://www.booking.com/hotel/cz/penzion-u-jandu.en-gb.html
+b_249,nova-hajovna,Nová Hájovna,Říčky 151,Hradec Kralove,8.5,26,26,0,,NO,NO,NO,NO,NO,405,https://www.booking.com/hotel/cz/nova-hajovna.en-gb.html
+b_250,penzion-na-vyhladce-klentnice,Penzion Živá Pálava,Klentnice 35,South Moravian Region,9.5,24,20,4,5,NO,NO,YES,NO,NO,524,https://www.booking.com/hotel/cz/penzion-na-vyhladce-klentnice.en-gb.html
+b_252,penzion-harry-na-sjezdovce-krkonose,WELLNESS PENZION HARRY na sjezdovce KRKONOŠE,"Sklenařice 22 GPS 50.6994292N, 15.3886217E",Liberec Region,8.8,33,31,2,5,NO,YES,NO,YES,NO,576,https://www.booking.com/hotel/cz/penzion-harry-na-sjezdovce-krkonose.en-gb.html
+b_253,penzion-u-lipy-suchdol-nad-luznici,Penzion u lípy,Husova 11,South Bohemia,7.9,25,25,0,1,NO,YES,NO,YES,NO,365,https://www.booking.com/hotel/cz/penzion-u-lipy-suchdol-nad-luznici.en-gb.html
+b_257,u-baby-subrovy-okres-melnik,U báby Šubrový,Kokořínský důl 12,Central Bohemia,7.3,27,26,1,2,NO,NO,NO,NO,NO,472,https://www.booking.com/hotel/cz/u-baby-subrovy-okres-melnik.en-gb.html
+b_258,zimni-stadion-tabor,Zimní Stadion Tábor,Václava Soumara 2300,South Bohemia,7.4,24,24,0,,NO,YES,YES,NO,NO,238,https://www.booking.com/hotel/cz/zimni-stadion-tabor.en-gb.html
+b_259,penzion-ruprechtice,Penzion Ruprechtice,Ruprechtice 142,Hradec Kralove,9.2,20,20,0,,NO,NO,NO,NO,NO,374,https://www.booking.com/hotel/cz/penzion-ruprechtice.en-gb.html
+b_260,penzion-kometa,"Penzion Kometa - rodinný pobyt u Novomlýnských jezer s komfortem, restaurací a dětskou zónou",Pasohlávky 4,South Moravian Region,8.9,25,23,2,3,NO,NO,NO,NO,NO,437,https://www.booking.com/hotel/cz/penzion-kometa.en-gb.html
+b_261,horska-chata-medika-horni-marsov,Horská chata Medika,Horní Albeřice 12,Hradec Kralove,8.7,22,21,1,2,NO,NO,NO,NO,NO,327,https://www.booking.com/hotel/cz/horska-chata-medika-horni-marsov.en-gb.html
+b_263,penzion-u-barana-trojanovice4,Penzion U Barana,Trojanovice 678,Moravia-Silesia,9.6,22,18,4,3,NO,NO,NO,NO,NO,755,https://www.booking.com/hotel/cz/penzion-u-barana-trojanovice4.en-gb.html
+b_266,penzion-eska,Penzion Eška s Pivovarem MJ,439 Eškova,Central Bohemia,6.5,28,28,0,4,NO,NO,NO,NO,NO,282,https://www.booking.com/hotel/cz/penzion-eska.en-gb.html
+b_268,penzion-longus,Penzion Longus,Masarykovo náměstí 44,South Moravian Region,9.5,25,19,6,4,NO,YES,NO,YES,NO,524,https://www.booking.com/hotel/cz/penzion-longus.en-gb.html
+b_269,bezrucova-skola,Bezručova škola,Staré Hamry 59,Moravia-Silesia,9.5,31,27,4,,NO,NO,NO,NO,NO,642,https://www.booking.com/hotel/cz/bezrucova-skola.en-gb.html
+b_270,u-hroznu,Penzion a restaurace U Hroznu,nám. Osvoboditelů 382,South Moravian Region,8.3,24,24,0,,NO,YES,YES,YES,NO,299,https://www.booking.com/hotel/cz/u-hroznu.en-gb.html
+b_271,penzion-adela-roznov-pr,Penzion Adéla,Dolni Bečva,Zlin Region,9.3,26,20,6,2,NO,NO,NO,NO,NO,404,https://www.booking.com/hotel/cz/penzion-adela-roznov-pr.en-gb.html
+b_273,penzion-sally,Penzion Sally,Albrechtice v Jizerských horách 518,Liberec Region,7.8,27,25,2,,NO,NO,NO,NO,NO,712,https://www.booking.com/hotel/cz/penzion-sally.en-gb.html
+b_275,apartmany-karlovy-dvory,Apartmány Karlovy Dvory,Karlovy dvory I,South Bohemia,9.2,38,31,7,12,YES,YES,NO,NO,NO,438,https://www.booking.com/hotel/cz/apartmany-karlovy-dvory.en-gb.html
+b_279,penzion-kobylnice,Panorama Kobylnice,Kobylnice 47,South Bohemia,9.1,36,29,7,8,YES,NO,NO,NO,NO,557,https://www.booking.com/hotel/cz/penzion-kobylnice.en-gb.html
+b_280,belvederska-chalupa,Belvederská chalupa,"Belvederská 3, Železná Ruda",Pilsen,9.8,32,32,0,8,YES,NO,NO,NO,YES,256,https://www.booking.com/hotel/cz/belvederska-chalupa.en-gb.html
+b_284,penzion-kratochval,Penzion Kratochvíl,Krátká 340,South Moravian Region,8.7,24,23,1,4,NO,NO,YES,NO,NO,522,https://www.booking.com/hotel/cz/penzion-kratochval.en-gb.html
+b_285,restaurace-a-penzion-pod-zamkem-krasny-dvur,Penzion Krásný Dvůr,Krásný Dvůr 51,Usti nad Labem,7.5,21,21,0,2,NO,NO,YES,NO,NO,431,https://www.booking.com/hotel/cz/restaurace-a-penzion-pod-zamkem-krasny-dvur.en-gb.html
+b_287,pension-u-stribrneho-jelena,Pension U Stříbrného Jelena,Starý Hrozňatov 151,Karlovy Vary Region,8.0,33,25,8,2,NO,NO,NO,NO,NO,286,https://www.booking.com/hotel/cz/pension-u-stribrneho-jelena.en-gb.html
+b_288,penzion-orlov,Penzion Orlov,Orlov 7 Pribram,Central Bohemia,9.0,36,26,10,6,NO,NO,NO,NO,NO,521,https://www.booking.com/hotel/cz/penzion-orlov.en-gb.html
+b_292,hostinec-na-lipce,Penzion Šmolovy 238,Šmolovy 238,Vysocina,8.8,28,21,7,,NO,NO,NO,NO,NO,517,https://www.booking.com/hotel/cz/hostinec-na-lipce.en-gb.html
+b_293,penzion-vinicky-dva-r,Penzion Vinicky dvůr,Výnězda 3,South Bohemia,9.0,29,27,2,5,NO,NO,NO,NO,NO,617,https://www.booking.com/hotel/cz/penzion-vinicky-dva-r.en-gb.html
+b_294,horska-chata-orion,Apartment Hotel Orion,Plešivecká 500,Karlovy Vary Region,9.1,33,33,0,,NO,YES,YES,YES,NO,357,https://www.booking.com/hotel/cz/horska-chata-orion.en-gb.html
+b_295,penzion-stara-vapenka,Penzion Stará Vápenka,"Svinná 7, Javorná - Čachrov,  p. Klatovy",Pilsen,9.5,23,23,0,4,NO,YES,NO,NO,NO,499,https://www.booking.com/hotel/cz/penzion-stara-vapenka.en-gb.html
+b_296,penzion-panorama-broumov,Penzion PANORAMA Janovičky,Janovičky 56,Hradec Kralove,9.3,23,18,5,5,NO,NO,NO,NO,NO,769,https://www.booking.com/hotel/cz/penzion-panorama-broumov.en-gb.html
+b_297,penzion-na-faae-dubenec,Penzion na Faře,Dubenec 1,Hradec Kralove,8.9,20,20,0,4,NO,YES,NO,YES,NO,426,https://www.booking.com/hotel/cz/penzion-na-faae-dubenec.en-gb.html
+b_298,penzion-kamzik,Penzion Kamzík,Studený 35,Usti nad Labem,8.4,25,25,0,,NO,YES,YES,NO,NO,727,https://www.booking.com/hotel/cz/penzion-kamzik.en-gb.html
+b_300,penzion-bawaria,Bawaria Wellness Retreat,91,Moravia-Silesia,9.3,30,24,6,2,NO,YES,YES,YES,NO,704,https://www.booking.com/hotel/cz/penzion-bawaria.en-gb.html
+b_303,penzion-u-golema,Penzion U Golema Blansko,Svitavská 28,South Moravian Region,,26,25,1,1,NO,NO,NO,NO,NO,383,https://www.booking.com/hotel/cz/penzion-u-golema.en-gb.html
+b_304,penzion-safran,Penzion Šafrán,Kapitana Jarose 474,Olomouc Region,,21,20,1,1,NO,NO,NO,NO,NO,406,https://www.booking.com/hotel/cz/penzion-safran.en-gb.html
+b_305,penzion-patriot,Penzion Patriot,Výprachtice 325,Pardubice Region,,24,22,2,6,NO,YES,YES,NO,NO,366,https://www.booking.com/hotel/cz/penzion-patriot.en-gb.html
+b_309,penzion-topas-pec-pod-snezkou,Penzion TOPAS,119 Velká Úpa,Hradec Kralove,,22,22,0,,NO,NO,YES,NO,NO,525,https://www.booking.com/hotel/cz/penzion-topas-pec-pod-snezkou.en-gb.html
+b_310,penzion-tetrivek,Penzion Tetřívek,Nové Hutě 53,South Bohemia,,24,24,0,,NO,NO,YES,NO,NO,456,https://www.booking.com/hotel/cz/penzion-tetrivek.en-gb.html
+b_311,penzion-pod-lesem-pec-pod-snezkou,Penzion Pod lesem,Velká pláň 154,Hradec Kralove,,25,25,0,,NO,NO,NO,NO,NO,310,https://www.booking.com/hotel/cz/penzion-pod-lesem-pec-pod-snezkou.en-gb.html
+b_312,penzion-podzamci,Penzion Podzámčí,Družstevní 79,South Moravian Region,,28,22,6,,NO,NO,NO,NO,NO,155,https://www.booking.com/hotel/cz/penzion-podzamci.en-gb.html
+b_313,penzion-tenis-htk,Penzion Tenis HTK,Janáčkovo stromořadí 156,Vysocina,,28,20,8,2,NO,YES,NO,YES,NO,346,https://www.booking.com/hotel/cz/penzion-tenis-htk.en-gb.html
+b_314,pension-bily-horec,Pension Bílý Hořec,Horní Lánov ev. č. 47,Hradec Kralove,,23,23,0,2,NO,YES,YES,YES,NO,458,https://www.booking.com/hotel/cz/pension-bily-horec.en-gb.html
+b_315,wellness-penzion-jarmilka,Wellness Penzion Jarmilka,Bedřichov 163,Liberec Region,,32,25,7,,NO,YES,NO,YES,NO,374,https://www.booking.com/hotel/cz/wellness-penzion-jarmilka.en-gb.html
+b_316,penzion-chiranka,Chalupa Chiranka,Lipová-lázně 505,Olomouc Region,,21,14,7,14,YES,NO,YES,NO,NO,384,https://www.booking.com/hotel/cz/penzion-chiranka.en-gb.html
+b_317,beach-pension,Beach Pension,Dřenice 474,Karlovy Vary Region,,28,27,1,6,YES,NO,YES,NO,NO,264,https://www.booking.com/hotel/cz/beach-pension.en-gb.html
+b_318,penzion-u-lia-ky,Penzion U Lišky,Zdešov 32,South Bohemia,,37,33,4,9,YES,NO,YES,NO,NO,479,https://www.booking.com/hotel/cz/penzion-u-lia-ky.en-gb.html
+b_319,cyklochata,Cyklochata - Vranovská přehrada,Štítarský les,South Moravian Region,,30,28,2,7,YES,NO,NO,NO,NO,340,https://www.booking.com/hotel/cz/cyklochata.en-gb.html
+b_320,pension-salma,Pension Salma,221,Hradec Kralove,,32,31,1,8,YES,YES,YES,NO,NO,425,https://www.booking.com/hotel/cz/pension-salma.en-gb.html
+b_321,chata-u-mysaka-marenice,Chata U Myšáka,Horní Světlá 49 chata 2 podlaží,Liberec Region,,35,35,0,6,YES,NO,NO,NO,NO,125,https://www.booking.com/hotel/cz/chata-u-mysaka-marenice.en-gb.html
+b_323,penzion-dukla,Penzion Dukla,Kapitána Nálepky 61,Karlovy Vary Region,,35,35,0,9,YES,NO,NO,NO,NO,194,https://www.booking.com/hotel/cz/penzion-dukla.en-gb.html
+b_324,badurky,Baďurky,772 Badurca,Zlin Region,,26,23,3,8,YES,NO,NO,NO,NO,339,https://www.booking.com/hotel/cz/badurky.en-gb.html
+b_326,penzion-u-housku,Penzion U Houšků,Pístina 2,South Bohemia,9.0,22,18,4,,NO,YES,YES,YES,YES,367,https://www.booking.com/hotel/cz/penzion-u-housku.en-gb.html
+b_327,apartmany-a-domy-pod-liscim-kopcem-vrchlabi,Chalupy pod Liščím Kopcem Vrchlabí,Dolní Branná 351,Hradec Kralove,9.6,40,29,11,7,YES,YES,NO,YES,NO,676,https://www.booking.com/hotel/cz/apartmany-a-domy-pod-liscim-kopcem-vrchlabi.en-gb.html
+b_328,penzion-na-krizovatce-polevsko,Penzion a restaurace na Křižovatce,Polevsko 190,Liberec Region,8.7,31,31,0,1,NO,NO,NO,NO,NO,378,https://www.booking.com/hotel/cz/penzion-na-krizovatce-polevsko.en-gb.html
+b_329,farma-tasov,Farma Tasov,Tasov 9,Vysocina,8.5,26,20,6,1,NO,NO,NO,NO,NO,322,https://www.booking.com/hotel/cz/farma-tasov.en-gb.html
+b_330,penzion-horse-farm-lechovice,Penzion Horse Farm Lechovice,Lechovice 9,South Moravian Region,9.0,27,25,2,,NO,NO,NO,NO,NO,255,https://www.booking.com/hotel/cz/penzion-horse-farm-lechovice.en-gb.html
+b_331,horska-chata-silver-by-mountain-ways,Horská chata Silver by Mountain ways,"40, 362 62",Karlovy Vary Region,8.1,29,24,5,,NO,NO,NO,NO,NO,307,https://www.booking.com/hotel/cz/horska-chata-silver-by-mountain-ways.en-gb.html
+b_332,penzion-na-kopecku-horni-brusnice,Na Kopečku AD 1795 - penzion s restaurací a privátním wellness,Horní Brusnice 23,Hradec Kralove,8.0,28,27,1,4,NO,YES,YES,YES,NO,351,https://www.booking.com/hotel/cz/penzion-na-kopecku-horni-brusnice.en-gb.html
+b_333,kotva-hrensko,Hotel Kotva,Hřensko Hřensko 116,Usti nad Labem,9.1,21,21,0,,NO,NO,NO,NO,NO,332,https://www.booking.com/hotel/cz/kotva-hrensko.en-gb.html
+b_334,penzion-rak,Penzion Rak Wellness,Jestřábí III.,South Bohemia,8.0,26,24,2,,NO,YES,YES,YES,NO,699,https://www.booking.com/hotel/cz/penzion-rak.en-gb.html
+b_336,u-bernarda,U Bernarda,Slavíkovice 35,Vysocina,8.8,35,30,5,3,YES,YES,YES,YES,NO,373,https://www.booking.com/hotel/cz/u-bernarda.en-gb.html
+b_337,ubytovaci-komplex-penzion-athena,Penzion Athéna - sportovní areál,469 Školní,South Bohemia,6.8,24,24,0,,NO,YES,NO,YES,NO,144,https://www.booking.com/hotel/cz/ubytovaci-komplex-penzion-athena.en-gb.html
+b_338,penzion-na-rychte-mala-moravka,Penzion Na Rychtě,59 Malá Morávka,Moravia-Silesia,8.3,21,20,1,,NO,NO,NO,NO,NO,200,https://www.booking.com/hotel/cz/penzion-na-rychte-mala-moravka.en-gb.html
+b_340,fahnrichuv-mlyn,Fähnrichův mlýn,Stráž nad Nežárkou 90 Fähnrichův mlýn,South Bohemia,6.9,25,25,0,,NO,NO,NO,NO,NO,467,https://www.booking.com/hotel/cz/fahnrichuv-mlyn.en-gb.html
+b_342,stejkarna-spicak,Stejkárna Špičák,Špičák 36,Pilsen,8.9,28,22,6,,NO,NO,NO,NO,NO,439,https://www.booking.com/hotel/cz/stejkarna-spicak.en-gb.html
+b_343,penzion-mona-rooms-amp-apartments,Penzion Mona Rooms & Apartments,Harrachov 612 Harrachov 612,Liberec Region,9.2,21,21,0,,NO,NO,NO,NO,NO,713,https://www.booking.com/hotel/cz/penzion-mona-rooms-amp-apartments.en-gb.html
+b_345,ham-ham-national-park,Ham-Ham National Park,Satovska 136,South Moravian Region,8.1,23,22,1,2,NO,NO,NO,NO,NO,218,https://www.booking.com/hotel/cz/ham-ham-national-park.en-gb.html
+b_347,davida-v-mla1-2n,Davidův mlýn,Staré Těchanovice 46,Moravia-Silesia,8.8,21,18,3,1,NO,YES,YES,NO,NO,796,https://www.booking.com/hotel/cz/davida-v-mla1-2n.en-gb.html
+b_348,vila-zamecek,Penzion Zámeček,80 K Zámečku,Hradec Kralove,8.8,24,24,0,,NO,YES,YES,NO,NO,444,https://www.booking.com/hotel/cz/vila-zamecek.en-gb.html
+b_349,penzion-stanice-lyzaru-frysava,Penzion Stanice lyžařů Fryšava,Fryšava pod Žákovou horou 42,Vysocina,8.9,28,25,3,6,NO,YES,NO,NO,NO,425,https://www.booking.com/hotel/cz/penzion-stanice-lyzaru-frysava.en-gb.html
+b_354,penzion-erika-bozi-dar2,Penzion Erika,30,Karlovy Vary Region,7.7,23,23,0,,NO,NO,NO,NO,NO,333,https://www.booking.com/hotel/cz/penzion-erika-bozi-dar2.en-gb.html
+b_356,penzion-certovy-skaly-lidecko,Penzion Čertovy skály,Lidečko 466,Zlin Region,8.5,24,18,6,3,NO,YES,NO,YES,NO,339,https://www.booking.com/hotel/cz/penzion-certovy-skaly-lidecko.en-gb.html
+b_357,penzion-u-kotle,Penzion U Kotle,Horní Mísečky 137,Liberec Region,9.0,27,26,1,3,NO,YES,NO,YES,NO,635,https://www.booking.com/hotel/cz/penzion-u-kotle.en-gb.html
+b_359,pension-studena1-2-pramen,Kaproun - Studený pramen,Kaproun 24,South Bohemia,,32,26,6,5,YES,NO,NO,YES,NO,468,https://www.booking.com/hotel/cz/pension-studena1-2-pramen.en-gb.html
+b_360,pension-u-studny,Pension U Studny,Harrachov 407,Liberec Region,9.3,24,24,0,,NO,NO,YES,NO,NO,418,https://www.booking.com/hotel/cz/pension-u-studny.en-gb.html
+b_361,chata-tokan-jetrichovice,Chata Tokáň,Rynartice 127,Usti nad Labem,8.2,21,21,0,2,NO,NO,NO,NO,NO,107,https://www.booking.com/hotel/cz/chata-tokan-jetrichovice.en-gb.html
+b_364,penzion-u-kaplicky-mala-hrastice,Penzion U Kapličky,Malá Hraštice 16,Central Bohemia,8.7,28,25,3,,NO,NO,NO,NO,NO,433,https://www.booking.com/hotel/cz/penzion-u-kaplicky-mala-hrastice.en-gb.html
+b_366,penzion-bowling-bar,Restaurace - Apartmány Bobule,23.dubna 20,South Moravian Region,8.6,34,23,11,7,NO,NO,NO,NO,NO,396,https://www.booking.com/hotel/cz/penzion-bowling-bar.en-gb.html
+b_367,haraburdi-r-recyclart,HARABURDI® Recyclart Hotel,U Kapličky 90,Hradec Kralove,8.8,28,28,0,8,YES,NO,NO,NO,NO,1159,https://www.booking.com/hotel/cz/haraburdi-r-recyclart.en-gb.html
+b_369,penzion-mlyn-zahradky,Penzion Mlýn,Zahrádky 83,South Bohemia,,24,24,0,,NO,NO,YES,NO,NO,116,https://www.booking.com/hotel/cz/penzion-mlyn-zahradky.en-gb.html
+b_370,apartmany-sestka,Apartmány Šestka,Kunčice 6,Olomouc Region,9.7,21,19,2,3,NO,YES,NO,NO,NO,474,https://www.booking.com/hotel/cz/apartmany-sestka.en-gb.html
+b_371,penzion-eden,Penzion Eden,Šatovská 2947/8,South Moravian Region,8.1,25,25,0,,NO,NO,YES,NO,NO,789,https://www.booking.com/hotel/cz/penzion-eden.en-gb.html
+b_372,penzion-pod-severakem,Penzion pod Severákem,Horní Maxov e. č. 141,Liberec Region,9.1,34,27,7,,NO,NO,NO,NO,NO,221,https://www.booking.com/hotel/cz/penzion-pod-severakem.en-gb.html
+b_373,u-jeraba-komplex-c,U Jeřába - komplex C,Jabloňová,South Moravian Region,9.6,29,21,8,5,NO,NO,YES,NO,NO,522,https://www.booking.com/hotel/cz/u-jeraba-komplex-c.en-gb.html
+b_375,pura-vida,Pura Vida,Hlavní,South Moravian Region,8.1,22,18,4,3,NO,NO,NO,NO,NO,379,https://www.booking.com/hotel/cz/pura-vida.en-gb.html
+b_376,penzion-hradek,Penzion Hradek,Dlouhé 13,Hradec Kralove,8.6,20,17,3,4,NO,NO,YES,NO,NO,540,https://www.booking.com/hotel/cz/penzion-hradek.en-gb.html
+b_377,penzion-s-wellnes-uherske-hradiste,Penzion s wellness Uherské Hradiště,Na Rybníku 1057,Zlin Region,8.6,25,25,0,,NO,YES,NO,YES,NO,217,https://www.booking.com/hotel/cz/penzion-s-wellnes-uherske-hradiste.en-gb.html
+b_378,moon-river-resort-lojzovy-paseky-frymburk-lipno-home,"Moon River Resort - Lojzovy Paseky, Frymburk - Lipno Home",Lojzovy paseky Lojzovy Paseky č.p. 2001-2006,South Bohemia,,40,36,4,12,YES,NO,NO,NO,NO,446,https://www.booking.com/hotel/cz/moon-river-resort-lojzovy-paseky-frymburk-lipno-home.en-gb.html
+b_379,pension-alex,Pension Alex,Benecko 69,Liberec Region,8.8,38,33,5,,NO,NO,NO,NO,NO,630,https://www.booking.com/hotel/cz/pension-alex.en-gb.html
+b_380,bouda-matoua-friesovy-boudy,Bouda Matouš - Friesovy boudy,Strážné 94,Hradec Kralove,8.6,23,20,3,6,YES,YES,NO,NO,NO,302,https://www.booking.com/hotel/cz/bouda-matoua-friesovy-boudy.en-gb.html
+b_381,penzion-u-pivovaru-rotor-kunovice,New Pension at ROTOR Brewery,1818 V Pastouškách,Zlin Region,9.5,20,15,5,,NO,NO,NO,NO,NO,606,https://www.booking.com/hotel/cz/penzion-u-pivovaru-rotor-kunovice.en-gb.html
+b_382,wellness-apartmany-panorama,Wellness Apartmány Panorama,Antonína Václavíka,Zlin Region,9.7,38,30,8,4,NO,YES,YES,NO,NO,409,https://www.booking.com/hotel/cz/wellness-apartmany-panorama.en-gb.html
+b_383,penzion-iris-krkonose,Penzion Iris Krkonoše,Dolní Lysečiny 14,Hradec Kralove,9.3,34,34,0,,NO,YES,NO,YES,NO,374,https://www.booking.com/hotel/cz/penzion-iris-krkonose.en-gb.html
+b_388,apartment-hadlik,Penzion V Pohádce,Zelnice 80,South Moravian Region,9.7,28,21,7,,NO,YES,NO,YES,NO,848,https://www.booking.com/hotel/cz/apartment-hadlik.en-gb.html
+b_389,horska-chata-plzenka-pernink,Horská chata Plzeňka Pernink,T. G. Masaryka č.p.3,Karlovy Vary Region,8.2,26,25,1,5,NO,YES,NO,YES,NO,656,https://www.booking.com/hotel/cz/horska-chata-plzenka-pernink.en-gb.html
+b_391,chata-na-cihaku-klasterec-nad-orlici,Chata Na Čiháku,Čihák 12,Pardubice Region,8.0,24,24,0,,NO,NO,NO,NO,NO,301,https://www.booking.com/hotel/cz/chata-na-cihaku-klasterec-nad-orlici.en-gb.html
+b_393,wellness-penzion-marta-kuklik1234,Wellness penzion Marta,Kuklík 3,Vysocina,8.7,25,23,2,2,NO,YES,NO,YES,NO,570,https://www.booking.com/hotel/cz/wellness-penzion-marta-kuklik1234.en-gb.html
+b_395,hajenka-hrabete-buquoye,Hájenka hraběte Buquoye,Hradiště 30,South Bohemia,9.4,31,27,4,4,NO,NO,NO,NO,NO,543,https://www.booking.com/hotel/cz/hajenka-hrabete-buquoye.en-gb.html
+b_397,pension-amadeus,Pension Amadeus & Apartments,Po Vodě 283,South Bohemia,8.9,28,23,5,7,NO,NO,NO,NO,NO,861,https://www.booking.com/hotel/cz/pension-amadeus.en-gb.html
+b_398,penzion-zajecak,Penzion Zaječák,Hlavní 113,South Moravian Region,9.2,22,21,1,1,NO,NO,YES,YES,NO,509,https://www.booking.com/hotel/cz/penzion-zajecak.en-gb.html
+b_399,relax-centrum-gol,Relax Centrum Gól,Rejhotice 166,Olomouc Region,9.1,23,23,0,,NO,YES,NO,YES,NO,578,https://www.booking.com/hotel/cz/relax-centrum-gol.en-gb.html
+b_400,penzion-u-cerneho-potoka,Penzion U Černého Potoka,Vápenky 262,South Moravian Region,8.9,24,23,1,,NO,NO,YES,NO,NO,441,https://www.booking.com/hotel/cz/penzion-u-cerneho-potoka.en-gb.html
+b_401,penzion-amfik-bukovina,Penzion Amfík Bukovina,Popovice 379,Zlin Region,9.2,27,22,5,4,NO,NO,NO,NO,NO,419,https://www.booking.com/hotel/cz/penzion-amfik-bukovina.en-gb.html
+b_402,hotylek-na-myte-harrachov1,Hotýlek na Mýtě,Nový svět 1,Liberec Region,8.9,31,31,0,,NO,NO,NO,NO,NO,622,https://www.booking.com/hotel/cz/hotylek-na-myte-harrachov1.en-gb.html
+b_404,penzion-a-restaurace-zlatovlaska,Penzion a restaurace Zlatovláska u zámku Červená Lhota,Jižná 24,South Bohemia,8.3,24,24,0,4,NO,YES,NO,YES,NO,1233,https://www.booking.com/hotel/cz/penzion-a-restaurace-zlatovlaska.en-gb.html
+b_405,orlik-rejviz-horska-depandence-resortu-rejviz-1,Orlík Rejvíz horská depandence Resortu Rejvíz 1,Rejvíz 2,Olomouc Region,8.3,21,21,0,4,NO,NO,NO,NO,NO,384,https://www.booking.com/hotel/cz/orlik-rejviz-horska-depandence-resortu-rejviz-1.en-gb.html
+b_406,resort-krasna-morava-moderni-ubytovani-par-minut-od-centra-olomouce,Resort Krásná Morava - moderní ubytování pár minut od centra Olomouce,RESORT KRÁSNÁ MORAVA,Olomouc Region,8.5,24,20,4,9,YES,NO,NO,NO,NO,307,https://www.booking.com/hotel/cz/resort-krasna-morava-moderni-ubytovani-par-minut-od-centra-olomouce.en-gb.html
+b_407,wellness-penzion-eva-dolni-moravice,Wellness Penzion Eva,Dolní Moravice,Moravia-Silesia,7.9,26,21,5,,NO,YES,NO,YES,NO,530,https://www.booking.com/hotel/cz/wellness-penzion-eva-dolni-moravice.en-gb.html
+b_408,pension-za-mek-rudnak,Pension Zámek Rudník,Rudník 6,Hradec Kralove,9.2,22,22,0,1,NO,NO,NO,NO,NO,496,https://www.booking.com/hotel/cz/pension-za-mek-rudnak.en-gb.html
+b_409,restaurace-penzion-na-poste,Restaurace Penzion Na Poště,47,Pilsen,8.8,20,20,0,2,NO,NO,NO,NO,NO,207,https://www.booking.com/hotel/cz/restaurace-penzion-na-poste.en-gb.html
+b_411,penzion-gardena,Penzion Gardena,Kaplická 21,South Bohemia,9.3,20,20,0,5,NO,NO,NO,NO,NO,469,https://www.booking.com/hotel/cz/penzion-gardena.en-gb.html
+b_414,penzion-axa,Penzion Axa,Fričova 269,Hradec Kralove,9.2,33,24,9,,NO,NO,NO,NO,NO,235,https://www.booking.com/hotel/cz/penzion-axa.en-gb.html
+b_415,pension-ayky,Pension Ayky,Oblouková 8,Liberec Region,8.7,20,19,1,6,NO,NO,NO,NO,NO,671,https://www.booking.com/hotel/cz/pension-ayky.en-gb.html
+b_416,penzion-na-statku-dobris,Penzion U tri statkaru,Náměstí Svobody 2,Central Bohemia,8.9,24,20,4,,NO,YES,NO,YES,NO,349,https://www.booking.com/hotel/cz/penzion-na-statku-dobris.en-gb.html
+b_421,pension-u-jakuba,Pension U Jakuba,8.kvetna 9,Olomouc Region,8.2,20,15,5,1,NO,NO,NO,NO,NO,738,https://www.booking.com/hotel/cz/pension-u-jakuba.en-gb.html
+b_424,zevluv-mlyn,Zevlův mlýn,Nové Hrady 143 Zevlův mlýn,South Bohemia,8.4,25,24,1,2,NO,YES,NO,YES,NO,373,https://www.booking.com/hotel/cz/zevluv-mlyn.en-gb.html
+b_425,roubenka-na-stodolci,Penzion Na Stodolci,Dolní Chřibská,Usti nad Labem,9.5,25,23,2,6,YES,YES,NO,NO,NO,757,https://www.booking.com/hotel/cz/roubenka-na-stodolci.en-gb.html
+b_427,vila-victory,Vila Victory polopenze v Krušných horách,Hornická 21,Karlovy Vary Region,9.8,30,26,4,,NO,NO,NO,NO,NO,444,https://www.booking.com/hotel/cz/vila-victory.en-gb.html
+b_430,penzion-u-jezera-konstantinovy-lazne,Penzion U jezera,Okrouhlé Hradiště 122,Pilsen,9.0,25,25,0,,NO,NO,NO,NO,NO,182,https://www.booking.com/hotel/cz/penzion-u-jezera-konstantinovy-lazne.en-gb.html
+b_432,turisticka-ubytovna-tj-slavoj,Pension Martinské údolí - dependance,Kořenov 904,Liberec Region,8.0,34,34,0,,NO,NO,NO,NO,NO,407,https://www.booking.com/hotel/cz/turisticka-ubytovna-tj-slavoj.en-gb.html
+b_433,lesni-penzion-vranov,Lesní Penzion Vranov,Vranovská pláž - Štítarský les 503,South Moravian Region,8.6,27,26,1,2,NO,NO,NO,NO,NO,327,https://www.booking.com/hotel/cz/lesni-penzion-vranov.en-gb.html
+b_434,penzion-trautenberk,Pension Trautenberk,Rovnáčov 23,Liberec Region,8.7,25,25,0,,NO,YES,YES,YES,NO,528,https://www.booking.com/hotel/cz/penzion-trautenberk.en-gb.html
+b_436,penzion-u-parku-rumburk2,Penzion U parku,53 Třída 9. května,Usti nad Labem,7.8,23,23,0,,NO,NO,NO,NO,NO,114,https://www.booking.com/hotel/cz/penzion-u-parku-rumburk2.en-gb.html
+b_438,objev-jeseniky-velke-losiny,Vily Pod Vyhlídkou,Pod Skalkou 770,Olomouc Region,9.5,40,35,5,15,YES,NO,NO,YES,NO,384,https://www.booking.com/hotel/cz/objev-jeseniky-velke-losiny.en-gb.html
+b_441,vila-patricie,Vila Patricie,Pozlovice 172,Zlin Region,7.6,22,18,4,1,NO,NO,NO,NO,NO,518,https://www.booking.com/hotel/cz/vila-patricie.en-gb.html
+b_445,pension-centrum,Pension Centrum,17. Listopadu 6,Central Bohemia,8.6,23,22,1,4,NO,NO,NO,NO,NO,328,https://www.booking.com/hotel/cz/pension-centrum.en-gb.html
+b_446,libusina-villa-kutna-hora1,Libušina Villa,391 Libušina,Central Bohemia,8.8,25,21,4,2,NO,NO,NO,NO,NO,524,https://www.booking.com/hotel/cz/libusina-villa-kutna-hora1.en-gb.html
+b_448,penzion-na-zamku-novy-jicin,Penzion na zámku Bartošovice,Bartošovice 1,Moravia-Silesia,8.6,24,24,0,,NO,NO,NO,NO,NO,231,https://www.booking.com/hotel/cz/penzion-na-zamku-novy-jicin.en-gb.html
+b_449,penzion-sla-vka,Penzion Slávka,Vestec u Běstviny  16,Pardubice Region,9.0,25,25,0,,NO,NO,NO,NO,NO,324,https://www.booking.com/hotel/cz/penzion-sla-vka.en-gb.html
+b_450,pension-v-parku-cesky-sternberk,Pension v parku Český Šternberk,Český Šternberk 46,Central Bohemia,7.8,20,19,1,,NO,NO,NO,NO,NO,531,https://www.booking.com/hotel/cz/pension-v-parku-cesky-sternberk.en-gb.html
+b_451,pension-rampusak-rokytnice-v-orlickych-horach,Pension Rampušák,Náměstí T.G.Masaryka 5,Hradec Kralove,7.1,23,23,0,,NO,NO,NO,NO,NO,403,https://www.booking.com/hotel/cz/pension-rampusak-rokytnice-v-orlickych-horach.en-gb.html
+b_452,pension-aka-t,Pension Akat,Nádražní 851/42,,8.1,25,25,0,,NO,NO,NO,NO,NO,327,https://www.booking.com/hotel/cz/pension-aka-t.en-gb.html
+b_453,lucni-penzion-ceska-skalice,Luční penzion,Zájezd 82,Hradec Kralove,8.4,20,17,3,,NO,NO,YES,YES,NO,631,https://www.booking.com/hotel/cz/lucni-penzion-ceska-skalice.en-gb.html
+b_454,pension-fami-retro-design,Pension Fami Retro Design,Jarmilina stezka 158,Liberec Region,7.9,22,22,0,8,NO,YES,YES,NO,NO,410,https://www.booking.com/hotel/cz/pension-fami-retro-design.en-gb.html
+b_456,penzion-jorda-n,Penzion Jordán,Malinovskeho 55,South Moravian Region,8.8,23,23,0,,NO,NO,NO,NO,NO,303,https://www.booking.com/hotel/cz/penzion-jorda-n.en-gb.html
+b_457,penzion-sen-ostruzna-ostruzna,Penzion Sen Ostružná,Ostružná 164,Olomouc Region,9.5,23,23,0,,NO,NO,NO,NO,NO,140,https://www.booking.com/hotel/cz/penzion-sen-ostruzna-ostruzna.en-gb.html
+b_458,penzion-castello,Penzion Castello,Sobotní 122,South Moravian Region,9.2,26,19,7,,NO,NO,NO,NO,NO,924,https://www.booking.com/hotel/cz/penzion-castello.en-gb.html
+b_460,svehlikova-chata,Švehlíkova Chata,Nove Hute 50,South Bohemia,8.5,21,21,0,,NO,NO,NO,NO,NO,282,https://www.booking.com/hotel/cz/svehlikova-chata.en-gb.html
+b_461,vila-lipa,Vila Lípa,Lipová 554,Liberec Region,9.2,30,23,7,,NO,NO,YES,NO,NO,658,https://www.booking.com/hotel/cz/vila-lipa.en-gb.html
+b_463,penzion-best,Penzion Best,Brněnská 10,Pardubice Region,9.1,25,25,0,,NO,NO,NO,NO,NO,421,https://www.booking.com/hotel/cz/penzion-best.en-gb.html
+b_465,apartmany-venuse,Apartmány Venuše,1295 Doktora Martínka,Moravia-Silesia,8.7,28,23,5,9,NO,NO,NO,NO,NO,361,https://www.booking.com/hotel/cz/apartmany-venuse.en-gb.html
+b_467,pension-horalka-trutnov-district,Pension Horalka,Špindlerův mlýn 5,Hradec Kralove,8.5,33,28,5,2,NO,YES,YES,YES,NO,526,https://www.booking.com/hotel/cz/pension-horalka-trutnov-district.en-gb.html
+b_473,pension-florian,Apartmány Florian,Frymburk 251,South Bohemia,9.0,28,25,3,6,NO,NO,NO,NO,NO,408,https://www.booking.com/hotel/cz/pension-florian.en-gb.html
+b_477,penzion-vedomice,Penzion Vědomice,Roudnická 11,Usti nad Labem,7.8,22,22,0,,NO,NO,NO,NO,NO,460,https://www.booking.com/hotel/cz/penzion-vedomice.en-gb.html
+b_481,obri-sud-javornik-jermanice,Hotel Obří Sud Javorník,Dlouhý Most 330,Liberec Region,9.2,20,15,5,,NO,NO,NO,NO,NO,190,https://www.booking.com/hotel/cz/obri-sud-javornik-jermanice.en-gb.html
+b_486,vinarsky-dum-vinarstvi-petr-skoupil-a-s,Boutique Hotel Skoupil,Sadová 1399,South Moravian Region,9.0,21,18,3,,NO,NO,NO,NO,NO,389,https://www.booking.com/hotel/cz/vinarsky-dum-vinarstvi-petr-skoupil-a-s.en-gb.html
+b_490,vinarstvi-herufek,Vinařství Herůfek,Dolni c.p. 146,South Moravian Region,9.2,35,28,7,4,NO,NO,NO,NO,NO,1062,https://www.booking.com/hotel/cz/vinarstvi-herufek.en-gb.html
+b_491,penzion-glogar,Penzion Glogar,2166 Frýdlantská,Moravia-Silesia,9.1,32,24,8,,NO,NO,NO,NO,NO,208,https://www.booking.com/hotel/cz/penzion-glogar.en-gb.html
+b_494,tri-bratri,Hotel Restovna,260 Pražská,Central Bohemia,9.0,22,16,6,1,NO,NO,NO,NO,NO,613,https://www.booking.com/hotel/cz/tri-bratri.en-gb.html
+b_498,obora-hurt,Obora resort,"Obora 595, 563 01 Lanškroun",Pardubice Region,8.8,34,34,0,6,YES,YES,YES,NO,NO,415,https://www.booking.com/hotel/cz/obora-hurt.en-gb.html
+b_501,penzion-rozhovice,Penzion Rozhovice,Rozhovice 25,Pardubice Region,8.9,20,15,5,4,NO,NO,NO,NO,NO,508,https://www.booking.com/hotel/cz/penzion-rozhovice.en-gb.html
+b_504,handball-sporthotel,Penzion nad Halou,Nádražní 384,Karlovy Vary Region,8.6,25,25,0,,NO,NO,NO,NO,NO,102,https://www.booking.com/hotel/cz/handball-sporthotel.en-gb.html
+b_509,pension-herman,Pension Herman,Rudnik 129,Hradec Kralove,8.8,25,25,0,,NO,NO,YES,NO,NO,457,https://www.booking.com/hotel/cz/pension-herman.en-gb.html
+b_511,beachwell,Beachwell,Táborská 2467,Vysocina,8.6,23,23,0,,NO,YES,NO,NO,NO,400,https://www.booking.com/hotel/cz/beachwell.en-gb.html
+b_513,a-viha-k-la-zeaska1-2,Švihák lázeňský,Rudé armády 37,Olomouc Region,8.3,23,23,0,,NO,YES,YES,NO,NO,373,https://www.booking.com/hotel/cz/a-viha-k-la-zeaska1-2.en-gb.html
+b_514,pension-stepan,Pension Štěpán,35 Koněvova 1743/35,South Moravian Region,9.2,26,20,6,,NO,NO,NO,NO,NO,663,https://www.booking.com/hotel/cz/pension-stepan.en-gb.html
+b_518,penzion-vysocina-skrdlovice,Penzion Vysočina,"Škrdlovice 194 Penzion Vysočina, Škrdlovice 194, 591 01 Žďár nad Sázavou",Vysocina,8.2,25,25,0,,NO,NO,NO,NO,NO,99,https://www.booking.com/hotel/cz/penzion-vysocina-skrdlovice.en-gb.html
+b_521,penzion-al-capone-mnisek,Penzion Al Capone Mníšek,Pražská 1617,Central Bohemia,8.0,27,27,0,,NO,NO,NO,NO,NO,116,https://www.booking.com/hotel/cz/penzion-al-capone-mnisek.en-gb.html
+b_524,garni-pension-u-svateho-urbana,Garni pension U svatého Urbana,Česká 16,South Moravian Region,8.5,21,17,4,,NO,NO,NO,NO,NO,405,https://www.booking.com/hotel/cz/garni-pension-u-svateho-urbana.en-gb.html
+b_525,penzion-u-vetera-na,Penzion U Veterána,Slatinice 2,Olomouc Region,7.9,28,21,7,4,NO,YES,YES,YES,NO,437,https://www.booking.com/hotel/cz/penzion-u-vetera-na.en-gb.html
+b_528,penzion-semerad-v-hevline,Penzion Semerád v Hevlíně,Hevlín 330,South Moravian Region,8.8,26,26,0,,NO,NO,NO,NO,NO,174,https://www.booking.com/hotel/cz/penzion-semerad-v-hevline.en-gb.html
+b_529,penzion-tronicek,Penzion Troníček,Žampach 2,Central Bohemia,7.2,23,23,0,2,NO,NO,NO,NO,NO,139,https://www.booking.com/hotel/cz/penzion-tronicek.en-gb.html
+b_530,penzion-pepovka,Penzion Pepovka,Filipovice 8,Olomouc Region,9.1,29,29,0,,NO,YES,YES,YES,NO,444,https://www.booking.com/hotel/cz/penzion-pepovka.en-gb.html
+b_531,penzion-u-rausu,Penzion U Raušů,Masarykovo náměstí 13,Vysocina,8.7,25,25,0,,NO,NO,NO,NO,NO,147,https://www.booking.com/hotel/cz/penzion-u-rausu.en-gb.html
+b_535,penzion-bacalsky-mlyn,Penzion Bačalský mlýn,Morašice 102,Pardubice Region,8.4,22,19,3,2,NO,YES,NO,YES,NO,433,https://www.booking.com/hotel/cz/penzion-bacalsky-mlyn.en-gb.html
+b_537,www-rouchovany119-cz,Ubytovací areál Rouchovany,Rouchovany 119,Vysocina,7.5,26,26,0,1,NO,NO,NO,NO,NO,470,https://www.booking.com/hotel/cz/www-rouchovany119-cz.en-gb.html
+b_546,bechneruv-statek,Bechnerův statek,Masarykovo náměstí 18,Central Bohemia,8.9,25,25,0,,NO,NO,NO,NO,NO,378,https://www.booking.com/hotel/cz/bechneruv-statek.en-gb.html
+b_552,stary-svet,Starý Svět,Amerika č.p.9,Central Bohemia,9.0,26,26,0,,NO,YES,YES,YES,NO,422,https://www.booking.com/hotel/cz/stary-svet.en-gb.html
+b_553,pension-citkuv-mlyn,Penzion Čítkův Mlýn,Kunratice 1,Usti nad Labem,9.1,33,23,10,,NO,NO,NO,NO,NO,260,https://www.booking.com/hotel/cz/pension-citkuv-mlyn.en-gb.html
+b_555,pension-u-lilie,Pension U Lilie,Liliová 15,,7.9,20,15,5,,NO,NO,NO,NO,NO,483,https://www.booking.com/hotel/cz/pension-u-lilie.en-gb.html
+b_558,penzion-start-ostrava,Penzion Start Ostrava,Slavíkova 6055/14,Moravia-Silesia,9.0,24,24,0,,NO,NO,NO,NO,NO,247,https://www.booking.com/hotel/cz/penzion-start-ostrava.en-gb.html
+b_564,wellness-penzion-lazne-jablonec,Penzion Lázně Jablonec,Novoveská 28 a,Liberec Region,8.2,22,22,0,3,NO,YES,NO,YES,NO,376,https://www.booking.com/hotel/cz/wellness-penzion-lazne-jablonec.en-gb.html
+b_567,balloon-penzion,Amenity Penzion Horni Vestonice,Horní Věstonice 198,South Moravian Region,9.3,26,26,0,,NO,YES,YES,YES,NO,385,https://www.booking.com/hotel/cz/balloon-penzion.en-gb.html
+b_569,chata-orlik,Chata Orlik - all inclusive & wellness,Pec pod Sněžkou 5,Hradec Kralove,8.8,36,25,11,,NO,YES,NO,YES,NO,409,https://www.booking.com/hotel/cz/chata-orlik.en-gb.html
+b_570,penzion-u-kaa-na1-2ch,Penzion U Kašných,Rymáně 655,Central Bohemia,8.6,26,26,0,,NO,YES,NO,NO,NO,406,https://www.booking.com/hotel/cz/penzion-u-kaa-na1-2ch.en-gb.html
+b_574,penzion-u-ra-r-a1-2e,Penzion U Růže,Prokopa Holého 59,South Bohemia,8.0,25,25,0,,NO,NO,NO,NO,NO,361,https://www.booking.com/hotel/cz/penzion-u-ra-r-a1-2e.en-gb.html
+b_581,motel-svata1-2-krya-tof,Motel Svatý Kryštof,Tupadly 78,Central Bohemia,8.1,25,25,0,,NO,NO,YES,NO,NO,169,https://www.booking.com/hotel/cz/motel-svata1-2-krya-tof.en-gb.html
+b_585,vlci-dul-bludov,Vlčí důl Bludov,Vlčí Důl,Olomouc Region,8.5,25,25,0,,NO,NO,NO,NO,NO,254,https://www.booking.com/hotel/cz/vlci-dul-bludov.en-gb.html
+b_590,chata-barborka,Chata Barborka,Horni Becva 988,Zlin Region,6.6,25,25,0,,NO,NO,NO,NO,NO,126,https://www.booking.com/hotel/cz/chata-barborka.en-gb.html
+b_594,penzion-stary-dvur,Penzion Starý dvůr,Prušánky 132,South Moravian Region,7.9,26,26,0,,NO,NO,NO,YES,NO,313,https://www.booking.com/hotel/cz/penzion-stary-dvur.en-gb.html
+b_595,kastle-residence,Kästle Residence,1582 Soškova,Vysocina,9.5,26,26,0,,NO,NO,NO,NO,NO,156,https://www.booking.com/hotel/cz/kastle-residence.en-gb.html
+b_599,penzion-kovacs,Resort Kovács,Novosedly 410,South Moravian Region,8.8,26,26,0,,NO,NO,YES,NO,NO,292,https://www.booking.com/hotel/cz/penzion-kovacs.en-gb.html
+b_600,parkhotel-garni-vrbno-pod-pradedem,Parkhotel Vrbno,275 Jesenická,Moravia-Silesia,9.1,26,26,0,1,NO,YES,YES,YES,NO,351,https://www.booking.com/hotel/cz/parkhotel-garni-vrbno-pod-pradedem.en-gb.html
+b_601,penzion-v-jizdarne,Penzion v jízdárně,Lazecká 576/81,Olomouc Region,8.9,26,26,0,2,NO,NO,NO,NO,NO,507,https://www.booking.com/hotel/cz/penzion-v-jizdarne.en-gb.html
+b_604,pension-u-hradu,Restaurant & Pension u Hradu,Ořechová 15,Olomouc Region,9.1,26,26,0,,NO,NO,YES,NO,NO,330,https://www.booking.com/hotel/cz/pension-u-hradu.en-gb.html
+b_605,penzion-rudolf-ii-plasy,Pivovarský dvůr Plasy,Plzeňská 37,Pilsen,7.9,26,26,0,,NO,NO,NO,NO,NO,240,https://www.booking.com/hotel/cz/penzion-rudolf-ii-plasy.en-gb.html
+b_606,penzion-u-kubesa,Penzion U Kubesa - Adults only,Kovářská 19/4,Zlin Region,9.2,22,22,0,,NO,NO,NO,NO,NO,453,https://www.booking.com/hotel/cz/penzion-u-kubesa.en-gb.html
+b_607,birdie-pension-amp-wellness,BIRDIE Pension & Wellness,Hlaváčova 392,Pardubice Region,7.9,24,24,0,1,NO,YES,NO,YES,NO,750,https://www.booking.com/hotel/cz/birdie-pension-amp-wellness.en-gb.html
+b_609,penzion-u-tomase,Penzion U Tomáše,Baťovka 502,South Moravian Region,8.4,25,25,0,,NO,NO,NO,NO,NO,242,https://www.booking.com/hotel/cz/penzion-u-tomase.en-gb.html
+b_610,penzion-moveinn,Penzion MOVEINN,62 Ďáblická,,8.7,36,36,0,,NO,NO,NO,NO,NO,315,https://www.booking.com/hotel/cz/penzion-moveinn.en-gb.html
+b_612,guest-house-honzik,Guest House Honzik,Pod Černým Vrchem 216,Hradec Kralove,8.4,25,25,0,,NO,NO,NO,NO,NO,204,https://www.booking.com/hotel/cz/guest-house-honzik.en-gb.html

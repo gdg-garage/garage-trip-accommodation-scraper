@@ -1,0 +1,195 @@
+[
+  {
+    "booking_id": "b_002",
+    "booking_slug": "roubenka-inffinity",
+    "booking_name": "Wellness roubenka Inffinity",
+    "booking_capacity": 31,
+    "booking_review_score": 9.4,
+    "booking_url": "https://www.booking.com/hotel/cz/roubenka-inffinity.en-gb.html",
+    "echalupy_id": "17068",
+    "echalupy_slug": "wellness-roubenka-inffinity-zacler-pronajem-o17068",
+    "echalupy_name": "Wellness roubenka INFFINITY",
+    "echalupy_capacity": "",
+    "echalupy_url": "https://www.e-chalupy.cz/wellness-roubenka-inffinity-zacler-pronajem-o17068",
+    "match_score": 4,
+    "shared_keywords": [
+      "wellness",
+      "inffinity"
+    ]
+  },
+  {
+    "booking_id": "b_003",
+    "booking_slug": "chata-frantiskov",
+    "booking_name": "Chata Františkov",
+    "booking_capacity": 38,
+    "booking_review_score": 9.4,
+    "booking_url": "https://www.booking.com/hotel/cz/chata-frantiskov.en-gb.html",
+    "echalupy_id": "21177",
+    "echalupy_slug": "kvilda-ubytovani-frantiskov-chata-pronajem-o21177",
+    "echalupy_name": "Chata Františkov",
+    "echalupy_capacity": "35",
+    "echalupy_url": "https://www.e-chalupy.cz/kvilda-ubytovani-frantiskov-chata-pronajem-o21177",
+    "match_score": 4,
+    "shared_keywords": [
+      "frantiskov"
+    ]
+  },
+  {
+    "booking_id": "b_028",
+    "booking_slug": "chalupa-javorinka",
+    "booking_name": "Chalupa Javořinka",
+    "booking_capacity": 29,
+    "booking_review_score": 9.0,
+    "booking_url": "https://www.booking.com/hotel/cz/chalupa-javorinka.en-gb.html",
+    "echalupy_id": "21545",
+    "echalupy_slug": "pec-pod-snezkou-ubytovani-velka-upa-chalupa-javorinka-pronajem-o21545",
+    "echalupy_name": "Ubytování Velká Úpa, Chalupa Javořinka",
+    "echalupy_capacity": "",
+    "echalupy_url": "https://www.e-chalupy.cz/pec-pod-snezkou-ubytovani-velka-upa-chalupa-javorinka-pronajem-o21545",
+    "match_score": 4,
+    "shared_keywords": [
+      "javorinka"
+    ]
+  },
+  {
+    "booking_id": "b_048",
+    "booking_slug": "sladku-statek-veseli-nad-luznici",
+    "booking_name": "Sládků statek",
+    "booking_capacity": 29,
+    "booking_review_score": 9.5,
+    "booking_url": "https://www.booking.com/hotel/cz/sladku-statek-veseli-nad-luznici.en-gb.html",
+    "echalupy_id": "95",
+    "echalupy_slug": "sviny-chalupa-pronajem-o95",
+    "echalupy_name": "Sládků statek",
+    "echalupy_capacity": "29",
+    "echalupy_url": "https://www.e-chalupy.cz/sviny-chalupa-pronajem-o95",
+    "match_score": 4,
+    "shared_keywords": [
+      "statek",
+      "sladku"
+    ]
+  },
+  {
+    "booking_id": "b_051",
+    "booking_slug": "statek-hostacov",
+    "booking_name": "Statek Hostačov",
+    "booking_capacity": 33,
+    "booking_review_score": null,
+    "booking_url": "https://www.booking.com/hotel/cz/statek-hostacov.en-gb.html",
+    "echalupy_id": "18555",
+    "echalupy_slug": "ubytovani-zvestovice-statek-hostacov-o18555",
+    "echalupy_name": "Statek Hostačov",
+    "echalupy_capacity": "29",
+    "echalupy_url": "https://www.e-chalupy.cz/ubytovani-zvestovice-statek-hostacov-o18555",
+    "match_score": 4,
+    "shared_keywords": [
+      "statek",
+      "hostacov"
+    ]
+  },
+  {
+    "booking_id": "b_053",
+    "booking_slug": "chata-buchtovna",
+    "booking_name": "Chata Buchtovna",
+    "booking_capacity": 31,
+    "booking_review_score": 9.6,
+    "booking_url": "https://www.booking.com/hotel/cz/chata-buchtovna.en-gb.html",
+    "echalupy_id": "318",
+    "echalupy_slug": "korenov-rejdice-chata-pronajmuti-chata-buchtovna-o318",
+    "echalupy_name": "Ubytování Rejdice, Chata Buchtovna",
+    "echalupy_capacity": "",
+    "echalupy_url": "https://www.e-chalupy.cz/korenov-rejdice-chata-pronajmuti-chata-buchtovna-o318",
+    "match_score": 4,
+    "shared_keywords": [
+      "buchtovna"
+    ]
+  },
+  {
+    "booking_id": "b_057",
+    "booking_slug": "chalupa-borovka",
+    "booking_name": "Chalupa Borovka",
+    "booking_capacity": 24,
+    "booking_review_score": null,
+    "booking_url": "https://www.booking.com/hotel/cz/chalupa-borovka.en-gb.html",
+    "echalupy_id": "23159",
+    "echalupy_slug": "ubytovani-borova-lada-chalupa-borovka-pronajem-o23159",
+    "echalupy_name": "Ubytování Borová Lada, Chalupa Borovka",
+    "echalupy_capacity": "",
+    "echalupy_url": "https://www.e-chalupy.cz/ubytovani-borova-lada-chalupa-borovka-pronajem-o23159",
+    "match_score": 4,
+    "shared_keywords": [
+      "borovka"
+    ]
+  },
+  {
+    "booking_id": "b_060",
+    "booking_slug": "chata-urban-filipovice",
+    "booking_name": "Chata Urban Filipovice",
+    "booking_capacity": 34,
+    "booking_review_score": 9.2,
+    "booking_url": "https://www.booking.com/hotel/cz/chata-urban-filipovice.en-gb.html",
+    "echalupy_id": "4063",
+    "echalupy_slug": "chata-filipovice-ubytovani-urban-pronajem-o4063",
+    "echalupy_name": "Ubytování Filipovice, Chata URBAN",
+    "echalupy_capacity": "",
+    "echalupy_url": "https://www.e-chalupy.cz/chata-filipovice-ubytovani-urban-pronajem-o4063",
+    "match_score": 4,
+    "shared_keywords": [
+      "filipovice",
+      "urban"
+    ]
+  },
+  {
+    "booking_id": "b_061",
+    "booking_slug": "chalupa-lisenka",
+    "booking_name": "Chalupa Líšenka",
+    "booking_capacity": 25,
+    "booking_review_score": null,
+    "booking_url": "https://www.booking.com/hotel/cz/chalupa-lisenka.en-gb.html",
+    "echalupy_id": "17430",
+    "echalupy_slug": "ubytovani-lisnice-chalupa-lisenka-o17430",
+    "echalupy_name": "Chalupa Líšenka",
+    "echalupy_capacity": "30",
+    "echalupy_url": "https://www.e-chalupy.cz/ubytovani-lisnice-chalupa-lisenka-o17430",
+    "match_score": 4,
+    "shared_keywords": [
+      "lisenka"
+    ]
+  },
+  {
+    "booking_id": "b_066",
+    "booking_slug": "relax-zone-sro",
+    "booking_name": "Relax Zone Vrchovina",
+    "booking_capacity": 25,
+    "booking_review_score": 9.4,
+    "booking_url": "https://www.booking.com/hotel/cz/relax-zone-sro.en-gb.html",
+    "echalupy_id": "8551",
+    "echalupy_slug": "ubytovani-sychrov-relax-zone-vrchovina-o8551",
+    "echalupy_name": "Relax zone Vrchovina",
+    "echalupy_capacity": "25",
+    "echalupy_url": "https://www.e-chalupy.cz/ubytovani-sychrov-relax-zone-vrchovina-o8551",
+    "match_score": 4,
+    "shared_keywords": [
+      "relax",
+      "zone",
+      "vrchovina"
+    ]
+  },
+  {
+    "booking_id": "b_072",
+    "booking_slug": "chata-jablunka",
+    "booking_name": "Chata Jablunka, Dog friendly, 50m ski slope, 50m restaurant",
+    "booking_capacity": 25,
+    "booking_review_score": 9.7,
+    "booking_url": "https://www.booking.com/hotel/cz/chata-jablunka.en-gb.html",
+    "echalupy_id": "7357",
+    "echalupy_slug": "chata-velka-upa-o7357",
+    "echalupy_name": "Ubytování Velká Úpa, Chata Horní Jablůňka",
+    "echalupy_capacity": "",
+    "echalupy_url": "https://www.e-chalupy.cz/chata-velka-upa-o7357",
+    "match_score": 4,
+    "shared_keywords": [
+      "jablunka"
+    ]
+  }
+]

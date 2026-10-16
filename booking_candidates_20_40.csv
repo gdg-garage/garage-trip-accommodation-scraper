@@ -1,0 +1,383 @@
+ID,Slug,Name,Location,Review Score,Capacity Min,Capacity Max,Estimated Capacity,Bedrooms,Total Beds,Entire Place,URL
+b_001,na-jeleni-stezce,Na jelení stezce,,9.9,26,28,28,6,21,YES,https://www.booking.com/hotel/cz/na-jeleni-stezce.en-gb.html
+b_002,roubenka-inffinity,Wellness roubenka Inffinity,,9.4,30,31,31,7,16,YES,https://www.booking.com/hotel/cz/roubenka-inffinity.en-gb.html
+b_003,chata-frantiskov,Chata Františkov,,9.4,38,38,38,13,27,YES,https://www.booking.com/hotel/cz/chata-frantiskov.en-gb.html
+b_005,chata-ryba,Chata Ryba,,9.2,29,31,31,7,25,YES,https://www.booking.com/hotel/cz/chata-ryba.en-gb.html
+b_006,tauhaus,Tauhaus,,,28,35,35,8,22,YES,https://www.booking.com/hotel/cz/tauhaus.en-gb.html
+b_007,pension-u-sebastiana,Dům U Sebastiana,,8.8,28,28,28,8,19,YES,https://www.booking.com/hotel/cz/pension-u-sebastiana.en-gb.html
+b_008,chata-magistrala,Chata Magistrála,,9.8,32,32,32,6,28,YES,https://www.booking.com/hotel/cz/chata-magistrala.en-gb.html
+b_010,chata-maty,Celá Horská Chata Maty - až 25 lůžek,,9.5,25,25,25,7,25,YES,https://www.booking.com/hotel/cz/chata-maty.en-gb.html
+b_012,penzion-mlyn-trestice,Penzion Mlyn Trestice,,9.6,19,23,23,6,15,NO,https://www.booking.com/hotel/cz/penzion-mlyn-trestice.en-gb.html
+b_013,beskiden-prime-exclusiv-chalets,Beskiden Prime Exclusiv Chalets,,9.2,28,32,32,9,16,YES,https://www.booking.com/hotel/cz/beskiden-prime-exclusiv-chalets.en-gb.html
+b_014,wellness-pension-fulda-cerny-dul-cerny-dul,Wellness Pension Fulda Černý Důl,,8.9,32,36,36,1,18,NO,https://www.booking.com/hotel/cz/wellness-pension-fulda-cerny-dul-cerny-dul.en-gb.html
+b_015,horska-chata-boubelka,Horská chata Boubelka,,9.9,26,26,26,8,23,YES,https://www.booking.com/hotel/cz/horska-chata-boubelka.en-gb.html
+b_016,pension-piana,Pension Piana,,8.7,31,31,31,10,18,YES,https://www.booking.com/hotel/cz/pension-piana.en-gb.html
+b_017,bohemian-lake-loghouses-stare-splavy,Bohemian Lake Loghouses - Staré Splavy,,7.9,25,25,25,6,20,YES,https://www.booking.com/hotel/cz/bohemian-lake-loghouses-stare-splavy.en-gb.html
+b_019,vila-baska,Vila Baška,,8.3,27,29,29,6,21,YES,https://www.booking.com/hotel/cz/vila-baska.en-gb.html
+b_020,beskydy-areal,Beskydy Areal,,8.7,33,34,34,11,17,YES,https://www.booking.com/hotel/cz/beskydy-areal.en-gb.html
+b_021,villa-vykmanov,Villa Vykmanov,,,25,26,26,6,19,YES,https://www.booking.com/hotel/cz/villa-vykmanov.en-gb.html
+b_022,ranch-jestrebice,Ranch Jestřebice,,9.1,19,22,22,4,15,YES,https://www.booking.com/hotel/cz/ranch-jestrebice.en-gb.html
+b_024,chata-polka,Chata Polka,,9.6,36,36,36,10,28,YES,https://www.booking.com/hotel/cz/chata-polka.en-gb.html
+b_025,chalupa-nonnetit,Chalupa Nonnetit,,9.8,26,29,29,5,21,YES,https://www.booking.com/hotel/cz/chalupa-nonnetit.en-gb.html
+b_026,koliba-varnsdorf,KOLIBA Varnsdorf,,9.5,28,28,28,7,22,YES,https://www.booking.com/hotel/cz/koliba-varnsdorf.en-gb.html
+b_027,roubenka-svitavka-cely-areal,Roubenka Svitávka - chalupa a apartmán,,,19,22,22,6,14,YES,https://www.booking.com/hotel/cz/roubenka-svitavka-cely-areal.en-gb.html
+b_028,chalupa-javorinka,Chalupa Javořinka,,9.0,27,29,29,9,17,YES,https://www.booking.com/hotel/cz/chalupa-javorinka.en-gb.html
+b_029,roubenka-za-horou,Roubenka za Horou,,,23,26,26,10,18,YES,https://www.booking.com/hotel/cz/roubenka-za-horou.en-gb.html
+b_030,hostel-housuv-mlyn,Housův Mlýn,,7.9,34,34,34,1,22,NO,https://www.booking.com/hotel/cz/hostel-housuv-mlyn.en-gb.html
+b_032,chata-walterovka,Chata WALTEROVKA,,7.1,27,28,28,8,17,YES,https://www.booking.com/hotel/cz/chata-walterovka.en-gb.html
+b_035,vila-bela-pod-pradedem,Vila Bělá pod Pradědem,,8.8,29,29,29,7,29,YES,https://www.booking.com/hotel/cz/vila-bela-pod-pradedem.en-gb.html
+b_036,chata-v-krkonosich-6-rooms-25-beds,"Chata v Krkonoších, 6 rooms, 25 beds",,,26,39,39,1,26,YES,https://www.booking.com/hotel/cz/chata-v-krkonosich-6-rooms-25-beds.en-gb.html
+b_037,rezidence-vogelsang,Rezidence VOGELSANG,,8.9,22,32,32,6,16,YES,https://www.booking.com/hotel/cz/rezidence-vogelsang.en-gb.html
+b_038,horska-chata-u-spicaku,Horská CHATA U ŠPIČÁKU,,7.5,28,35,35,7,28,YES,https://www.booking.com/hotel/cz/horska-chata-u-spicaku.en-gb.html
+b_039,vila-praha,Vila Prag,,9.2,32,32,32,11,18,YES,https://www.booking.com/hotel/cz/vila-praha.en-gb.html
+b_042,apartmany-lhota,Apartmány Lhota,,9.1,25,30,30,7,18,YES,https://www.booking.com/hotel/cz/apartmany-lhota.en-gb.html
+b_043,andelsky-dvur,Andělský Dvůr,,8.7,21,24,24,5,15,NO,https://www.booking.com/hotel/cz/andelsky-dvur.en-gb.html
+b_044,chalupa-lazenka,Chalupa Lázeňka,,8.0,34,35,35,8,22,YES,https://www.booking.com/hotel/cz/chalupa-lazenka.en-gb.html
+b_045,bouda-sestidomi-strazne1,Bouda Šestidomí,,9.0,29,30,30,8,16,YES,https://www.booking.com/hotel/cz/bouda-sestidomi-strazne1.en-gb.html
+b_046,vila-hamrska-velke-hamry,Vila Hamrska,,9.6,25,26,26,7,13,YES,https://www.booking.com/hotel/cz/vila-hamrska-velke-hamry.en-gb.html
+b_048,sladku-statek-veseli-nad-luznici,Sládků statek,,9.5,29,29,29,10,18,YES,https://www.booking.com/hotel/cz/sladku-statek-veseli-nad-luznici.en-gb.html
+b_049,holiday-home-harrachov-90,Holiday Home Mountain Serenity & Sauna by Interhome,,7.0,36,40,40,10,27,YES,https://www.booking.com/hotel/cz/holiday-home-harrachov-90.en-gb.html
+b_051,statek-hostacov,Statek Hostačov,,,28,33,33,6,20,YES,https://www.booking.com/hotel/cz/statek-hostacov.en-gb.html
+b_052,chata-vista-strazne,Chata VISTA Strážné,,9.5,32,32,32,9,27,YES,https://www.booking.com/hotel/cz/chata-vista-strazne.en-gb.html
+b_053,chata-buchtovna,Chata Buchtovna,,9.6,30,31,31,7,22,YES,https://www.booking.com/hotel/cz/chata-buchtovna.en-gb.html
+b_054,holiday-home-machova-roubenka-by-interhome-doksy-stare-splavy,Holiday Home Máchova roubenka by Interhome,,,24,24,24,6,14,YES,https://www.booking.com/hotel/cz/holiday-home-machova-roubenka-by-interhome-doksy-stare-splavy.en-gb.html
+b_055,penzion-patrik-vapenice,Penzion Mikulčin vrch,,8.4,28,37,37,5,22,YES,https://www.booking.com/hotel/cz/penzion-patrik-vapenice.en-gb.html
+b_056,chalet-anenske-udoli-by-interhome,Chalet Anenské údolí by Interhome,,9.6,25,28,28,5,18,YES,https://www.booking.com/hotel/cz/chalet-anenske-udoli-by-interhome.en-gb.html
+b_057,chalupa-borovka,Chalupa Borovka,,,24,24,24,6,19,YES,https://www.booking.com/hotel/cz/chalupa-borovka.en-gb.html
+b_058,penzion-havana,Apartmány Havana,,9.1,32,39,39,9,29,YES,https://www.booking.com/hotel/cz/penzion-havana.en-gb.html
+b_059,chalupy-na-ralisce,Chalupy Na Rališce,,9.4,24,28,28,8,20,YES,https://www.booking.com/hotel/cz/chalupy-na-ralisce.en-gb.html
+b_060,chata-urban-filipovice,Chata Urban Filipovice,,9.2,34,34,34,8,21,YES,https://www.booking.com/hotel/cz/chata-urban-filipovice.en-gb.html
+b_061,chalupa-lisenka,Chalupa Líšenka,,,25,25,25,7,16,YES,https://www.booking.com/hotel/cz/chalupa-lisenka.en-gb.html
+b_062,rychtrova-bouda-benecko,Rychtrova bouda Benecko,,,29,34,34,11,21,YES,https://www.booking.com/hotel/cz/rychtrova-bouda-benecko.en-gb.html
+b_063,korenov-10-chalupa-na-horach,Kořenov 10 - Horská chalupa pro skupiny a rodiny až 38 osob,,9.0,38,38,38,6,38,YES,https://www.booking.com/hotel/cz/korenov-10-chalupa-na-horach.en-gb.html
+b_064,chalupa-pisecne,Slavonice Modletice chalupa s řekou a rybníky pro rodiny,,,31,31,31,8,22,YES,https://www.booking.com/hotel/cz/chalupa-pisecne.en-gb.html
+b_065,apartmany-dalov,Apartmány Dalov,,9.0,38,38,38,9,28,YES,https://www.booking.com/hotel/cz/apartmany-dalov.en-gb.html
+b_066,relax-zone-sro,Relax Zone Vrchovina,,9.4,25,25,25,5,17,YES,https://www.booking.com/hotel/cz/relax-zone-sro.en-gb.html
+b_067,kvetna-farma,Penzion Květná Zahrada,,8.7,22,23,23,5,16,NO,https://www.booking.com/hotel/cz/kvetna-farma.en-gb.html
+b_068,apartmany-anicka-zelezna-ruda,Apartmány Anička,,9.3,21,26,26,8,13,NO,https://www.booking.com/hotel/cz/apartmany-anicka-zelezna-ruda.en-gb.html
+b_069,na-mu-dusu-valasske-chalupy-na-kycerce,Na mú dušu - Valašské chalupy na Kyčerce,,9.6,21,25,25,7,16,NO,https://www.booking.com/hotel/cz/na-mu-dusu-valasske-chalupy-na-kycerce.en-gb.html
+b_071,horni-strakuv-mlyn,Horní Strakův mlýn,,8.9,25,25,25,8,14,YES,https://www.booking.com/hotel/cz/horni-strakuv-mlyn.en-gb.html
+b_072,chata-jablunka,"Chata Jablunka, Dog friendly, 50m ski slope, 50m restaurant",,9.7,25,25,25,10,22,YES,https://www.booking.com/hotel/cz/chata-jablunka.en-gb.html
+b_073,statek-pod-brizou,Statek Pod Břízou,,,26,27,27,5,24,YES,https://www.booking.com/hotel/cz/statek-pod-brizou.en-gb.html
+b_074,penzion-pod-lanovkou-jachymov,Horská Chata Pod Lanovkou,,,40,40,40,12,29,YES,https://www.booking.com/hotel/cz/penzion-pod-lanovkou-jachymov.en-gb.html
+b_075,hogo-fogo-kytlice,"Lesní chaty ""Hogo Fogo""",,8.3,22,26,26,5,13,YES,https://www.booking.com/hotel/cz/hogo-fogo-kytlice.en-gb.html
+b_076,chata-v-karlove,Chata v Karlově,,8.7,26,31,31,6,22,YES,https://www.booking.com/hotel/cz/chata-v-karlove.en-gb.html
+b_077,horska-chata-radost-destne-v-orlickych-horach,Horská chata Radost,,9.0,27,27,27,,19,NO,https://www.booking.com/hotel/cz/horska-chata-radost-destne-v-orlickych-horach.en-gb.html
+b_078,vila-organica,Vila Organica,,9.7,20,25,25,6,14,YES,https://www.booking.com/hotel/cz/vila-organica.en-gb.html
+b_080,apartma-ny-u-a-ay-astna1-2ch,Apartmány U Šťastných,,9.2,28,28,28,7,19,YES,https://www.booking.com/hotel/cz/apartma-ny-u-a-ay-astna1-2ch.en-gb.html
+b_082,penzion-v-kopci,Penzion V Kopci,,9.6,22,26,26,3,16,YES,https://www.booking.com/hotel/cz/penzion-v-kopci.en-gb.html
+b_083,holiday-home-penzion-natty-by-interhome,Holiday Home Penzion Natty by Interhome,,,31,31,31,7,22,YES,https://www.booking.com/hotel/cz/holiday-home-penzion-natty-by-interhome.en-gb.html
+b_086,penzion-a-restaurace-pod-sjezdovkou,Penzion a Restaurace Pod Sjezdovkou,,9.1,22,25,25,,14,NO,https://www.booking.com/hotel/cz/penzion-a-restaurace-pod-sjezdovkou.en-gb.html
+b_087,silvestrovska-horska-chata-pro-cca-30-lidi,SILVESTROVSKÁ HORSKÁ CHATA až pro 30 lidí,,,30,30,30,1,30,YES,https://www.booking.com/hotel/cz/silvestrovska-horska-chata-pro-cca-30-lidi.en-gb.html
+b_088,horska1-2-rana,Horský Ranč,,8.3,23,25,25,5,21,YES,https://www.booking.com/hotel/cz/horska1-2-rana.en-gb.html
+b_089,chalupy-raz-dva,Chalupy Raz Dva,,,28,28,28,10,20,YES,https://www.booking.com/hotel/cz/chalupy-raz-dva.en-gb.html
+b_090,penzion-krystof,Penzion Kryštof,,9.6,37,38,38,7,20,NO,https://www.booking.com/hotel/cz/penzion-krystof.en-gb.html
+b_092,statek-salajna,Statek Salajna,,9.6,25,26,26,2,16,NO,https://www.booking.com/hotel/cz/statek-salajna.en-gb.html
+b_094,bl-beskydy-lodge,BL Beskydy Lodge,,9.8,28,30,30,10,16,YES,https://www.booking.com/hotel/cz/bl-beskydy-lodge.en-gb.html
+b_095,kypruv-mlyn,Kyprův mlýn,,7.6,25,29,29,2,20,NO,https://www.booking.com/hotel/cz/kypruv-mlyn.en-gb.html
+b_096,penzion-na-farme-karle,Penzion Na Farmě,,9.2,24,36,36,3,18,NO,https://www.booking.com/hotel/cz/penzion-na-farme-karle.en-gb.html
+b_097,vila-jachymov,Vila Jáchymov,,9.7,20,25,25,8,16,NO,https://www.booking.com/hotel/cz/vila-jachymov.en-gb.html
+b_100,horska-chata-u-rybnaka,Penzion U Rybníka,,8.3,26,26,26,4,21,NO,https://www.booking.com/hotel/cz/horska-chata-u-rybnaka.en-gb.html
+b_101,penzion-u-muzea-liberec,Wellness Penzion U Muzea,,9.3,23,25,25,8,19,NO,https://www.booking.com/hotel/cz/penzion-u-muzea-liberec.en-gb.html
+b_102,apartman-loucovice,Lipno & Wellness Chata,,8.0,26,29,29,5,17,YES,https://www.booking.com/hotel/cz/apartman-loucovice.en-gb.html
+b_104,chalupa-v-podkrkonosi-idealni-pro-vetsi-skupiny-a-aktivni-dovolenou-po-cely-rok,Prostorná chalupa v Podkrkonoší ideální pro větší skupiny a aktivní dovolenou po celý rok,,9.7,30,30,30,8,26,YES,https://www.booking.com/hotel/cz/chalupa-v-podkrkonosi-idealni-pro-vetsi-skupiny-a-aktivni-dovolenou-po-cely-rok.en-gb.html
+b_105,zamecky-dvur-cernousy,Zámecký Dvůr Černousy,,9.1,22,26,26,5,18,NO,https://www.booking.com/hotel/cz/zamecky-dvur-cernousy.en-gb.html
+b_106,houda-bouda,Houda Bouda - Penzion & Apartmány,,8.7,26,26,26,4,21,NO,https://www.booking.com/hotel/cz/houda-bouda.en-gb.html
+b_107,bozska-usedlost,Božská usedlost,,9.7,29,33,33,9,21,NO,https://www.booking.com/hotel/cz/bozska-usedlost.en-gb.html
+b_108,kazmarka,Kazmarka,,8.8,12,20,20,2,10,NO,https://www.booking.com/hotel/cz/kazmarka.en-gb.html
+b_110,penzion-u-libusky-29-brno-living-cz,Penzion U Libušky by goodnite cz,,8.0,21,26,26,2,15,NO,https://www.booking.com/hotel/cz/penzion-u-libusky-29-brno-living-cz.en-gb.html
+b_112,pension-restaurant-stilec,Resort-Restaurant Stilec,,9.2,28,29,29,11,22,NO,https://www.booking.com/hotel/cz/pension-restaurant-stilec.en-gb.html
+b_113,kemp-indiana,Pensiony a ubytování v kempu Indiana,,7.5,28,30,30,6,23,YES,https://www.booking.com/hotel/cz/kemp-indiana.en-gb.html
+b_114,penzion-apartments-benesova-6,Hotel Apartments Benešova 6,,8.4,25,30,30,10,20,NO,https://www.booking.com/hotel/cz/penzion-apartments-benesova-6.en-gb.html
+b_115,stara-pekarna-47-old-bakery-znojmo,Stará Pekárna/Old Bakery,,9.4,26,27,27,12,17,NO,https://www.booking.com/hotel/cz/stara-pekarna-47-old-bakery-znojmo.en-gb.html
+b_116,penzion-maderic,Penzion Maděřič,,9.1,20,25,25,,15,NO,https://www.booking.com/hotel/cz/penzion-maderic.en-gb.html
+b_119,apartmany-pec-pod-snezkou,Apartmány Pec pod Sněžkou,,9.1,26,36,36,6,18,NO,https://www.booking.com/hotel/cz/apartmany-pec-pod-snezkou.en-gb.html
+b_121,pension-city-center-amp-l-opera,Pension City Center,,7.0,37,37,37,,25,NO,https://www.booking.com/hotel/cz/pension-city-center-amp-l-opera.en-gb.html
+b_122,erlenuv-dvur,Erlenův Dvůr,,9.8,20,29,29,6,15,NO,https://www.booking.com/hotel/cz/erlenuv-dvur.en-gb.html
+b_123,penzion-bila-voda,Penzion Bílá voda,,9.6,22,23,23,2,16,NO,https://www.booking.com/hotel/cz/penzion-bila-voda.en-gb.html
+b_124,chalupy-jesenicka-dvojcata,Chalupy Jesenická dvojčata,,9.5,30,32,32,8,22,YES,https://www.booking.com/hotel/cz/chalupy-jesenicka-dvojcata.en-gb.html
+b_126,bret-cz,Bret CZ,,8.3,28,28,28,8,20,YES,https://www.booking.com/hotel/cz/bret-cz.en-gb.html
+b_127,guest-house-pod-rozhlednou,Wellness Penzion Pod Rozhlednou,,9.2,25,25,25,11,20,NO,https://www.booking.com/hotel/cz/guest-house-pod-rozhlednou.en-gb.html
+b_129,penzion-my-lady-ii,Penzion My Lady II,,8.9,18,21,21,4,13,NO,https://www.booking.com/hotel/cz/penzion-my-lady-ii.en-gb.html
+b_131,tavba-gocar-27-osob-8-apartmanu-na-kraji-lesa,"Tavba -Gočár až 27 osob, 8 apartmánů,8 koupelen, 8 kuchyní na kraji lesa",,9.6,27,27,27,14,27,YES,https://www.booking.com/hotel/cz/tavba-gocar-27-osob-8-apartmanu-na-kraji-lesa.en-gb.html
+b_132,chaty-ve-ski-47-relax-avalanche,Chaty ve Ski-relax Avalanche Dolní Moravice,,7.3,30,36,36,9,18,YES,https://www.booking.com/hotel/cz/chaty-ve-ski-47-relax-avalanche.en-gb.html
+b_133,penzion-tovarnikova-vila,Penzion Továrníkova vila,,8.7,16,22,22,5,11,NO,https://www.booking.com/hotel/cz/penzion-tovarnikova-vila.en-gb.html
+b_135,bouda-u-vleku,Bouda u vleku,,9.2,26,26,26,10,13,YES,https://www.booking.com/hotel/cz/bouda-u-vleku.en-gb.html
+b_136,rekreacni-stredisko-rojana-svratka,Rekreační středisko ROJANA,,8.6,23,24,24,2,14,YES,https://www.booking.com/hotel/cz/rekreacni-stredisko-rojana-svratka.en-gb.html
+b_137,the-secret-garden-apartments-praha-libus,The Secret Garden Apartments,,9.6,20,24,24,6,12,NO,https://www.booking.com/hotel/cz/the-secret-garden-apartments-praha-libus.en-gb.html
+b_138,apartmany-branna-31-trebon,Apartmány Branná 31 Třeboň,,9.5,23,28,28,8,14,NO,https://www.booking.com/hotel/cz/apartmany-branna-31-trebon.en-gb.html
+b_141,penzion-kersko,Penzion Kersko,,8.9,18,20,20,,12,NO,https://www.booking.com/hotel/cz/penzion-kersko.en-gb.html
+b_142,penzion-zeeman,Penzion Zeeman,,9.0,25,35,35,5,20,NO,https://www.booking.com/hotel/cz/penzion-zeeman.en-gb.html
+b_144,chalupa-prade,"Chalupy v Podkrkonoší- Chalupa Oto, Chalupa Prade",,8.5,21,21,21,9,12,YES,https://www.booking.com/hotel/cz/chalupa-prade.en-gb.html
+b_145,penzion-helena-a-chata-helena,Penzion Helena a chata Helena,,9.3,26,26,26,10,14,YES,https://www.booking.com/hotel/cz/penzion-helena-a-chata-helena.en-gb.html
+b_146,apartmany-pod-palavou,Apartmány pod Pálavou,,9.6,20,25,25,5,20,NO,https://www.booking.com/hotel/cz/apartmany-pod-palavou.en-gb.html
+b_147,chata-alexandra,Chata Alexandra,,9.6,30,35,35,7,24,YES,https://www.booking.com/hotel/cz/chata-alexandra.en-gb.html
+b_148,penzion-dolni-dunajovice,Penzion Dolní Dunajovice,,8.7,26,27,27,6,21,NO,https://www.booking.com/hotel/cz/penzion-dolni-dunajovice.en-gb.html
+b_151,stara-skola-mala-upa,Stará škola,,9.7,25,27,27,6,20,NO,https://www.booking.com/hotel/cz/stara-skola-mala-upa.en-gb.html
+b_152,aspen-spindleruv-mlyn,Pension Aspen,,9.1,19,23,23,7,16,NO,https://www.booking.com/hotel/cz/aspen-spindleruv-mlyn.en-gb.html
+b_153,penzion-ostruznik,Penzion Ostruznik,,9.1,33,35,35,8,20,NO,https://www.booking.com/hotel/cz/penzion-ostruznik.en-gb.html
+b_154,pension-aspen-harrachov,Pension Aspen Harrachov,,9.5,21,22,22,11,13,NO,https://www.booking.com/hotel/cz/pension-aspen-harrachov.en-gb.html
+b_155,penzion-blanko,Penzion Blanko,,9.3,19,22,22,10,13,YES,https://www.booking.com/hotel/cz/penzion-blanko.en-gb.html
+b_156,penzion-prefila,Penzion Prefila,,9.2,26,36,36,3,26,NO,https://www.booking.com/hotel/cz/penzion-prefila.en-gb.html
+b_157,roubenka-u-potoka,Roubenka u potoka Výprachtice,,6.9,20,28,28,6,16,YES,https://www.booking.com/hotel/cz/roubenka-u-potoka.en-gb.html
+b_158,retro-chaty-sobesky,Retro chaty Soběšky,,9.8,24,29,29,9,19,NO,https://www.booking.com/hotel/cz/retro-chaty-sobesky.en-gb.html
+b_160,resort-u-jelena,Resort U Jelena,,8.7,21,22,22,,15,NO,https://www.booking.com/hotel/cz/resort-u-jelena.en-gb.html
+b_161,pension-easy-journey,Pension Easy Journey,,6.7,25,27,27,4,18,NO,https://www.booking.com/hotel/cz/pension-easy-journey.en-gb.html
+b_162,chata-u-kostela-korenov1,Chata u kostela,,8.3,25,25,25,2,13,NO,https://www.booking.com/hotel/cz/chata-u-kostela-korenov1.en-gb.html
+b_163,pension-george,pension George,,9.5,21,26,26,8,16,NO,https://www.booking.com/hotel/cz/pension-george.en-gb.html
+b_164,penzion-rzehaczek,Penzion Rzehaczek,,9.4,25,26,26,9,19,NO,https://www.booking.com/hotel/cz/penzion-rzehaczek.en-gb.html
+b_165,chata-anja,Pension Anja,,9.2,25,30,30,5,18,NO,https://www.booking.com/hotel/cz/chata-anja.en-gb.html
+b_167,penzion-a-vino,Penzion a Víno,,8.0,22,25,25,4,16,NO,https://www.booking.com/hotel/cz/penzion-a-vino.en-gb.html
+b_169,pension-mikulov,Pension Mikulov,,9.5,22,30,30,5,15,NO,https://www.booking.com/hotel/cz/pension-mikulov.en-gb.html
+b_170,ubytovani-u-nas-doma-baska,Ubytování U nás doma,,,20,20,20,,20,NO,https://www.booking.com/hotel/cz/ubytovani-u-nas-doma-baska.en-gb.html
+b_171,penzion-koula,Apartmány Penzion Koula,,8.8,21,28,28,3,15,NO,https://www.booking.com/hotel/cz/penzion-koula.en-gb.html
+b_172,chata-luna,Chata Luna,,8.9,23,23,23,,14,NO,https://www.booking.com/hotel/cz/chata-luna.en-gb.html
+b_174,penzion-fit,penzion FIT,,8.1,20,20,20,,20,NO,https://www.booking.com/hotel/cz/penzion-fit.en-gb.html
+b_175,penzion-natty-s-wellness-primo-u-sjezdovky,Penzion NATTY - s wellness přímo u sjezdovky,,9.5,28,33,33,,19,NO,https://www.booking.com/hotel/cz/penzion-natty-s-wellness-primo-u-sjezdovky.en-gb.html
+b_176,penzion-blanka-znojmo,PENZION BLANKA - Znojmo,,8.1,25,30,30,2,16,NO,https://www.booking.com/hotel/cz/penzion-blanka-znojmo.en-gb.html
+b_177,penzion-brillia-police-nad-metuji1,Pension BRILLIA,,6.8,34,34,34,,21,NO,https://www.booking.com/hotel/cz/penzion-brillia-police-nad-metuji1.en-gb.html
+b_179,hnizdo-snu-hradec-kralove,Hnízdo Snů,,8.8,18,24,24,2,15,NO,https://www.booking.com/hotel/cz/hnizdo-snu-hradec-kralove.en-gb.html
+b_181,residence-lipno,Residence Lipno,,9.3,27,27,27,12,15,YES,https://www.booking.com/hotel/cz/residence-lipno.en-gb.html
+b_182,chata-u-rybnika-bohdalov,Chaty u rybníka,,8.4,35,40,40,9,29,YES,https://www.booking.com/hotel/cz/chata-u-rybnika-bohdalov.en-gb.html
+b_183,sokoli-hnizdo,Sokolí hnízdo,,8.5,32,34,34,3,24,NO,https://www.booking.com/hotel/cz/sokoli-hnizdo.en-gb.html
+b_184,pohoda-na-radosti-pnovany,Pohoda na Radosti,,7.1,20,28,28,,14,NO,https://www.booking.com/hotel/cz/pohoda-na-radosti-pnovany.en-gb.html
+b_185,doubicke-chalupy,Doubické chalupy,,9.0,27,30,30,12,21,NO,https://www.booking.com/hotel/cz/doubicke-chalupy.en-gb.html
+b_186,buskovsky-mlyn-1580,Buškovský mlýn 1580,,9.3,21,22,22,2,13,NO,https://www.booking.com/hotel/cz/buskovsky-mlyn-1580.en-gb.html
+b_189,benatky-214,Benátky 214,,9.6,29,30,30,,18,NO,https://www.booking.com/hotel/cz/benatky-214.en-gb.html
+b_190,pension-marislav,Hotel Marislav,,7.9,22,22,22,,17,NO,https://www.booking.com/hotel/cz/pension-marislav.en-gb.html
+b_192,farma-basarovi,Farma Basarovi,,9.8,24,25,25,9,14,NO,https://www.booking.com/hotel/cz/farma-basarovi.en-gb.html
+b_193,pension-tibor-a-luna,Pension Tibor a Luna,,9.3,27,28,28,4,15,NO,https://www.booking.com/hotel/cz/pension-tibor-a-luna.en-gb.html
+b_194,chalet-severka-carpe-diem,Chalet Severka Carpe Diem,,9.0,21,21,21,8,17,NO,https://www.booking.com/hotel/cz/chalet-severka-carpe-diem.en-gb.html
+b_195,penzion-posada,Penzion POSADA,,9.4,25,25,25,,20,NO,https://www.booking.com/hotel/cz/penzion-posada.en-gb.html
+b_196,penzion-vyhlidka-zelezna-ruda,Penzion a Restaurace Vyhlídka,,8.5,25,25,25,1,17,NO,https://www.booking.com/hotel/cz/penzion-vyhlidka-zelezna-ruda.en-gb.html
+b_197,boaetanska1-2-statek,Bořetínský Statek,,8.1,23,24,24,4,17,NO,https://www.booking.com/hotel/cz/boaetanska1-2-statek.en-gb.html
+b_198,pension-euro,Pension Euro,,8.7,17,22,22,,12,NO,https://www.booking.com/hotel/cz/pension-euro.en-gb.html
+b_199,penzion-relax-martina,Penzion Relax Martina,,8.3,27,37,37,6,24,NO,https://www.booking.com/hotel/cz/penzion-relax-martina.en-gb.html
+b_200,penzion-na-rozcesta,Penzion Na Rozcestí,,8.7,20,20,20,,16,NO,https://www.booking.com/hotel/cz/penzion-na-rozcesta.en-gb.html
+b_201,chalupa-novy-vojirov-cp-27,Chalupa Nový Vojířov čp. 27,,9.9,24,26,26,8,14,YES,https://www.booking.com/hotel/cz/chalupa-novy-vojirov-cp-27.en-gb.html
+b_202,penzion-u-prehrady-pozlovice,Penzion U Přehrady,,8.6,17,22,22,,14,NO,https://www.booking.com/hotel/cz/penzion-u-prehrady-pozlovice.en-gb.html
+b_203,penzion-u-fandy-satov,Penzion U Fandy,,6.1,28,28,28,,16,NO,https://www.booking.com/hotel/cz/penzion-u-fandy-satov.en-gb.html
+b_204,dvur-stran,Dvůr Stráň & Wellness,,8.7,27,29,29,3,20,NO,https://www.booking.com/hotel/cz/dvur-stran.en-gb.html
+b_205,penzion-anareta,Penzion Anareta,,8.6,21,23,23,2,16,NO,https://www.booking.com/hotel/cz/penzion-anareta.en-gb.html
+b_206,penzion-stonozka,Wellness Penzion Stonozka,,8.9,22,23,23,7,16,YES,https://www.booking.com/hotel/cz/penzion-stonozka.en-gb.html
+b_208,u-pohody,U Pohody,,8.6,22,25,25,4,14,NO,https://www.booking.com/hotel/cz/u-pohody.en-gb.html
+b_209,pension-v-udoli-v-jizerskych-horach,Pension V údolí v Jizerských horách,,8.8,32,32,32,,18,NO,https://www.booking.com/hotel/cz/pension-v-udoli-v-jizerskych-horach.en-gb.html
+b_210,penzion-pod-radnici,Penzion Pod Radnicí,,9.1,21,22,22,11,15,NO,https://www.booking.com/hotel/cz/penzion-pod-radnici.en-gb.html
+b_211,pension-fortuna,Pension Fortuna,,8.9,24,25,25,9,19,NO,https://www.booking.com/hotel/cz/pension-fortuna.en-gb.html
+b_213,modra-hortenzie,Modrá Hortenzie,,9.4,21,23,23,14,16,NO,https://www.booking.com/hotel/cz/modra-hortenzie.en-gb.html
+b_214,penzion-ma-ja,Na Skok,,9.5,30,31,31,4,21,NO,https://www.booking.com/hotel/cz/penzion-ma-ja.en-gb.html
+b_216,penzion-a-restaurace-v-haji,Penzion a restaurace V Háji,,7.9,39,39,39,,20,NO,https://www.booking.com/hotel/cz/penzion-a-restaurace-v-haji.en-gb.html
+b_217,kohouti-hnizdo,Kohoutí hnízdo,,9.8,31,33,33,7,20,YES,https://www.booking.com/hotel/cz/kohouti-hnizdo.en-gb.html
+b_218,premyslovske-strane,Designové chalupy v Jeseníkách - Přemyslovské stráně,,9.6,36,36,36,15,27,YES,https://www.booking.com/hotel/cz/premyslovske-strane.en-gb.html
+b_219,pod-malinikem,Pod Maliníkem,,9.2,27,29,29,6,22,YES,https://www.booking.com/hotel/cz/pod-malinikem.en-gb.html
+b_221,penzion-u-skutilu,Penzion U Skutilů,,9.3,20,24,24,6,15,NO,https://www.booking.com/hotel/cz/penzion-u-skutilu.en-gb.html
+b_222,dvur-liskovy-vrch,Dvůr Lískový vrch,,8.7,25,26,26,6,19,NO,https://www.booking.com/hotel/cz/dvur-liskovy-vrch.en-gb.html
+b_224,pod-smrcinou,Pod Smrcinou,,8.4,29,39,39,4,24,NO,https://www.booking.com/hotel/cz/pod-smrcinou.en-gb.html
+b_225,penzion-medove-udoli,Medové údolí,,9.5,22,25,25,,13,NO,https://www.booking.com/hotel/cz/penzion-medove-udoli.en-gb.html
+b_226,restaurace-a-penzion-u-svate-barbory,Restaurace a penzion U svaté Barbory,,7.7,25,25,25,,18,NO,https://www.booking.com/hotel/cz/restaurace-a-penzion-u-svate-barbory.en-gb.html
+b_227,horska-chata-u-pekaru,Horská chata U Pekařů,,9.0,25,25,25,,18,NO,https://www.booking.com/hotel/cz/horska-chata-u-pekaru.en-gb.html
+b_228,garnet-penzion,Garnet Penzion,,9.0,25,25,25,5,17,NO,https://www.booking.com/hotel/cz/garnet-penzion.en-gb.html
+b_229,penzion-zatisi,Penzion Zatisi,,8.2,24,24,24,,24,NO,https://www.booking.com/hotel/cz/penzion-zatisi.en-gb.html
+b_230,minerva,MINERVA,,9.2,19,23,23,6,14,NO,https://www.booking.com/hotel/cz/minerva.en-gb.html
+b_232,resort-materada-chalupy,Chalupy Mátěráda,,,25,25,25,9,17,YES,https://www.booking.com/hotel/cz/resort-materada-chalupy.en-gb.html
+b_233,svatojakubsky-pivovar,Svatojakubský pivovar,,9.0,36,36,36,,18,NO,https://www.booking.com/hotel/cz/svatojakubsky-pivovar.en-gb.html
+b_234,penzion-farma,Penzion Farma,,8.5,21,23,23,7,15,NO,https://www.booking.com/hotel/cz/penzion-farma.en-gb.html
+b_235,pivovarska1-2-dva-r-lipan-draa3-4aa,Pivovarský dvůr Lipan,,8.8,22,23,23,8,17,NO,https://www.booking.com/hotel/cz/pivovarska1-2-dva-r-lipan-draa3-4aa.en-gb.html
+b_236,penzion-na-rozcesti,Penzion Na Rozcestí,,9.1,22,27,27,1,22,NO,https://www.booking.com/hotel/cz/penzion-na-rozcesti.en-gb.html
+b_237,marina-hubenov,Marina Hubenov,,9.0,26,29,29,,17,NO,https://www.booking.com/hotel/cz/marina-hubenov.en-gb.html
+b_238,penzion-pod-radhostem-u-maleru,Penzion pod Radhoštěm u Maléřů,,9.3,25,34,34,6,17,NO,https://www.booking.com/hotel/cz/penzion-pod-radhostem-u-maleru.en-gb.html
+b_239,konselsky-senk-domazlice,Konšelský šenk Domažlice,,8.1,20,24,24,,14,NO,https://www.booking.com/hotel/cz/konselsky-senk-domazlice.en-gb.html
+b_241,penzion-u-lipy-jestrebi,Splněný sen - penzion Pavlovice,,8.9,19,20,20,2,11,NO,https://www.booking.com/hotel/cz/penzion-u-lipy-jestrebi.en-gb.html
+b_242,ave-restaurant,AVe Restaurant,,9.5,17,20,20,2,14,YES,https://www.booking.com/hotel/cz/ave-restaurant.en-gb.html
+b_244,penzion-amp-bistro-dvorek-dolni-dunajovice,"Naturální vinařství DVOREK - Penzion, Bistro & Wellness",,9.1,23,23,23,,18,NO,https://www.booking.com/hotel/cz/penzion-amp-bistro-dvorek-dolni-dunajovice.en-gb.html
+b_245,penzion-lesni,Penzion Lesni,,9.2,25,25,25,5,16,NO,https://www.booking.com/hotel/cz/penzion-lesni.en-gb.html
+b_247,penzion-u-jandu,Penzion U Jandů,,8.9,21,26,26,,15,NO,https://www.booking.com/hotel/cz/penzion-u-jandu.en-gb.html
+b_249,nova-hajovna,Nová Hájovna,,8.5,26,26,26,,16,NO,https://www.booking.com/hotel/cz/nova-hajovna.en-gb.html
+b_250,penzion-na-vyhladce-klentnice,Penzion Živá Pálava,,9.5,20,24,24,5,14,NO,https://www.booking.com/hotel/cz/penzion-na-vyhladce-klentnice.en-gb.html
+b_252,penzion-harry-na-sjezdovce-krkonose,WELLNESS PENZION HARRY na sjezdovce KRKONOŠE,,8.8,31,33,33,5,22,NO,https://www.booking.com/hotel/cz/penzion-harry-na-sjezdovce-krkonose.en-gb.html
+b_253,penzion-u-lipy-suchdol-nad-luznici,Penzion u lípy,,7.9,25,25,25,1,18,NO,https://www.booking.com/hotel/cz/penzion-u-lipy-suchdol-nad-luznici.en-gb.html
+b_257,u-baby-subrovy-okres-melnik,U báby Šubrový,,7.3,26,27,27,2,14,NO,https://www.booking.com/hotel/cz/u-baby-subrovy-okres-melnik.en-gb.html
+b_258,zimni-stadion-tabor,Zimní Stadion Tábor,,7.4,24,24,24,,24,NO,https://www.booking.com/hotel/cz/zimni-stadion-tabor.en-gb.html
+b_259,penzion-ruprechtice,Penzion Ruprechtice,,9.2,20,20,20,,12,NO,https://www.booking.com/hotel/cz/penzion-ruprechtice.en-gb.html
+b_260,penzion-kometa,"Penzion Kometa - rodinný pobyt u Novomlýnských jezer s komfortem, restaurací a dětskou zónou",,8.9,23,25,25,3,16,NO,https://www.booking.com/hotel/cz/penzion-kometa.en-gb.html
+b_261,horska-chata-medika-horni-marsov,Horská chata Medika,,8.7,21,22,22,2,14,NO,https://www.booking.com/hotel/cz/horska-chata-medika-horni-marsov.en-gb.html
+b_263,penzion-u-barana-trojanovice4,Penzion U Barana,,9.6,18,22,22,3,15,NO,https://www.booking.com/hotel/cz/penzion-u-barana-trojanovice4.en-gb.html
+b_266,penzion-eska,Penzion Eška s Pivovarem MJ,,6.5,28,28,28,4,22,NO,https://www.booking.com/hotel/cz/penzion-eska.en-gb.html
+b_268,penzion-longus,Penzion Longus,,9.5,19,25,25,4,14,NO,https://www.booking.com/hotel/cz/penzion-longus.en-gb.html
+b_269,bezrucova-skola,Bezručova škola,,9.5,27,31,31,,22,NO,https://www.booking.com/hotel/cz/bezrucova-skola.en-gb.html
+b_270,u-hroznu,Penzion a restaurace U Hroznu,,8.3,24,24,24,,24,NO,https://www.booking.com/hotel/cz/u-hroznu.en-gb.html
+b_271,penzion-adela-roznov-pr,Penzion Adéla,,9.3,20,26,26,2,13,NO,https://www.booking.com/hotel/cz/penzion-adela-roznov-pr.en-gb.html
+b_273,penzion-sally,Penzion Sally,,7.8,25,27,27,,19,NO,https://www.booking.com/hotel/cz/penzion-sally.en-gb.html
+b_275,apartmany-karlovy-dvory,Apartmány Karlovy Dvory,,9.2,31,38,38,12,24,YES,https://www.booking.com/hotel/cz/apartmany-karlovy-dvory.en-gb.html
+b_279,penzion-kobylnice,Panorama Kobylnice,,9.1,29,36,36,8,21,YES,https://www.booking.com/hotel/cz/penzion-kobylnice.en-gb.html
+b_280,belvederska-chalupa,Belvederská chalupa,,9.8,32,32,32,8,26,YES,https://www.booking.com/hotel/cz/belvederska-chalupa.en-gb.html
+b_284,penzion-kratochval,Penzion Kratochvíl,,8.7,23,24,24,4,16,NO,https://www.booking.com/hotel/cz/penzion-kratochval.en-gb.html
+b_285,restaurace-a-penzion-pod-zamkem-krasny-dvur,Penzion Krásný Dvůr,,7.5,21,21,21,2,21,NO,https://www.booking.com/hotel/cz/restaurace-a-penzion-pod-zamkem-krasny-dvur.en-gb.html
+b_287,pension-u-stribrneho-jelena,Pension U Stříbrného Jelena,,8.0,25,33,33,2,17,NO,https://www.booking.com/hotel/cz/pension-u-stribrneho-jelena.en-gb.html
+b_288,penzion-orlov,Penzion Orlov,,9.0,26,36,36,6,18,NO,https://www.booking.com/hotel/cz/penzion-orlov.en-gb.html
+b_292,hostinec-na-lipce,Penzion Šmolovy 238,,8.8,21,28,28,,14,NO,https://www.booking.com/hotel/cz/hostinec-na-lipce.en-gb.html
+b_293,penzion-vinicky-dva-r,Penzion Vinicky dvůr,,9.0,27,29,29,5,18,NO,https://www.booking.com/hotel/cz/penzion-vinicky-dva-r.en-gb.html
+b_294,horska-chata-orion,Apartment Hotel Orion,,9.1,33,33,33,,18,NO,https://www.booking.com/hotel/cz/horska-chata-orion.en-gb.html
+b_295,penzion-stara-vapenka,Penzion Stará Vápenka,,9.5,23,23,23,4,16,NO,https://www.booking.com/hotel/cz/penzion-stara-vapenka.en-gb.html
+b_296,penzion-panorama-broumov,Penzion PANORAMA Janovičky,,9.3,18,23,23,5,12,NO,https://www.booking.com/hotel/cz/penzion-panorama-broumov.en-gb.html
+b_297,penzion-na-faae-dubenec,Penzion na Faře,,8.9,20,20,20,4,14,NO,https://www.booking.com/hotel/cz/penzion-na-faae-dubenec.en-gb.html
+b_298,penzion-kamzik,Penzion Kamzík,,8.4,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-kamzik.en-gb.html
+b_300,penzion-bawaria,Bawaria Wellness Retreat,,9.3,24,30,30,2,18,NO,https://www.booking.com/hotel/cz/penzion-bawaria.en-gb.html
+b_303,penzion-u-golema,Penzion U Golema Blansko,,,25,26,26,1,18,NO,https://www.booking.com/hotel/cz/penzion-u-golema.en-gb.html
+b_304,penzion-safran,Penzion Šafrán,,,20,21,21,1,14,NO,https://www.booking.com/hotel/cz/penzion-safran.en-gb.html
+b_305,penzion-patriot,Penzion Patriot,,,22,24,24,6,12,NO,https://www.booking.com/hotel/cz/penzion-patriot.en-gb.html
+b_309,penzion-topas-pec-pod-snezkou,Penzion TOPAS,,,22,22,22,,11,NO,https://www.booking.com/hotel/cz/penzion-topas-pec-pod-snezkou.en-gb.html
+b_310,penzion-tetrivek,Penzion Tetřívek,,,24,24,24,,24,NO,https://www.booking.com/hotel/cz/penzion-tetrivek.en-gb.html
+b_311,penzion-pod-lesem-pec-pod-snezkou,Penzion Pod lesem,,,25,25,25,,18,NO,https://www.booking.com/hotel/cz/penzion-pod-lesem-pec-pod-snezkou.en-gb.html
+b_312,penzion-podzamci,Penzion Podzámčí,,,22,28,28,,14,NO,https://www.booking.com/hotel/cz/penzion-podzamci.en-gb.html
+b_313,penzion-tenis-htk,Penzion Tenis HTK,,,20,28,28,2,16,NO,https://www.booking.com/hotel/cz/penzion-tenis-htk.en-gb.html
+b_314,pension-bily-horec,Pension Bílý Hořec,,,23,23,23,2,17,NO,https://www.booking.com/hotel/cz/pension-bily-horec.en-gb.html
+b_315,wellness-penzion-jarmilka,Wellness Penzion Jarmilka,,,25,32,32,,25,NO,https://www.booking.com/hotel/cz/wellness-penzion-jarmilka.en-gb.html
+b_316,penzion-chiranka,Chalupa Chiranka,,,14,21,21,14,14,YES,https://www.booking.com/hotel/cz/penzion-chiranka.en-gb.html
+b_317,beach-pension,Beach Pension,,,27,28,28,6,21,YES,https://www.booking.com/hotel/cz/beach-pension.en-gb.html
+b_318,penzion-u-lia-ky,Penzion U Lišky,,,33,37,37,9,25,YES,https://www.booking.com/hotel/cz/penzion-u-lia-ky.en-gb.html
+b_319,cyklochata,Cyklochata - Vranovská přehrada,,,28,30,30,7,15,YES,https://www.booking.com/hotel/cz/cyklochata.en-gb.html
+b_320,pension-salma,Pension Salma,,,31,32,32,8,19,YES,https://www.booking.com/hotel/cz/pension-salma.en-gb.html
+b_321,chata-u-mysaka-marenice,Chata U Myšáka,,,35,35,35,6,25,YES,https://www.booking.com/hotel/cz/chata-u-mysaka-marenice.en-gb.html
+b_323,penzion-dukla,Penzion Dukla,,,35,35,35,9,26,YES,https://www.booking.com/hotel/cz/penzion-dukla.en-gb.html
+b_324,badurky,Baďurky,,,23,26,26,8,16,YES,https://www.booking.com/hotel/cz/badurky.en-gb.html
+b_326,penzion-u-housku,Penzion U Houšků,,9.0,18,22,22,,12,NO,https://www.booking.com/hotel/cz/penzion-u-housku.en-gb.html
+b_327,apartmany-a-domy-pod-liscim-kopcem-vrchlabi,Chalupy pod Liščím Kopcem Vrchlabí,,9.6,29,40,40,7,25,YES,https://www.booking.com/hotel/cz/apartmany-a-domy-pod-liscim-kopcem-vrchlabi.en-gb.html
+b_328,penzion-na-krizovatce-polevsko,Penzion a restaurace na Křižovatce,,8.7,31,31,31,1,17,NO,https://www.booking.com/hotel/cz/penzion-na-krizovatce-polevsko.en-gb.html
+b_329,farma-tasov,Farma Tasov,,8.5,20,26,26,1,13,NO,https://www.booking.com/hotel/cz/farma-tasov.en-gb.html
+b_330,penzion-horse-farm-lechovice,Penzion Horse Farm Lechovice,,9.0,25,27,27,,16,NO,https://www.booking.com/hotel/cz/penzion-horse-farm-lechovice.en-gb.html
+b_331,horska-chata-silver-by-mountain-ways,Horská chata Silver by Mountain ways,,8.1,24,29,29,,18,NO,https://www.booking.com/hotel/cz/horska-chata-silver-by-mountain-ways.en-gb.html
+b_332,penzion-na-kopecku-horni-brusnice,Na Kopečku AD 1795 - penzion s restaurací a privátním wellness,,8.0,27,28,28,4,16,NO,https://www.booking.com/hotel/cz/penzion-na-kopecku-horni-brusnice.en-gb.html
+b_333,kotva-hrensko,Hotel Kotva,,9.1,21,21,21,,15,NO,https://www.booking.com/hotel/cz/kotva-hrensko.en-gb.html
+b_334,penzion-rak,Penzion Rak Wellness,,8.0,24,26,26,,15,NO,https://www.booking.com/hotel/cz/penzion-rak.en-gb.html
+b_336,u-bernarda,U Bernarda,,8.8,30,35,35,3,20,YES,https://www.booking.com/hotel/cz/u-bernarda.en-gb.html
+b_337,ubytovaci-komplex-penzion-athena,Penzion Athéna - sportovní areál,,6.8,24,24,24,,18,NO,https://www.booking.com/hotel/cz/ubytovaci-komplex-penzion-athena.en-gb.html
+b_338,penzion-na-rychte-mala-moravka,Penzion Na Rychtě,,8.3,20,21,21,,15,NO,https://www.booking.com/hotel/cz/penzion-na-rychte-mala-moravka.en-gb.html
+b_340,fahnrichuv-mlyn,Fähnrichův mlýn,,6.9,25,25,25,,25,NO,https://www.booking.com/hotel/cz/fahnrichuv-mlyn.en-gb.html
+b_342,stejkarna-spicak,Stejkárna Špičák,,8.9,22,28,28,,15,NO,https://www.booking.com/hotel/cz/stejkarna-spicak.en-gb.html
+b_343,penzion-mona-rooms-amp-apartments,Penzion Mona Rooms & Apartments,,9.2,21,21,21,,16,NO,https://www.booking.com/hotel/cz/penzion-mona-rooms-amp-apartments.en-gb.html
+b_345,ham-ham-national-park,Ham-Ham National Park,,8.1,22,23,23,2,15,NO,https://www.booking.com/hotel/cz/ham-ham-national-park.en-gb.html
+b_347,davida-v-mla1-2n,Davidův mlýn,,8.8,18,21,21,1,13,NO,https://www.booking.com/hotel/cz/davida-v-mla1-2n.en-gb.html
+b_348,vila-zamecek,Penzion Zámeček,,8.8,24,24,24,,17,NO,https://www.booking.com/hotel/cz/vila-zamecek.en-gb.html
+b_349,penzion-stanice-lyzaru-frysava,Penzion Stanice lyžařů Fryšava,,8.9,25,28,28,6,17,NO,https://www.booking.com/hotel/cz/penzion-stanice-lyzaru-frysava.en-gb.html
+b_354,penzion-erika-bozi-dar2,Penzion Erika,,7.7,23,23,23,,16,NO,https://www.booking.com/hotel/cz/penzion-erika-bozi-dar2.en-gb.html
+b_356,penzion-certovy-skaly-lidecko,Penzion Čertovy skály,,8.5,18,24,24,3,18,NO,https://www.booking.com/hotel/cz/penzion-certovy-skaly-lidecko.en-gb.html
+b_357,penzion-u-kotle,Penzion U Kotle,,9.0,26,27,27,3,19,NO,https://www.booking.com/hotel/cz/penzion-u-kotle.en-gb.html
+b_359,pension-studena1-2-pramen,Kaproun - Studený pramen,,,26,32,32,5,21,YES,https://www.booking.com/hotel/cz/pension-studena1-2-pramen.en-gb.html
+b_360,pension-u-studny,Pension U Studny,,9.3,24,24,24,,15,NO,https://www.booking.com/hotel/cz/pension-u-studny.en-gb.html
+b_361,chata-tokan-jetrichovice,Chata Tokáň,,8.2,21,21,21,2,16,NO,https://www.booking.com/hotel/cz/chata-tokan-jetrichovice.en-gb.html
+b_364,penzion-u-kaplicky-mala-hrastice,Penzion U Kapličky,,8.7,25,28,28,,18,NO,https://www.booking.com/hotel/cz/penzion-u-kaplicky-mala-hrastice.en-gb.html
+b_366,penzion-bowling-bar,Restaurace - Apartmány Bobule,,8.6,23,34,34,7,17,NO,https://www.booking.com/hotel/cz/penzion-bowling-bar.en-gb.html
+b_367,haraburdi-r-recyclart,HARABURDI® Recyclart Hotel,,8.8,28,28,28,8,23,YES,https://www.booking.com/hotel/cz/haraburdi-r-recyclart.en-gb.html
+b_369,penzion-mlyn-zahradky,Penzion Mlýn,,,24,24,24,,18,NO,https://www.booking.com/hotel/cz/penzion-mlyn-zahradky.en-gb.html
+b_370,apartmany-sestka,Apartmány Šestka,,9.7,19,21,21,3,13,NO,https://www.booking.com/hotel/cz/apartmany-sestka.en-gb.html
+b_371,penzion-eden,Penzion Eden,,8.1,25,25,25,,18,NO,https://www.booking.com/hotel/cz/penzion-eden.en-gb.html
+b_372,penzion-pod-severakem,Penzion pod Severákem,,9.1,27,34,34,,17,NO,https://www.booking.com/hotel/cz/penzion-pod-severakem.en-gb.html
+b_373,u-jeraba-komplex-c,U Jeřába - komplex C,,9.6,21,29,29,5,15,NO,https://www.booking.com/hotel/cz/u-jeraba-komplex-c.en-gb.html
+b_375,pura-vida,Pura Vida,,8.1,18,22,22,3,12,NO,https://www.booking.com/hotel/cz/pura-vida.en-gb.html
+b_376,penzion-hradek,Penzion Hradek,,8.6,17,20,20,4,12,NO,https://www.booking.com/hotel/cz/penzion-hradek.en-gb.html
+b_377,penzion-s-wellnes-uherske-hradiste,Penzion s wellness Uherské Hradiště,,8.6,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-s-wellnes-uherske-hradiste.en-gb.html
+b_378,moon-river-resort-lojzovy-paseky-frymburk-lipno-home,"Moon River Resort - Lojzovy Paseky, Frymburk - Lipno Home",,,36,40,40,12,24,YES,https://www.booking.com/hotel/cz/moon-river-resort-lojzovy-paseky-frymburk-lipno-home.en-gb.html
+b_379,pension-alex,Pension Alex,,8.8,33,38,38,,19,NO,https://www.booking.com/hotel/cz/pension-alex.en-gb.html
+b_380,bouda-matoua-friesovy-boudy,Bouda Matouš - Friesovy boudy,,8.6,20,23,23,6,20,YES,https://www.booking.com/hotel/cz/bouda-matoua-friesovy-boudy.en-gb.html
+b_381,penzion-u-pivovaru-rotor-kunovice,New Pension at ROTOR Brewery,,9.5,15,20,20,,11,NO,https://www.booking.com/hotel/cz/penzion-u-pivovaru-rotor-kunovice.en-gb.html
+b_382,wellness-apartmany-panorama,Wellness Apartmány Panorama,,9.7,30,38,38,4,19,NO,https://www.booking.com/hotel/cz/wellness-apartmany-panorama.en-gb.html
+b_383,penzion-iris-krkonose,Penzion Iris Krkonoše,,9.3,34,34,34,,19,NO,https://www.booking.com/hotel/cz/penzion-iris-krkonose.en-gb.html
+b_388,apartment-hadlik,Penzion V Pohádce,,9.7,21,28,28,,14,NO,https://www.booking.com/hotel/cz/apartment-hadlik.en-gb.html
+b_389,horska-chata-plzenka-pernink,Horská chata Plzeňka Pernink,,8.2,25,26,26,5,17,NO,https://www.booking.com/hotel/cz/horska-chata-plzenka-pernink.en-gb.html
+b_391,chata-na-cihaku-klasterec-nad-orlici,Chata Na Čiháku,,8.0,24,24,24,,16,NO,https://www.booking.com/hotel/cz/chata-na-cihaku-klasterec-nad-orlici.en-gb.html
+b_393,wellness-penzion-marta-kuklik1234,Wellness penzion Marta,,8.7,23,25,25,2,16,NO,https://www.booking.com/hotel/cz/wellness-penzion-marta-kuklik1234.en-gb.html
+b_395,hajenka-hrabete-buquoye,Hájenka hraběte Buquoye,,9.4,27,31,31,4,19,NO,https://www.booking.com/hotel/cz/hajenka-hrabete-buquoye.en-gb.html
+b_397,pension-amadeus,Pension Amadeus & Apartments,,8.9,23,28,28,7,16,NO,https://www.booking.com/hotel/cz/pension-amadeus.en-gb.html
+b_398,penzion-zajecak,Penzion Zaječák,,9.2,21,22,22,1,16,NO,https://www.booking.com/hotel/cz/penzion-zajecak.en-gb.html
+b_399,relax-centrum-gol,Relax Centrum Gól,,9.1,23,23,23,,16,NO,https://www.booking.com/hotel/cz/relax-centrum-gol.en-gb.html
+b_400,penzion-u-cerneho-potoka,Penzion U Černého Potoka,,8.9,23,24,24,,17,NO,https://www.booking.com/hotel/cz/penzion-u-cerneho-potoka.en-gb.html
+b_401,penzion-amfik-bukovina,Penzion Amfík Bukovina,,9.2,22,27,27,4,16,NO,https://www.booking.com/hotel/cz/penzion-amfik-bukovina.en-gb.html
+b_402,hotylek-na-myte-harrachov1,Hotýlek na Mýtě,,8.9,31,31,31,,23,NO,https://www.booking.com/hotel/cz/hotylek-na-myte-harrachov1.en-gb.html
+b_404,penzion-a-restaurace-zlatovlaska,Penzion a restaurace Zlatovláska u zámku Červená Lhota,,8.3,24,24,24,4,17,NO,https://www.booking.com/hotel/cz/penzion-a-restaurace-zlatovlaska.en-gb.html
+b_405,orlik-rejviz-horska-depandence-resortu-rejviz-1,Orlík Rejvíz horská depandence Resortu Rejvíz 1,,8.3,21,21,21,4,14,NO,https://www.booking.com/hotel/cz/orlik-rejviz-horska-depandence-resortu-rejviz-1.en-gb.html
+b_406,resort-krasna-morava-moderni-ubytovani-par-minut-od-centra-olomouce,Resort Krásná Morava - moderní ubytování pár minut od centra Olomouce,,8.5,20,24,24,9,12,YES,https://www.booking.com/hotel/cz/resort-krasna-morava-moderni-ubytovani-par-minut-od-centra-olomouce.en-gb.html
+b_407,wellness-penzion-eva-dolni-moravice,Wellness Penzion Eva,,7.9,21,26,26,,15,NO,https://www.booking.com/hotel/cz/wellness-penzion-eva-dolni-moravice.en-gb.html
+b_408,pension-za-mek-rudnak,Pension Zámek Rudník,,9.2,22,22,22,1,15,NO,https://www.booking.com/hotel/cz/pension-za-mek-rudnak.en-gb.html
+b_409,restaurace-penzion-na-poste,Restaurace Penzion Na Poště,,8.8,20,20,20,2,20,NO,https://www.booking.com/hotel/cz/restaurace-penzion-na-poste.en-gb.html
+b_411,penzion-gardena,Penzion Gardena,,9.3,20,20,20,5,14,NO,https://www.booking.com/hotel/cz/penzion-gardena.en-gb.html
+b_414,penzion-axa,Penzion Axa,,9.2,24,33,33,,17,NO,https://www.booking.com/hotel/cz/penzion-axa.en-gb.html
+b_415,pension-ayky,Pension Ayky,,8.7,19,20,20,6,14,NO,https://www.booking.com/hotel/cz/pension-ayky.en-gb.html
+b_416,penzion-na-statku-dobris,Penzion U tri statkaru,,8.9,20,24,24,,15,NO,https://www.booking.com/hotel/cz/penzion-na-statku-dobris.en-gb.html
+b_421,pension-u-jakuba,Pension U Jakuba,,8.2,15,20,20,1,10,NO,https://www.booking.com/hotel/cz/pension-u-jakuba.en-gb.html
+b_424,zevluv-mlyn,Zevlův mlýn,,8.4,24,25,25,2,17,NO,https://www.booking.com/hotel/cz/zevluv-mlyn.en-gb.html
+b_425,roubenka-na-stodolci,Penzion Na Stodolci,,9.5,23,25,25,6,16,YES,https://www.booking.com/hotel/cz/roubenka-na-stodolci.en-gb.html
+b_427,vila-victory,Vila Victory polopenze v Krušných horách,,9.8,26,30,30,,16,NO,https://www.booking.com/hotel/cz/vila-victory.en-gb.html
+b_430,penzion-u-jezera-konstantinovy-lazne,Penzion U jezera,,9.0,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-u-jezera-konstantinovy-lazne.en-gb.html
+b_432,turisticka-ubytovna-tj-slavoj,Pension Martinské údolí - dependance,,8.0,34,34,34,,23,NO,https://www.booking.com/hotel/cz/turisticka-ubytovna-tj-slavoj.en-gb.html
+b_433,lesni-penzion-vranov,Lesní Penzion Vranov,,8.6,26,27,27,2,17,NO,https://www.booking.com/hotel/cz/lesni-penzion-vranov.en-gb.html
+b_434,penzion-trautenberk,Pension Trautenberk,,8.7,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-trautenberk.en-gb.html
+b_436,penzion-u-parku-rumburk2,Penzion U parku,,7.8,23,23,23,,16,NO,https://www.booking.com/hotel/cz/penzion-u-parku-rumburk2.en-gb.html
+b_438,objev-jeseniky-velke-losiny,Vily Pod Vyhlídkou,,9.5,35,40,40,15,25,YES,https://www.booking.com/hotel/cz/objev-jeseniky-velke-losiny.en-gb.html
+b_441,vila-patricie,Vila Patricie,,7.6,18,22,22,1,11,NO,https://www.booking.com/hotel/cz/vila-patricie.en-gb.html
+b_445,pension-centrum,Pension Centrum,,8.6,22,23,23,4,16,NO,https://www.booking.com/hotel/cz/pension-centrum.en-gb.html
+b_446,libusina-villa-kutna-hora1,Libušina Villa,,8.8,21,25,25,2,14,NO,https://www.booking.com/hotel/cz/libusina-villa-kutna-hora1.en-gb.html
+b_448,penzion-na-zamku-novy-jicin,Penzion na zámku Bartošovice,,8.6,24,24,24,,24,NO,https://www.booking.com/hotel/cz/penzion-na-zamku-novy-jicin.en-gb.html
+b_449,penzion-sla-vka,Penzion Slávka,,9.0,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-sla-vka.en-gb.html
+b_450,pension-v-parku-cesky-sternberk,Pension v parku Český Šternberk,,7.8,19,20,20,,14,NO,https://www.booking.com/hotel/cz/pension-v-parku-cesky-sternberk.en-gb.html
+b_451,pension-rampusak-rokytnice-v-orlickych-horach,Pension Rampušák,,7.1,23,23,23,,16,NO,https://www.booking.com/hotel/cz/pension-rampusak-rokytnice-v-orlickych-horach.en-gb.html
+b_452,pension-aka-t,Pension Akat,,8.1,25,25,25,,25,NO,https://www.booking.com/hotel/cz/pension-aka-t.en-gb.html
+b_453,lucni-penzion-ceska-skalice,Luční penzion,,8.4,17,20,20,,14,NO,https://www.booking.com/hotel/cz/lucni-penzion-ceska-skalice.en-gb.html
+b_454,pension-fami-retro-design,Pension Fami Retro Design,,7.9,22,22,22,8,17,NO,https://www.booking.com/hotel/cz/pension-fami-retro-design.en-gb.html
+b_456,penzion-jorda-n,Penzion Jordán,,8.8,23,23,23,,16,NO,https://www.booking.com/hotel/cz/penzion-jorda-n.en-gb.html
+b_457,penzion-sen-ostruzna-ostruzna,Penzion Sen Ostružná,,9.5,23,23,23,,16,NO,https://www.booking.com/hotel/cz/penzion-sen-ostruzna-ostruzna.en-gb.html
+b_458,penzion-castello,Penzion Castello,,9.2,19,26,26,,13,NO,https://www.booking.com/hotel/cz/penzion-castello.en-gb.html
+b_460,svehlikova-chata,Švehlíkova Chata,,8.5,21,21,21,,15,NO,https://www.booking.com/hotel/cz/svehlikova-chata.en-gb.html
+b_461,vila-lipa,Vila Lípa,,9.2,23,30,30,,16,NO,https://www.booking.com/hotel/cz/vila-lipa.en-gb.html
+b_463,penzion-best,Penzion Best,,9.1,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-best.en-gb.html
+b_465,apartmany-venuse,Apartmány Venuše,,8.7,23,28,28,9,17,NO,https://www.booking.com/hotel/cz/apartmany-venuse.en-gb.html
+b_467,pension-horalka-trutnov-district,Pension Horalka,,8.5,28,33,33,2,20,NO,https://www.booking.com/hotel/cz/pension-horalka-trutnov-district.en-gb.html
+b_473,pension-florian,Apartmány Florian,,9.0,25,28,28,6,17,NO,https://www.booking.com/hotel/cz/pension-florian.en-gb.html
+b_477,penzion-vedomice,Penzion Vědomice,,7.8,22,22,22,,22,NO,https://www.booking.com/hotel/cz/penzion-vedomice.en-gb.html
+b_481,obri-sud-javornik-jermanice,Hotel Obří Sud Javorník,,9.2,15,20,20,,10,NO,https://www.booking.com/hotel/cz/obri-sud-javornik-jermanice.en-gb.html
+b_486,vinarsky-dum-vinarstvi-petr-skoupil-a-s,Boutique Hotel Skoupil,,9.0,18,21,21,,12,NO,https://www.booking.com/hotel/cz/vinarsky-dum-vinarstvi-petr-skoupil-a-s.en-gb.html
+b_490,vinarstvi-herufek,Vinařství Herůfek,,9.2,28,35,35,4,24,NO,https://www.booking.com/hotel/cz/vinarstvi-herufek.en-gb.html
+b_491,penzion-glogar,Penzion Glogar,,9.1,24,32,32,,24,NO,https://www.booking.com/hotel/cz/penzion-glogar.en-gb.html
+b_494,tri-bratri,Hotel Restovna,,9.0,16,22,22,1,11,NO,https://www.booking.com/hotel/cz/tri-bratri.en-gb.html
+b_498,obora-hurt,Obora resort,,8.8,34,34,34,6,20,YES,https://www.booking.com/hotel/cz/obora-hurt.en-gb.html
+b_501,penzion-rozhovice,Penzion Rozhovice,,8.9,15,20,20,4,15,NO,https://www.booking.com/hotel/cz/penzion-rozhovice.en-gb.html
+b_504,handball-sporthotel,Penzion nad Halou,,8.6,25,25,25,,25,NO,https://www.booking.com/hotel/cz/handball-sporthotel.en-gb.html
+b_509,pension-herman,Pension Herman,,8.8,25,25,25,,25,NO,https://www.booking.com/hotel/cz/pension-herman.en-gb.html
+b_511,beachwell,Beachwell,,8.6,23,23,23,,17,NO,https://www.booking.com/hotel/cz/beachwell.en-gb.html
+b_513,a-viha-k-la-zeaska1-2,Švihák lázeňský,,8.3,23,23,23,,16,NO,https://www.booking.com/hotel/cz/a-viha-k-la-zeaska1-2.en-gb.html
+b_514,pension-stepan,Pension Štěpán,,9.2,20,26,26,,14,NO,https://www.booking.com/hotel/cz/pension-stepan.en-gb.html
+b_518,penzion-vysocina-skrdlovice,Penzion Vysočina,,8.2,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-vysocina-skrdlovice.en-gb.html
+b_521,penzion-al-capone-mnisek,Penzion Al Capone Mníšek,,8.0,27,27,27,,18,NO,https://www.booking.com/hotel/cz/penzion-al-capone-mnisek.en-gb.html
+b_524,garni-pension-u-svateho-urbana,Garni pension U svatého Urbana,,8.5,17,21,21,,12,NO,https://www.booking.com/hotel/cz/garni-pension-u-svateho-urbana.en-gb.html
+b_525,penzion-u-vetera-na,Penzion U Veterána,,7.9,21,28,28,4,21,NO,https://www.booking.com/hotel/cz/penzion-u-vetera-na.en-gb.html
+b_528,penzion-semerad-v-hevline,Penzion Semerád v Hevlíně,,8.8,26,26,26,,26,NO,https://www.booking.com/hotel/cz/penzion-semerad-v-hevline.en-gb.html
+b_529,penzion-tronicek,Penzion Troníček,,7.2,23,23,23,2,23,NO,https://www.booking.com/hotel/cz/penzion-tronicek.en-gb.html
+b_530,penzion-pepovka,Penzion Pepovka,,9.1,29,29,29,,20,NO,https://www.booking.com/hotel/cz/penzion-pepovka.en-gb.html
+b_531,penzion-u-rausu,Penzion U Raušů,,8.7,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-u-rausu.en-gb.html
+b_535,penzion-bacalsky-mlyn,Penzion Bačalský mlýn,,8.4,19,22,22,2,14,NO,https://www.booking.com/hotel/cz/penzion-bacalsky-mlyn.en-gb.html
+b_537,www-rouchovany119-cz,Ubytovací areál Rouchovany,,7.5,26,26,26,1,26,NO,https://www.booking.com/hotel/cz/www-rouchovany119-cz.en-gb.html
+b_546,bechneruv-statek,Bechnerův statek,,8.9,25,25,25,,25,NO,https://www.booking.com/hotel/cz/bechneruv-statek.en-gb.html
+b_552,stary-svet,Starý Svět,,9.0,26,26,26,,26,NO,https://www.booking.com/hotel/cz/stary-svet.en-gb.html
+b_553,pension-citkuv-mlyn,Penzion Čítkův Mlýn,,9.1,23,33,33,,18,NO,https://www.booking.com/hotel/cz/pension-citkuv-mlyn.en-gb.html
+b_555,pension-u-lilie,Pension U Lilie,,7.9,15,20,20,,10,NO,https://www.booking.com/hotel/cz/pension-u-lilie.en-gb.html
+b_558,penzion-start-ostrava,Penzion Start Ostrava,,9.0,24,24,24,,24,NO,https://www.booking.com/hotel/cz/penzion-start-ostrava.en-gb.html
+b_564,wellness-penzion-lazne-jablonec,Penzion Lázně Jablonec,,8.2,22,22,22,3,22,NO,https://www.booking.com/hotel/cz/wellness-penzion-lazne-jablonec.en-gb.html
+b_567,balloon-penzion,Amenity Penzion Horni Vestonice,,9.3,26,26,26,,26,NO,https://www.booking.com/hotel/cz/balloon-penzion.en-gb.html
+b_569,chata-orlik,Chata Orlik - all inclusive & wellness,,8.8,25,36,36,,18,NO,https://www.booking.com/hotel/cz/chata-orlik.en-gb.html
+b_570,penzion-u-kaa-na1-2ch,Penzion U Kašných,,8.6,26,26,26,,26,NO,https://www.booking.com/hotel/cz/penzion-u-kaa-na1-2ch.en-gb.html
+b_574,penzion-u-ra-r-a1-2e,Penzion U Růže,,8.0,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-u-ra-r-a1-2e.en-gb.html
+b_581,motel-svata1-2-krya-tof,Motel Svatý Kryštof,,8.1,25,25,25,,25,NO,https://www.booking.com/hotel/cz/motel-svata1-2-krya-tof.en-gb.html
+b_585,vlci-dul-bludov,Vlčí důl Bludov,,8.5,25,25,25,,25,NO,https://www.booking.com/hotel/cz/vlci-dul-bludov.en-gb.html
+b_590,chata-barborka,Chata Barborka,,6.6,25,25,25,,25,NO,https://www.booking.com/hotel/cz/chata-barborka.en-gb.html
+b_594,penzion-stary-dvur,Penzion Starý dvůr,,7.9,26,26,26,,26,NO,https://www.booking.com/hotel/cz/penzion-stary-dvur.en-gb.html
+b_595,kastle-residence,Kästle Residence,,9.5,26,26,26,,26,NO,https://www.booking.com/hotel/cz/kastle-residence.en-gb.html
+b_599,penzion-kovacs,Resort Kovács,,8.8,26,26,26,,26,NO,https://www.booking.com/hotel/cz/penzion-kovacs.en-gb.html
+b_600,parkhotel-garni-vrbno-pod-pradedem,Parkhotel Vrbno,,9.1,26,26,26,1,26,NO,https://www.booking.com/hotel/cz/parkhotel-garni-vrbno-pod-pradedem.en-gb.html
+b_601,penzion-v-jizdarne,Penzion v jízdárně,,8.9,26,26,26,2,26,NO,https://www.booking.com/hotel/cz/penzion-v-jizdarne.en-gb.html
+b_604,pension-u-hradu,Restaurant & Pension u Hradu,,9.1,26,26,26,,26,NO,https://www.booking.com/hotel/cz/pension-u-hradu.en-gb.html
+b_605,penzion-rudolf-ii-plasy,Pivovarský dvůr Plasy,,7.9,26,26,26,,26,NO,https://www.booking.com/hotel/cz/penzion-rudolf-ii-plasy.en-gb.html
+b_606,penzion-u-kubesa,Penzion U Kubesa - Adults only,,9.2,22,22,22,,22,NO,https://www.booking.com/hotel/cz/penzion-u-kubesa.en-gb.html
+b_607,birdie-pension-amp-wellness,BIRDIE Pension & Wellness,,7.9,24,24,24,1,24,NO,https://www.booking.com/hotel/cz/birdie-pension-amp-wellness.en-gb.html
+b_609,penzion-u-tomase,Penzion U Tomáše,,8.4,25,25,25,,25,NO,https://www.booking.com/hotel/cz/penzion-u-tomase.en-gb.html
+b_610,penzion-moveinn,Penzion MOVEINN,,8.7,36,36,36,,27,NO,https://www.booking.com/hotel/cz/penzion-moveinn.en-gb.html
+b_612,guest-house-honzik,Guest House Honzik,,8.4,25,25,25,,25,NO,https://www.booking.com/hotel/cz/guest-house-honzik.en-gb.html
