@@ -16,11 +16,17 @@ from typing import List, Dict, Any
 
 from extract_property_images import extract_property_images, resolve_html_file
 from download_property_images import download_property_images
+from download_html import (
+    get_authenticated_session,
+    DEFAULT_SESSION_FILE,
+    DEFAULT_USER_AGENT,
+)
 
 
 def download_top_candidates(
     rankings_file: str,
     top_n: int = 42,
+    all_properties: bool = False,
     html_dir: str = "html",
     output_dir: str = "images",
     image_delay: float = 0.8,
@@ -28,6 +34,9 @@ def download_top_candidates(
     inter_property_wait_min: float = 8.0,
     inter_property_wait_max: float = 12.0,
     limit_per_property: int = None,
+    session_file: str = DEFAULT_SESSION_FILE,
+    no_browser: bool = False,
+    headless: bool = False,
 ):
     if not os.path.exists(rankings_file):
         print(f"Error: rankings file '{rankings_file}' not found.")
@@ -36,16 +45,28 @@ def download_top_candidates(
     with open(rankings_file, "r", encoding="utf-8") as f:
         ranked_properties = json.load(f)
 
-    candidates = ranked_properties[:top_n]
+    if all_properties or top_n is None or top_n <= 0 or top_n >= len(ranked_properties):
+        candidates = ranked_properties
+    else:
+        candidates = ranked_properties[:top_n]
     total_candidates = len(candidates)
 
     print("=" * 72)
-    print(f" 🚀 Starting Gallery Image Download for Top {total_candidates} Candidates")
+    print(f" 🚀 Starting Gallery Image Download for {total_candidates} Candidates")
     print(f" 📁 HTML Directory:           {html_dir}")
     print(f" 📁 Image Output:             {output_dir}/")
     print(f" ⏱️  Pacing per Image:         {image_delay:.1f}s ± {image_jitter:.1f}s")
     print(f" ⏳ Wait between Properties:  {inter_property_wait_min:.1f}s - {inter_property_wait_max:.1f}s")
     print("=" * 72)
+
+    # Initialize shared authenticated session
+    session = None
+    if os.path.exists(session_file):
+        session = get_authenticated_session(
+            session_file=session_file,
+            no_browser=no_browser,
+            headless=headless,
+        )
 
     total_downloaded = 0
     total_cached = 0
@@ -64,7 +85,10 @@ def download_top_candidates(
         # Resolve HTML file
         html_path = os.path.join(html_dir, source_file) if source_file else None
         if not html_path or not os.path.exists(html_path):
-            html_path = resolve_html_file(f"o{prop_id}", html_dir=html_dir)
+            try:
+                html_path = resolve_html_file(f"o{prop_id}", html_dir=html_dir)
+            except FileNotFoundError:
+                html_path = None
 
         if not html_path or not os.path.exists(html_path):
             print(f" ⚠️  HTML file not found for {name} ({prop_id}). Skipping.")
@@ -93,18 +117,26 @@ def download_top_candidates(
             limit=limit_per_property,
             delay=image_delay,
             jitter=image_jitter,
+            session=session,
+            session_file=session_file,
+            no_browser=no_browser,
+            headless=headless,
         )
+
+        if stats.get("session"):
+            session = stats["session"]
 
         total_downloaded += stats["downloaded"]
         total_cached += stats["cached"]
         total_failed += stats["failed"]
         total_bytes += stats["total_bytes"]
 
-        # If not the last property, wait longer between properties
+        # Only sleep between properties if we actually downloaded new images
         if idx < total_candidates:
-            wait_time = random.uniform(inter_property_wait_min, inter_property_wait_max)
-            print(f" 💤 Waiting {wait_time:.1f}s before moving to next property ({idx + 1}/{total_candidates})...")
-            time.sleep(wait_time)
+            if stats["downloaded"] > 0:
+                wait_time = random.uniform(inter_property_wait_min, inter_property_wait_max)
+                print(f" 💤 Waiting {wait_time:.1f}s before moving to next property ({idx + 1}/{total_candidates})...")
+                time.sleep(wait_time)
 
     total_time = time.time() - start_all
     print("\n" + "=" * 72)
@@ -119,7 +151,8 @@ def download_top_candidates(
 def main():
     parser = argparse.ArgumentParser(description="Download gallery images for top scored properties.")
     parser.add_argument("--rankings", "-r", default="rankings_text_pass1.json", help="Path to rankings JSON")
-    parser.add_argument("--top", "-n", type=int, default=42, help="Number of top properties to download")
+    parser.add_argument("--top", "-n", type=int, default=42, help="Number of top properties to download (ignored if --all is set)")
+    parser.add_argument("--all", "-a", action="store_true", help="Download images for all properties in rankings JSON")
     parser.add_argument("--html-dir", default="html", help="HTML directory")
     parser.add_argument("--output-dir", "-o", default="images", help="Output images directory")
     parser.add_argument("--delay", type=float, default=0.8, help="Pacing between photos")
@@ -127,11 +160,15 @@ def main():
     parser.add_argument("--wait-min", type=float, default=8.0, help="Min seconds between properties")
     parser.add_argument("--wait-max", type=float, default=12.0, help="Max seconds between properties")
     parser.add_argument("--limit-per-prop", type=int, default=None, help="Optional limit per property")
+    parser.add_argument("--session-file", default=DEFAULT_SESSION_FILE, help=f"Path to Cloudflare session file (default: {DEFAULT_SESSION_FILE})")
+    parser.add_argument("--no-browser", action="store_true", help="Do not launch browser for Cloudflare refresh")
+    parser.add_argument("--headless", action="store_true", help="Run browser in headless mode if solving challenge")
 
     args = parser.parse_args()
     download_top_candidates(
         rankings_file=args.rankings,
         top_n=args.top,
+        all_properties=args.all,
         html_dir=args.html_dir,
         output_dir=args.output_dir,
         image_delay=args.delay,
@@ -139,6 +176,9 @@ def main():
         inter_property_wait_min=args.wait_min,
         inter_property_wait_max=args.wait_max,
         limit_per_property=args.limit_per_prop,
+        session_file=args.session_file,
+        no_browser=args.no_browser,
+        headless=args.headless,
     )
 
 

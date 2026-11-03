@@ -15,8 +15,12 @@ import urllib.error
 from typing import Dict, List, Any, Optional
 
 from extract_property_images import extract_property_images, resolve_html_file
-
-DEFAULT_USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+from download_html import (
+    get_authenticated_session,
+    load_cached_session,
+    DEFAULT_SESSION_FILE,
+    DEFAULT_USER_AGENT,
+)
 DEFAULT_TIMEOUT = 15
 DEFAULT_DELAY = 0.8
 DEFAULT_JITTER = 0.4
@@ -44,6 +48,7 @@ def download_single_image(
     timeout: int = DEFAULT_TIMEOUT,
     max_retries: int = DEFAULT_MAX_RETRIES,
     user_agent: str = DEFAULT_USER_AGENT,
+    session: Optional[Any] = None,
 ) -> Dict[str, Any]:
     """
     Download a single image with graceful timeout and exponential backoff retries.
@@ -59,16 +64,21 @@ def download_single_image(
 
     for attempt in range(1, max_retries + 1):
         try:
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                status_code = resp.status
-                content = resp.read()
+            if session is not None:
+                resp = session.get(url, timeout=timeout)
+                status_code = resp.status_code
+                content = resp.content
+            else:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
+                    status_code = resp.status
+                    content = resp.read()
 
             if status_code == 200:
                 if not is_valid_image_bytes(content):
                     snippet = content[:300].decode("utf-8", errors="ignore")
                     if "Just a moment" in snippet or "challenge" in snippet.lower():
-                        return {"success": False, "status": 403, "error": "Cloudflare challenge in body", "bytes": 0}
+                        return {"success": False, "status": 403, "error": "Cloudflare challenge in body", "bytes": 0, "is_challenge": True}
                     raise ValueError(f"Downloaded content is not a valid image ({len(content)} bytes)")
 
                 # Atomic write to temporary file first, then rename
@@ -84,6 +94,12 @@ def download_single_image(
                     "attempts": attempt,
                     "error": None,
                 }
+            elif status_code in (403, 429):
+                snippet = content[:300].decode("utf-8", errors="ignore") if content else ""
+                if "Just a moment" in snippet or status_code == 403:
+                    return {"success": False, "status": status_code, "error": f"Cloudflare HTTP {status_code}", "bytes": 0, "is_challenge": True}
+                last_error = f"HTTP {status_code}"
+                time.sleep((2.0 ** attempt) + random.uniform(1.0, 3.0))
             elif status_code == 404:
                 return {"success": False, "status": 404, "error": "Not Found (404)", "bytes": 0}
             else:
@@ -92,9 +108,7 @@ def download_single_image(
         except urllib.error.HTTPError as e:
             last_error = f"HTTP {e.code}: {e.reason}"
             if e.code in (403, 429):
-                # Back off more aggressively on rate limit / challenge
-                sleep_time = (2.0 ** attempt) + random.uniform(1.0, 3.0)
-                time.sleep(sleep_time)
+                return {"success": False, "status": e.code, "error": f"HTTP {e.code}", "bytes": 0, "is_challenge": True}
             elif e.code == 404:
                 return {"success": False, "status": 404, "error": "Not Found (404)", "bytes": 0}
             else:
@@ -126,7 +140,11 @@ def download_property_images(
     jitter: float = DEFAULT_JITTER,
     max_retries: int = DEFAULT_MAX_RETRIES,
     force: bool = False,
-    user_agent: str = DEFAULT_USER_AGENT,
+    user_agent: Optional[str] = None,
+    session: Optional[Any] = None,
+    session_file: str = DEFAULT_SESSION_FILE,
+    no_browser: bool = False,
+    headless: bool = False,
 ) -> Dict[str, Any]:
     """Download all or limited gallery images for a property into output_dir."""
     slug = property_data.get("slug", "property")
@@ -139,10 +157,23 @@ def download_property_images(
 
     total = len(images)
     downloaded = 0
-    cached = 0
+    cached_count = 0
     failed = 0
     total_bytes = 0
     start_time = time.time()
+
+    # Determine user agent matching the cached session
+    cached_data = load_cached_session(session_file)
+    active_ua = user_agent or (cached_data.get("user_agent") if cached_data else None) or DEFAULT_USER_AGENT
+
+    # Obtain session if not passed
+    if session is None and os.path.exists(session_file):
+        session = get_authenticated_session(
+            user_agent=active_ua,
+            session_file=session_file,
+            no_browser=no_browser,
+            headless=headless,
+        )
 
     print("=" * 68)
     print(f" 📥 Downloading Images: {property_data.get('name', slug)} (ID: {property_data.get('property_id')})")
@@ -160,7 +191,7 @@ def download_property_images(
         if not force and os.path.exists(dest_path) and os.path.getsize(dest_path) > 5000:
             sz = os.path.getsize(dest_path)
             total_bytes += sz
-            cached += 1
+            cached_count += 1
             print(f" [{idx:02d}/{total:02d}] ⏭️  [Cached] {filename} ({sz/1024:.1f} KB)")
             continue
 
@@ -169,8 +200,32 @@ def download_property_images(
             output_path=dest_path,
             timeout=timeout,
             max_retries=max_retries,
-            user_agent=user_agent,
+            user_agent=active_ua,
+            session=session,
         )
+
+        # Handle Cloudflare challenge if encountered
+        if res.get("is_challenge") and not no_browser:
+            print(f"  ⚠️ Cloudflare challenge encountered on {filename}. Refreshing clearance session...")
+            session = get_authenticated_session(
+                session_file=session_file,
+                no_browser=no_browser,
+                headless=headless,
+                target_url=url,
+                force_refresh=True,
+            )
+            cached_data = load_cached_session(session_file)
+            if cached_data and "user_agent" in cached_data:
+                active_ua = cached_data["user_agent"]
+
+            res = download_single_image(
+                url=url,
+                output_path=dest_path,
+                timeout=timeout,
+                max_retries=max_retries,
+                user_agent=active_ua,
+                session=session,
+            )
 
         if res["success"]:
             downloaded += 1
@@ -190,7 +245,7 @@ def download_property_images(
     print("=" * 68)
     print(f" 🎉 Completed in {elapsed:.1f}s")
     print(f"    • Newly downloaded: {downloaded}")
-    print(f"    • Already cached:   {cached}")
+    print(f"    • Already cached:   {cached_count}")
     print(f"    • Failed:           {failed}")
     print(f"    • Total size:       {total_bytes / (1024 * 1024):.2f} MB")
     print("=" * 68)
@@ -200,11 +255,12 @@ def download_property_images(
         "slug": slug,
         "total_requested": total,
         "downloaded": downloaded,
-        "cached": cached,
+        "cached": cached_count,
         "failed": failed,
         "total_bytes": total_bytes,
         "elapsed_seconds": elapsed,
         "target_dir": target_dir,
+        "session": session,
     }
 
 
@@ -220,6 +276,9 @@ def main():
     parser.add_argument("--max-retries", type=int, default=DEFAULT_MAX_RETRIES, help=f"Max retry attempts on error (default: {DEFAULT_MAX_RETRIES})")
     parser.add_argument("--force", "-f", action="store_true", help="Re-download already cached images")
     parser.add_argument("--user-agent", "-u", default=DEFAULT_USER_AGENT, help="Browser User-Agent header")
+    parser.add_argument("--session-file", default=DEFAULT_SESSION_FILE, help=f"Path to Cloudflare session file (default: {DEFAULT_SESSION_FILE})")
+    parser.add_argument("--no-browser", action="store_true", help="Do not launch browser for Cloudflare refresh")
+    parser.add_argument("--headless", action="store_true", help="Run browser in headless mode if solving challenge")
     args = parser.parse_args()
 
     # Load property data
@@ -245,6 +304,9 @@ def main():
         max_retries=args.max_retries,
         force=args.force,
         user_agent=args.user_agent,
+        session_file=args.session_file,
+        no_browser=args.no_browser,
+        headless=args.headless,
     )
 
 
