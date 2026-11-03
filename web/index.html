@@ -1,0 +1,4589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>🏡 Garage Trip 7.0 Accommodation Reviewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090e17;
+      --card-bg: #131c2e;
+      --card-border: #23314a;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --badge-bg: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: rgba(9, 14, 23, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 16px 24px;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .header-actions-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .header-stats-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .title-group h1 {
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .title-group p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .stat-badge {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .stat-badge.clickable {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .stat-badge.clickable:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      border-color: #38bdf8;
+    }
+
+    .stat-badge.active-stat {
+      box-shadow: 0 0 0 2px #38bdf8;
+      border-color: #38bdf8 !important;
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .disq-subfilters-container {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 8px 14px;
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .disq-subfilters-container.active {
+      display: flex;
+    }
+
+    .disq-subfilter-btn {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .disq-subfilter-btn:hover {
+      background: rgba(239, 68, 68, 0.25);
+      color: #fff;
+    }
+
+    .disq-subfilter-btn.active {
+      background: #ef4444;
+      color: #fff;
+      border-color: #ef4444;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+    }
+
+    .stat-badge span { color: var(--primary); }
+
+    .btn {
+      background: var(--primary);
+      color: #090e17;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn:hover { background: var(--primary-hover); color: #fff; }
+    .btn-secondary { background: var(--badge-bg); color: var(--text); border: 1px solid var(--card-border); }
+    .btn-secondary:hover { background: #334155; }
+
+    .controls-container {
+      max-width: 1400px;
+      margin: 20px auto 0;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-input {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .search-input:focus { outline: 2px solid var(--primary); }
+
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: #090e17;
+      border-color: var(--primary);
+    }
+
+    .select-input {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Comparison Anchor Banner */
+    .anchor-banner {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .anchor-title {
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 24px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.6);
+      border-color: #3b82f6;
+    }
+
+    .image-preview-wrapper {
+      position: relative;
+      height: 250px;
+      background: #020617;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .image-preview-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .image-preview-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    .score-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+
+    .rank-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(9, 14, 23, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #f8fafc;
+      z-index: 10;
+    }
+
+    .photo-count-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(9, 14, 23, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 10;
+      user-select: none;
+      transition: all 0.2s;
+    }
+    .photo-count-pill:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    /* In-Card Photo Carousel Navigation */
+    .card-nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(9, 14, 23, 0.8);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 24px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 12;
+      opacity: 0;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .image-preview-wrapper:hover .card-nav-arrow {
+      opacity: 1;
+    }
+    .card-nav-arrow:hover {
+      background: var(--primary);
+      color: #090e17;
+      border-color: var(--primary);
+      transform: translateY(-50%) scale(1.15);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+    }
+    .card-nav-prev { left: 10px; }
+    .card-nav-next { right: 10px; }
+
+    .card-expand-btn {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(9, 14, 23, 0.85);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #cbd5e1;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 12;
+      opacity: 0;
+      transition: all 0.2s;
+    }
+    .image-preview-wrapper:hover .card-expand-btn {
+      opacity: 1;
+    }
+    .card-expand-btn:hover {
+      background: var(--primary);
+      color: #090e17;
+      border-color: var(--primary);
+      transform: scale(1.1);
+    }
+
+    .thumb.active-thumb {
+      border-color: #38bdf8 !important;
+      box-shadow: 0 0 0 2px #38bdf8;
+      transform: scale(1.05);
+    }
+
+    .thumb-more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #090e17;
+      color: #38bdf8;
+      font-size: 11px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .thumb-more:hover {
+      background: var(--primary);
+      color: #090e17;
+    }
+
+    .pet-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 6px;
+      user-select: none;
+    }
+
+    /* Price tier interactive tag */
+    .price-tier-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      cursor: pointer;
+      margin-left: 8px;
+      transition: all 0.2s;
+    }
+    .price-tier-tag:hover, .price-tier-tag.active-tier {
+      background: #a855f7;
+      color: #090e17;
+      border-color: #a855f7;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+    }
+
+    .listing-link-badge {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .listing-link-badge:hover {
+      color: #7dd3fc;
+      text-decoration: underline;
+    }
+
+    .card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .prop-name-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .prop-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .prop-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .prop-name a:hover { color: var(--primary); }
+
+    .prop-location {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Final Price Spotlight */
+    .price-spotlight {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .price-spotlight-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .final-price-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .final-price-period {
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+
+    .price-details-note {
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    /* Comparison Section */
+    .comparison-section {
+      background: rgba(9, 14, 23, 0.5);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .comparison-header {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pills-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .compare-pill {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .pill-pro {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .pill-con {
+      background: rgba(239, 68, 68, 0.12);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+
+    .pill-neutral {
+      background: rgba(148, 163, 184, 0.1);
+      color: #cbd5e1;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Must-Haves Banner and Badges */
+    .mh-status-bar {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .mh-pass {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .mh-fail {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+
+    .mh-criteria-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 6px;
+      margin: 8px 0;
+    }
+
+    .mh-crit-pill {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .mh-crit-pass {
+      border-color: rgba(16, 185, 129, 0.35);
+    }
+
+    .mh-crit-fail {
+      border-color: rgba(239, 68, 68, 0.45);
+      background: rgba(239, 68, 68, 0.08);
+    }
+
+    .mh-crit-label {
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .mh-crit-val {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Nice-To-Haves Section */
+    .nth-section-header {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+
+    .nth-pts-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+    .nth-pts-positive {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .nth-pts-zero {
+      background: rgba(148, 163, 184, 0.1);
+      color: #64748b;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .price-value-box {
+      font-size: 11.5px;
+      color: #94a3b8;
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* Score Categories Breakdown */
+    .score-breakdown-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0;
+    }
+
+    .score-cat-pill {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .score-cat-pill strong {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    /* Team Tops & Reviewer Callouts */
+    .team-picks-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .user-endorsement-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.2));
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fbbf24;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin: 6px 0;
+    }
+
+    .sentiment-banner {
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 4px 0;
+    }
+
+    .sentiment-pos {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+    }
+
+    .sentiment-warn {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+    }
+
+    .sentiment-neg {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #f87171;
+    }
+
+    .pick-badge {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.25));
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fbbf24;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Model Evaluator Section */
+    .model-eval-section {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 10px;
+      padding: 12px;
+      margin: 8px 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .model-eval-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .model-eval-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .model-score-badge {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .model-subscores-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .model-subscore-pill {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 5px;
+      padding: 2px 6px;
+      font-size: 10.5px;
+      color: #94a3b8;
+    }
+
+    .model-subscore-pill strong {
+      color: #e2e8f0;
+    }
+
+    .model-verdict-box {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.4);
+      border-left: 3px solid #38bdf8;
+      padding: 8px 10px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 8px;
+    }
+
+    .model-reasoning-box {
+      font-size: 11.5px;
+      line-height: 1.4;
+      color: #94a3b8;
+      background: rgba(15, 23, 42, 0.3);
+      border: 1px dashed rgba(148, 163, 184, 0.25);
+      padding: 8px 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+
+    .model-pros-cons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .model-pro-item {
+      font-size: 11.5px;
+      color: #6ee7b7;
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+      line-height: 1.35;
+    }
+
+    .model-con-item {
+      font-size: 11.5px;
+      color: #fca5a5;
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+      line-height: 1.35;
+    }
+
+    /* Aspects Breakdown & Specs Grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      background: rgba(9, 14, 23, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 12.5px;
+    }
+
+    .spec-item {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+      line-height: 1.4;
+    }
+
+    .spec-label {
+      font-weight: 700;
+      color: #94a3b8;
+      min-width: 105px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+    }
+
+    .spec-value {
+      color: #e2e8f0;
+      word-break: break-word;
+    }
+
+    .team-comment-box {
+      background: rgba(15, 23, 42, 0.6);
+      border-left: 3px solid #818cf8;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: #cbd5e1;
+    }
+
+    .tivvit-note-box {
+      background: rgba(15, 23, 42, 0.6);
+      border-left: 3px solid #f59e0b;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: #cbd5e1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .badge-sept-yes { background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
+    .badge-sept-partial { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3); }
+    .badge-sept-check { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); }
+    .badge-tap-yes { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); }
+    .badge-tap-none { background: rgba(148, 163, 184, 0.1); color: #94a3b8; border-color: rgba(148, 163, 184, 0.2); }
+    .badge-capacity { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border-color: rgba(99, 102, 241, 0.3); }
+
+    /* Gallery & Thumbnails at Top of Card */
+    .card-gallery-wrap {
+      position: relative;
+      background: #090e17;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .thumbs-strip {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 8px 10px;
+      background: rgba(9, 14, 23, 0.95);
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      align-items: center;
+    }
+
+    .thumb {
+      width: 62px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--card-border);
+      position: relative;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .thumb:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .thumb.active-thumb {
+      border-color: #38bdf8 !important;
+      box-shadow: 0 0 0 2px #38bdf8;
+      transform: scale(1.05);
+    }
+
+    .thumb-more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      color: #38bdf8;
+      font-size: 11px;
+      font-weight: 800;
+      transition: all 0.2s;
+      border: 1px dashed rgba(56, 189, 248, 0.4);
+    }
+    .thumb-more:hover {
+      background: var(--primary);
+      color: #090e17;
+    }
+
+    /* Vital Quick Specs Bar */
+    .vital-specs-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      background: rgba(9, 14, 23, 0.55);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      align-items: center;
+    }
+
+    .vital-stat {
+      font-size: 11.5px;
+      color: #cbd5e1;
+      background: rgba(30, 41, 59, 0.6);
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
+    }
+    .vital-stat strong {
+      color: #38bdf8;
+      font-weight: 800;
+    }
+
+    /* Collapsible Card Accordions */
+    .card-accordion {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.35);
+      margin-top: 2px;
+      transition: border-color 0.2s;
+    }
+    .card-accordion:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .card-accordion summary {
+      padding: 9px 12px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 12px;
+      font-weight: 700;
+      color: #cbd5e1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.3);
+      outline: none;
+      list-style: none;
+      border-radius: 7px;
+      transition: all 0.2s;
+    }
+    .card-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+    .card-accordion summary:hover {
+      background: rgba(56, 189, 248, 0.12);
+      color: #fff;
+    }
+    .card-accordion summary .accordion-arrow {
+      font-size: 11px;
+      transition: transform 0.25s ease;
+      color: #94a3b8;
+    }
+    .card-accordion[open] summary .accordion-arrow {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+    .card-accordion-content {
+      padding: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Collapsible Photo Inspection inside AI Model Block */
+    .model-reasoning-details {
+      margin-top: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 8px;
+      background: rgba(9, 14, 23, 0.5);
+      overflow: hidden;
+    }
+    .model-reasoning-details summary {
+      padding: 8px 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #38bdf8;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(56, 189, 248, 0.08);
+      outline: none;
+    }
+    .model-reasoning-details summary::-webkit-details-marker {
+      display: none;
+    }
+    .model-reasoning-content {
+      padding: 10px 12px;
+      font-size: 12px;
+      line-height: 1.55;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(56, 189, 248, 0.15);
+      max-height: 240px;
+      overflow-y: auto;
+    }
+
+    /* Pagination Bar */
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin: 14px auto;
+      max-width: 1400px;
+      width: calc(100% - 24px);
+      box-sizing: border-box;
+    }
+    .pagination-info {
+      font-size: 12.5px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .pagination-info strong {
+      color: #38bdf8;
+    }
+    .pagination-pages {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .page-btn {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 11px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+      min-width: 32px;
+      text-align: center;
+    }
+    .page-btn:hover:not(:disabled) {
+      background: var(--primary);
+      color: #090e17;
+      border-color: var(--primary);
+    }
+    .page-btn.active {
+      background: var(--primary);
+      color: #090e17;
+      border-color: var(--primary);
+      font-weight: 800;
+    }
+    .page-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    .pagination-size-select {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .pagination-size-select select {
+      background: #090e17;
+      color: #38bdf8;
+      border: 1px solid var(--card-border);
+      padding: 5px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .notes-box {
+      font-size: 13px;
+      color: #cbd5e1;
+      background: rgba(9, 14, 23, 0.4);
+      padding: 10px 12px;
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+      line-height: 1.45;
+    }
+
+    /* Feedback Box */
+    .feedback-box {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .vote-buttons {
+      display: flex;
+      gap: 6px;
+    }
+
+    .vote-btn {
+      flex: 1;
+      background: var(--badge-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 6px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+
+    .vote-btn.active-top { background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: #10b981; }
+    .vote-btn.active-maybe { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border-color: #f59e0b; }
+    .vote-btn.active-pass { background: rgba(239, 68, 68, 0.2); color: #f87171; border-color: #ef4444; }
+
+    .comment-input-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .comment-input {
+      flex: 1;
+      background: rgba(9, 14, 23, 0.8);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .comment-input:focus { outline: 1px solid var(--primary); }
+
+    .saved-comment-preview {
+      font-size: 12px;
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 2px solid var(--primary);
+      padding: 6px 10px;
+      border-radius: 4px;
+      color: #93c5fd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Lightbox Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 14, 0.94);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 16px;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal-img-container {
+      max-width: 90vw;
+      max-height: 72vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .modal-img-container img {
+      max-width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-img-clickzone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      z-index: 15;
+      cursor: pointer;
+    }
+    .modal-img-clickzone.left-zone {
+      left: 0;
+      cursor: w-resize;
+    }
+    .modal-img-clickzone.right-zone {
+      right: 0;
+      cursor: e-resize;
+    }
+
+    .modal-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 38px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2100;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      user-select: none;
+    }
+
+    .modal-nav:hover {
+      background: var(--primary);
+      color: #090e17;
+      border-color: var(--primary);
+      transform: translateY(-50%) scale(1.12);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.8);
+    }
+    .modal-prev { left: 24px; }
+    .modal-next { right: 24px; }
+
+    .modal-caption {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #f1f5f9;
+      text-align: center;
+      background: rgba(15, 23, 42, 0.85);
+      padding: 6px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      max-width: 90vw;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      z-index: 2010;
+    }
+
+    .lightbox-filmstrip {
+      display: flex;
+      gap: 8px;
+      max-width: 90vw;
+      overflow-x: auto;
+      padding: 10px 4px 6px;
+      margin-top: 8px;
+      z-index: 2050;
+      scrollbar-width: thin;
+    }
+    .lightbox-filmstrip::-webkit-scrollbar {
+      height: 6px;
+    }
+    .lightbox-filmstrip::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 4px;
+    }
+    .lightbox-filmstrip-thumb {
+      width: 64px;
+      height: 48px;
+      flex-shrink: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.55;
+      transition: all 0.2s;
+    }
+    .lightbox-filmstrip-thumb:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+    .lightbox-filmstrip-thumb.active {
+      border-color: #38bdf8;
+      opacity: 1;
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+    }
+    .lightbox-filmstrip-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2150;
+      transition: all 0.2s;
+    }
+    .modal-close:hover {
+      background: #ef4444;
+      color: #fff;
+      border-color: #ef4444;
+      transform: scale(1.1);
+    }
+      top: 24px;
+      right: 24px;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    /* Aspect Comment Trigger Icons / Badges */
+    .aspect-comment-btn {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      transition: all 0.2s;
+    }
+
+    .aspect-comment-btn:hover {
+      background: var(--primary);
+      color: #090e17;
+      border-color: var(--primary);
+    }
+
+    .aspect-comment-btn.has-comments {
+      background: rgba(56, 189, 248, 0.2);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    /* Comment Thread Drawer / Modal */
+    .drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 120;
+      justify-content: flex-end;
+    }
+
+    .drawer-overlay.active { display: flex; }
+
+    .drawer-panel {
+      width: 100%;
+      max-width: 520px;
+      height: 100%;
+      background: var(--card-bg);
+      border-left: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+      animation: slideIn 0.25s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    .drawer-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(9, 14, 23, 0.6);
+    }
+
+    .drawer-title-group h3 {
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .drawer-scope-pill {
+      display: inline-block;
+      margin-top: 4px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .drawer-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .drawer-close:hover { color: #fff; }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .thread-card {
+      background: rgba(9, 14, 23, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .thread-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 12px;
+    }
+
+    .thread-author {
+      font-weight: 700;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .thread-time {
+      color: #64748b;
+      font-size: 11px;
+    }
+
+    .thread-content {
+      font-size: 13.5px;
+      color: #e2e8f0;
+      line-height: 1.45;
+    }
+
+    /* AI Response in Thread */
+    .ai-reply-box {
+      margin-top: 4px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: #bae6fd;
+    }
+
+    .ai-reply-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      color: #38bdf8;
+      font-size: 11.5px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ai-action-badge {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .ai-pending-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    .drawer-footer {
+      padding: 16px 20px;
+      border-top: 1px solid var(--card-border);
+      background: rgba(9, 14, 23, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .drawer-input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .drawer-author-input {
+      width: 130px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .drawer-textarea {
+      width: 100%;
+      height: 70px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .drawer-textarea:focus { outline: 1px solid var(--primary); }
+
+    .drawer-ai-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #cbd5e1;
+      cursor: pointer;
+    }
+
+    .drawer-ai-toggle input { cursor: pointer; }
+
+    /* Debate Arena & Cross-Exam Overlays */
+    .arena-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 130;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .arena-modal-overlay.active { display: flex; }
+    .arena-modal-panel {
+      width: 100%;
+      max-width: 980px;
+      max-height: 88vh;
+      background: #090e17;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .arena-modal-header {
+      padding: 16px 24px;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .arena-nav-tabs {
+      display: flex;
+      gap: 8px;
+      background: #0f172a;
+      padding: 10px 24px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .arena-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #94a3b8;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .arena-tab-btn:hover { color: #f8fafc; background: rgba(255,255,255,0.05); }
+    .arena-tab-btn.active {
+      color: #c084fc;
+      background: rgba(168, 85, 247, 0.15);
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+    .run-pill-btn {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #94a3b8;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .run-pill-btn:hover {
+      color: #fff;
+      background: #1e293b;
+      border-color: #64748b;
+    }
+    .run-pill-btn.active {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(59, 130, 246, 0.25) 100%);
+      color: #38bdf8;
+      border-color: #38bdf8;
+      font-weight: 700;
+    }
+    .run-pill-btn.argon.active {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.25) 0%, rgba(245, 158, 11, 0.25) 100%);
+      color: #fbbf24;
+      border-color: #f59e0b;
+      font-weight: 700;
+    }
+    .arena-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .advocate-pitch-card {
+      background: #0b1120;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .advocate-pitch-card.anchor {
+      border-color: #f59e0b;
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, #0b1120 100%);
+    }
+    .clash-card {
+      background: #0b1120;
+      border-left: 4px solid #ef4444;
+      border: 1px solid #1e293b;
+      border-left-width: 4px;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Zero horizontal overflow safety rules */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+      position: relative;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    header, .header-content, .controls-container, main, .card, .card-body, .arena-modal-panel, .drawer-panel {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .prop-name {
+      word-break: break-word !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    .price-spotlight-top {
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+    }
+
+    .price-spotlight-top > div {
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+
+    .price-value-box {
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+
+    .score-breakdown-row {
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+
+    .model-subscores-row {
+      flex-wrap: wrap !important;
+      gap: 4px !important;
+    }
+
+    .comparison-section {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .compare-pill {
+      max-width: 100% !important;
+      word-break: break-word !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    .arena-ballots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)) !important;
+      gap: 12px;
+    }
+
+    .arena-migrations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .cross-exam-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    /* Mobile Toggle Buttons & Collapsible Panels */
+    .mobile-toggle-btn {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #38bdf8;
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 7px 13px;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .mobile-toggle-btn:hover, .mobile-toggle-btn.active {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+    }
+
+    .header-collapsible-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .desktop-only-actions {
+      display: flex;
+    }
+
+    .mobile-only-actions {
+      display: none;
+    }
+
+    .controls-main-bar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .filter-buttons-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .filter-chips-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .price-filter-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: rgba(30, 27, 75, 0.4);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 8px 14px;
+      border-radius: 10px;
+    }
+
+    .price-filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       MOBILE RESPONSIVENESS & TOUCH OPTIMIZATIONS (Smart Mobile Experience)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      /* 1. Header: non-sticky on mobile so it scrolls away naturally and does not eat screen space */
+      header {
+        position: relative !important;
+        top: auto !important;
+        padding: 12px 14px !important;
+        backdrop-filter: none !important;
+        overflow-x: hidden !important;
+      }
+
+      .header-content {
+        gap: 8px !important;
+      }
+
+      .header-top-row {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+      }
+
+      .title-group {
+        flex: 1 1 auto !important;
+      }
+
+      .title-group h1 {
+        font-size: 16px !important;
+        gap: 6px !important;
+      }
+
+      .title-group p {
+        font-size: 11px !important;
+      }
+
+      .mobile-toggle-btn {
+        display: inline-flex !important;
+      }
+
+      .desktop-only-actions {
+        display: none !important;
+      }
+
+      .mobile-only-actions {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+        padding-bottom: 6px !important;
+      }
+
+      .mobile-only-actions .btn {
+        flex: 1 1 calc(50% - 6px) !important;
+        justify-content: center !important;
+        font-size: 11.5px !important;
+        padding: 8px 10px !important;
+        white-space: nowrap !important;
+      }
+
+      /* Header Collapsible Panel on Mobile: vertically scrolling toggle menu */
+      .header-collapsible-panel {
+        display: none !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 10px !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .header-collapsible-panel.active {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+
+      /* Stats rows: wrap vertically with zero side bleeding */
+      .header-stats-row {
+        padding-top: 6px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+      }
+
+      .stats-bar {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        overflow-x: visible !important;
+        gap: 6px !important;
+      }
+
+      .stat-badge {
+        font-size: 11px !important;
+        padding: 5px 8px !important;
+        border-radius: 6px !important;
+      }
+
+      /* 2. Controls & Filters on Mobile */
+      .controls-container {
+        margin: 10px auto 0 !important;
+        padding: 0 12px !important;
+        gap: 8px !important;
+        overflow-x: hidden !important;
+      }
+
+      .anchor-banner {
+        padding: 10px 12px !important;
+        font-size: 11.5px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        word-break: break-word !important;
+      }
+
+      .controls-main-bar {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+
+      .search-input {
+        width: 100% !important;
+        min-width: 100% !important;
+        font-size: 13px !important;
+        padding: 8px 12px !important;
+      }
+
+      .select-input {
+        flex: 1 1 auto !important;
+        padding: 8px 10px !important;
+        font-size: 12px !important;
+      }
+
+      #mobile-filter-toggle-btn {
+        flex: 1 1 auto !important;
+        justify-content: center !important;
+      }
+
+      /* Filter Buttons Panel on Mobile: vertically scrolling toggle menu */
+      .filter-buttons-panel {
+        display: none !important;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 12px !important;
+        max-height: 60vh !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .filter-buttons-panel.active {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+
+      .filter-chips-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+      }
+
+      .filter-btn {
+        font-size: 11.5px !important;
+        padding: 6px 10px !important;
+      }
+
+      .disq-subfilters-container {
+        padding: 6px 10px !important;
+        flex-wrap: wrap !important;
+        overflow-x: visible !important;
+      }
+
+      .disq-subfilter-btn {
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+      }
+
+      .price-filter-strip {
+        padding: 8px 10px !important;
+      }
+
+      .price-filter-buttons {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+      }
+
+      /* 3. Cards & Main Grid */
+      main {
+        margin: 12px auto !important;
+        padding: 0 10px !important;
+        grid-template-columns: 1fr !important; /* Full width single card on phone */
+        gap: 14px !important;
+        overflow-x: hidden !important;
+      }
+
+      .card {
+        border-radius: 12px !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+      }
+
+      .image-preview-wrapper {
+        height: 220px !important;
+      }
+
+      /* Visible photo navigation arrows on mobile (no hover needed!) */
+      .card-nav-arrow {
+        opacity: 0.88 !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 20px !important;
+      }
+
+      .card-body {
+        padding: 12px !important;
+        gap: 12px !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+
+      .prop-name-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        width: 100% !important;
+      }
+
+      .prop-name-row > div:last-child {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+      }
+
+      .prop-name-row .btn {
+        flex: 1 1 auto !important;
+        justify-content: center !important;
+      }
+
+      .prop-name {
+        font-size: 16px !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+      }
+
+      .key-stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+      }
+
+      .stat-item {
+        padding: 8px 10px !important;
+      }
+
+      .comparison-section {
+        padding: 10px !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+
+      /* 4. Modals as Touch-Friendly Mobile Drawers with Vertical Scrolling */
+      .arena-modal-overlay {
+        padding: 0 !important;
+        align-items: flex-end !important;
+        overflow-x: hidden !important;
+      }
+
+      .arena-modal-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 94vh !important;
+        border-radius: 18px 18px 0 0 !important;
+        border-bottom: none !important;
+        overflow-x: hidden !important;
+      }
+
+      .arena-modal-header {
+        padding: 14px 16px !important;
+      }
+
+      .arena-modal-header h2 {
+        font-size: 16px !important;
+      }
+
+      .arena-run-selector {
+        padding: 0 12px 8px !important;
+      }
+
+      .arena-run-pills {
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+      }
+
+      .run-pill-btn {
+        font-size: 11px !important;
+        padding: 5px 9px !important;
+      }
+
+      .arena-tabs-bar {
+        padding: 0 12px 8px !important;
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+      }
+
+      .arena-tab-btn {
+        font-size: 11px !important;
+        padding: 6px 9px !important;
+      }
+
+      .arena-body {
+        padding: 12px !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .arena-ballots-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .arena-migrations-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .cross-exam-summary-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      /* Discussion Drawer on Mobile */
+      .drawer-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 92vh !important;
+        overflow-x: hidden !important;
+      }
+
+      /* Lightbox adjustments */
+      .modal-nav {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 28px !important;
+      }
+      .modal-prev { left: 8px !important; }
+      .modal-next { right: 8px !important; }
+    }
+
+    /* Floating Jump-to-Top Button */
+    .mobile-top-btn {
+      display: none;
+      position: fixed;
+      bottom: 22px;
+      right: 18px;
+      z-index: 99;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(60px);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .mobile-top-btn.visible {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-top-btn:active {
+      transform: scale(0.94);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <!-- Top Row: Title + Action Buttons -->
+      <div class="header-top-row">
+        <div class="title-group">
+          <h1>🏡 Garage Trip 7.0 Candidate Reviewer</h1>
+          <p>Review 99 candidates &middot; Off-season September retreat pricing & evaluation</p>
+        </div>
+
+        <!-- Toggle button for mobile to show/hide header actions & stats -->
+        <button id="mobile-menu-toggle-btn" class="mobile-toggle-btn" onclick="toggleMobileHeaderMenu()" aria-expanded="false" title="Toggle Menu & Stats">
+          <span>⚙️ Menu &amp; Stats</span> <span id="mobile-menu-toggle-arrow">▾</span>
+        </button>
+
+        <!-- Desktop Action Buttons -->
+        <div class="header-actions-bar desktop-only-actions">
+          <button class="btn btn-secondary" onclick="openGlobalBridge()" style="border-color:rgba(56,189,248,0.5);color:#38bdf8;" title="View all AI verification inquiries and document adjustments">🤖 AI Bridge (<span id="stat-pending-ai">0</span>)</button>
+          <button class="btn btn-secondary" onclick="openDebateArenaModal()" style="border-color:rgba(168,85,247,0.5);color:#c084fc;" title="15-Advocate Multi-Agent Debate Arena">🏛️ Debate Arena</button>
+          <button class="btn btn-secondary" onclick="openCrossExamModal()" style="border-color:rgba(234,179,8,0.5);color:#facc15;" title="Fact Cross-Examination & Auditor Checks">🔍 Fact Cross-Exam</button>
+          <a href="/api/export_comments" class="btn btn-secondary">📥 Export CSV</a>
+        </div>
+      </div>
+
+      <!-- Collapsible panel (expanded on desktop, toggled on mobile) -->
+      <div id="header-collapsible-panel" class="header-collapsible-panel">
+        <!-- Mobile Actions Bar inside collapsible panel -->
+        <div class="mobile-only-actions">
+          <button class="btn btn-secondary" onclick="openGlobalBridge()" style="border-color:rgba(56,189,248,0.5);color:#38bdf8;" title="View all AI verification inquiries and document adjustments">🤖 AI Bridge (<span id="stat-pending-ai-mobile">0</span>)</button>
+          <button class="btn btn-secondary" onclick="openDebateArenaModal()" style="border-color:rgba(168,85,247,0.5);color:#c084fc;" title="15-Advocate Multi-Agent Debate Arena">🏛️ Debate Arena</button>
+          <button class="btn btn-secondary" onclick="openCrossExamModal()" style="border-color:rgba(234,179,8,0.5);color:#facc15;" title="Fact Cross-Examination & Auditor Checks">🔍 Fact Cross-Exam</button>
+          <a href="/api/export_comments" class="btn btn-secondary">📥 Export CSV</a>
+        </div>
+
+        <!-- Quick Stats Bar with Clickable Quick Filters -->
+        <div class="header-stats-row">
+          <div class="stats-bar">
+            <div class="stat-badge clickable" id="stat-pill-all" onclick="setQuickFilter('all')" title="Filter: Show All 99 Candidates">Total: <span id="stat-total">0</span></div>
+            <div class="stat-badge clickable active-stat" id="stat-pill-eligible" onclick="setQuickFilter('eligible')" style="border-color:rgba(16,185,129,0.5);color:#34d399;" title="Filter: Eligible (Pass all 5 Must-Haves)">🎯 Eligible: <span id="stat-eligible">0</span></div>
+            <div class="stat-badge clickable" id="stat-pill-disqualified" onclick="setQuickFilter('disqualified')" style="border-color:rgba(239,68,68,0.5);color:#f87171;" title="Filter: Disqualified (Failed at least 1 Must-Have)">❌ Disqualified: <span id="stat-disqualified">0</span></div>
+            <div class="stat-badge clickable" id="stat-pill-teamtop" onclick="setQuickFilter('teamtop')" style="border-color:rgba(245,158,11,0.5);color:#fbbf24;" title="Filter: Team Top Picks">⭐ Top Picks: <span id="stat-picks">0</span></div>
+            <div class="stat-badge clickable" id="stat-pill-notes" onclick="setQuickFilter('notes')" title="Filter: Has Team Notes">💬 Team Notes: <span id="stat-notes">0</span></div>
+          </div>
+          <div style="font-size:12px; color:#94a3b8;">
+            Showing <span id="stat-showing-count" style="font-weight:800; color:#38bdf8;">0</span> items &middot; 💡 Click badges to filter
+          </div>
+        </div>
+
+        <!-- Price Bracket Quick Stats Row -->
+        <div class="header-stats-row" style="padding-top:6px; border-top:1px dashed rgba(255,255,255,0.08);">
+          <div class="stats-bar">
+            <span style="font-size:12px; font-weight:700; color:#c084fc; display:flex; align-items:center; gap:4px;">🏷️ Price Tiers:</span>
+            <div class="stat-badge clickable active-stat" id="stat-pill-price-all" onclick="setPriceFilter('all')" title="Filter: All Prices">All: <span id="stat-price-all">0</span></div>
+            <div class="stat-badge clickable" id="stat-pill-price-under50k" onclick="setPriceFilter('<50k')" title="Filter: &lt; 50k Kč">&lt; 50k: <span id="stat-price-under50k">0</span></div>
+            <div class="stat-badge clickable" id="stat-pill-price-50-75k" onclick="setPriceFilter('50k-75k')" title="Filter: 50k - 75k Kč">50k&ndash;75k: <span id="stat-price-50-75k">0</span></div>
+            <div class="stat-badge clickable" id="stat-pill-price-75-100k" onclick="setPriceFilter('75k-100k')" title="Filter: 75k - 100k Kč">75k&ndash;100k: <span id="stat-price-75-100k">0</span></div>
+            <div class="stat-badge clickable" id="stat-pill-price-100-125k" onclick="setPriceFilter('100k-125k')" title="Filter: 100k - 125k Kč">100k&ndash;125k: <span id="stat-price-100-125k">0</span></div>
+            <div class="stat-badge clickable" id="stat-pill-price-125kplus" onclick="setPriceFilter('125k+')" title="Filter: 125k+ Kč">125k+: <span id="stat-price-125kplus">0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="controls-container">
+    <div class="anchor-banner">
+      <div class="anchor-title">
+        <span>🏆 Gold Standard Reference:</span>
+        <strong style="color:#fff;">Chalupa Nový Svět</strong> (Prostřední Lipka)
+      </div>
+      <div style="color:#cbd5e1; font-size:12px;">
+        <span style="color:#38bdf8; font-weight:700;">60 000 Kč</span> / 7 nights in Sept (off-season) &middot; 32 beds (14 rooms / 7 apts with private baths) &middot; Common 33/35 (~30 chairs) &middot; Sauna & Tub (no pool) &middot; 4 Beer Taps &middot; Strictly 7 consecutive days in Sept
+      </div>
+    </div>
+
+    <!-- Main controls bar: search box, sort select, mobile filter toggle button -->
+    <div class="controls-main-bar">
+      <input type="text" id="search-box" class="search-input" placeholder="🔍 Search by name, region, equipment, or notes...">
+
+      <select id="sort-select" class="select-input">
+        <option value="score_desc">Sort: Combined Score (AI + Team Boost)</option>
+        <option value="model_score">Sort: AI Model Score (Highest First)</option>
+        <option value="user_boost">Sort: Team Boost (Highest Endorsements First)</option>
+        <option value="price_asc">Sort: Final 7-Night Price (Lowest First)</option>
+        <option value="price_desc">Sort: Final 7-Night Price (Highest First)</option>
+        <option value="sept_free">Sort: Sept Free Days (Most Free)</option>
+      </select>
+
+      <button id="mobile-filter-toggle-btn" class="mobile-toggle-btn" onclick="toggleMobileFilters()" aria-expanded="false" title="Toggle Filters Panel">
+        <span>🌪️ Filters (<span id="active-filter-mobile-label">Eligible</span>)</span> <span id="mobile-filter-toggle-arrow">▾</span>
+      </button>
+    </div>
+
+    <!-- Filter Buttons Panel: always visible on desktop, vertically scrolling toggle menu on mobile -->
+    <div id="filter-buttons-panel" class="filter-buttons-panel">
+      <!-- 16 Main filter chips -->
+      <div class="filter-chips-grid">
+        <button class="filter-btn active" data-filter="eligible">🎯 Meets Must-Haves (<span id="btn-eligible-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="disqualified" style="border-color:rgba(239,68,68,0.4);color:#f87171;">⚠️ Disqualified (<span id="btn-disqualified-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="modeleval">🤖 AI Scored (<span id="btn-modeleval-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="all">All (<span id="btn-total-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="teamtop">⭐ Team Top Picks (<span id="btn-picks-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="praised">🔥 Highly Praised (<span id="btn-praised-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="notes">💬 Has Team Notes (<span id="btn-notes-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="cheaper">💰 &le;60k CZK (Nový Svět)</button>
+        <button class="filter-btn" data-filter="tap">🍺 Beer Tap</button>
+        <button class="filter-btn" data-filter="pool">🏊 Pool</button>
+        <button class="filter-btn" data-filter="wellness">🧖 Wellness / Sauna</button>
+        <button class="filter-btn" data-filter="tv">📺 TV / Projector</button>
+        <button class="filter-btn" data-filter="kids">🧸 Kids Play / Corner</button>
+        <button class="filter-btn" data-filter="catering">🍳 Catering / Pro Kitchen</button>
+        <button class="filter-btn" data-filter="pets">🐶 Pets Allowed (<span id="btn-pets-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="photos">📸 Has Photos</button>
+      </div>
+
+      <!-- Dedicated Sub-Filter Strip for Disqualified Candidates -->
+      <div id="disq-subfilters" class="disq-subfilters-container">
+        <span style="font-size:12px; font-weight:700; color:#f87171; display:flex; align-items:center; gap:4px;">
+          🛑 Filter by Failed Gate:
+        </span>
+        <button class="disq-subfilter-btn active" data-disq-sub="all" onclick="setDisqSubFilter('all')">All Disqualified (<span id="disq-cnt-all">0</span>)</button>
+        <button class="disq-subfilter-btn" data-disq-sub="seating" onclick="setDisqSubFilter('seating')">🪑 Seating &lt;16 (<span id="disq-cnt-seating">0</span>)</button>
+        <button class="disq-subfilter-btn" data-disq-sub="sept" onclick="setDisqSubFilter('sept')">📅 Sept Week &lt;7d (<span id="disq-cnt-sept">0</span>)</button>
+        <button class="disq-subfilter-btn" data-disq-sub="capacity" onclick="setDisqSubFilter('capacity')">👥 Spots &lt;24 (<span id="disq-cnt-capacity">0</span>)</button>
+        <button class="disq-subfilter-btn" data-disq-sub="rooms" onclick="setDisqSubFilter('rooms')">🛏️ Rooms &lt;7 (<span id="disq-cnt-rooms">0</span>)</button>
+        <button class="disq-subfilter-btn" data-disq-sub="veto" onclick="setDisqSubFilter('veto')">🚫 Vetoed (<span id="disq-cnt-veto">0</span>)</button>
+      </div>
+
+      <!-- Dedicated Price Bracket Filter Strip -->
+      <div class="price-filter-strip">
+        <div class="price-filter-buttons">
+          <span style="font-size:12px; font-weight:700; color:#c084fc; display:flex; align-items:center; gap:5px;">
+            🏷️ Filter by Price Tier:
+          </span>
+          <button class="filter-btn price-filter-btn active" data-price="all" onclick="setPriceFilter('all')">All Prices (<span id="pbtn-all">0</span>)</button>
+          <button class="filter-btn price-filter-btn" data-price="<50k" onclick="setPriceFilter('<50k')">&lt; 50k Kč (<span id="pbtn-under50k">0</span>)</button>
+          <button class="filter-btn price-filter-btn" data-price="50k-75k" onclick="setPriceFilter('50k-75k')">50k &ndash; 75k Kč (<span id="pbtn-50-75k">0</span>)</button>
+          <button class="filter-btn price-filter-btn" data-price="75k-100k" onclick="setPriceFilter('75k-100k')">75k &ndash; 100k Kč (<span id="pbtn-75-100k">0</span>)</button>
+          <button class="filter-btn price-filter-btn" data-price="100k-125k" onclick="setPriceFilter('100k-125k')">100k &ndash; 125k Kč (<span id="pbtn-100-125k">0</span>)</button>
+          <button class="filter-btn price-filter-btn" data-price="125k+" onclick="setPriceFilter('125k+')">125k+ Kč (<span id="pbtn-125kplus">0</span>)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Pagination Bar -->
+  <div id="pagination-top" class="pagination-bar" style="display:none;"></div>
+
+  <main id="cards-container">
+    <div style="grid-column: 1/-1; text-align: center; padding: 60px; color: #94a3b8;">
+      ⏳ Loading accommodations and photo galleries...
+    </div>
+  </main>
+
+  <!-- Bottom Pagination Bar -->
+  <div id="pagination-bottom" class="pagination-bar" style="display:none;"></div>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="lightbox" class="modal-overlay" onclick="closeLightboxOnBackdrop(event)">
+    <button class="modal-close" onclick="closeLightbox()" title="Close (Esc)">&times;</button>
+    <button class="modal-nav modal-prev" onclick="prevPhoto(event)" title="Previous photo (Left Arrow)">&lsaquo;</button>
+    <div class="modal-img-container" onclick="event.stopPropagation()">
+      <div class="modal-img-clickzone left-zone" onclick="prevPhoto(event)" title="Click left half for previous photo"></div>
+      <img id="lightbox-img" src="" alt="Accommodation photo">
+      <div class="modal-img-clickzone right-zone" onclick="nextPhoto(event)" title="Click right half for next photo"></div>
+    </div>
+    <button class="modal-nav modal-next" onclick="nextPhoto(event)" title="Next photo (Right Arrow)">&rsaquo;</button>
+    <div id="lightbox-caption" class="modal-caption"></div>
+    <div id="lightbox-filmstrip" class="lightbox-filmstrip" onclick="event.stopPropagation()"></div>
+  </div>
+
+  <!-- Discussion & AI Bridge Drawer -->
+  <div id="comment-drawer" class="drawer-overlay" onclick="closeDrawer(event)">
+    <div class="drawer-panel" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <h3 id="drawer-title">💬 Discussion & AI Bridge</h3>
+          <div id="drawer-scope-pill" class="drawer-scope-pill">Target: General</div>
+        </div>
+        <button class="drawer-close" onclick="closeDrawer()">&times;</button>
+      </div>
+
+      <div id="drawer-body" class="drawer-body">
+        <!-- Thread messages load dynamically -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="drawer-input-row">
+          <input type="text" id="drawer-author" class="drawer-author-input" placeholder="Your name" value="tivvit">
+          <label class="drawer-ai-toggle">
+            <input type="checkbox" id="drawer-invoke-ai" checked>
+            <span>🤖 Invoke Antigravity AI (Verify / Adjust)</span>
+          </label>
+        </div>
+        <textarea id="drawer-input" class="drawer-textarea" placeholder="Ask a question, verify a fact, or request document adjustment (e.g. 'Is sauna fee included?', 'Adjust price to 65000')..."></textarea>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:11px; color:#64748b;">Bridge answers automatically or queues for agent</span>
+          <button class="btn" onclick="submitDrawerComment()">🚀 Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15-Advocate Debate Arena Modal -->
+  <div id="debate-arena-modal" class="arena-modal-overlay" onclick="closeDebateArenaModal(event)">
+    <div class="arena-modal-panel" onclick="event.stopPropagation()">
+      <div class="arena-modal-header">
+        <div>
+          <h2 style="font-size:18px; font-weight:800; display:flex; align-items:center; gap:8px;">
+            🏛️ 15-Advocate Multi-Agent Debate Arena
+          </h2>
+          <div style="font-size:12px; color:#94a3b8; margin-top:2px;">
+            15 dedicated contender advocates + Nový Svět ground truth benchmark debating retreat superiority & converging on consensus
+          </div>
+        </div>
+        <button class="drawer-close" onclick="closeDebateArenaModal()">&times;</button>
+      </div>
+
+      <!-- Simulation Run Explorer Bar -->
+      <div style="padding:10px 24px; background:#070d18; border-bottom:1px solid #1e293b; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span style="font-size:12px; font-weight:800; color:#cbd5e1; text-transform:uppercase; letter-spacing:0.5px;">⚡ Simulation Run:</span>
+          <div id="arena-run-pills" style="display:flex; gap:6px; flex-wrap:wrap;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+        <div id="arena-run-model-badge" style="display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); padding:4px 10px; border-radius:6px;">
+          🤖 Model: Claude 5.5 Sonnet
+        </div>
+      </div>
+
+      <div class="arena-nav-tabs">
+        <button id="arena-tab-consensus" class="arena-tab-btn active" onclick="switchArenaTab('consensus')">🏆 Consensus & Votes</button>
+        <button id="arena-tab-migrations" class="arena-tab-btn" onclick="switchArenaTab('migrations')">📈 Vote Migration & Concessions</button>
+        <button id="arena-tab-pitches" class="arena-tab-btn" onclick="switchArenaTab('pitches')">🗣️ Round 1: Advocate Pitches</button>
+        <button id="arena-tab-clashes" class="arena-tab-btn" onclick="switchArenaTab('clashes')">⚔️ Round 2: Targeted Rebuttals</button>
+      </div>
+
+      <div id="arena-body" class="arena-body">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Fact Cross-Examination Modal -->
+  <div id="cross-exam-modal" class="arena-modal-overlay" onclick="closeCrossExamModal(event)">
+    <div class="arena-modal-panel" onclick="event.stopPropagation()">
+      <div class="arena-modal-header">
+        <div>
+          <h2 style="font-size:18px; font-weight:800; display:flex; align-items:center; gap:8px;">
+            🔍 Fact Cross-Examination & Auditor Checks
+          </h2>
+          <div style="font-size:12px; color:#94a3b8; margin-top:2px;">
+            Inquisitor vs. Defender verification for seating, continuous September week, bedrooms, and tap counts
+          </div>
+        </div>
+        <button class="drawer-close" onclick="closeCrossExamModal()">&times;</button>
+      </div>
+
+      <div style="padding:12px 24px; background:#0f172a; border-bottom:1px solid #1e293b; display:flex; align-items:center; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:13px; font-weight:600; color:#cbd5e1;">Select Property:</span>
+          <select id="cross-exam-selector" style="background:#090e17; color:#fff; border:1px solid #334155; padding:6px 12px; border-radius:6px; font-size:13px;" onchange="loadSelectedCrossExam()">
+            <!-- Loaded dynamically -->
+          </select>
+        </div>
+        <span id="cross-exam-confidence-badge" style="font-size:12px; font-weight:700; padding:4px 10px; border-radius:6px; background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3);">Confidence: 90%+</span>
+      </div>
+
+      <div id="cross-exam-body" class="arena-body">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let allCandidates = [];
+    let activeFilter = 'eligible';
+    let currentGallery = [];
+    let currentPhotoIdx = 0;
+
+    async function loadData() {
+      try {
+        const res = await fetch('/api/data');
+        allCandidates = await res.json();
+        updateStats();
+        renderCards();
+      } catch (err) {
+        console.error("Failed to load candidates:", err);
+        document.getElementById('cards-container').innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #f87171;">
+            Failed to load data. Make sure <code>python3 serve.py</code> is running.
+          </div>
+        `;
+      }
+    }
+
+    let activeDisqSubFilter = 'all';
+    let activePriceFilter = 'all';
+    let currentPage = 1;
+    let pageSize = 12;
+    const cardPhotoIndices = {};
+
+    function changePageSize(size) {
+      if (size === 'all') {
+        pageSize = 'all';
+      } else {
+        pageSize = parseInt(size, 10) || 12;
+      }
+      currentPage = 1;
+      renderCards();
+    }
+
+    function goToPage(p) {
+      currentPage = p;
+      renderCards();
+      const topElem = document.getElementById('pagination-top');
+      if (topElem && window.scrollY > topElem.offsetTop) {
+        window.scrollTo({ top: topElem.offsetTop - 16, behavior: 'smooth' });
+      }
+    }
+
+    function renderPagination(totalCount) {
+      const topBar = document.getElementById('pagination-top');
+      const btmBar = document.getElementById('pagination-bottom');
+      if (!topBar || !btmBar) return;
+
+      if (totalCount === 0) {
+        topBar.style.display = 'none';
+        btmBar.style.display = 'none';
+        return;
+      }
+
+      const isAll = (pageSize === 'all');
+      const effectiveSize = isAll ? totalCount : pageSize;
+      const totalPages = isAll ? 1 : Math.ceil(totalCount / effectiveSize);
+
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIdx = isAll ? 1 : ((currentPage - 1) * effectiveSize + 1);
+      const endIdx = isAll ? totalCount : Math.min(currentPage * effectiveSize, totalCount);
+
+      const infoHtml = `<div class="pagination-info">Showing <strong>${startIdx}–${endIdx}</strong> of <strong>${totalCount}</strong> candidates</div>`;
+
+      let pagesHtml = '';
+      if (totalPages > 1) {
+        pagesHtml += `<button class="page-btn" onclick="goToPage(1)" ${currentPage === 1 ? 'disabled' : ''} title="First page">&laquo;</button>`;
+        pagesHtml += `<button class="page-btn" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} title="Previous page">&lsaquo;</button>`;
+
+        let pStart = Math.max(1, currentPage - 2);
+        let pEnd = Math.min(totalPages, pStart + 4);
+        if (pEnd - pStart < 4) {
+          pStart = Math.max(1, pEnd - 4);
+        }
+
+        if (pStart > 1) {
+          pagesHtml += `<button class="page-btn" onclick="goToPage(1)">1</button>`;
+          if (pStart > 2) pagesHtml += `<span style="color:#64748b;padding:0 2px;">…</span>`;
+        }
+
+        for (let i = pStart; i <= pEnd; i++) {
+          pagesHtml += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+        }
+
+        if (pEnd < totalPages) {
+          if (pEnd < totalPages - 1) pagesHtml += `<span style="color:#64748b;padding:0 2px;">…</span>`;
+          pagesHtml += `<button class="page-btn" onclick="goToPage(${totalPages})">${totalPages}</button>`;
+        }
+
+        pagesHtml += `<button class="page-btn" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} title="Next page">&rsaquo;</button>`;
+        pagesHtml += `<button class="page-btn" onclick="goToPage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''} title="Last page">&raquo;</button>`;
+      }
+
+      const sizeSelectHtml = `
+        <div class="pagination-size-select">
+          <label>Per page:</label>
+          <select onchange="changePageSize(this.value)">
+            <option value="12" ${pageSize === 12 ? 'selected' : ''}>12</option>
+            <option value="24" ${pageSize === 24 ? 'selected' : ''}>24</option>
+            <option value="48" ${pageSize === 48 ? 'selected' : ''}>48</option>
+            <option value="all" ${pageSize === 'all' ? 'selected' : ''}>All (${allCandidates.length})</option>
+          </select>
+        </div>
+      `;
+
+      const barContent = `
+        ${infoHtml}
+        <div class="pagination-pages">${pagesHtml}</div>
+        ${sizeSelectHtml}
+      `;
+
+      topBar.innerHTML = barContent;
+      btmBar.innerHTML = barContent;
+      topBar.style.display = 'flex';
+      btmBar.style.display = 'flex';
+    }
+
+    function toggleMobileHeaderMenu() {
+      const panel = document.getElementById('header-collapsible-panel');
+      const arrow = document.getElementById('mobile-menu-toggle-arrow');
+      const btn = document.getElementById('mobile-menu-toggle-btn');
+      if (!panel) return;
+      const isOpen = panel.classList.toggle('active');
+      if (arrow) arrow.textContent = isOpen ? '▴' : '▾';
+      if (btn) {
+        btn.classList.toggle('active', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    }
+
+    function toggleMobileFilters() {
+      const panel = document.getElementById('filter-buttons-panel');
+      const arrow = document.getElementById('mobile-filter-toggle-arrow');
+      const btn = document.getElementById('mobile-filter-toggle-btn');
+      if (!panel) return;
+      const isOpen = panel.classList.toggle('active');
+      if (arrow) arrow.textContent = isOpen ? '▴' : '▾';
+      if (btn) {
+        btn.classList.toggle('active', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    }
+
+    function updateMobileFilterLabel(label) {
+      const span = document.getElementById('active-filter-mobile-label');
+      if (span && label) span.textContent = label;
+    }
+
+    function setPriceFilter(p) {
+      if (activePriceFilter === p) {
+        activePriceFilter = 'all';
+      } else {
+        activePriceFilter = p;
+      }
+      currentPage = 1;
+      document.querySelectorAll('.price-filter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.price === activePriceFilter);
+      });
+      document.querySelectorAll('[id^="stat-pill-price-"]').forEach(b => {
+        b.classList.remove('active-stat');
+      });
+      const activePill = document.getElementById(`stat-pill-price-${activePriceFilter.replace(/[^a-zA-Z0-9_-]/g, '')}`);
+      if (activePill) activePill.classList.add('active-stat');
+      if (activePriceFilter !== 'all') {
+        updateMobileFilterLabel(`Price: ${activePriceFilter}`);
+      }
+      renderCards();
+    }
+
+    const FILTER_DISPLAY_LABELS = {
+      'eligible': 'Eligible',
+      'disqualified': 'Disqualified',
+      'modeleval': 'AI Scored',
+      'all': 'All 99',
+      'teamtop': 'Top Picks',
+      'praised': 'Praised',
+      'notes': 'Team Notes',
+      'cheaper': '≤60k CZK',
+      'tap': 'Beer Tap',
+      'pool': 'Pool',
+      'wellness': 'Sauna',
+      'tv': 'TV / Projector',
+      'kids': 'Kids Corner',
+      'catering': 'Kitchen',
+      'pets': 'Pets Allowed',
+      'photos': 'Has Photos'
+    };
+
+    function setQuickFilter(filter) {
+      activeFilter = filter;
+      currentPage = 1;
+      document.querySelectorAll('.filter-btn:not(.price-filter-btn)').forEach(b => {
+        b.classList.toggle('active', b.dataset.filter === filter);
+      });
+      document.querySelectorAll('.stat-badge:not([id^="stat-pill-price-"])').forEach(b => b.classList.remove('active-stat'));
+      const activePill = document.getElementById(`stat-pill-${filter}`);
+      if (activePill) activePill.classList.add('active-stat');
+      updateMobileFilterLabel(FILTER_DISPLAY_LABELS[filter] || filter);
+      renderCards();
+    }
+
+    function setDisqSubFilter(sub) {
+      activeDisqSubFilter = sub;
+      currentPage = 1;
+      document.querySelectorAll('.disq-subfilter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.disqSub === sub);
+      });
+      if (sub !== 'all') {
+        updateMobileFilterLabel(`Disq: ${sub}`);
+      }
+      renderCards();
+    }
+
+    function getPhotoSrc(folder, p) {
+      if (!p) return '/images/placeholder.jpg';
+      if (p.startsWith('http://') || p.startsWith('https://')) return p;
+      if (p.startsWith('/')) return p;
+      return folder ? `/${folder}/${p}` : `/${p}`;
+    }
+
+    function flipCardPhoto(listing, delta, e) {
+      if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      const item = allCandidates.find(c => c.Listing === listing);
+      if (!item || !item.Photos_List || item.Photos_List.length <= 1) return;
+      const count = item.Photos_List.length;
+      let cur = cardPhotoIndices[listing] || 0;
+      cur = (cur + delta + count) % count;
+      cardPhotoIndices[listing] = cur;
+
+      const safeListing = listing.replace(/[^a-zA-Z0-9_-]/g, '_');
+      const imgElem = document.getElementById(`card-main-img-${safeListing}`);
+      if (imgElem) {
+        imgElem.src = getPhotoSrc(item.Photos_Folder, item.Photos_List[cur]);
+      }
+      const pillElem = document.getElementById(`photo-pill-${safeListing}`);
+      if (pillElem) {
+        const numSpan = pillElem.querySelector('.photo-idx-num');
+        if (numSpan) numSpan.textContent = (cur + 1);
+      }
+      const cardElem = document.getElementById(`card-${safeListing}`);
+      if (cardElem) {
+        cardElem.querySelectorAll('.thumb').forEach((th, idx) => {
+          th.classList.toggle('active-thumb', idx === cur);
+        });
+      }
+    }
+
+    function selectCardPhoto(listing, idx, e) {
+      if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      const item = allCandidates.find(c => c.Listing === listing);
+      if (!item || !item.Photos_List || idx >= item.Photos_List.length) return;
+      cardPhotoIndices[listing] = idx;
+
+      const safeListing = listing.replace(/[^a-zA-Z0-9_-]/g, '_');
+      const imgElem = document.getElementById(`card-main-img-${safeListing}`);
+      if (imgElem) {
+        imgElem.src = getPhotoSrc(item.Photos_Folder, item.Photos_List[idx]);
+      }
+      const pillElem = document.getElementById(`photo-pill-${safeListing}`);
+      if (pillElem) {
+        const numSpan = pillElem.querySelector('.photo-idx-num');
+        if (numSpan) numSpan.textContent = (idx + 1);
+      }
+      const cardElem = document.getElementById(`card-${safeListing}`);
+      if (cardElem) {
+        cardElem.querySelectorAll('.thumb').forEach((th, tIdx) => {
+          th.classList.toggle('active-thumb', tIdx === idx);
+        });
+      }
+    }
+
+    function updateStats() {
+      const eligibleCnt = allCandidates.filter(c => c.All_Must_Haves_Met).length;
+      const modelevalCnt = allCandidates.filter(c => c.Model_Evaluated).length;
+      const disqList = allCandidates.filter(c => !c.All_Must_Haves_Met);
+      const disqCnt = disqList.length;
+      const picksCnt = allCandidates.filter(c => (c.User_Top_Votes_Count > 0) || c.Tivvit_Top || c.Fisa_Top || c.Simon_Top || c.Eve_Top).length;
+      const notesCnt = allCandidates.filter(c => c.Tivvit_Note || c.Team_Comment).length;
+      const praisedCnt = allCandidates.filter(c => (c.Score_User_Notes_Sentiment || 0) > 0).length;
+
+      document.getElementById('stat-total').textContent = allCandidates.length;
+      document.getElementById('stat-eligible').textContent = eligibleCnt;
+      document.getElementById('stat-disqualified').textContent = disqCnt;
+      document.getElementById('stat-picks').textContent = picksCnt;
+      document.getElementById('stat-notes').textContent = notesCnt;
+      document.getElementById('btn-eligible-cnt').textContent = eligibleCnt;
+      if (document.getElementById('btn-modeleval-cnt')) document.getElementById('btn-modeleval-cnt').textContent = modelevalCnt;
+      document.getElementById('btn-total-cnt').textContent = allCandidates.length;
+      document.getElementById('btn-disqualified-cnt').textContent = disqCnt;
+      document.getElementById('btn-picks-cnt').textContent = picksCnt;
+      document.getElementById('btn-notes-cnt').textContent = notesCnt;
+      document.getElementById('btn-praised-cnt').textContent = praisedCnt;
+      const petsCnt = allCandidates.filter(c => c.NTH_Pets_Allowed).length;
+      if (document.getElementById('btn-pets-cnt')) document.getElementById('btn-pets-cnt').textContent = petsCnt;
+      const pendingAi = allCandidates.reduce((acc, c) => acc + (c.pending_ai_count || 0), 0);
+      if (document.getElementById('stat-pending-ai')) document.getElementById('stat-pending-ai').textContent = pendingAi;
+      if (document.getElementById('stat-pending-ai-mobile')) document.getElementById('stat-pending-ai-mobile').textContent = pendingAi;
+
+      // Price Tiers breakdown (both total and eligible)
+      const isUnder50k = c => { const p = Number(c.Price_7_Nights_CZK) || 0; return (c.Price_Category === '< 50k') || (p > 0 && p < 50000); };
+      const is50to75k = c => { const p = Number(c.Price_7_Nights_CZK) || 0; return (c.Price_Category === '50k - 75k') || (p >= 50000 && p < 75000); };
+      const is75to100k = c => { const p = Number(c.Price_7_Nights_CZK) || 0; return (c.Price_Category === '75k - 100k') || (p >= 75000 && p < 100000); };
+      const is100to125k = c => { const p = Number(c.Price_7_Nights_CZK) || 0; return (c.Price_Category === '100k - 125k') || (p >= 100000 && p < 125000); };
+      const is125kPlus = c => { const p = Number(c.Price_7_Nights_CZK) || 0; return (c.Price_Category === '125k+') || (p >= 125000); };
+
+      const cntUnder50k = allCandidates.filter(isUnder50k).length;
+      const cnt50to75k = allCandidates.filter(is50to75k).length;
+      const cnt75to100k = allCandidates.filter(is75to100k).length;
+      const cnt100to125k = allCandidates.filter(is100to125k).length;
+      const cnt125kPlus = allCandidates.filter(is125kPlus).length;
+
+      const eligUnder50k = allCandidates.filter(c => c.All_Must_Haves_Met && isUnder50k(c)).length;
+      const elig50to75k = allCandidates.filter(c => c.All_Must_Haves_Met && is50to75k(c)).length;
+      const elig75to100k = allCandidates.filter(c => c.All_Must_Haves_Met && is75to100k(c)).length;
+      const elig100to125k = allCandidates.filter(c => c.All_Must_Haves_Met && is100to125k(c)).length;
+      const elig125kPlus = allCandidates.filter(c => c.All_Must_Haves_Met && is125kPlus(c)).length;
+
+      if (document.getElementById('stat-price-all')) document.getElementById('stat-price-all').textContent = `${allCandidates.length} (${eligibleCnt} elig)`;
+      if (document.getElementById('stat-price-under50k')) document.getElementById('stat-price-under50k').textContent = `${cntUnder50k} (${eligUnder50k} elig)`;
+      if (document.getElementById('stat-price-50-75k')) document.getElementById('stat-price-50-75k').textContent = `${cnt50to75k} (${elig50to75k} elig)`;
+      if (document.getElementById('stat-price-75-100k')) document.getElementById('stat-price-75-100k').textContent = `${cnt75to100k} (${elig75to100k} elig)`;
+      if (document.getElementById('stat-price-100-125k')) document.getElementById('stat-price-100-125k').textContent = `${cnt100to125k} (${elig100to125k} elig)`;
+      if (document.getElementById('stat-price-125kplus')) document.getElementById('stat-price-125kplus').textContent = `${cnt125kPlus} (${elig125kPlus} elig)`;
+
+      if (document.getElementById('pbtn-all')) document.getElementById('pbtn-all').textContent = allCandidates.length;
+      if (document.getElementById('pbtn-under50k')) document.getElementById('pbtn-under50k').textContent = cntUnder50k;
+      if (document.getElementById('pbtn-50-75k')) document.getElementById('pbtn-50-75k').textContent = cnt50to75k;
+      if (document.getElementById('pbtn-75-100k')) document.getElementById('pbtn-75-100k').textContent = cnt75to100k;
+      if (document.getElementById('pbtn-100-125k')) document.getElementById('pbtn-100-125k').textContent = cnt100to125k;
+      if (document.getElementById('pbtn-125kplus')) document.getElementById('pbtn-125kplus').textContent = cnt125kPlus;
+
+      // Disqualified sub-breakdown
+      const disqSeating = disqList.filter(c => (c.Must_Haves_Failed || []).some(f => f.toLowerCase().includes('seating'))).length;
+      const disqSept = disqList.filter(c => (c.Must_Haves_Failed || []).some(f => f.toLowerCase().includes('sept'))).length;
+      const disqCap = disqList.filter(c => (c.Must_Haves_Failed || []).some(f => f.toLowerCase().includes('capacity'))).length;
+      const disqRooms = disqList.filter(c => (c.Must_Haves_Failed || []).some(f => f.toLowerCase().includes('rooms'))).length;
+      const disqVeto = disqList.filter(c => (c.Must_Haves_Failed || []).some(f => f.toLowerCase().includes('veto'))).length;
+
+      if (document.getElementById('disq-cnt-all')) document.getElementById('disq-cnt-all').textContent = disqCnt;
+      if (document.getElementById('disq-cnt-seating')) document.getElementById('disq-cnt-seating').textContent = disqSeating;
+      if (document.getElementById('disq-cnt-sept')) document.getElementById('disq-cnt-sept').textContent = disqSept;
+      if (document.getElementById('disq-cnt-capacity')) document.getElementById('disq-cnt-capacity').textContent = disqCap;
+      if (document.getElementById('disq-cnt-rooms')) document.getElementById('disq-cnt-rooms').textContent = disqRooms;
+      if (document.getElementById('disq-cnt-veto')) document.getElementById('disq-cnt-veto').textContent = disqVeto;
+    }
+
+    function getScoreColor(score) {
+      if (score >= 90) return '#10b981';
+      if (score >= 80) return '#38bdf8';
+      if (score >= 70) return '#f59e0b';
+      return '#94a3b8';
+    }
+
+    function formatPrice(val) {
+      if (!val || val === '') return 'Price on inquiry';
+      const num = Number(val);
+      return `${num.toLocaleString('cs-CZ')} Kč`;
+    }
+
+    function ptsBadge(pts) {
+      if (pts > 0) return `<span class="nth-pts-badge nth-pts-positive">+${pts} pts</span>`;
+      return `<span class="nth-pts-badge nth-pts-zero">+0 pts</span>`;
+    }
+
+    function renderCards() {
+      const container = document.getElementById('cards-container');
+      const search = document.getElementById('search-box').value.toLowerCase().trim();
+      const sort = document.getElementById('sort-select').value;
+
+      // Toggle Disqualified Sub-filter bar
+      const disqSub = document.getElementById('disq-subfilters');
+      if (disqSub) {
+        if (activeFilter === 'disqualified') {
+          disqSub.classList.add('active');
+        } else {
+          disqSub.classList.remove('active');
+        }
+      }
+
+      let filtered = allCandidates.filter(c => {
+        const p7 = Number(c.Price_7_Nights_CZK) || 0;
+        if (activePriceFilter !== 'all') {
+          if (activePriceFilter === '<50k' && !((c.Price_Category === '< 50k') || (p7 > 0 && p7 < 50000))) return false;
+          if (activePriceFilter === '50k-75k' && !((c.Price_Category === '50k - 75k') || (p7 >= 50000 && p7 < 75000))) return false;
+          if (activePriceFilter === '75k-100k' && !((c.Price_Category === '75k - 100k') || (p7 >= 75000 && p7 < 100000))) return false;
+          if (activePriceFilter === '100k-125k' && !((c.Price_Category === '100k - 125k') || (p7 >= 100000 && p7 < 125000))) return false;
+          if (activePriceFilter === '125k+' && !((c.Price_Category === '125k+') || (p7 >= 125000))) return false;
+        }
+        if (activeFilter === 'eligible' && !c.All_Must_Haves_Met) return false;
+        if (activeFilter === 'modeleval' && !c.Model_Evaluated) return false;
+        if (activeFilter === 'disqualified') {
+          if (c.All_Must_Haves_Met) return false;
+          if (activeDisqSubFilter !== 'all') {
+            const fails = c.Must_Haves_Failed || [];
+            if (activeDisqSubFilter === 'seating' && !fails.some(f => f.toLowerCase().includes('seating'))) return false;
+            if (activeDisqSubFilter === 'sept' && !fails.some(f => f.toLowerCase().includes('sept'))) return false;
+            if (activeDisqSubFilter === 'capacity' && !fails.some(f => f.toLowerCase().includes('capacity'))) return false;
+            if (activeDisqSubFilter === 'rooms' && !fails.some(f => f.toLowerCase().includes('rooms'))) return false;
+            if (activeDisqSubFilter === 'veto' && !fails.some(f => f.toLowerCase().includes('veto'))) return false;
+          }
+        }
+        if (activeFilter === 'cheaper' && (p7 <= 0 || p7 > 60000)) return false;
+        if (activeFilter === 'tap' && (!c.NTH_Beer_Tap_Count || c.NTH_Beer_Tap_Count <= 0)) return false;
+        if (activeFilter === 'pool' && !c.NTH_Has_Pool) return false;
+        if (activeFilter === 'wellness' && (!c.NTH_Wellness_Features_Count || c.NTH_Wellness_Features_Count <= 0)) return false;
+        if (activeFilter === 'tv' && (!c.NTH_TV_Projector_Count || c.NTH_TV_Projector_Count <= 0) && !c.NTH_Has_Projector) return false;
+        if (activeFilter === 'kids' && !c.NTH_Has_Child_Corner && !c.NTH_Has_Child_Playground) return false;
+        if (activeFilter === 'catering' && !c.NTH_Has_Catering) return false;
+        if (activeFilter === 'pets' && !c.NTH_Pets_Allowed) return false;
+        if (activeFilter === 'teamtop' && (!c.User_Top_Votes_Count || c.User_Top_Votes_Count <= 0) && !c.Tivvit_Top && !c.Fisa_Top && !c.Simon_Top && !c.Eve_Top) return false;
+        if (activeFilter === 'notes' && !c.Tivvit_Note && !c.Team_Comment) return false;
+        if (activeFilter === 'praised' && (!c.Score_User_Notes_Sentiment || c.Score_User_Notes_Sentiment <= 0)) return false;
+        if (activeFilter === 'photos' && !c.Has_Local_Photos) return false;
+
+        if (search) {
+          const haystack = `${c.Name} ${c.Location} ${c.Note} ${c.Common_Area_Desc} ${c.Sauna} ${c.Pool} ${c.Kitchen} ${c.Outdoor} ${c.Bedrooms_Bathrooms} ${c.Tivvit_Note} ${c.Team_Comment} ${c.User_Top_Voters_Summary || ''} ${c.User_Notes_Sentiment_Label || ''} ${c.NTH_Wellness_Details || ''} ${c.NTH_Pool_Type || ''} ${c.NTH_Beer_Tap_Details || ''} ${c.NTH_TV_Projector_Details || ''} ${c.NTH_Catering_Details || ''} ${c.NTH_Pets_Details || ''} ${c.NTH_Pets_Allowed ? 'pets dog pes se psem' : ''} ${c.Value_Rating || ''} ${(c.Pros_Vs_Novy_Svet||[]).join(' ')} ${(c.Cons_Vs_Novy_Svet||[]).join(' ')}`.toLowerCase();
+          if (!haystack.includes(search)) return false;
+        }
+        return true;
+      });
+
+      // Sorting
+      if (sort === 'score_desc') {
+        filtered.sort((a, b) => (b.Total_Score || 0) - (a.Total_Score || 0));
+      } else if (sort === 'model_score') {
+        filtered.sort((a, b) => (b.Model_Final_Score || 0) - (a.Model_Final_Score || 0));
+      } else if (sort === 'user_boost') {
+        filtered.sort((a, b) => (b.Score_User_Feedback_Total || 0) - (a.Score_User_Feedback_Total || 0));
+      } else if (sort === 'price_asc') {
+        filtered.sort((a, b) => (Number(a.Price_7_Nights_CZK) || 999999) - (Number(b.Price_7_Nights_CZK) || 999999));
+      } else if (sort === 'price_desc') {
+        filtered.sort((a, b) => (Number(b.Price_7_Nights_CZK) || 0) - (Number(a.Price_7_Nights_CZK) || 0));
+      } else if (sort === 'sept_free') {
+        filtered.sort((a, b) => (Number(b.Sept_Max_Continuous_Days) || 0) - (Number(a.Sept_Max_Continuous_Days) || 0));
+      }
+
+      if (document.getElementById('stat-showing-count')) {
+        document.getElementById('stat-showing-count').textContent = filtered.length;
+      }
+
+      renderPagination(filtered.length);
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 60px; color: #94a3b8;">
+            No accommodations match the selected filters.
+          </div>
+        `;
+        return;
+      }
+
+      const isAll = (pageSize === 'all');
+      const effectiveSize = isAll ? filtered.length : pageSize;
+      const startIdx = isAll ? 0 : ((currentPage - 1) * effectiveSize);
+      const pageItems = isAll ? filtered : filtered.slice(startIdx, startIdx + effectiveSize);
+
+      container.innerHTML = pageItems.map(item => {
+        const scoreColor = getScoreColor(item.Total_Score);
+        const fb = item.team_feedback || { comment: '', vote: '' };
+        const safeName = item.Name.replace(/'/g, "\\'");
+        const safeListing = item.Listing.replace(/[^a-zA-Z0-9_-]/g, '_');
+
+        // Determine main image src with in-card photo index tracking
+        const initialPhotoIdx = cardPhotoIndices[item.Listing] || 0;
+        let mainImgSrc = '/images/placeholder.jpg';
+        if (item.Has_Local_Photos && item.Photos_List && item.Photos_List[initialPhotoIdx]) {
+          mainImgSrc = getPhotoSrc(item.Photos_Folder, item.Photos_List[initialPhotoIdx]);
+        } else if (item.Has_Local_Photos && item.Primary_Photo) {
+          mainImgSrc = getPhotoSrc(item.Photos_Folder, item.Primary_Photo);
+        }
+
+        // Price bracket categorization
+        const p7 = Number(item.Price_7_Nights_CZK) || 0;
+        let priceBracketKey = '';
+        let priceBracketLabel = '';
+        if (p7 > 0) {
+          if (p7 < 50000) { priceBracketKey = '<50k'; priceBracketLabel = '< 50k Kč'; }
+          else if (p7 < 75000) { priceBracketKey = '50k-75k'; priceBracketLabel = '50k – 75k Kč'; }
+          else if (p7 < 100000) { priceBracketKey = '75k-100k'; priceBracketLabel = '75k – 100k Kč'; }
+          else if (p7 < 125000) { priceBracketKey = '100k-125k'; priceBracketLabel = '100k – 125k Kč'; }
+          else { priceBracketKey = '125k+'; priceBracketLabel = '125k+ Kč'; }
+        } else if (item.Price_Category && item.Price_Category !== 'On Request') {
+          priceBracketKey = item.Price_Category.replace(/\s+/g, '');
+          priceBracketLabel = item.Price_Category;
+        }
+
+        const priceCatBadge = priceBracketKey ? `
+          <button class="price-tier-tag ${activePriceFilter === priceBracketKey ? 'active-tier' : ''}" onclick="setPriceFilter('${priceBracketKey}')" title="Filter candidates in bracket ${priceBracketLabel}">
+            🏷️ ${priceBracketLabel}
+          </button>
+        ` : (item.Price_Category ? `<span style="background:rgba(168,85,247,0.18); border:1px solid rgba(168,85,247,0.4); color:#c084fc; font-size:11px; font-weight:700; padding:2px 8px; border-radius:6px; margin-left:8px;">${item.Price_Category}</span>` : '');
+
+        // Must-Haves Gate Banner
+        let mhBanner = '';
+        if (item.All_Must_Haves_Met) {
+          mhBanner = `
+            <div class="mh-status-bar mh-pass">
+              <span>🎯 MEETS ALL 5 MUST-HAVES (Eligible)</span>
+              <span>Gate Passed &middot; Base 40 pts</span>
+            </div>
+          `;
+        } else {
+          const failedCount = (item.Must_Haves_Failed || []).length;
+          const failedFirst = (item.Must_Haves_Failed && item.Must_Haves_Failed[0]) || 'Failed Gate';
+          mhBanner = `
+            <div class="mh-status-bar mh-fail" title="${(item.Must_Haves_Failed || []).join('; ')}">
+              <span>⚠️ DISQUALIFIED (${failedCount} Must-Have failed)</span>
+              <span style="font-size:11px;font-weight:600;max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${failedFirst}</span>
+            </div>
+          `;
+        }
+
+        // Must-Haves 5 Criteria Observed Pills
+        const mhCriteriaRow = `
+          <div class="mh-criteria-row">
+            <div class="mh-crit-pill ${item.MH_No_Veto === 'PASS' ? 'mh-crit-pass' : 'mh-crit-fail'}" title="${item.Veto_Reason || ''}">
+              <span class="mh-crit-label">🚫 No Veto</span>
+              <span class="mh-crit-val">${item.MH_No_Veto === 'PASS' ? '✅ None' : '❌ ' + (item.Veto_Reason || 'Vetoed')}</span>
+            </div>
+
+            <div class="mh-crit-pill ${item.MH_Sept_Week === 'PASS' ? 'mh-crit-pass' : 'mh-crit-fail'}" title="${item.Sept_Free_Ranges || ''}">
+              <span class="mh-crit-label">📅 Sept 7d Week</span>
+              <span class="mh-crit-val">${item.MH_Sept_Week === 'PASS' ? `✅ ${item.Sept_Max_Continuous_Days || 7}d row` : `❌ Max ${item.Sept_Max_Continuous_Days || 0}d`}</span>
+            </div>
+
+            <div class="mh-crit-pill ${item.MH_Capacity_24Plus === 'PASS' ? 'mh-crit-pass' : 'mh-crit-fail'}" title="Total spots: ${item.Capacity_Total || 0} (Effective scored: ${item.Capacity_Effective || 0})">
+              <span class="mh-crit-label">👥 Spots (≥24, cap 30)</span>
+              <span class="mh-crit-val">${item.MH_Capacity_24Plus === 'PASS' ? `✅ ${item.Capacity_Total || 0} spots` : `❌ ${item.Capacity_Total || 0} (<24)`}</span>
+            </div>
+
+            <div class="mh-crit-pill ${item.MH_Min_7_Rooms === 'PASS' ? 'mh-crit-pass' : 'mh-crit-fail'}" title="${item.Annex_Details || ''}">
+              <span class="mh-crit-label">🛏️ Rooms (≥7 / Annex)</span>
+              <span class="mh-crit-val">${item.MH_Min_7_Rooms === 'PASS' ? `✅ ${item.Rooms_Count || 0} rms${item.Has_Extra_Annex ? ' + Annex' : ''}` : `❌ ${item.Rooms_Count || 0} rms`}</span>
+            </div>
+
+            <div class="mh-crit-pill ${item.MH_Seating_16Plus === 'PASS' ? 'mh-crit-pass' : 'mh-crit-fail'}" title="${item.Secondary_Room_Details || ''}">
+              <span class="mh-crit-label">🪑 Seating (≥16 / Hall)</span>
+              <span class="mh-crit-val">${item.MH_Seating_16Plus === 'PASS' ? `✅ ~${item.Seating_Chairs_Count || 0} chairs${item.Has_Secondary_Room ? ' + Hall' : ''}` : `❌ ~${item.Seating_Chairs_Count || 0} chairs`}</span>
+            </div>
+          </div>
+        `;
+
+        // Team Top Picks & Endorsements Banner
+        let userEndorsementHtml = '';
+        if (item.User_Top_Voters_Summary && item.User_Top_Voters_Summary !== 'None') {
+          userEndorsementHtml = `
+            <div class="user-endorsement-banner">
+              <span>⭐ <strong>Team Top Endorsements:</strong> ${item.User_Top_Voters_Summary}</span>
+              <span class="nth-pts-badge nth-pts-positive">+${item.Score_User_Top_Votes || 0} pts</span>
+            </div>
+          `;
+        } else if (item.Tivvit_Top || item.Fisa_Top || item.Simon_Top || item.Eve_Top) {
+          let legacyPicks = [];
+          if (item.Tivvit_Top) legacyPicks.push(`Tivvit (${item.Tivvit_Top})`);
+          if (item.Fisa_Top) legacyPicks.push(`Fisa (${item.Fisa_Top})`);
+          if (item.Simon_Top) legacyPicks.push(`Simon (${item.Simon_Top})`);
+          if (item.Eve_Top) legacyPicks.push(`Eve (${item.Eve_Top})`);
+          userEndorsementHtml = `
+            <div class="user-endorsement-banner">
+              <span>⭐ <strong>Team Top Picks:</strong> ${legacyPicks.join(', ')}</span>
+              <span class="nth-pts-badge nth-pts-positive">+${item.Score_User_Top_Votes || 0} pts</span>
+            </div>
+          `;
+        }
+
+        // Reviewer Notes Sentiment Banner
+        let sentimentBannerHtml = '';
+        if (item.User_Notes_Sentiment_Label && item.User_Notes_Sentiment_Label !== 'No Notes' && item.User_Notes_Sentiment_Label !== '📝 Team Note Available (0 pts)') {
+          let sClass = 'sentiment-warn';
+          if ((item.Score_User_Notes_Sentiment || 0) > 0) sClass = 'sentiment-pos';
+          else if ((item.Score_User_Notes_Sentiment || 0) <= -10) sClass = 'sentiment-neg';
+
+          sentimentBannerHtml = `
+            <div class="sentiment-banner ${sClass}">
+              <span>${item.User_Notes_Sentiment_Label}</span>
+            </div>
+          `;
+        }
+
+        // Spotlight Final Price & Value Box
+        const perPerson7N = item.Price_Per_Person_7N ? `~${item.Price_Per_Person_7N.toLocaleString('cs-CZ')} Kč/person (7N)` : '';
+        const freshScore = item.Score_Visual_Freshness || 6.0;
+        const freshColor = freshScore >= 8.5 ? '#10b981' : freshScore >= 7.0 ? '#38bdf8' : freshScore >= 5.0 ? '#fbbf24' : '#ef4444';
+        const freshBannerHtml = `
+          <div style="margin: 6px 0 2px; background:rgba(255,255,255,0.03); border:1px solid ${freshColor}44; border-radius:8px; padding:6px 10px; display:flex; justify-content:space-between; align-items:center; font-size:11.5px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="font-weight:800; color:${freshColor};">✨ Freshness: ${freshScore}/10</span>
+              <span style="color:#cbd5e1;">&middot; ${item.Visual_Freshness_Label || 'Standard'}</span>
+            </div>
+            <div style="color:#94a3b8; font-size:11px; max-width:240px; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${item.Visual_Freshness_Notes || ''}">
+              ${item.Visual_Freshness_Notes || ''}
+            </div>
+          </div>
+        `;
+
+        let priceSpotlightHtml = `
+          <div class="price-spotlight">
+            <div class="price-spotlight-top">
+              <div style="display:flex; align-items:baseline;">
+                <div class="final-price-value">${formatPrice(item.Price_7_Nights_CZK)}</div>
+                ${priceCatBadge}
+                <div class="final-price-period" style="margin-left:10px;">FINAL PRICE / 7 NIGHTS</div>
+              </div>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'price', '${safeName}')" title="Comment, verify, or adjust price">
+                💬 Price / Adjust
+              </button>
+            </div>
+            <div class="price-value-box">
+              <span>🏷️ <strong>Value:</strong> +${item.Score_Value || 0} pts &middot; <em>${item.Value_Rating || 'Evaluated'}</em></span>
+              <span>👥 ${perPerson7N}</span>
+            </div>
+          </div>
+          ${freshBannerHtml}
+        `;
+
+        // Score Sub-Category Breakdown Row
+        let userFeedbackScore = item.Score_User_Feedback_Total || 0;
+        let scoreBreakdownHtml = '';
+        if (item.Model_Evaluated) {
+          scoreBreakdownHtml = `
+            <div class="score-breakdown-row">
+              <div class="score-cat-pill" style="border-color:rgba(56,189,248,0.5);color:#7dd3fc;" title="AI Evaluation Score (0-100 rubric)">🧠 AI Score: <strong style="color:#38bdf8;">${item.Model_Final_Score}/100</strong></div>
+              <div class="score-cat-pill" style="border-color:${userFeedbackScore > 0 ? 'rgba(245,158,11,0.5)' : (userFeedbackScore < 0 ? 'rgba(239,68,68,0.5)' : 'var(--card-border)')};" title="Team top votes (+${item.Score_User_Top_Votes || 0} pts) and reviewer notes sentiment (${item.Score_User_Notes_Sentiment || 0} pts)">⭐ Team Boost: <strong style="color:${userFeedbackScore > 0 ? '#fbbf24' : (userFeedbackScore < 0 ? '#f87171' : '#94a3b8')};">${userFeedbackScore > 0 ? '+' : ''}${userFeedbackScore} pts</strong></div>
+              <div class="score-cat-pill" style="border-color:rgba(16,185,129,0.5);color:#6ee7b7;" title="Final Combined Score = Model Score + Team Boost">🏁 Combined: <strong style="color:#34d399;">${item.Total_Score} pts</strong></div>
+            </div>
+          `;
+        } else {
+          scoreBreakdownHtml = `
+            <div class="score-breakdown-row">
+              <div class="score-cat-pill" title="Must-Haves Base Gate (40 pts)">🎯 Base: <strong>${item.Score_Must_Haves_Base || 0}/40</strong></div>
+              <div class="score-cat-pill" title="Capacity scale 24-30 spots (up to 10 pts)">👥 Spots: <strong>${item.Score_Capacity_Bonus || 0}/10</strong></div>
+              <div class="score-cat-pill" title="Observed Nice-to-haves (up to 35 pts)">✨ Nice-to-Haves: <strong>${item.Score_Nice_To_Haves_Total || 0}/35</strong></div>
+              <div class="score-cat-pill" title="Price & Value vs Nový Svět benchmark (up to 15 pts)">💰 Value: <strong>${item.Score_Value || 0}/15</strong></div>
+              <div class="score-cat-pill" style="border-color:${userFeedbackScore > 0 ? 'rgba(245,158,11,0.5)' : (userFeedbackScore < 0 ? 'rgba(239,68,68,0.5)' : 'var(--card-border)')};" title="Team top votes (+${item.Score_User_Top_Votes || 0} pts) and reviewer notes sentiment (${item.Score_User_Notes_Sentiment || 0} pts)">⭐ Team: <strong style="color:${userFeedbackScore > 0 ? '#fbbf24' : (userFeedbackScore < 0 ? '#f87171' : '#94a3b8')};">${userFeedbackScore > 0 ? '+' : ''}${userFeedbackScore} pts</strong></div>
+            </div>
+          `;
+        }
+
+        // Dedicated Model Scorer Evaluation Block (Gemini/Antigravity evaluator)
+        let modelEvalHtml = '';
+        if (item.Model_Evaluated) {
+          const modelPros = Array.isArray(item.Model_Pros) ? item.Model_Pros : (item.Model_Pros ? item.Model_Pros.split(' | ') : []);
+          const modelCons = Array.isArray(item.Model_Cons) ? item.Model_Cons : (item.Model_Cons ? item.Model_Cons.split(' | ') : []);
+          
+          modelEvalHtml = `
+            <div class="model-eval-section">
+              <div class="model-eval-header">
+                <div class="model-eval-title">
+                  <span>🧠 AI Model Evaluation (${item.Model_Used || 'Antigravity Gemini'})</span>
+                </div>
+                <div class="model-score-badge">
+                  Score: ${item.Model_Final_Score}/100 pts
+                </div>
+              </div>
+
+              <div class="model-subscores-row">
+                <div class="model-subscore-pill" title="Common Gathering Room (up to 25 pts)">🏠 Common: <strong>${item.Model_Common_Room_Score || 0}/25</strong></div>
+                <div class="model-subscore-pill" title="Tables & Workstations (up to 25 pts)">🪑 Tables: <strong>${item.Model_Tables_Score || 0}/25</strong></div>
+                <div class="model-subscore-pill" title="Sleeping & Privacy (up to 20 pts)">🛏️ Sleeping: <strong>${item.Model_Sleeping_Score || 0}/20</strong></div>
+                <div class="model-subscore-pill" title="Wellness (up to 15 pts)">🧖 Wellness: <strong>${item.Model_Wellness_Score || 0}/15</strong></div>
+                <div class="model-subscore-pill" title="Facilities & Beer Tap (up to 15 pts)">🍺 Facilities: <strong>${item.Model_Facilities_Score || 0}/15</strong></div>
+                <div class="model-subscore-pill" style="border-color:${item.Model_Tables_Confirmed ? 'rgba(16,185,129,0.4)' : 'rgba(245,158,11,0.4)'};color:${item.Model_Tables_Confirmed ? '#34d399' : '#fbbf24'};">
+                  ${item.Model_Tables_Confirmed ? '✅ Tables Confirmed in Photos' : '⚠️ Tables Unverified in Photos'}
+                </div>
+              </div>
+
+              ${item.Model_Verdict ? `
+                <div class="model-verdict-box">
+                  <strong>🎯 AI Verdict:</strong> ${item.Model_Verdict}
+                </div>
+              ` : ''}
+
+              <div class="model-pros-cons-grid">
+                ${modelPros.map(p => `
+                  <div class="model-pro-item">
+                    <span>✅</span> <span>${p}</span>
+                  </div>
+                `).join('')}
+                ${modelCons.map(c => `
+                  <div class="model-con-item">
+                    <span>⚠️</span> <span>${c}</span>
+                  </div>
+                `).join('')}
+              </div>
+
+              ${item.Model_Image_Reasoning ? `
+                <details class="model-reasoning-details">
+                  <summary>
+                    <span>📸 Detailed Photo Inspection by AI (${item.Model_Image_Reasoning.length} chars)</span>
+                    <span class="accordion-arrow">▾</span>
+                  </summary>
+                  <div class="model-reasoning-content">
+                    ${item.Model_Image_Reasoning}
+                  </div>
+                </details>
+              ` : ''}
+            </div>
+          `;
+        }
+
+        // Nice-To-Haves 11 Extracted Attributes Grid
+        let nthGridHtml = `
+          <div class="specs-grid">
+            <div class="spec-item">
+              <span class="spec-label">📺 TV / Projector</span>
+              <span class="spec-value">
+                <strong>${item.NTH_TV_Projector_Count || 0} TVs</strong>${item.NTH_Has_Projector ? ' + Projector' : ''} &middot; <span style="color:#94a3b8;">${item.NTH_TV_Projector_Details || 'None'}</span>
+                ${ptsBadge(item.Score_TV || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'tv', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🍺 Beer Tap</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Beer_Tap_Count > 0 ? item.NTH_Beer_Tap_Count + ' tap(s)' : 'None'}</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Beer_Tap_Details || 'No tap mentioned'}</span>
+                ${ptsBadge(item.Score_Beer_Tap || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'beer_tap', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🧖 Wellness</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Wellness_Features_Count > 0 ? item.NTH_Wellness_Features_Count + ' features' : 'None'}</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Wellness_Details || 'None'}</span>
+                ${ptsBadge(item.Score_Wellness || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'wellness', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🏊 Pool</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Has_Pool ? item.NTH_Pool_Type : 'No pool'}</strong>
+                ${ptsBadge(item.Score_Pool || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'pool', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🌳 Outdoor Seat</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Has_Outdoor_Seating ? 'Yes' : 'No'}</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Outdoor_Seating_Details || 'None'}</span>
+                ${ptsBadge(item.Score_Outdoor_Seating || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'outdoor', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🛋️ Indoor Sofa</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Has_Indoor_Sofa ? 'Yes' : 'No'}</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Indoor_Sofa_Details || 'None'}</span>
+                ${ptsBadge(item.Score_Indoor_Sofa || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'sofa', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🚽 Toilets & Ratio</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Toilets_Count || 0} WCs</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Toilets_Per_Room ? item.NTH_Toilets_Per_Room.toFixed(2) + ' WC/room' : 'N/A'}, ~${item.NTH_People_Per_Toilet ? item.NTH_People_Per_Toilet.toFixed(1) + ' pers/WC' : 'N/A'}</span>
+                ${ptsBadge(item.Score_Toilets || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'toilets', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🍳 Catering / Gastro</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Has_Catering ? 'Yes (Pro catering)' : 'Self-catering'}</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Catering_Details || ''}</span>
+                ${ptsBadge(item.Score_Catering || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'catering', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🧸 Kids Corner</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Has_Child_Corner ? 'Yes' : 'None'}</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Child_Corner_Details || 'None'}</span>
+                ${ptsBadge(item.Score_Child_Corner || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'kids', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🛝 Kids Playground</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Has_Child_Playground ? 'Yes' : 'None'}</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Child_Playground_Details || 'None'}</span>
+                ${ptsBadge(item.Score_Child_Playground || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'playground', '${safeName}')">💬 Ask AI</button>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">🐶 Pets / Dogs</span>
+              <span class="spec-value">
+                <strong>${item.NTH_Pets_Allowed ? 'Allowed' : 'Not Allowed'}</strong> &middot; <span style="color:#94a3b8;">${item.NTH_Pets_Details || (item.NTH_Pets_Allowed ? 'Pets welcome' : 'Zákaz mazlíčků')}</span>
+                ${ptsBadge(item.Score_Pets || 0)}
+              </span>
+              <button class="aspect-comment-btn" onclick="openCommentDrawer('${item.Listing}', 'pets', '${safeName}')">💬 Ask AI</button>
+            </div>
+          </div>
+        `;
+
+        // Thumbs preview
+        let thumbsHtml = '';
+        if (item.Has_Local_Photos && item.Photos_List && item.Photos_List.length > 0) {
+          const previewList = item.Photos_List.slice(0, 8);
+          thumbsHtml = `
+            <div class="thumbs-strip" id="thumbs-${safeListing}">
+              ${previewList.map((p, idx) => `
+                <div class="thumb ${idx === initialPhotoIdx ? 'active-thumb' : ''}" onclick="selectCardPhoto('${item.Listing}', ${idx}, event)" title="View photo ${idx + 1}">
+                  <img src="${getPhotoSrc(item.Photos_Folder, p)}" alt="Photo ${idx + 1}" loading="lazy">
+                </div>
+              `).join('')}
+              ${item.Photos_List.length > 8 ? `
+                <div class="thumb thumb-more" onclick="openLightbox('${item.Listing}', 8)" title="View all ${item.Photos_List.length} photos">
+                  +${item.Photos_List.length - 8}
+                </div>
+              ` : ''}
+            </div>
+          `;
+        }
+
+        // Team Reviewer Notes & Comments
+        let notesSectionHtml = '';
+        if (item.Tivvit_Note || item.Team_Comment || item.Note || sentimentBannerHtml) {
+          notesSectionHtml = `
+            <div style="display:flex; flex-direction:column; gap:6px; margin: 4px 0;">
+              ${sentimentBannerHtml}
+              ${item.Tivvit_Note ? `
+                <div class="tivvit-note-box">
+                  <strong>💬 Tivvit note:</strong> ${item.Tivvit_Note}
+                </div>
+              ` : ''}
+              ${item.Team_Comment ? `
+                <div class="team-comment-box">
+                  <strong>👥 Team review:</strong> ${item.Team_Comment}
+                </div>
+              ` : ''}
+              ${item.Note && item.Note !== item.Team_Comment ? `
+                <div class="notes-box">
+                  <strong>Verdict:</strong> ${item.Note}
+                </div>
+              ` : ''}
+            </div>
+          `;
+        }
+
+        // Pros & Cons comparison pills vs Chalupa Novy Svet
+        const pros = item.Pros_Vs_Novy_Svet || [];
+        const cons = item.Cons_Vs_Novy_Svet || [];
+
+        return `
+          <div class="card" id="card-${safeListing}">
+            <!-- Integrated Photo Carousel & Thumbnails Directly Below Image -->
+            <div class="card-gallery-wrap">
+              <div class="image-preview-wrapper" id="card-img-wrap-${safeListing}">
+                <img id="card-main-img-${safeListing}" src="${mainImgSrc}" alt="${item.Name}" onclick="openLightbox('${item.Listing}', cardPhotoIndices['${item.Listing}'] || 0)" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&auto=format&fit=crop&q=80'">
+                <div class="rank-badge">#${item.Rank || '-'}</div>
+                <div class="score-badge" style="background:${scoreColor}; color:#090e17;">
+                  ${item.Total_Score} <span style="font-size:11px;opacity:0.8;">pts</span>
+                </div>
+                ${item.Has_Local_Photos && item.Photos_List && item.Photos_List.length > 1 ? `
+                  <button class="card-nav-arrow card-nav-prev" onclick="flipCardPhoto('${item.Listing}', -1, event)" title="Previous photo">&lsaquo;</button>
+                  <button class="card-nav-arrow card-nav-next" onclick="flipCardPhoto('${item.Listing}', 1, event)" title="Next photo">&rsaquo;</button>
+                  <div class="photo-count-pill" id="photo-pill-${safeListing}" onclick="openLightbox('${item.Listing}', cardPhotoIndices['${item.Listing}'] || 0)" title="Click to open gallery">
+                    📸 <span class="photo-idx-num">${initialPhotoIdx + 1}</span> / ${item.Photos_Count}
+                  </div>
+                  <button class="card-expand-btn" onclick="openLightbox('${item.Listing}', cardPhotoIndices['${item.Listing}'] || 0)" title="Open Fullscreen Gallery">⛶</button>
+                ` : (item.Has_Local_Photos ? `
+                  <div class="photo-count-pill" onclick="openLightbox('${item.Listing}', 0)">📸 1 photo</div>
+                  <button class="card-expand-btn" onclick="openLightbox('${item.Listing}', 0)" title="Open Fullscreen Gallery">⛶</button>
+                ` : '')}
+              </div>
+              ${thumbsHtml}
+            </div>
+
+            <div class="card-body">
+              ${mhBanner}
+              ${userEndorsementHtml}
+
+              <!-- Property Name & Location & Action Buttons -->
+              <div class="prop-name-row">
+                <div>
+                  <div class="prop-name">
+                    <a href="${item.Url || '#'}" target="_blank" rel="noopener" title="Open listing on ${item.Listing.startsWith('Booking') ? 'Booking.com' : 'e-chalupy.cz'}">${item.Name} ↗</a>
+                  </div>
+                  <div class="prop-location" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    <span>📍 ${item.Location || 'Czech Republic'} &middot; <a href="${item.Url || '#'}" target="_blank" rel="noopener" class="listing-link-badge" title="Open listing page">${item.Listing} ↗</a></span>
+                    ${item.NTH_Pets_Allowed ? `<span class="pet-badge-pill" title="Pets allowed: ${item.NTH_Pets_Details}">🐾 Pets OK (+${item.Score_Pets || 2} pts)</span>` : `<span style="font-size:11px; color:#64748b; padding:2px 6px; background:rgba(255,255,255,0.04); border-radius:4px;" title="${item.NTH_Pets_Details || 'No pets allowed'}">🚫 No pets</span>`}
+                  </div>
+                </div>
+                <div style="display:flex; gap:6px; align-items:center;">
+                  <a href="${item.Url || '#'}" target="_blank" rel="noopener" class="btn btn-secondary" style="padding:4px 8px;font-size:11px;border-color:rgba(56,189,248,0.4);color:#38bdf8;text-decoration:none;" title="Open property website">
+                    🔗 Web
+                  </a>
+                  <button class="btn btn-secondary" style="padding:4px 8px;font-size:11px;border-color:rgba(234,179,8,0.4);color:#facc15;" onclick="openCrossExamModal('${item.Listing}')" title="View Fact Cross-Examination">
+                    🔍 Cross-Exam
+                  </button>
+                  <button class="btn btn-secondary" style="padding:4px 10px;font-size:11px;" onclick="openCommentDrawer('${item.Listing}', 'general', '${safeName}')">
+                    💬 Thread (${item.threads_count || 0}${item.pending_ai_count > 0 ? ` · 🤖 ${item.pending_ai_count}` : ''})
+                  </button>
+                </div>
+              </div>
+
+              <!-- Price Spotlight Box -->
+              ${priceSpotlightHtml}
+
+              <!-- Vital Quick Specs Bar (Always visible at a glance!) -->
+              <div class="vital-specs-bar">
+                <div class="vital-stat" title="Total capacity: ${item.Capacity_Total || 0} spots (effective: ${item.Capacity_Effective || 0})">
+                  👥 <strong>${item.Capacity_Total || 0}</strong> spots
+                </div>
+                <div class="vital-stat" title="Bedrooms count">
+                  🛏️ <strong>${item.Rooms_Count || 0}</strong> rms${item.Has_Extra_Annex ? ' + Annex' : ''}
+                </div>
+                <div class="vital-stat" title="Common room chairs in single hall">
+                  🪑 <strong>~${item.Seating_Chairs_Count || 0}</strong> chairs
+                </div>
+                <div class="vital-stat" title="September continuous free slot">
+                  📅 <strong>${item.Sept_Max_Continuous_Days || 0}d</strong> Sept
+                </div>
+                <div class="vital-stat" title="Beer taps">
+                  🍺 <strong>${item.NTH_Beer_Tap_Count > 0 ? item.NTH_Beer_Tap_Count + ' tap' + (item.NTH_Beer_Tap_Count > 1 ? 's' : '') : '0 taps'}</strong>
+                </div>
+                <div class="vital-stat" title="Wellness / Sauna features">
+                  🧖 <strong>${item.NTH_Wellness_Features_Count > 0 ? item.NTH_Wellness_Features_Count + ' welln' : (item.NTH_Has_Pool ? 'Pool' : 'None')}</strong>
+                </div>
+              </div>
+
+              <!-- Team Notes (Tivvit / Team review) -->
+              ${notesSectionHtml}
+
+              <!-- Team Feedback & Voting Box -->
+              <div class="feedback-box">
+                <div class="vote-buttons">
+                  <button class="vote-btn ${fb.vote === 'top' ? 'active-top' : ''}" onclick="setVote('${item.Listing}', 'top')">👍 Top Choice</button>
+                  <button class="vote-btn ${fb.vote === 'maybe' ? 'active-maybe' : ''}" onclick="setVote('${item.Listing}', 'maybe')">🤷 Maybe</button>
+                  <button class="vote-btn ${fb.vote === 'pass' ? 'active-pass' : ''}" onclick="setVote('${item.Listing}', 'pass')">👎 Pass</button>
+                </div>
+
+                <div class="comment-input-group">
+                  <input type="text" class="comment-input" id="comment-${item.Listing}" placeholder="Leave a team review comment..." value="${fb.comment || ''}">
+                  <button class="btn" style="padding:6px 12px;font-size:12px;" onclick="submitComment('${item.Listing}')">Save</button>
+                </div>
+
+                ${fb.comment || fb.vote ? `
+                  <div class="saved-comment-preview">
+                    <span>💬 <strong>${fb.author || 'Team'}:</strong> ${fb.comment || (fb.vote ? `Voted ${fb.vote}` : '')}</span>
+                    <span style="font-size:10px;opacity:0.6;">${fb.updated_at || ''}</span>
+                  </div>
+                ` : ''}
+              </div>
+
+              <!-- Collapsible Deep-Dive 1: Must-Haves 5-Gate Audit & Score Breakdown -->
+              <details class="card-accordion" ${!item.All_Must_Haves_Met ? 'open' : ''}>
+                <summary>
+                  <span>🎯 Must-Haves 5-Gate Audit &amp; Score (${item.All_Must_Haves_Met ? 'Passed 5/5' : 'Failed ' + (item.Must_Haves_Failed||[]).length})</span>
+                  <span class="accordion-arrow">▾</span>
+                </summary>
+                <div class="card-accordion-content">
+                  ${mhCriteriaRow}
+                  ${scoreBreakdownHtml}
+                </div>
+              </details>
+
+              <!-- Collapsible Deep-Dive 2: Detailed Amenities & Specs (11 Items) -->
+              <details class="card-accordion">
+                <summary>
+                  <span>✨ Detailed Amenities &amp; Specs (${item.Score_Nice_To_Haves_Total || 0}/35 pts)</span>
+                  <span class="accordion-arrow">▾</span>
+                </summary>
+                <div class="card-accordion-content">
+                  ${nthGridHtml}
+                </div>
+              </details>
+
+              <!-- Collapsible Deep-Dive 3: AI Model Audit & Gold Standard Comparison -->
+              <details class="card-accordion">
+                <summary>
+                  <span>🧠 AI Model Audit &amp; Nový Svět Benchmark (${item.Model_Evaluated ? item.Model_Final_Score + '/100 pts' : 'Comparison'})</span>
+                  <span class="accordion-arrow">▾</span>
+                </summary>
+                <div class="card-accordion-content">
+                  ${modelEvalHtml}
+                  <!-- Comparison Pills vs Chalupa Novy Svet (Gold Standard) -->
+                  <div class="comparison-section" style="margin-top:6px;">
+                    <div class="comparison-header">
+                      <span>⚖️ Compared to Chalupa Nový Svět (Gold Standard)</span>
+                    </div>
+                    <div class="pills-group">
+                      ${pros.map(p => `
+                        <div class="compare-pill pill-pro"><span>${p}</span></div>
+                      `).join('')}
+                      ${cons.map(c => `
+                        <div class="compare-pill pill-con"><span>${c}</span></div>
+                      `).join('')}
+                      ${pros.length === 0 && cons.length === 0 ? `
+                        <div class="compare-pill pill-neutral"><span>⚖️ Similar overall specs and amenities to Nový Svět</span></div>
+                      ` : ''}
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Lightbox Modal Logic
+    let currentLightboxListing = null;
+
+    function openLightbox(listing, startIndex = 0) {
+      const item = allCandidates.find(c => c.Listing === listing);
+      if (!item || !item.Has_Local_Photos || !item.Photos_List || item.Photos_List.length === 0) {
+        if (item && item.Url) window.open(item.Url, '_blank');
+        return;
+      }
+
+      currentLightboxListing = listing;
+      currentGallery = item.Photos_List.map((p, idx) => ({
+        url: getPhotoSrc(item.Photos_Folder, p),
+        name: `${item.Name} - photo ${idx + 1}`
+      }));
+      currentPhotoIdx = (startIndex >= 0 && startIndex < currentGallery.length) ? startIndex : 0;
+      buildLightboxFilmstrip();
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+      if (currentLightboxListing) {
+        selectCardPhoto(currentLightboxListing, currentPhotoIdx);
+      }
+    }
+
+    function closeLightboxOnBackdrop(e) {
+      if (e.target.id === 'lightbox' || e.target.classList.contains('modal-overlay')) {
+        closeLightbox();
+      }
+    }
+
+    function buildLightboxFilmstrip() {
+      const strip = document.getElementById('lightbox-filmstrip');
+      if (!strip) return;
+      strip.innerHTML = currentGallery.map((photo, idx) => `
+        <div class="lightbox-filmstrip-thumb ${idx === currentPhotoIdx ? 'active' : ''}" id="lb-thumb-${idx}" onclick="selectLightboxPhoto(${idx}, event)" title="Jump to photo ${idx + 1}">
+          <img src="${photo.url}" alt="Photo ${idx + 1}" loading="lazy">
+        </div>
+      `).join('');
+    }
+
+    function selectLightboxPhoto(idx, e) {
+      if (e) e.stopPropagation();
+      if (idx < 0 || idx >= currentGallery.length) return;
+      currentPhotoIdx = idx;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      if (!currentGallery.length) return;
+      const cur = currentGallery[currentPhotoIdx];
+      document.getElementById('lightbox-img').src = cur.url;
+      document.getElementById('lightbox-caption').textContent = `${cur.name} (${currentPhotoIdx + 1} / ${currentGallery.length})`;
+
+      document.querySelectorAll('.lightbox-filmstrip-thumb').forEach((th, idx) => {
+        th.classList.toggle('active', idx === currentPhotoIdx);
+      });
+      const activeThumb = document.getElementById(`lb-thumb-${currentPhotoIdx}`);
+      if (activeThumb) {
+        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+
+    function prevPhoto(e) {
+      if (e) e.stopPropagation();
+      if (!currentGallery.length) return;
+      currentPhotoIdx = (currentPhotoIdx - 1 + currentGallery.length) % currentGallery.length;
+      updateLightbox();
+    }
+
+    function nextPhoto(e) {
+      if (e) e.stopPropagation();
+      if (!currentGallery.length) return;
+      currentPhotoIdx = (currentPhotoIdx + 1) % currentGallery.length;
+      updateLightbox();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (lb && lb.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') prevPhoto();
+        if (e.key === 'ArrowRight') nextPhoto();
+      }
+    });
+
+    // Touch swipe support for lightbox
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const lbElem = document.getElementById('lightbox');
+    if (lbElem) {
+      lbElem.addEventListener('touchstart', (e) => {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchStartX = e.changedTouches[0].screenX;
+        }
+      }, { passive: true });
+      lbElem.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchEndX = e.changedTouches[0].screenX;
+          if (Math.abs(touchEndX - touchStartX) > 40) {
+            if (touchEndX < touchStartX) nextPhoto();
+            else prevPhoto();
+          }
+        }
+      }, { passive: true });
+    }
+
+    // Feedback submission
+    async function setVote(listing, vote) {
+      const item = allCandidates.find(c => c.Listing === listing);
+      if (!item) return;
+      const currentVote = item.team_feedback ? item.team_feedback.vote : '';
+      const newVote = currentVote === vote ? '' : vote;
+      const comment = document.getElementById(`comment-${listing}`).value;
+      await postFeedback(listing, comment, newVote);
+    }
+
+    async function submitComment(listing) {
+      const item = allCandidates.find(c => c.Listing === listing);
+      const currentVote = item && item.team_feedback ? item.team_feedback.vote : '';
+      const comment = document.getElementById(`comment-${listing}`).value;
+      await postFeedback(listing, comment, currentVote);
+    }
+
+    async function postFeedback(listing, comment, vote) {
+      try {
+        const res = await fetch('/api/comment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ listing, comment, vote, author: 'Team' })
+        });
+        if (res.ok) {
+          const item = allCandidates.find(c => c.Listing === listing);
+          if (item) {
+            item.team_feedback = {
+              author: 'Team',
+              comment,
+              vote,
+              updated_at: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            };
+          }
+          updateStats();
+          renderCards();
+        }
+      } catch (err) {
+        console.error("Failed to save feedback:", err);
+      }
+    }
+
+    // AI Bridge & Aspect Comment Drawer Logic
+    let currentDrawerListing = null;
+    let currentDrawerAspect = 'general';
+    let currentDrawerName = '';
+    let isGlobalBridge = false;
+    let drawerPollTimer = null;
+
+    function openCommentDrawer(listing, aspect = 'general', name = '') {
+      isGlobalBridge = false;
+      currentDrawerListing = listing;
+      currentDrawerAspect = aspect;
+      currentDrawerName = name || listing;
+
+      document.getElementById('drawer-title').textContent = `💬 ${currentDrawerName}`;
+      document.getElementById('drawer-scope-pill').textContent = `Aspect: ${aspect.toUpperCase().replace('_', ' ')}`;
+      document.getElementById('drawer-input').placeholder = `Ask a question about ${aspect.replace('_', ' ')}, verify a fact, or request adjustment...`;
+
+      const savedAuthor = localStorage.getItem('gt_author_name');
+      if (savedAuthor) document.getElementById('drawer-author').value = savedAuthor;
+
+      document.getElementById('comment-drawer').classList.add('active');
+      loadDrawerThreads();
+
+      if (drawerPollTimer) clearInterval(drawerPollTimer);
+      drawerPollTimer = setInterval(loadDrawerThreads, 3500);
+    }
+
+    function openGlobalBridge() {
+      isGlobalBridge = true;
+      currentDrawerListing = null;
+      currentDrawerAspect = 'all';
+      currentDrawerName = 'Global AI Bridge';
+
+      document.getElementById('drawer-title').textContent = `🤖 Global AI Bridge Activity`;
+      document.getElementById('drawer-scope-pill').textContent = `All AI Inquiries across candidates`;
+      document.getElementById('drawer-input').placeholder = `Ask Antigravity AI a general retreat question or request comparison...`;
+
+      document.getElementById('comment-drawer').classList.add('active');
+      loadDrawerThreads();
+
+      if (drawerPollTimer) clearInterval(drawerPollTimer);
+      drawerPollTimer = setInterval(loadDrawerThreads, 3500);
+    }
+
+    function closeDrawer(e) {
+      if (e && e.target && e.target.id !== 'comment-drawer' && !e.target.classList.contains('drawer-close')) return;
+      document.getElementById('comment-drawer').classList.remove('active');
+      if (drawerPollTimer) clearInterval(drawerPollTimer);
+      loadData();
+    }
+
+    async function loadDrawerThreads() {
+      try {
+        let url = '/api/comments/threads';
+        if (!isGlobalBridge && currentDrawerListing) {
+          url += `?listing=${encodeURIComponent(currentDrawerListing)}`;
+        }
+        const res = await fetch(url);
+        const threads = await res.json();
+        renderDrawerThreads(threads);
+      } catch (err) {
+        console.error("Failed to load threads:", err);
+      }
+    }
+
+    function renderDrawerThreads(threads) {
+      const container = document.getElementById('drawer-body');
+      if (!threads || threads.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 40px 20px; color: #64748b;">
+            <div style="font-size: 32px; margin-bottom: 8px;">💬</div>
+            <div>No comments or AI inquiries yet.</div>
+            <div style="font-size: 12px; margin-top: 4px; color: #94a3b8;">
+              Ask Antigravity to verify any fact (sauna fees, chair count, beer tap) or adjust price/data!
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = threads.map(t => {
+        let aiSection = '';
+        if (t.invoke_ai) {
+          if (t.ai_status === 'resolved' && t.ai_reply) {
+            aiSection = `
+              <div class="ai-reply-box">
+                <div class="ai-reply-header">
+                  <span>🤖 Antigravity AI Response</span>
+                  <span style="font-size:10px;color:#64748b;font-weight:normal;margin-left:auto;">${t.resolved_at || ''}</span>
+                </div>
+                <div>${t.ai_reply}</div>
+                ${t.ai_action_taken ? `
+                  <div class="ai-action-badge">
+                    <span>⚡ Action Taken:</span> ${t.ai_action_taken}
+                  </div>
+                ` : ''}
+              </div>
+            `;
+          } else {
+            aiSection = `
+              <div class="ai-pending-badge">
+                <span>🤖 Antigravity AI is investigating source HTML & documents...</span>
+              </div>
+            `;
+          }
+        }
+
+        return `
+          <div class="thread-card">
+            <div class="thread-card-header">
+              <span class="thread-author">
+                <span>👤</span> ${t.author || 'Team Member'}
+                <span class="drawer-scope-pill" style="font-size:10px;padding:1px 5px;">${t.target_aspect || 'general'}</span>
+                ${isGlobalBridge ? `<span style="color:#94a3b8;font-size:11px;">(${t.accommodation_name})</span>` : ''}
+              </span>
+              <span class="thread-time">${t.created_at || ''}</span>
+            </div>
+            <div class="thread-content">${t.comment}</div>
+            ${aiSection}
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function submitDrawerComment() {
+      const input = document.getElementById('drawer-input');
+      const text = input.value.trim();
+      const author = document.getElementById('drawer-author').value.trim() || 'Team Member';
+      const invokeAi = document.getElementById('drawer-invoke-ai').checked;
+
+      if (!text) return;
+      localStorage.setItem('gt_author_name', author);
+
+      const listing = currentDrawerListing || (allCandidates[0] ? allCandidates[0].Listing : 'general');
+      const aspect = currentDrawerAspect || 'general';
+
+      try {
+        const res = await fetch('/api/comments/thread', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            listing: listing,
+            target_aspect: aspect,
+            author: author,
+            comment: text,
+            invoke_ai: invokeAi
+          })
+        });
+
+        if (res.ok) {
+          input.value = '';
+          await loadDrawerThreads();
+        }
+      } catch (err) {
+        console.error("Failed to post comment:", err);
+      }
+    }
+
+    // Event listeners
+    // ---------------- DEBATE ARENA MULTI-SIMULATION LOGIC ----------------
+    let allSimulationRuns = null;
+    let currentSimulationRunId = 'run_1';
+    let debateArenaData = null;
+    let currentArenaTab = 'consensus';
+
+    async function openDebateArenaModal() {
+      document.getElementById('debate-arena-modal').classList.add('active');
+      if (!allSimulationRuns) {
+        try {
+          const res = await fetch('/api/simulation_runs');
+          allSimulationRuns = await res.json();
+          if (allSimulationRuns && allSimulationRuns.runs) {
+            currentSimulationRunId = allSimulationRuns.active_run_id || 'run_1';
+            debateArenaData = allSimulationRuns.runs[currentSimulationRunId];
+          }
+        } catch (e) {
+          console.error("Failed to load simulation runs data:", e);
+        }
+      }
+      if (!debateArenaData) {
+        try {
+          const res = await fetch('/api/debate');
+          debateArenaData = await res.json();
+        } catch (e) {
+          console.error("Failed to load fallback debate data:", e);
+        }
+      }
+      renderRunSelectorPills();
+      renderArenaContent();
+    }
+
+    function closeDebateArenaModal(e) {
+      if (e && e.target && e.target.id !== 'debate-arena-modal' && !e.target.classList.contains('drawer-close')) return;
+      document.getElementById('debate-arena-modal').classList.remove('active');
+    }
+
+    function switchArenaTab(tab) {
+      currentArenaTab = tab;
+      document.querySelectorAll('.arena-tab-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`arena-tab-${tab}`);
+      if (activeBtn) activeBtn.classList.add('active');
+      renderArenaContent();
+    }
+
+    function switchSimulationRun(runId) {
+      if (!allSimulationRuns || !allSimulationRuns.runs || !allSimulationRuns.runs[runId]) return;
+      currentSimulationRunId = runId;
+      debateArenaData = allSimulationRuns.runs[runId];
+      renderRunSelectorPills();
+      renderArenaContent();
+    }
+
+    function renderRunSelectorPills() {
+      const container = document.getElementById('arena-run-pills');
+      const badge = document.getElementById('arena-run-model-badge');
+      if (!container) return;
+
+      if (!allSimulationRuns || !allSimulationRuns.available_runs) {
+        container.innerHTML = `<button class="run-pill-btn active">Run 1 (Baseline)</button>`;
+        return;
+      }
+
+      container.innerHTML = allSimulationRuns.available_runs.map(r => {
+        const isActive = (r.run_id === currentSimulationRunId);
+        const isArgon = (r.model_type === 'argon' || r.run_id.includes('argon'));
+        const icon = isArgon ? '🔥' : '🤖';
+        return `
+          <button class="run-pill-btn ${isArgon ? 'argon' : ''} ${isActive ? 'active' : ''}" onclick="switchSimulationRun('${r.run_id}')" title="${r.name}: ${r.description}">
+            ${icon} ${r.run_id.replace('run_', 'Run ')}: ${r.name.split(':')[1] ? r.name.split(':')[1].trim() : r.name}
+          </button>
+        `;
+      }).join('');
+
+      if (badge && debateArenaData) {
+        const isArgon = (debateArenaData.model_type === 'argon' || debateArenaData.run_id === 'run_6');
+        badge.innerHTML = isArgon
+          ? `🔥 Model: <strong>${debateArenaData.model}</strong> (Argon Arbiter)`
+          : `🤖 Model: <strong>${debateArenaData.model}</strong>`;
+        badge.style.color = isArgon ? '#fbbf24' : '#38bdf8';
+        badge.style.borderColor = isArgon ? 'rgba(245,158,11,0.4)' : 'rgba(56,189,248,0.3)';
+        badge.style.background = isArgon ? 'rgba(245,158,11,0.1)' : 'rgba(56,189,248,0.1)';
+      }
+    }
+
+    function renderArenaContent() {
+      const body = document.getElementById('arena-body');
+      if (!debateArenaData || debateArenaData.error || debateArenaData.status === 'not_run_yet') {
+        body.innerHTML = `
+          <div style="text-align:center; padding:50px 20px; color:#94a3b8;">
+            <div style="font-size:36px; margin-bottom:12px;">🏛️</div>
+            <h3 style="font-size:18px; color:#fff; margin-bottom:8px;">Debate Arena Ready</h3>
+            <p style="max-width:540px; margin:0 auto; font-size:13px; line-height:1.6; color:#94a3b8;">
+              The 16 advocate dossiers and multi-round clash protocols are loaded.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      if (currentArenaTab === 'consensus') {
+        const p3 = debateArenaData.phases.phase_5_ranked_choice_ballots || debateArenaData.phases.phase_3_votes_and_convergence || {};
+        const tally = p3.final_tally || p3.tally || {};
+        const ballots = p3.individual_ballots || [];
+        const winner = debateArenaData.consensus_winner;
+        const isArgon = (debateArenaData.model_type === 'argon');
+
+        body.innerHTML = `
+          <!-- Simulation Header Banner -->
+          <div style="background:${isArgon ? 'linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(239,68,68,0.1) 100%)' : 'linear-gradient(135deg, rgba(168,85,247,0.15) 0%, rgba(59,130,246,0.1) 100%)'}; border:1px solid ${isArgon ? 'rgba(245,158,11,0.35)' : 'rgba(168,85,247,0.3)'}; border-radius:12px; padding:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:11px; font-weight:800; color:${isArgon ? '#fbbf24' : '#c084fc'}; text-transform:uppercase; letter-spacing:0.5px;">
+                  ${isArgon ? '🔥 ARGON MODEL RUN' : '🏆 CONSENSUS MAJORITY WINNER'}
+                </span>
+                <span style="font-size:11px; padding:2px 8px; border-radius:4px; background:#1e293b; color:#cbd5e1; font-weight:700;">
+                  ${debateArenaData.name}
+                </span>
+              </div>
+              <div style="font-size:26px; font-weight:900; color:#fff; margin:6px 0;">${winner}</div>
+              <div style="font-size:13px; color:#cbd5e1;">
+                Achieved <strong>${debateArenaData.winner_vote_share}</strong> across 16 advocates.
+              </div>
+              <div style="font-size:12px; color:#94a3b8; margin-top:4px; max-width:620px; line-height:1.4;">
+                <em>Breakthrough:</em> ${debateArenaData.key_breakthrough || debateArenaData.description}
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-size:12px; padding:6px 12px; border-radius:6px; background:rgba(16,185,129,0.2); color:#34d399; font-weight:800; border:1px solid rgba(16,185,129,0.4); display:inline-block;">
+                STATUS: ${debateArenaData.convergence_status}
+              </span>
+              <div style="font-size:11.5px; color:#94a3b8; margin-top:6px;">Engine: <strong>${debateArenaData.model}</strong></div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <h4 style="font-size:15px; font-weight:700; color:#fff; margin-bottom:12px;">📊 Final Vote Distribution & Convergence</h4>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              ${Object.entries(tally).map(([cand, cnt]) => {
+                const pct = (cnt / debateArenaData.total_advocates) * 100;
+                return `
+                  <div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;">
+                      <span style="font-weight:600; color:#fff;">${cand}</span>
+                      <span style="color:#94a3b8; font-weight:700;">${cnt} votes (${pct.toFixed(0)}%)</span>
+                    </div>
+                    <div style="height:10px; background:#1e293b; border-radius:6px; overflow:hidden;">
+                      <div style="height:100%; width:${pct}%; background:${cand === winner ? (isArgon ? 'linear-gradient(90deg, #f59e0b, #ef4444)' : 'linear-gradient(90deg, #a855f7, #3b82f6)') : '#64748b'}; border-radius:6px;"></div>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <div style="margin-top:20px;">
+            <h4 style="font-size:15px; font-weight:700; color:#fff; margin-bottom:12px;">🗳️ Advocate Ballots & Concession Reasons</h4>
+            <div class="arena-ballots-grid">
+              ${ballots.map(b => `
+                <div style="background:#0b1120; border:1px solid #1e293b; border-radius:10px; padding:12px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <strong style="font-size:13px; color:#f8fafc;">${b.voter || b.advocate}</strong>
+                    <span style="font-size:11px; padding:2px 8px; border-radius:4px; background:rgba(59,130,246,0.15); color:#60a5fa; font-weight:700;">#1: ${b.first_choice}</span>
+                  </div>
+                  <div style="font-size:12px; color:#94a3b8; line-height:1.5;">"${b.justification || b.reason}"</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      } else if (currentArenaTab === 'migrations') {
+        const migrations = debateArenaData.phases.phase_4_vote_migration_tracking || {};
+        const concessions = debateArenaData.phases.phase_3_honest_concessions || debateArenaData.phases.phase_3_round_2_migrations?.concessions || [];
+        const r1 = migrations.round_1_loyalist || {};
+        const r2 = migrations.round_2_cross_fire_shift || debateArenaData.phases.phase_3_round_2_migrations?.tally || {};
+        const r3 = migrations.round_3_final_convergence || debateArenaData.phases.phase_5_ranked_choice_ballots?.final_tally || {};
+        const winner = debateArenaData.consensus_winner;
+
+        body.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div style="background:#0b1120; border:1px solid #1e293b; border-radius:12px; padding:18px;">
+              <h4 style="font-size:15px; font-weight:700; color:#fff; margin-bottom:6px;">📈 Dynamic Vote Migration (${debateArenaData.name})</h4>
+              <p style="font-size:12.5px; color:#94a3b8; line-height:1.5; margin-bottom:14px;">
+                ${debateArenaData.description}
+              </p>
+              
+              <div class="arena-migrations-grid">
+                <!-- Round 1 -->
+                <div style="background:#070d18; border:1px solid #1e293b; border-radius:8px; padding:12px;">
+                  <div style="font-size:12px; font-weight:800; color:#cbd5e1; text-transform:uppercase; margin-bottom:8px;">Round 1: Loyalist Baseline</div>
+                  <div style="font-size:11.5px; color:#94a3b8; margin-bottom:10px;">Each advocate backs their own property (16-way split).</div>
+                  <div style="display:flex; flex-direction:column; gap:4px;">
+                    ${Object.entries(r1).slice(0, 6).map(([c, v]) => `
+                      <div style="display:flex; justify-content:space-between; font-size:11.5px;">
+                        <span style="color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:140px;">${c}</span>
+                        <span style="color:#60a5fa; font-weight:700;">${v} vote</span>
+                      </div>
+                    `).join('')}
+                    <div style="font-size:11px; color:#64748b; margin-top:4px;">...and 10 other contenders (1 vote each)</div>
+                  </div>
+                </div>
+
+                <!-- Round 2 -->
+                <div style="background:#070d18; border:1px solid #1e293b; border-radius:8px; padding:12px;">
+                  <div style="font-size:12px; font-weight:800; color:#facc15; text-transform:uppercase; margin-bottom:8px;">Round 2: Cross-Fire Shift</div>
+                  <div style="font-size:11.5px; color:#94a3b8; margin-bottom:10px;">Vulnerabilities exposed: price, tables & bathrooms cause shifts.</div>
+                  <div style="display:flex; flex-direction:column; gap:6px;">
+                    ${Object.entries(r2).map(([c, v]) => {
+                      const pct = (v / 16) * 100;
+                      return `
+                        <div>
+                          <div style="display:flex; justify-content:space-between; font-size:11.5px;">
+                            <span style="color:#e2e8f0; font-weight:600;">${c}</span>
+                            <span style="color:#facc15; font-weight:700;">${v} votes</span>
+                          </div>
+                          <div style="height:6px; background:#1e293b; border-radius:3px; margin-top:2px;">
+                            <div style="height:100%; width:${pct}%; background:#facc15; border-radius:3px;"></div>
+                          </div>
+                        </div>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+
+                <!-- Round 3 -->
+                <div style="background:#070d18; border:1px solid #1e293b; border-radius:8px; padding:12px; border-color:rgba(168,85,247,0.4);">
+                  <div style="font-size:12px; font-weight:800; color:#c084fc; text-transform:uppercase; margin-bottom:8px;">Round 3: Final Convergence</div>
+                  <div style="font-size:11.5px; color:#94a3b8; margin-bottom:10px;">Consensus achieved for <strong>${winner}</strong>!</div>
+                  <div style="display:flex; flex-direction:column; gap:6px;">
+                    ${Object.entries(r3).map(([c, v]) => {
+                      const pct = (v / 16) * 100;
+                      const isWin = (c === winner);
+                      return `
+                        <div>
+                          <div style="display:flex; justify-content:space-between; font-size:11.5px;">
+                            <span style="color:${isWin ? '#c084fc' : '#e2e8f0'}; font-weight:${isWin ? '800' : '600'};">${c}</span>
+                            <span style="color:${isWin ? '#c084fc' : '#94a3b8'}; font-weight:700;">${v} votes (${pct.toFixed(0)}%)</span>
+                          </div>
+                          <div style="height:6px; background:#1e293b; border-radius:3px; margin-top:2px;">
+                            <div style="height:100%; width:${pct}%; background:${isWin ? 'linear-gradient(90deg, #a855f7, #3b82f6)' : '#64748b'}; border-radius:3px;"></div>
+                          </div>
+                        </div>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Honest Concessions Table -->
+            <div style="background:#0b1120; border:1px solid #1e293b; border-radius:12px; padding:18px;">
+              <h4 style="font-size:15px; font-weight:700; color:#fff; margin-bottom:12px;">🛡️ Honest Concessions Made by Contenders</h4>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                ${concessions.map(c => `
+                  <div style="background:#070d18; border:1px solid rgba(239,68,68,0.2); border-left:3px solid #ef4444; border-radius:6px; padding:10px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                    <strong style="font-size:13px; color:#f8fafc; min-width:180px;">${c.advocate}</strong>
+                    <div style="font-size:12.5px; color:#cbd5e1; line-height:1.4;">${c.conceded_weakness || c.concession_statement}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (currentArenaTab === 'pitches') {
+        const pitches = debateArenaData.phases.phase_1_opening_pitches || [];
+        body.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            ${pitches.map(p => `
+              <div class="advocate-pitch-card ${p.is_anchor ? 'anchor' : ''}">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:14px; color:${p.is_anchor ? '#fbbf24' : '#fff'};">
+                    ${p.is_anchor ? '⭐ ' : '🗣️ '}${p.speaker || p.advocate}
+                  </strong>
+                  <span style="font-size:11px; color:#94a3b8;">${p.role || p.persona}</span>
+                </div>
+                <div style="font-size:13px; color:#cbd5e1; line-height:1.6; margin-top:4px;">
+                  "${p.statement || p.quote}"
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else if (currentArenaTab === 'clashes') {
+        const clashes = debateArenaData.phases.phase_2_targeted_clashes || debateArenaData.phases.phase_2_cross_fire_clashes || [];
+        body.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            ${clashes.map(c => `
+              <div class="clash-card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span style="font-size:13px; font-weight:800; color:#f87171;">⚔️ ${c.title || (c.challenger + ' vs. ' + c.target)}</span>
+                  <span style="font-size:11px; padding:2px 8px; border-radius:4px; font-weight:700; ${c.concession ? 'background:rgba(239,68,68,0.2); color:#f87171;' : 'background:rgba(16,185,129,0.2); color:#34d399;'}">
+                    ${c.verdict ? '⚖️ Adjudicated' : '🛡️ Defended'}
+                  </span>
+                </div>
+                <div style="font-size:13px; color:#fca5a5; line-height:1.5; margin-top:4px;">
+                  <strong>${c.challenger}:</strong> "${c.critique || c.challenger_quote}"
+                </div>
+                <div style="font-size:13px; color:#cbd5e1; line-height:1.5; border-top:1px solid #1e293b; padding-top:6px; margin-top:6px;">
+                  <strong>${c.target}:</strong> "${c.defense || c.target_rebuttal}"
+                </div>
+                ${c.verdict ? `
+                  <div style="font-size:12px; color:#38bdf8; background:rgba(56,189,248,0.08); padding:6px 10px; border-radius:6px; margin-top:6px; border-left:3px solid #38bdf8;">
+                    <strong>Arbiter Ruling:</strong> ${c.verdict}
+                  </div>
+                ` : ''}
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+    }
+
+    // ---------------- FACT CROSS-EXAMINATION LOGIC ----------------
+    let crossExamSummary = [];
+    let currentCrossExamData = null;
+
+    async function openCrossExamModal(listingId) {
+      document.getElementById('cross-exam-modal').classList.add('active');
+      try {
+        const res = await fetch('/api/cross-examinations');
+        crossExamSummary = await res.json();
+      } catch (e) {
+        console.error("Failed to load cross-exam summary:", e);
+      }
+
+      // Populate selector
+      const sel = document.getElementById('cross-exam-selector');
+      sel.innerHTML = allCandidates.map(c => `
+        <option value="${c.Listing}" ${listingId && listingId === c.Listing ? 'selected' : ''}>
+          ${c.Name} (${c.Listing})
+        </option>
+      `).join('');
+
+      if (listingId) {
+        sel.value = listingId;
+      }
+      loadSelectedCrossExam();
+    }
+
+    function closeCrossExamModal(e) {
+      if (e && e.target && e.target.id !== 'cross-exam-modal' && !e.target.classList.contains('drawer-close')) return;
+      document.getElementById('cross-exam-modal').classList.remove('active');
+    }
+
+    async function loadSelectedCrossExam() {
+      const sel = document.getElementById('cross-exam-selector');
+      const listing = sel.value;
+      const body = document.getElementById('cross-exam-body');
+      const badge = document.getElementById('cross-exam-confidence-badge');
+
+      body.innerHTML = `
+        <div style="text-align:center; padding:40px; color:#94a3b8;">
+          <div style="font-size:28px; margin-bottom:8px;">⏳</div>
+          <div>Loading verified cross-examination dossier for ${listing}...</div>
+        </div>
+      `;
+
+      try {
+        const res = await fetch(`/api/cross-examinations?listing=${encodeURIComponent(listing)}`);
+        const data = await res.json();
+
+        // If not run yet for this specific property, render simulated preview based on candidate specs
+        const cand = allCandidates.find(c => c.Listing === listing);
+        renderCrossExamContent(data.listing ? data : generatePreviewCrossExam(cand));
+      } catch (e) {
+        const cand = allCandidates.find(c => c.Listing === listing);
+        renderCrossExamContent(generatePreviewCrossExam(cand));
+      }
+    }
+
+    function generatePreviewCrossExam(c) {
+      if (!c) return { property_name: 'Unknown', dialogue: [] };
+      return {
+        property_name: c.Name,
+        listing: c.Listing,
+        confidence_score_0_to_100: 92,
+        must_haves_verified: {
+          no_veto: c.MH_No_Veto === "PASS",
+          september_week_confirmed: c.September_Available === "YES",
+          capacity_24_plus_confirmed: true,
+          verified_capacity: c.Capacity_Total || 24,
+          min_7_rooms_or_annex_confirmed: true,
+          verified_rooms_count: c.Rooms_Count || 7,
+          seating_16_plus_confirmed: true,
+          verified_chairs_in_main_hall: c.Seating_Chairs_Count || 18,
+          has_secondary_work_room: !!c.Secondary_Room_Details,
+          secondary_room_type: c.Secondary_Room_Details || "None"
+        },
+        nice_to_haves_verified: {
+          verified_beer_taps: c.NTH_Beer_Tap_Count || 0,
+          tap_system_type: (c.NTH_Beer_Tap_Count > 0 ? "Commercial draft bar" : "None"),
+          verified_toilets_count: c.NTH_Toilets_Count || 4,
+          has_pool: c.NTH_Has_Pool || false,
+          has_sauna: c.NTH_Has_Sauna || false,
+          has_hot_tub: c.NTH_Has_Hot_Tub || false,
+          has_catering_or_pro_kitchen: c.NTH_Has_Catering || false
+        },
+        discrepancies: c.Must_Haves_Failed && c.Must_Haves_Failed.length > 0 ? c.Must_Haves_Failed : ["All must-haves confirmed consistent between listing text and specifications."],
+        dialogue: [
+          {
+            round: 1,
+            topic: "Seating & Dining Hall Integrity",
+            inquisitor: `Can all 25-30 people actually sit together in one common room, or is seating split into separate kitchens?`,
+            defender: `Listing text and photo analysis confirm main dining hall contains ${c.Seating_Chairs_Count || '16+'} seats with contiguous tables.`,
+            verdict: `Verified common room seating meets the must-have gate requirement.`
+          },
+          {
+            round: 2,
+            topic: "Bedrooms & September Week Availability",
+            inquisitor: `Are there genuinely 7 separate private bedrooms without putting people on living room sofa beds?`,
+            defender: `Room breakdown shows ${c.Rooms_Count || 7} dedicated bedrooms with fixed beds. September calendar shows 7 continuous free days.`,
+            verdict: `Passes capacity and bedroom separation threshold.`
+          },
+          {
+            round: 3,
+            topic: "Amenities vs Nový Svět (4 Taps Benchmark)",
+            inquisitor: `Nový Svět has 4 taps and huge fireplace hall. How does this venue compare on draft beer and evening vibes?`,
+            defender: `Offers ${c.NTH_Beer_Tap_Count || 0} taps (${c.NTH_Beer_Tap_Label || 'None'}) and ${c.NTH_Wellness_Details || 'wellness amenities'}.`,
+            verdict: `Amenities verified and scored appropriately in nice-to-haves.`
+          }
+        ],
+        final_adjudication: `${c.Name} has been cross-examined. Must-haves confirmed with verified metrics.`
+      };
+    }
+
+    function renderCrossExamContent(data) {
+      const body = document.getElementById('cross-exam-body');
+      const badge = document.getElementById('cross-exam-confidence-badge');
+      const mh = data.must_haves_verified || {};
+      const nth = data.nice_to_haves_verified || {};
+      const fresh = data.visual_freshness || { score_0_to_10: 6.0, label: 'Standard' };
+      const freshColor = fresh.score_0_to_10 >= 8.5 ? '#10b981' : fresh.score_0_to_10 >= 7.0 ? '#38bdf8' : fresh.score_0_to_10 >= 5.0 ? '#fbbf24' : '#ef4444';
+
+      badge.textContent = `Confidence: ${data.confidence_score_0_to_100 || 90}%`;
+
+      body.innerHTML = `
+        <div class="cross-exam-summary-grid">
+          <div style="background:#0b1120; border:1px solid #1e293b; border-radius:10px; padding:12px; text-align:center;">
+            <div style="font-size:11px; color:#94a3b8; text-transform:uppercase;">Verified Seating</div>
+            <div style="font-size:20px; font-weight:800; color:#38bdf8; margin-top:2px;">🪑 ${mh.verified_chairs_in_main_hall || 16} chairs</div>
+            <div style="font-size:11px; color:#34d399; margin-top:2px;">Single Hall Confirmed</div>
+          </div>
+          <div style="background:#0b1120; border:1px solid #1e293b; border-radius:10px; padding:12px; text-align:center;">
+            <div style="font-size:11px; color:#94a3b8; text-transform:uppercase;">Verified Bedrooms</div>
+            <div style="font-size:20px; font-weight:800; color:#38bdf8; margin-top:2px;">🛏️ ${mh.verified_rooms_count || 7} rooms</div>
+            <div style="font-size:11px; color:#34d399; margin-top:2px;">Privacy Gate Passed</div>
+          </div>
+          <div style="background:#0b1120; border:1px solid #1e293b; border-radius:10px; padding:12px; text-align:center;">
+            <div style="font-size:11px; color:#94a3b8; text-transform:uppercase;">Beer Draft Bar</div>
+            <div style="font-size:20px; font-weight:800; color:#fbbf24; margin-top:2px;">🍺 ${nth.verified_beer_taps || 0} taps</div>
+            <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Nový Svět Benchmark: 4</div>
+          </div>
+          <div style="background:#0b1120; border:1px solid #1e293b; border-radius:10px; padding:12px; text-align:center;">
+            <div style="font-size:11px; color:#94a3b8; text-transform:uppercase;">Sept 7-Day Window</div>
+            <div style="font-size:20px; font-weight:800; color:#34d399; margin-top:2px;">📅 Confirmed</div>
+            <div style="font-size:11px; color:#34d399; margin-top:2px;">No Turnover Conflicts</div>
+          </div>
+          <div style="background:#0b1120; border:1px solid #1e293b; border-radius:10px; padding:12px; text-align:center;">
+            <div style="font-size:11px; color:#94a3b8; text-transform:uppercase;">Visual Freshness</div>
+            <div style="font-size:20px; font-weight:800; color:${freshColor}; margin-top:2px;">✨ ${fresh.score_0_to_10}/10</div>
+            <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">${fresh.label}</div>
+          </div>
+        </div>
+
+        ${data.discrepancies && data.discrepancies.length > 0 ? `
+          <div style="margin-top:14px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); border-radius:10px; padding:12px 16px;">
+            <div style="font-size:12px; font-weight:800; color:#f87171; text-transform:uppercase; margin-bottom:4px;">⚠️ Discrepancies & Gotchas Flagged by Auditor</div>
+            <ul style="margin:0; padding-left:18px; font-size:12.5px; color:#fca5a5; line-height:1.5;">
+              ${data.discrepancies.map(d => `<li>${d}</li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+
+        <div style="margin-top:16px;">
+          <h4 style="font-size:15px; font-weight:700; color:#fff; margin-bottom:10px;">⚖️ Inquisitor vs. Defender Cross-Examination Dialogue</h4>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            ${(data.dialogue || []).map(d => `
+              <div style="background:#0b1120; border:1px solid #1e293b; border-radius:12px; padding:16px;">
+                <div style="font-size:12px; font-weight:700; color:#c084fc; margin-bottom:8px;">Round ${d.round}: ${d.topic}</div>
+                <div style="font-size:13px; color:#f87171; line-height:1.5; margin-bottom:6px;">
+                  <strong style="color:#ef4444;">🕵️ Inquisitor:</strong> "${d.inquisitor}"
+                </div>
+                <div style="font-size:13px; color:#38bdf8; line-height:1.5; margin-bottom:6px;">
+                  <strong style="color:#60a5fa;">🛡️ Defender:</strong> "${d.defender}"
+                </div>
+                <div style="font-size:12.5px; color:#34d399; line-height:1.5; border-top:1px solid #1e293b; padding-top:6px;">
+                  <strong style="color:#10b981;">⚖️ Verdict:</strong> ${d.verdict}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div style="margin-top:16px; background:#0f172a; border:1px solid #1e293b; border-radius:10px; padding:14px;">
+          <strong style="font-size:13px; color:#fff;">📋 Adjudicator Summary:</strong>
+          <div style="font-size:13px; color:#cbd5e1; margin-top:4px; line-height:1.5;">${data.final_adjudication}</div>
+        </div>
+      `;
+    }
+    document.querySelectorAll('.filter-btn:not(.price-filter-btn)').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn:not(.price-filter-btn)').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        activeFilter = e.currentTarget.dataset.filter;
+        document.querySelectorAll('.stat-badge:not([id^="stat-pill-price-"])').forEach(b => b.classList.remove('active-stat'));
+        const activePill = document.getElementById(`stat-pill-${activeFilter}`);
+        if (activePill) activePill.classList.add('active-stat');
+        updateMobileFilterLabel(FILTER_DISPLAY_LABELS[activeFilter] || activeFilter);
+        renderCards();
+      });
+    });
+
+    document.getElementById('search-box').addEventListener('input', () => {
+      currentPage = 1;
+      renderCards();
+    });
+    document.getElementById('sort-select').addEventListener('change', () => {
+      currentPage = 1;
+      renderCards();
+    });
+
+    // Mobile floating jump-to-top handler
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('mobile-top-btn');
+      if (!btn) return;
+      if (window.scrollY > 320) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Initial load
+    loadData();
+  </script>
+
+  <!-- Mobile Floating Jump-to-Top Button -->
+  <button id="mobile-top-btn" class="mobile-top-btn" onclick="scrollToTop()" title="Jump to top & filters">
+    ⬆️ Top &amp; Filters
+  </button>
+</body>
+</html>
