@@ -6,7 +6,7 @@
   "eligible_urls_count": 2255,
   "properties": [
     {
-      "rank": 4,
+      "rank": 3,
       "is_eligible": true,
       "listing": "e-chalupy 22293",
       "property_id": "22293",
@@ -7503,7 +7503,7 @@
       ]
     },
     {
-      "rank": 16,
+      "rank": 15,
       "is_eligible": true,
       "listing": "e-chalupy 2940",
       "property_id": "2940",
@@ -8791,7 +8791,7 @@
       ]
     },
     {
-      "rank": 18,
+      "rank": 17,
       "is_eligible": true,
       "listing": "e-chalupy 11079",
       "property_id": "11079",
@@ -9974,7 +9974,7 @@
       ]
     },
     {
-      "rank": 22,
+      "rank": 20,
       "is_eligible": true,
       "listing": "e-chalupy 8552",
       "property_id": "8552",
@@ -11213,7 +11213,7 @@
       ]
     },
     {
-      "rank": 23,
+      "rank": 21,
       "is_eligible": true,
       "listing": "e-chalupy 5343",
       "property_id": "5343",
@@ -12347,7 +12347,7 @@
       ]
     },
     {
-      "rank": 24,
+      "rank": 22,
       "is_eligible": true,
       "listing": "e-chalupy 5471",
       "property_id": "5471",
@@ -13334,7 +13334,7 @@
       ]
     },
     {
-      "rank": 25,
+      "rank": 23,
       "is_eligible": true,
       "listing": "e-chalupy 10456",
       "property_id": "10456",
@@ -23269,6 +23269,34 @@
     {
       "rank": "Disqualified",
       "is_eligible": false,
+      "listing": "e-chalupy 11403",
+      "property_id": "11403",
+      "name": "Penzion U Suchánků",
+      "listing_url": "https://www.e-chalupy.cz/ubytovani/11403",
+      "target_directory": "images/ubytovani-penzion-u-suchanku-o11403",
+      "photos_count": 2,
+      "image_urls": [
+        "https://www.e-chalupy.cz/foto/penzion-u-suchanku-7bd2-039b-639083.jpg",
+        "https://www.e-chalupy.cz/foto/hospudka-s-barem-3f14-03a3-639085.jpg"
+      ],
+      "images_detailed": [
+        {
+          "index": 1,
+          "filename": "001.jpg",
+          "url": "https://www.e-chalupy.cz/foto/penzion-u-suchanku-7bd2-039b-639083.jpg",
+          "target_path": "images/ubytovani-penzion-u-suchanku-o11403/001.jpg"
+        },
+        {
+          "index": 2,
+          "filename": "002.jpg",
+          "url": "https://www.e-chalupy.cz/foto/hospudka-s-barem-3f14-03a3-639085.jpg",
+          "target_path": "images/ubytovani-penzion-u-suchanku-o11403/002.jpg"
+        }
+      ]
+    },
+    {
+      "rank": "Disqualified",
+      "is_eligible": false,
       "listing": "e-chalupy 11117",
       "property_id": "11117",
       "name": "MEGA chalupa MAX",
@@ -24522,28 +24550,28 @@
     {
       "rank": "Disqualified",
       "is_eligible": false,
-      "listing": "e-chalupy 11403",
-      "property_id": "11403",
-      "name": "Penzion U Suchánků",
-      "listing_url": "https://www.e-chalupy.cz/ubytovani/11403",
-      "target_directory": "images/ubytovani-penzion-u-suchanku-o11403",
+      "listing": "e-chalupy 4532",
+      "property_id": "4532",
+      "name": "Podlešanský mlýn",
+      "listing_url": "https://www.e-chalupy.cz/ubytovani/4532",
+      "target_directory": "images/ubytovani-podlesansky-mlyn-o4532",
       "photos_count": 2,
       "image_urls": [
-        "https://www.e-chalupy.cz/foto/penzion-u-suchanku-7bd2-039b-639083.jpg",
-        "https://www.e-chalupy.cz/foto/hospudka-s-barem-3f14-03a3-639085.jpg"
+        "https://www.e-chalupy.cz/foto/5-bc7c-b656-992312.jpg",
+        "https://www.e-chalupy.cz/foto/drevostavba-b-viz-3f3c-fbcb-1183272.jpg"
       ],
       "images_detailed": [
         {
           "index": 1,
           "filename": "001.jpg",
-          "url": "https://www.e-chalupy.cz/foto/penzion-u-suchanku-7bd2-039b-639083.jpg",
-          "target_path": "images/ubytovani-penzion-u-suchanku-o11403/001.jpg"
+          "url": "https://www.e-chalupy.cz/foto/5-bc7c-b656-992312.jpg",
+          "target_path": "images/ubytovani-podlesansky-mlyn-o4532/001.jpg"
         },
         {
           "index": 2,
           "filename": "002.jpg",
-          "url": "https://www.e-chalupy.cz/foto/hospudka-s-barem-3f14-03a3-639085.jpg",
-          "target_path": "images/ubytovani-penzion-u-suchanku-o11403/002.jpg"
+          "url": "https://www.e-chalupy.cz/foto/drevostavba-b-viz-3f3c-fbcb-1183272.jpg",
+          "target_path": "images/ubytovani-podlesansky-mlyn-o4532/002.jpg"
         }
       ]
     },
@@ -25775,34 +25803,6 @@
     {
       "rank": "Disqualified",
       "is_eligible": false,
-      "listing": "e-chalupy 4532",
-      "property_id": "4532",
-      "name": "Podlešanský mlýn",
-      "listing_url": "https://www.e-chalupy.cz/ubytovani/4532",
-      "target_directory": "images/ubytovani-podlesansky-mlyn-o4532",
-      "photos_count": 2,
-      "image_urls": [
-        "https://www.e-chalupy.cz/foto/5-bc7c-b656-992312.jpg",
-        "https://www.e-chalupy.cz/foto/drevostavba-b-viz-3f3c-fbcb-1183272.jpg"
-      ],
-      "images_detailed": [
-        {
-          "index": 1,
-          "filename": "001.jpg",
-          "url": "https://www.e-chalupy.cz/foto/5-bc7c-b656-992312.jpg",
-          "target_path": "images/ubytovani-podlesansky-mlyn-o4532/001.jpg"
-        },
-        {
-          "index": 2,
-          "filename": "002.jpg",
-          "url": "https://www.e-chalupy.cz/foto/drevostavba-b-viz-3f3c-fbcb-1183272.jpg",
-          "target_path": "images/ubytovani-podlesansky-mlyn-o4532/002.jpg"
-        }
-      ]
-    },
-    {
-      "rank": "Disqualified",
-      "is_eligible": false,
       "listing": "e-chalupy 17111",
       "property_id": "17111",
       "name": "Chalupy Na Křižánkách (Chalupa II)",
@@ -25881,6 +25881,90 @@
           "filename": "002.jpg",
           "url": "https://www.e-chalupy.cz/foto/jidelna-60e6-ce03-1015483.jpg",
           "target_path": "images/ubytovani-chata-cert-o3040/002.jpg"
+        }
+      ]
+    },
+    {
+      "rank": "Disqualified",
+      "is_eligible": false,
+      "listing": "e-chalupy 13950",
+      "property_id": "13950",
+      "name": "Roubenky na Dupačce",
+      "listing_url": "https://www.e-chalupy.cz/ubytovani/13950",
+      "target_directory": "images/ubytovani-roubenky-na-dupacce-o13950",
+      "photos_count": 2,
+      "image_urls": [
+        "https://www.e-chalupy.cz/foto/kom-230125-0414-aceb-dfad-770339.jpg",
+        "https://www.e-chalupy.cz/foto/kom-230125-0125-d197-dfac-770317.jpg"
+      ],
+      "images_detailed": [
+        {
+          "index": 1,
+          "filename": "001.jpg",
+          "url": "https://www.e-chalupy.cz/foto/kom-230125-0414-aceb-dfad-770339.jpg",
+          "target_path": "images/ubytovani-roubenky-na-dupacce-o13950/001.jpg"
+        },
+        {
+          "index": 2,
+          "filename": "002.jpg",
+          "url": "https://www.e-chalupy.cz/foto/kom-230125-0125-d197-dfac-770317.jpg",
+          "target_path": "images/ubytovani-roubenky-na-dupacce-o13950/002.jpg"
+        }
+      ]
+    },
+    {
+      "rank": "Disqualified",
+      "is_eligible": false,
+      "listing": "e-chalupy 12708",
+      "property_id": "12708",
+      "name": "Statek Široký Důl",
+      "listing_url": "https://www.e-chalupy.cz/ubytovani/12708",
+      "target_directory": "images/ubytovani-statek-siroky-dul-o12708",
+      "photos_count": 2,
+      "image_urls": [
+        "https://www.e-chalupy.cz/foto/jidelna-v-prizemi-a5a9-4e55-1065151.jpg",
+        "https://www.e-chalupy.cz/foto/jidelna-v-prizemi-f038-4e55-1065152.jpg"
+      ],
+      "images_detailed": [
+        {
+          "index": 1,
+          "filename": "001.jpg",
+          "url": "https://www.e-chalupy.cz/foto/jidelna-v-prizemi-a5a9-4e55-1065151.jpg",
+          "target_path": "images/ubytovani-statek-siroky-dul-o12708/001.jpg"
+        },
+        {
+          "index": 2,
+          "filename": "002.jpg",
+          "url": "https://www.e-chalupy.cz/foto/jidelna-v-prizemi-f038-4e55-1065152.jpg",
+          "target_path": "images/ubytovani-statek-siroky-dul-o12708/002.jpg"
+        }
+      ]
+    },
+    {
+      "rank": "Disqualified",
+      "is_eligible": false,
+      "listing": "e-chalupy 10470",
+      "property_id": "10470",
+      "name": "Rekreační areál Želva",
+      "listing_url": "https://www.e-chalupy.cz/ubytovani/10470",
+      "target_directory": "images/ubytovani-rekreacni-areal-zelva-o10470",
+      "photos_count": 2,
+      "image_urls": [
+        "https://www.e-chalupy.cz/foto/sal-pro-oslavy-svatby-narozeniny-d127-08c9-986854.jpg",
+        "https://www.e-chalupy.cz/foto/sal-pro-oslavy-svatby-narozeniny-6031-08c9-986856.jpg"
+      ],
+      "images_detailed": [
+        {
+          "index": 1,
+          "filename": "001.jpg",
+          "url": "https://www.e-chalupy.cz/foto/sal-pro-oslavy-svatby-narozeniny-d127-08c9-986854.jpg",
+          "target_path": "images/ubytovani-rekreacni-areal-zelva-o10470/001.jpg"
+        },
+        {
+          "index": 2,
+          "filename": "002.jpg",
+          "url": "https://www.e-chalupy.cz/foto/sal-pro-oslavy-svatby-narozeniny-6031-08c9-986856.jpg",
+          "target_path": "images/ubytovani-rekreacni-areal-zelva-o10470/002.jpg"
         }
       ]
     },
@@ -26959,90 +27043,6 @@
           "filename": "152.jpg",
           "url": "https://www.e-chalupy.cz/foto/venkovni-bazen-d4da-5eab-397238.jpg",
           "target_path": "images/ubytovani-wellness-penzion-life-cimer-o6116/152.jpg"
-        }
-      ]
-    },
-    {
-      "rank": "Disqualified",
-      "is_eligible": false,
-      "listing": "e-chalupy 13950",
-      "property_id": "13950",
-      "name": "Roubenky na Dupačce",
-      "listing_url": "https://www.e-chalupy.cz/ubytovani/13950",
-      "target_directory": "images/ubytovani-roubenky-na-dupacce-o13950",
-      "photos_count": 2,
-      "image_urls": [
-        "https://www.e-chalupy.cz/foto/kom-230125-0414-aceb-dfad-770339.jpg",
-        "https://www.e-chalupy.cz/foto/kom-230125-0125-d197-dfac-770317.jpg"
-      ],
-      "images_detailed": [
-        {
-          "index": 1,
-          "filename": "001.jpg",
-          "url": "https://www.e-chalupy.cz/foto/kom-230125-0414-aceb-dfad-770339.jpg",
-          "target_path": "images/ubytovani-roubenky-na-dupacce-o13950/001.jpg"
-        },
-        {
-          "index": 2,
-          "filename": "002.jpg",
-          "url": "https://www.e-chalupy.cz/foto/kom-230125-0125-d197-dfac-770317.jpg",
-          "target_path": "images/ubytovani-roubenky-na-dupacce-o13950/002.jpg"
-        }
-      ]
-    },
-    {
-      "rank": "Disqualified",
-      "is_eligible": false,
-      "listing": "e-chalupy 12708",
-      "property_id": "12708",
-      "name": "Statek Široký Důl",
-      "listing_url": "https://www.e-chalupy.cz/ubytovani/12708",
-      "target_directory": "images/ubytovani-statek-siroky-dul-o12708",
-      "photos_count": 2,
-      "image_urls": [
-        "https://www.e-chalupy.cz/foto/jidelna-v-prizemi-a5a9-4e55-1065151.jpg",
-        "https://www.e-chalupy.cz/foto/jidelna-v-prizemi-f038-4e55-1065152.jpg"
-      ],
-      "images_detailed": [
-        {
-          "index": 1,
-          "filename": "001.jpg",
-          "url": "https://www.e-chalupy.cz/foto/jidelna-v-prizemi-a5a9-4e55-1065151.jpg",
-          "target_path": "images/ubytovani-statek-siroky-dul-o12708/001.jpg"
-        },
-        {
-          "index": 2,
-          "filename": "002.jpg",
-          "url": "https://www.e-chalupy.cz/foto/jidelna-v-prizemi-f038-4e55-1065152.jpg",
-          "target_path": "images/ubytovani-statek-siroky-dul-o12708/002.jpg"
-        }
-      ]
-    },
-    {
-      "rank": "Disqualified",
-      "is_eligible": false,
-      "listing": "e-chalupy 10470",
-      "property_id": "10470",
-      "name": "Rekreační areál Želva",
-      "listing_url": "https://www.e-chalupy.cz/ubytovani/10470",
-      "target_directory": "images/ubytovani-rekreacni-areal-zelva-o10470",
-      "photos_count": 2,
-      "image_urls": [
-        "https://www.e-chalupy.cz/foto/sal-pro-oslavy-svatby-narozeniny-d127-08c9-986854.jpg",
-        "https://www.e-chalupy.cz/foto/sal-pro-oslavy-svatby-narozeniny-6031-08c9-986856.jpg"
-      ],
-      "images_detailed": [
-        {
-          "index": 1,
-          "filename": "001.jpg",
-          "url": "https://www.e-chalupy.cz/foto/sal-pro-oslavy-svatby-narozeniny-d127-08c9-986854.jpg",
-          "target_path": "images/ubytovani-rekreacni-areal-zelva-o10470/001.jpg"
-        },
-        {
-          "index": 2,
-          "filename": "002.jpg",
-          "url": "https://www.e-chalupy.cz/foto/sal-pro-oslavy-svatby-narozeniny-6031-08c9-986856.jpg",
-          "target_path": "images/ubytovani-rekreacni-areal-zelva-o10470/002.jpg"
         }
       ]
     },

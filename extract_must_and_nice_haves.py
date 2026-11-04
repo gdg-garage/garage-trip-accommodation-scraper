@@ -627,14 +627,14 @@ def calculate_price_and_value(price_7n: Optional[float], cap: int, nice_to_haves
     elif price_7n <= 90000:
         val_score = 4.0
         val_rating = "Fair Market Rate"
-    elif price_7n <= 110000:
+    elif price_7n < 100000:
         val_score = 0.0
-        val_rating = "Higher Price"
+        val_rating = "Upper Budget Limit (<100k)"
     else:
-        # Penalty for price > 110k
-        over = (price_7n - 110000) / 10000.0
-        val_score = -min(12.0, over * 1.5)
-        val_rating = "Expensive"
+        # User constraint: "Everything over 100k is probably too much for us, penalize it"
+        over_100k = (price_7n - 100000) / 10000.0
+        val_score = round(-8.0 - (over_100k * 2.0), 1)
+        val_rating = f"Exceeds 100k Budget Ceiling (⚠️ Over 100k penalty: {val_score:+.1f} pts)"
 
     # High price + missing amenities penalty:
     # "when it's a high price and some amenities are missing, it's kind of sad."
@@ -973,9 +973,11 @@ def build_must_and_nice_evaluations():
         raw_pros = list(q_item.get("Pros_Vs_Novy_Svet", []))
         raw_cons = list(q_item.get("Cons_Vs_Novy_Svet", []))
         clean_pros = [p for p in raw_pros if not any(w in p.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes"])]
-        clean_cons = [c for c in raw_cons if not any(w in c.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes", "penalty", "pokuta"])]
+        clean_cons = [c for c in raw_cons if not any(w in c.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes", "penalty", "pokuta", "budget ceiling", "over 100k"])]
         if room_penalty_reason:
             clean_cons.append(f"⚠️ Layout/Age Penalty: {room_penalty_reason} ({room_penalty:+.1f} pts)")
+        if p_7n >= 100000:
+            clean_cons.append(f"💸 Exceeds 100k budget ceiling: {int(p_7n):,} Kč ({val_score:+.1f} pts value penalty)")
 
         if beer_count >= 4:
             clean_pros.append(f"🍺 {beer_count} draft beer taps (matches/exceeds Nový Svět's 4 taps)")
