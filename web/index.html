@@ -1889,6 +1889,101 @@
       gap: 8px;
     }
 
+    /* Transcript & Lively Discussion Message Styles */
+    .transcript-filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 10px 14px;
+      background: #070d18;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+    }
+    .transcript-pill-btn {
+      background: #1e293b;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .transcript-pill-btn:hover {
+      color: #f8fafc;
+      background: #334155;
+    }
+    .transcript-pill-btn.active {
+      background: rgba(168, 85, 247, 0.25);
+      color: #c084fc;
+      border-color: #a855f7;
+    }
+    .transcript-search-input {
+      flex: 1;
+      min-width: 170px;
+      background: #090e17;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: #fff;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+    .transcript-search-input:focus {
+      outline: none;
+      border-color: #38bdf8;
+    }
+    .transcript-phase-divider {
+      margin: 16px 0 8px 0;
+      padding: 8px 12px;
+      background: #070d18;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .transcript-msg-card {
+      background: #0b1120;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.15s;
+    }
+    .transcript-msg-card.type-pitch {
+      border-left: 4px solid #38bdf8;
+    }
+    .transcript-msg-card.type-challenge {
+      border-left: 4px solid #f87171;
+      background: linear-gradient(90deg, rgba(239, 68, 68, 0.05) 0%, #0b1120 100%);
+    }
+    .transcript-msg-card.type-rebuttal, .transcript-msg-card.type-defense {
+      border-left: 4px solid #34d399;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.05) 0%, #0b1120 100%);
+    }
+    .transcript-msg-card.type-interjection {
+      border-left: 4px solid #fbbf24;
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.04) 0%, #0b1120 100%);
+    }
+    .transcript-msg-card.type-concession {
+      border-left: 4px solid #c084fc;
+      background: linear-gradient(90deg, rgba(168, 85, 247, 0.05) 0%, #0b1120 100%);
+    }
+    .transcript-msg-card.type-ballot {
+      border-left: 4px solid #60a5fa;
+      background: linear-gradient(90deg, rgba(59, 130, 246, 0.04) 0%, #0b1120 100%);
+    }
+
     /* Zero horizontal overflow safety rules */
     html, body {
       overflow-x: hidden !important;
@@ -2662,9 +2757,10 @@
 
       <div class="arena-nav-tabs">
         <button id="arena-tab-consensus" class="arena-tab-btn active" onclick="switchArenaTab('consensus')">🏆 Consensus & Votes</button>
+        <button id="arena-tab-transcript" class="arena-tab-btn" onclick="switchArenaTab('transcript')">💬 Full Discussion Log (<span id="transcript-count">0</span>)</button>
+        <button id="arena-tab-pitches" class="arena-tab-btn" onclick="switchArenaTab('pitches')">🗣️ Round 1: Opening Pitches</button>
+        <button id="arena-tab-clashes" class="arena-tab-btn" onclick="switchArenaTab('clashes')">⚔️ Round 2: Lively Floor Debate</button>
         <button id="arena-tab-migrations" class="arena-tab-btn" onclick="switchArenaTab('migrations')">📈 Vote Migration & Concessions</button>
-        <button id="arena-tab-pitches" class="arena-tab-btn" onclick="switchArenaTab('pitches')">🗣️ Round 1: Advocate Pitches</button>
-        <button id="arena-tab-clashes" class="arena-tab-btn" onclick="switchArenaTab('clashes')">⚔️ Round 2: Targeted Rebuttals</button>
       </div>
 
       <div id="arena-body" class="arena-body">
@@ -4078,6 +4174,19 @@
       document.getElementById('debate-arena-modal').classList.remove('active');
     }
 
+    window.arenaTranscriptFilter = 'all';
+    window.arenaTranscriptQuery = '';
+
+    function setTranscriptFilter(type) {
+      window.arenaTranscriptFilter = type;
+      renderArenaContent();
+    }
+
+    function onTranscriptSearch(val) {
+      window.arenaTranscriptQuery = val;
+      renderArenaContent();
+    }
+
     function switchArenaTab(tab) {
       currentArenaTab = tab;
       document.querySelectorAll('.arena-tab-btn').forEach(b => b.classList.remove('active'));
@@ -4123,6 +4232,11 @@
         badge.style.color = isArgon ? '#fbbf24' : '#38bdf8';
         badge.style.borderColor = isArgon ? 'rgba(245,158,11,0.4)' : 'rgba(56,189,248,0.3)';
         badge.style.background = isArgon ? 'rgba(245,158,11,0.1)' : 'rgba(56,189,248,0.1)';
+      }
+
+      const countSpan = document.getElementById('transcript-count');
+      if (countSpan && debateArenaData) {
+        countSpan.textContent = (debateArenaData.transaction_log || []).length;
       }
     }
 
@@ -4304,51 +4418,188 @@
             </div>
           </div>
         `;
+      } else if (currentArenaTab === 'transcript') {
+        const log = debateArenaData.transaction_log || [];
+        const filterType = window.arenaTranscriptFilter || 'all';
+        const query = (window.arenaTranscriptQuery || '').toLowerCase();
+
+        // Calculate counts
+        const cntAll = log.length;
+        const cntPitches = log.filter(m => m.type === 'pitch').length;
+        const cntDebate = log.filter(m => ['challenge', 'rebuttal', 'defense', 'interjection', 'closing'].includes(m.type)).length;
+        const cntConcessions = log.filter(m => m.type === 'concession').length;
+        const cntBallots = log.filter(m => m.type === 'ballot').length;
+
+        // Filter messages
+        const filtered = log.filter(m => {
+          if (filterType === 'pitches' && m.type !== 'pitch') return false;
+          if (filterType === 'debate' && !['challenge', 'rebuttal', 'defense', 'interjection', 'closing'].includes(m.type)) return false;
+          if (filterType === 'concessions' && m.type !== 'concession') return false;
+          if (filterType === 'ballots' && m.type !== 'ballot') return false;
+          if (query) {
+            const haystack = `${m.speaker} ${m.property} ${m.role} ${m.text}`.toLowerCase();
+            if (!haystack.includes(query)) return false;
+          }
+          return true;
+        });
+
+        body.innerHTML = `
+          <!-- Transcript Filter & Search Bar -->
+          <div class="transcript-filter-bar">
+            <button class="transcript-pill-btn ${filterType === 'all' ? 'active' : ''}" onclick="setTranscriptFilter('all')">All Messages (${cntAll})</button>
+            <button class="transcript-pill-btn ${filterType === 'pitches' ? 'active' : ''}" onclick="setTranscriptFilter('pitches')">🗣️ Pitches (${cntPitches})</button>
+            <button class="transcript-pill-btn ${filterType === 'debate' ? 'active' : ''}" onclick="setTranscriptFilter('debate')">⚔️ Lively Discussion (${cntDebate})</button>
+            <button class="transcript-pill-btn ${filterType === 'concessions' ? 'active' : ''}" onclick="setTranscriptFilter('concessions')">🤝 Concessions (${cntConcessions})</button>
+            <button class="transcript-pill-btn ${filterType === 'ballots' ? 'active' : ''}" onclick="setTranscriptFilter('ballots')">🗳️ Ballots (${cntBallots})</button>
+            <input type="text" class="transcript-search-input" placeholder="Search transcript by speaker, property, argument..." value="${window.arenaTranscriptQuery || ''}" oninput="onTranscriptSearch(this.value)">
+          </div>
+
+          <!-- Message Feed -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            ${filtered.length === 0 ? `
+              <div style="text-align:center; padding:40px; color:#94a3b8;">
+                No messages match the current filter or search query.
+              </div>
+            ` : ''}
+            ${(() => {
+              let html = '';
+              let lastPhase = '';
+              filtered.forEach((m) => {
+                if (m.phase && m.phase !== lastPhase && filterType === 'all' && !query) {
+                  lastPhase = m.phase;
+                  html += `
+                    <div class="transcript-phase-divider">
+                      <span>📌</span>
+                      <span>${m.phase}</span>
+                    </div>
+                  `;
+                }
+
+                const typeLabels = {
+                  pitch: { label: 'OPENING PITCH', color: '#38bdf8', bg: 'rgba(56,189,248,0.15)' },
+                  challenge: { label: 'POINTED CHALLENGE', color: '#f87171', bg: 'rgba(239,68,68,0.15)' },
+                  rebuttal: { label: 'DIRECT REBUTTAL', color: '#34d399', bg: 'rgba(16,185,129,0.15)' },
+                  defense: { label: 'DEFENSIVE RESPONSE', color: '#34d399', bg: 'rgba(16,185,129,0.15)' },
+                  interjection: { label: 'FLOOR INTERJECTION', color: '#fbbf24', bg: 'rgba(245,158,11,0.15)' },
+                  closing: { label: 'CLOSING APPEAL', color: '#60a5fa', bg: 'rgba(59,130,246,0.15)' },
+                  concession: { label: 'HONEST CONCESSION', color: '#c084fc', bg: 'rgba(168,85,247,0.15)' },
+                  ballot: { label: 'RANKED BALLOT', color: '#60a5fa', bg: 'rgba(59,130,246,0.15)' }
+                };
+                const tInfo = typeLabels[m.type] || { label: (m.type || 'MESSAGE').toUpperCase(), color: '#94a3b8', bg: '#1e293b' };
+
+                html += `
+                  <div class="transcript-msg-card type-${m.type || 'generic'}">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+                      <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:20px; line-height:1;">${m.avatar || '🗣️'}</span>
+                        <div>
+                          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                            <strong style="font-size:13.5px; color:#f8fafc;">${m.speaker}</strong>
+                            ${m.target ? `<span style="font-size:11px; padding:1px 6px; border-radius:4px; background:rgba(239,68,68,0.15); color:#fca5a5; font-weight:700;">↳ Replying to @${m.target}</span>` : ''}
+                          </div>
+                          <div style="font-size:11px; color:#94a3b8; margin-top:1px;">${m.role || ''}</div>
+                        </div>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:6px;">
+                        <span style="font-size:10px; font-weight:800; padding:2px 7px; border-radius:4px; background:${tInfo.bg}; color:${tInfo.color}; text-transform:uppercase; letter-spacing:0.4px;">
+                          ${tInfo.label}
+                        </span>
+                        <span style="font-size:11px; color:#64748b; font-family:'JetBrains Mono',monospace;">#${m.seq}</span>
+                      </div>
+                    </div>
+                    <div style="font-size:13px; color:#cbd5e1; line-height:1.6; margin-top:2px;">
+                      ${m.text}
+                    </div>
+                  </div>
+                `;
+              });
+              return html;
+            })()}
+          </div>
+        `;
       } else if (currentArenaTab === 'pitches') {
         const pitches = debateArenaData.phases.phase_1_opening_pitches || [];
         body.innerHTML = `
+          <div style="background:#070d18; border:1px solid #1e293b; border-radius:10px; padding:12px 16px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong style="color:#fff; font-size:14px;">🗣️ Opening Pitches from All ${pitches.length} Advocates</strong>
+              <div style="color:#94a3b8; font-size:12px; margin-top:2px;">Every candidate on the roster presents their core argument on workspace, capacity, price, and perks.</div>
+            </div>
+            <span style="font-size:12px; padding:3px 10px; border-radius:20px; background:rgba(56,189,248,0.15); color:#38bdf8; font-weight:800;">${pitches.length} Pitches</span>
+          </div>
           <div style="display:flex; flex-direction:column; gap:12px;">
             ${pitches.map(p => `
               <div class="advocate-pitch-card ${p.is_anchor ? 'anchor' : ''}">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <strong style="font-size:14px; color:${p.is_anchor ? '#fbbf24' : '#fff'};">
-                    ${p.is_anchor ? '⭐ ' : '🗣️ '}${p.speaker || p.advocate}
+                  <strong style="font-size:14px; color:${p.is_anchor ? '#fbbf24' : '#fff'}; display:flex; align-items:center; gap:6px;">
+                    <span>${p.avatar || (p.is_anchor ? '⭐' : '🗣️')}</span> ${p.speaker || p.advocate}
                   </strong>
-                  <span style="font-size:11px; color:#94a3b8;">${p.role || p.persona}</span>
+                  <span style="font-size:11px; color:#94a3b8; background:#1e293b; padding:2px 8px; border-radius:4px;">${p.role || p.persona}</span>
                 </div>
                 <div style="font-size:13px; color:#cbd5e1; line-height:1.6; margin-top:4px;">
                   "${p.statement || p.quote}"
                 </div>
-              </div>
-            `).join('')}
-          </div>
-        `;
-      } else if (currentArenaTab === 'clashes') {
-        const clashes = debateArenaData.phases.phase_2_targeted_clashes || debateArenaData.phases.phase_2_cross_fire_clashes || [];
-        body.innerHTML = `
-          <div style="display:flex; flex-direction:column; gap:14px;">
-            ${clashes.map(c => `
-              <div class="clash-card">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <span style="font-size:13px; font-weight:800; color:#f87171;">⚔️ ${c.title || (c.challenger + ' vs. ' + c.target)}</span>
-                  <span style="font-size:11px; padding:2px 8px; border-radius:4px; font-weight:700; ${c.concession ? 'background:rgba(239,68,68,0.2); color:#f87171;' : 'background:rgba(16,185,129,0.2); color:#34d399;'}">
-                    ${c.verdict ? '⚖️ Adjudicated' : '🛡️ Defended'}
-                  </span>
-                </div>
-                <div style="font-size:13px; color:#fca5a5; line-height:1.5; margin-top:4px;">
-                  <strong>${c.challenger}:</strong> "${c.critique || c.challenger_quote}"
-                </div>
-                <div style="font-size:13px; color:#cbd5e1; line-height:1.5; border-top:1px solid #1e293b; padding-top:6px; margin-top:6px;">
-                  <strong>${c.target}:</strong> "${c.defense || c.target_rebuttal}"
-                </div>
-                ${c.verdict ? `
-                  <div style="font-size:12px; color:#38bdf8; background:rgba(56,189,248,0.08); padding:6px 10px; border-radius:6px; margin-top:6px; border-left:3px solid #38bdf8;">
-                    <strong>Arbiter Ruling:</strong> ${c.verdict}
+                ${p.highlight ? `
+                  <div style="font-size:11.5px; color:#38bdf8; font-weight:700; margin-top:2px;">
+                    ⚡ ${p.highlight}
                   </div>
                 ` : ''}
               </div>
             `).join('')}
           </div>
+        `;
+      } else if (currentArenaTab === 'clashes') {
+        const disc = debateArenaData.phases.phase_2_lively_discussion || [];
+        const clashes = debateArenaData.phases.phase_2_targeted_clashes || debateArenaData.phases.phase_2_cross_fire_clashes || [];
+
+        body.innerHTML = `
+          <div style="background:#070d18; border:1px solid #1e293b; border-radius:10px; padding:12px 16px; margin-bottom:12px;">
+            <strong style="color:#fff; font-size:14px;">⚔️ Lively Floor Debate & Targeted Cross-Fire</strong>
+            <div style="color:#94a3b8; font-size:12px; margin-top:2px;">Multi-speaker cross-talk challenging competitors on dorm rooms, price spikes, tap capacity, and bathroom ratios.</div>
+          </div>
+          ${disc.length > 0 ? `
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              ${disc.map(d => `
+                <div class="transcript-msg-card type-${d.type}">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div style="display:flex; align-items:center; gap:6px;">
+                      <span style="font-size:18px;">${d.avatar || '⚔️'}</span>
+                      <strong style="color:#f8fafc; font-size:13px;">${d.speaker}</strong>
+                      ${d.target ? `<span style="font-size:11px; padding:1px 6px; border-radius:4px; background:rgba(239,68,68,0.15); color:#fca5a5; font-weight:700;">↳ vs @${d.target}</span>` : ''}
+                    </div>
+                    <span style="font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; background:#1e293b; color:#94a3b8; text-transform:uppercase;">${d.type}</span>
+                  </div>
+                  <div style="font-size:13px; color:#cbd5e1; line-height:1.6; margin-top:4px;">
+                    ${d.text}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          ` : `
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              ${clashes.map(c => `
+                <div class="clash-card">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:13px; font-weight:800; color:#f87171;">⚔️ ${c.title || (c.challenger + ' vs. ' + c.target)}</span>
+                    <span style="font-size:11px; padding:2px 8px; border-radius:4px; font-weight:700; ${c.concession ? 'background:rgba(239,68,68,0.2); color:#f87171;' : 'background:rgba(16,185,129,0.2); color:#34d399;'}">
+                      ${c.verdict ? '⚖️ Adjudicated' : '🛡️ Defended'}
+                    </span>
+                  </div>
+                  <div style="font-size:13px; color:#fca5a5; line-height:1.5; margin-top:4px;">
+                    <strong>${c.challenger}:</strong> "${c.critique || c.challenger_quote}"
+                  </div>
+                  <div style="font-size:13px; color:#cbd5e1; line-height:1.5; border-top:1px solid #1e293b; padding-top:6px; margin-top:6px;">
+                    <strong>${c.target}:</strong> "${c.defense || c.target_rebuttal}"
+                  </div>
+                  ${c.verdict ? `
+                    <div style="font-size:12px; color:#38bdf8; background:rgba(56,189,248,0.08); padding:6px 10px; border-radius:6px; margin-top:6px; border-left:3px solid #38bdf8;">
+                      <strong>Arbiter Ruling:</strong> ${c.verdict}
+                    </div>
+                  ` : ''}
+                </div>
+              `).join('')}
+            </div>
+          `}
         `;
       }
     }

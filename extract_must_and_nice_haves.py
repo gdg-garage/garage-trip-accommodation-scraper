@@ -47,6 +47,28 @@ OUTPUT_QUEUE_JSON = "queue_candidates_50plus.json"
 OUTPUT_QUEUE_CSV = "queue_candidates_50plus.csv"
 OUTPUT_WORKBOOK = "sheet_updated_with_extractors.xlsx"
 
+# Specific price corrections (e.g. summer rates vs off-season scraped errors)
+PRICE_OVERRIDES = {
+    "e-chalupy 2180": 39900.0,   # Chata U Mazliků (normalized summer 7-night rate)
+    "e-chalupy 3742": 45000.0,   # Chalupa Červenka (actual summer base week rate)
+    "e-chalupy 3140": 50000.0,   # Chalupa Červenka (actual summer week rate)
+    "e-chalupy 6813": 83000.0,   # Šťastnej kopec (September verified price)
+}
+
+# Triple-check audit disqualifications (<40k unrenovated/hostel/inadequate space)
+DISQUALIFICATION_OVERRIDES = {
+    "e-chalupy 18418": "Team veto ('nee, neni kde sedet' - dining/common area only 49 m² inadequate for 20+ group)",
+    "e-chalupy 13470": "Dated socialist school-trip hostel (2.0/10 freshness, shared corridor showers)",
+    "e-chalupy 8666": "Dated institutional feel (4.0/10 freshness) and inadequate 16-chair common area for retreat",
+}
+
+# Room layout / condition penalties
+ROOM_PENALTY_OVERRIDES = {
+    "e-chalupy 15694": (-10.0, "Dated 80s/90s pension interior and five 4-bed dorm rooms"),
+    "e-chalupy 3742": (-4.0, "Crowded 4-5 bed dorm room layout"),
+}
+
+
 
 def clean_text(s: Optional[str]) -> str:
     if not s:
@@ -439,7 +461,7 @@ def extract_toilets(r: Dict[str, Any], sp: Dict[str, Any], rooms_cnt: int, cap: 
 def extract_catering(r: Dict[str, Any], html_text: str) -> Tuple[bool, str, float]:
     """Extract catering or professional kitchen availability."""
     kit_desc = r.get("Kitchen", "") or ""
-    comb = f"{kit_desc} {r.get('Note', '')} {html_text[:2500]}"
+    comb = f"{kit_desc} {r.get('Note', '')} {html_text}"
     
     has_cat = bool(re.search(r"(?:catering|stravování|polopenze|snídaně|restaurace|nerezov|profi\s*kuchyň|gastro|catering\s*kitchen|buffet\s*counter)", comb, re.I))
     details = "Catering / Gastro catering kitchen" if has_cat else "Standard self-catering kitchen"
@@ -449,10 +471,10 @@ def extract_catering(r: Dict[str, Any], html_text: str) -> Tuple[bool, str, floa
 
 def extract_child_facilities(r: Dict[str, Any], html_text: str) -> Tuple[bool, str, float, bool, str, float]:
     """Extract child indoor corner and child outdoor playground."""
-    comb = f"{r.get('Common area (what photos show)', '')} {r.get('Outdoor', '')} {r.get('Note', '')} {html_text[:2500]}"
+    comb = f"{r.get('Common area (what photos show)', '')} {r.get('Outdoor', '')} {r.get('Note', '')} {html_text}"
     
     # 1. Indoor play corner
-    has_corner = bool(re.search(r"(?:dětský\s+koutek|dětská\s+herna|hrací\s+kout|playroom\s+with\s+toys|dětský\s+pokoj\s+s\s+hračkami)", comb, re.I))
+    has_corner = bool(re.search(r"(?:dětský\s+koutek|dětská\s+herna|hrací\s+kout|herna|playroom|dětský\s+pokoj\s+s\s+hračkami)", comb, re.I))
     corner_score = 2.0 if has_corner else 0.0
     corner_desc = "Indoor children's play corner" if has_corner else "None"
 
@@ -813,7 +835,9 @@ def build_must_and_nice_evaluations():
                     p_info["primary_photo"] = urls[0]
 
         # Price 7 nights
-        p_7n = q_item.get("Price_7_Nights_CZK")
+        p_7n = PRICE_OVERRIDES.get(listing)
+        if not p_7n:
+            p_7n = q_item.get("Price_7_Nights_CZK")
         if not p_7n:
             try:
                 p_7n = float(r.get("Price / week (CZK)", 0))
@@ -926,14 +950,28 @@ def build_must_and_nice_evaluations():
             failed_must_haves.append(f"VETOED ({veto_reason})")
             score_mh_base = 0.0
 
-        # Total score heavily factors in user top votes, reviewer notes, and visual freshness
-        total_score_new = round(score_mh_base + nice_to_haves_total + cap_bonus + val_score + u_feedback + fresh_score, 1)
+        # Low-cost triple-check audit disqualifications (<40k unrenovated/hostel/inadequate space)
+        if listing in DISQUALIFICATION_OVERRIDES and mh_no_veto:
+            mh_no_veto = False
+            veto_reason = DISQUALIFICATION_OVERRIDES[listing]
+            all_must_haves_met = False
+            failed_must_haves.append(f"DISQUALIFIED ({veto_reason})")
+            score_mh_base = 0.0
+
+        # Room layout / condition penalty
+        room_penalty, room_penalty_reason = ROOM_PENALTY_OVERRIDES.get(listing, (0.0, ""))
+
+        # Total score heavily factors in user top votes, reviewer notes, visual freshness, and room penalties
+        total_score_new = round(score_mh_base + nice_to_haves_total + cap_bonus + val_score + u_feedback + fresh_score + room_penalty, 1)
 
         # Synchronize Pros and Cons vs Nový Svět benchmark (4 draft beer taps)
         raw_pros = list(q_item.get("Pros_Vs_Novy_Svet", []))
         raw_cons = list(q_item.get("Cons_Vs_Novy_Svet", []))
         clean_pros = [p for p in raw_pros if not any(w in p.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes"])]
-        clean_cons = [c for c in raw_cons if not any(w in c.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes"])]
+        clean_cons = [c for c in raw_cons if not any(w in c.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes", "penalty", "pokuta"])]
+        if room_penalty_reason:
+            clean_cons.append(f"⚠️ Layout/Age Penalty: {room_penalty_reason} ({room_penalty:+.1f} pts)")
+
         if beer_count >= 4:
             clean_pros.append(f"🍺 {beer_count} draft beer taps (matches/exceeds Nový Svět's 4 taps)")
         elif beer_count > 0:
