@@ -3707,6 +3707,7 @@
                   </div>
                   <div class="prop-location" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
                     <span>📍 ${item.Location || 'Czech Republic'} &middot; <a href="${item.Url || '#'}" target="_blank" rel="noopener" class="listing-link-badge" title="Open listing page">${item.Listing} ↗</a></span>
+                    ${item.In_Orlicke_Hory ? `<span style="font-size:11px; padding:2px 7px; border-radius:4px; background:rgba(239,68,68,0.18); color:#fca5a5; font-weight:700; border:1px solid rgba(239,68,68,0.3);" title="Repeated destination: group has visited Orlické hory 4 times already">⛰️ Orlické hory (-10 pts: 4th visit)</span>` : `<span style="font-size:11px; padding:2px 7px; border-radius:4px; background:rgba(34,197,94,0.14); color:#86efac; font-weight:700; border:1px solid rgba(34,197,94,0.25);" title="Fresh region outside Orlické hory">🌍 Fresh Region</span>`}
                     ${item.NTH_Pets_Allowed ? `<span class="pet-badge-pill" title="Pets allowed: ${item.NTH_Pets_Details}">🐾 Pets OK (+${item.Score_Pets || 2} pts)</span>` : `<span style="font-size:11px; color:#64748b; padding:2px 6px; background:rgba(255,255,255,0.04); border-radius:4px;" title="${item.NTH_Pets_Details || 'No pets allowed'}">🚫 No pets</span>`}
                   </div>
                 </div>

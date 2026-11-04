@@ -81,6 +81,20 @@ def clean_text(s: Optional[str]) -> str:
     return re.sub(r"\s+", " ", str(s)).strip()
 
 
+ORLICKE_HORY_KEYWORDS = [
+    "orlick", "bystré", "bystre", "deštné", "destne", "červená voda", "cervena voda",
+    "lanškroun", "lanskroun", "výprachtice", "vyprachtice", "nový svět", "novy svet",
+    "kounov", "nedvězí", "nedvezi", "rokytnice v orlických", "zdobnice", "říčky", "ricky",
+    "orlicke_hory", "mladkov", "české petrovice", "ceske petrovice", "pastviny", "králíky", "kraliky"
+]
+
+
+def is_in_orlicke_hory(r: Dict[str, Any], url: str, name: str) -> bool:
+    """Detect if the accommodation is situated in or around Orlické hory."""
+    corpus = f"{r.get('Location', '')} {url} {r.get('Note', '')} {name}".lower()
+    return any(k in corpus for k in ORLICKE_HORY_KEYWORDS)
+
+
 def get_html_soup_and_text(listing: str) -> Tuple[Optional[BeautifulSoup], str, str]:
     """Retrieve BeautifulSoup, main text, and source HTML filepath."""
     m = re.search(r"(\d+)", listing)
@@ -966,18 +980,26 @@ def build_must_and_nice_evaluations():
         # Room layout / condition penalty
         room_penalty, room_penalty_reason = ROOM_PENALTY_OVERRIDES.get(listing, (0.0, ""))
 
-        # Total score heavily factors in user top votes, reviewer notes, visual freshness, and room penalties
-        total_score_new = round(score_mh_base + nice_to_haves_total + cap_bonus + val_score + u_feedback + fresh_score + room_penalty, 1)
+        # Orlické hory destination fatigue penalty (group has visited 4 times already)
+        in_orlicke_hory = is_in_orlicke_hory(r, real_url, name)
+        score_orlicke_penalty = -10.0 if in_orlicke_hory else 0.0
+
+        # Total score heavily factors in user top votes, reviewer notes, visual freshness, room penalties, and regional penalties
+        total_score_new = round(score_mh_base + nice_to_haves_total + cap_bonus + val_score + u_feedback + fresh_score + room_penalty + score_orlicke_penalty, 1)
 
         # Synchronize Pros and Cons vs Nový Svět benchmark (4 draft beer taps)
         raw_pros = list(q_item.get("Pros_Vs_Novy_Svet", []))
         raw_cons = list(q_item.get("Cons_Vs_Novy_Svet", []))
-        clean_pros = [p for p in raw_pros if not any(w in p.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes"])]
-        clean_cons = [c for c in raw_cons if not any(w in c.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes", "penalty", "pokuta", "budget ceiling", "over 100k"])]
+        clean_pros = [p for p in raw_pros if not any(w in p.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes", "fresh destination", "orlické hory"])]
+        clean_cons = [c for c in raw_cons if not any(w in c.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes", "penalty", "pokuta", "budget ceiling", "over 100k", "orlické hory"])]
         if room_penalty_reason:
             clean_cons.append(f"⚠️ Layout/Age Penalty: {room_penalty_reason} ({room_penalty:+.1f} pts)")
         if p_7n >= 100000:
             clean_cons.append(f"💸 Exceeds 100k budget ceiling: {int(p_7n):,} Kč ({val_score:+.1f} pts value penalty)")
+        if in_orlicke_hory:
+            clean_cons.append("⛰️ Orlické hory fatigue penalty: -10.0 pts (group has visited 4 times already)")
+        else:
+            clean_pros.append("🌍 Fresh destination outside Orlické hory (novel region for retreat)")
 
         if beer_count >= 4:
             clean_pros.append(f"🍺 {beer_count} draft beer taps (matches/exceeds Nový Svět's 4 taps)")
@@ -1097,6 +1119,8 @@ def build_must_and_nice_evaluations():
             # Score Subtotals
             "Score_Must_Haves_Base": score_mh_base,
             "Score_Capacity_Bonus": cap_bonus,
+            "In_Orlicke_Hory": in_orlicke_hory,
+            "Score_Orlicke_Penalty": score_orlicke_penalty,
             
             # Metadata from previous extraction
             "Location": r.get("Location", ""),
