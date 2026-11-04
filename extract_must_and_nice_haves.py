@@ -53,19 +53,24 @@ PRICE_OVERRIDES = {
     "e-chalupy 3742": 45000.0,   # Chalupa Červenka (actual summer base week rate)
     "e-chalupy 3140": 50000.0,   # Chalupa Červenka (actual summer week rate)
     "e-chalupy 6813": 83000.0,   # Šťastnej kopec (September verified price)
+    "Booking bouda-sestidomi-strazne1": 79000.0, # Bouda Šestidomí (verified summer whole-chalet week rate)
 }
 
-# Triple-check audit disqualifications (<40k unrenovated/hostel/inadequate space)
+# Triple-check audit disqualifications (<40k unrenovated/hostel/inadequate space or dated condition)
 DISQUALIFICATION_OVERRIDES = {
     "e-chalupy 18418": "Team veto ('nee, neni kde sedet' - dining/common area only 49 m² inadequate for 20+ group)",
     "e-chalupy 13470": "Dated socialist school-trip hostel (2.0/10 freshness, shared corridor showers)",
     "e-chalupy 8666": "Dated institutional feel (4.0/10 freshness) and inadequate 16-chair common area for retreat",
+    "e-chalupy 15694": "Dismissed on price & condition audit (30k CZK budget tier, dated 80s/90s pension interior, five 4-bed dorms)",
+    "e-chalupy 6965": "Heavily worn hostel condition (2.0/10 freshness, 'worth max 30k, everything very old', 6-7 bed dorms with corridor showers)",
+    "e-chalupy 8163": "Heavily dated condition (2.0/10 freshness, uncomfortable wooden benches only, unrenovated attic)",
+    "e-chalupy 1690": "Team veto & dated appearance (3.5/10 freshness, 'expensive, looks bad', institutional rooms)",
 }
 
 # Room layout / condition penalties
 ROOM_PENALTY_OVERRIDES = {
-    "e-chalupy 15694": (-10.0, "Dated 80s/90s pension interior and five 4-bed dorm rooms"),
     "e-chalupy 3742": (-4.0, "Crowded 4-5 bed dorm room layout"),
+    "e-chalupy 10456": (-6.0, "Large 5-bed and 6-bed dorm rooms with bunk beds"),
 }
 
 
