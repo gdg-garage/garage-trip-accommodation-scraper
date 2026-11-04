@@ -3624,7 +3624,7 @@
             <div class="thumbs-strip" id="thumbs-${safeListing}">
               ${previewList.map((p, idx) => `
                 <div class="thumb ${idx === initialPhotoIdx ? 'active-thumb' : ''}" onclick="selectCardPhoto('${item.Listing}', ${idx}, event)" title="View photo ${idx + 1}">
-                  <img src="${getPhotoSrc(item.Photos_Folder, p)}" alt="Photo ${idx + 1}" loading="lazy">
+                  <img src="${getPhotoSrc(item.Photos_Folder, p)}" alt="Photo ${idx + 1}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=100&auto=format&fit=crop&q=80'">
                 </div>
               `).join('')}
               ${item.Photos_List.length > 8 ? `
@@ -3675,6 +3675,11 @@
                 <div class="score-badge" style="background:${scoreColor}; color:#090e17;">
                   ${item.Total_Score} <span style="font-size:11px;opacity:0.8;">pts</span>
                 </div>
+                ${item.Photos_List && item.Photos_List[0] && item.Photos_List[0].startsWith('http') ? `
+                  <a href="${item.Url || '#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="position:absolute; top:12px; left:56px; z-index:4; background:rgba(15,23,42,0.88); color:#38bdf8; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px; text-decoration:none; border:1px solid rgba(56,189,248,0.4); backdrop-filter:blur(6px); display:flex; align-items:center; gap:4px; box-shadow:0 2px 8px rgba(0,0,0,0.4);" title="Photos hosted on e-chalupy (CDN protected) - Click to view gallery on site">
+                    🌐 Source Gallery ↗
+                  </a>
+                ` : ''}
                 ${item.Has_Local_Photos && item.Photos_List && item.Photos_List.length > 1 ? `
                   <button class="card-nav-arrow card-nav-prev" onclick="flipCardPhoto('${item.Listing}', -1, event)" title="Previous photo">&lsaquo;</button>
                   <button class="card-nav-arrow card-nav-next" onclick="flipCardPhoto('${item.Listing}', 1, event)" title="Next photo">&rsaquo;</button>
