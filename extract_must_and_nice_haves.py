@@ -73,6 +73,23 @@ ROOM_PENALTY_OVERRIDES = {
     "e-chalupy 10456": (-6.0, "Large 5-bed and 6-bed dorm rooms with bunk beds"),
 }
 
+# Live user review feedback and outreach status overrides
+LIVE_FEEDBACK_OVERRIDES = {
+    "e-chalupy 2180": {
+        "tivvit_note": "quite strange and a bit old",
+        "penalty": -8.0,
+        "freshness": 5.5,
+        "label": "⚠️ User Review: Quite strange and a bit old (-8.0 pts)",
+        "con": "⚠️ User review caveat: Layout is quite strange and interior feels a bit old (-8.0 pts)"
+    },
+    "e-chalupy 22293": {
+        "tivvit_note": "Termix did not reply and not sure about capacity (46 bunks)",
+        "penalty": -8.0,
+        "label": "⚠️ Outreach Alert: Unresponsive host / bunk dorm capacity doubts (-8.0 pts)",
+        "con": "⚠️ Outreach alert: Host did not reply to inquiry; high bunk bed density creates capacity doubts (-8.0 pts)"
+    }
+}
+
 
 
 def clean_text(s: Optional[str]) -> str:
@@ -961,6 +978,20 @@ def build_must_and_nice_evaluations():
         fresh_score, fresh_lbl, fresh_notes = evaluate_visual_freshness(r, html_text, model_evals.get(oid))
         price_cat = determine_price_category(p_7n)
 
+        # Apply live user feedback overrides if any
+        live_fb = LIVE_FEEDBACK_OVERRIDES.get(listing)
+        if live_fb:
+            if "freshness" in live_fb:
+                fresh_score = live_fb["freshness"]
+                fresh_lbl = "Standard Tourist Standard (Visibly Aged)"
+                fresh_notes = live_fb["tivvit_note"]
+            if live_fb.get("tivvit_note"):
+                tn = f"{tn}; {live_fb['tivvit_note']}".strip("; ")
+            if "penalty" in live_fb:
+                u_feedback += live_fb["penalty"]
+                voters.append(f"Tivvit: Review Alert ({live_fb['penalty']:+.1f})")
+                s_lbl = live_fb["label"]
+
         # Team veto check from comments
         if ("just no" in tc.lower() or "just no" in tn.lower()) and mh_no_veto:
             mh_no_veto = False
@@ -994,6 +1025,8 @@ def build_must_and_nice_evaluations():
         clean_cons = [c for c in raw_cons if not any(w in c.lower() for w in ["beer tap", "draft beer", "draft tap", "píp", "výčep", "tap(s)", "taps", "pet", "pets", "mazlíč", "dog", "pes", "penalty", "pokuta", "budget ceiling", "over 100k", "orlické hory"])]
         if room_penalty_reason:
             clean_cons.append(f"⚠️ Layout/Age Penalty: {room_penalty_reason} ({room_penalty:+.1f} pts)")
+        if live_fb and live_fb.get("con"):
+            clean_cons.append(live_fb["con"])
         if p_7n >= 100000:
             clean_cons.append(f"💸 Exceeds 100k budget ceiling: {int(p_7n):,} Kč ({val_score:+.1f} pts value penalty)")
         if in_orlicke_hory:

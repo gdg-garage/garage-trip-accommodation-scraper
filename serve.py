@@ -88,6 +88,19 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                     threads_by_listing[lst] = []
                 threads_by_listing[lst].append(t)
 
+            # Load outreach info if available
+            outreach_map = {}
+            if os.path.exists("data/outreach_campaign_top_candidates.json"):
+                try:
+                    with open("data/outreach_campaign_top_candidates.json", "r", encoding="utf-8") as f_out:
+                        oc_data = json.load(f_out)
+                        for oc in oc_data.get("active_outreach_candidates", []):
+                            outreach_map[oc.get("Listing")] = oc
+                        for oc in oc_data.get("paused_or_unresponsive_candidates", []):
+                            outreach_map[oc.get("Listing")] = oc
+                except Exception:
+                    pass
+
             for item in data:
                 listing = item.get("Listing")
                 item["team_feedback"] = legacy.get(listing, {"comment": "", "vote": "", "updated_at": ""})
@@ -95,12 +108,29 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                 item["threads"] = item_threads
                 item["threads_count"] = len(item_threads)
                 item["pending_ai_count"] = len([t for t in item_threads if t.get("ai_status") == "pending"])
+                if listing in outreach_map:
+                    item["outreach"] = outreach_map[listing]
 
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.end_headers()
             self.wfile.write(json.dumps(data, ensure_ascii=False).encode("utf-8"))
             return
+
+        # API: get full outreach campaign
+        if path == "/api/outreach":
+            if os.path.exists("data/outreach_campaign_top_candidates.json"):
+                with open("data/outreach_campaign_top_candidates.json", "rb") as f:
+                    content = f.read()
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(content)
+                return
+            else:
+                self.send_response(404)
+                self.end_headers()
+                return
 
         # API: get comments threads
         if path == "/api/comments/threads":

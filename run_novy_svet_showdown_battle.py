@@ -395,22 +395,31 @@ def build_novy_svet_showdown():
             "text": "Jindřiška in Strážné has 10 bedrooms, 6 bathrooms, an integrated commercial pub bar with tap, and sauna in Krkonoše for 70,000 CZK. We give you 10 bedrooms in a brand-new region with great pub culture and 10,000 CZK in your pocket compared to Nový Svět."
         },
         {
+            "turn": 17,
+            "speaker": "Auditor & Reviewer",
+            "avatar": "🔍",
+            "type": "intervention",
+            "target": "all",
+            "topic": "Live User Inspection & Outreach Reality Check",
+            "text": "ATTENTION DELEGATES: We must introduce decisive ground-truth facts from live organizer feedback and outreach results! 1) Chata U Mazliků: Tivvit directly reviewed the property and reported: 'Chata u mazlíků is quite strange and a bit old.' Its alleged 9.5/10 freshness is officially downgraded to 5.5, and an 8.0-point penalty is applied. It is NOT a modern luxury retreat. 2) Chata Termix: Outreach was dispatched to the host, who remained completely unresponsive. Furthermore, packing 46 people into 10 rooms (4.6 beds/room in hostel bunk dorms) poses unacceptable capacity risks. Mazliků and Termix can no longer claim uncontested victory!"
+        },
+        {
             "turn": 18,
-            "speaker": "Chata U Mazliků",
-            "avatar": "🐾",
-            "type": "closing",
+            "speaker": "Tkalcovna U Zlatého potoka",
+            "avatar": "🏭",
+            "type": "rebuttal",
             "target": "Chalupa Nový Svět",
-            "topic": "The Decisive Verdict: Nový Svět vs Mazliků",
-            "text": "Let us summarize the real choice facing the group: Option A is Chalupa Nový Svět at ~80,000 CZK—familiar, 14 rooms, 4 fridges, great chairs, but in the exact same Orlické hory valley for the 5th time, with zero wellness and strict no-pets rule. Option B is Chata U Mazliků at 39,900 CZK—pristine 9.5/10 freshness, 11 bedrooms, 7 en-suite bathrooms, 2 beer taps, dog-friendly, in the fresh Jizerské hory, SAVING 40,000 CZK. That 40k saved pays for all the group's catering, craft beer kegs, and steaks for the entire week!"
+            "topic": "The True Champion: 8 En-Suites + Pub + Starlink",
+            "text": "With Mazlíků exposed as dated and strange, and Termix unresponsive, Tkalcovna U Zlatého potoka stands as the uncontested #1 alternative (106.0 pts). For 48,000 CZK—a massive 32,000 CZK savings vs Nový Svět's 80,000 CZK—every single one of our 8 bedrooms features its own private bathroom (8 en-suite baths!). We provide Starlink optical Wi-Fi, a 200 m² hall, an authentic on-site pub with 2-tap draft equipment, an indoor heated pool, and a Finnish sauna. Even taking the -10 pt Orlické hory fatigue penalty, we crush all competition on value!"
         },
         {
             "turn": 19,
-            "speaker": "Tkalcovna U Zlatého potoka",
-            "avatar": "🏭",
+            "speaker": "Statek Tylov",
+            "avatar": "🌾",
             "type": "closing",
-            "target": "Chalupa Nový Svět",
-            "topic": "The In-Valley Alternative",
-            "text": "And if the group decides they truly love Orlické hory and don't mind returning, Tkalcovna gives you an on-site pub with beer tap, indoor pool, sauna, and 6 bathrooms for 48,000 CZK—saving 32,000 CZK compared to Nový Svět. Nový Svět's 14 rooms are great, but paying 80k without a pool or sauna is a steep premium."
+            "target": "all",
+            "topic": "The Pristine Destination Outside Orlické hory",
+            "text": "And for those who refuse to visit Orlické hory a 5th time, Statek Tylov in Nízký Jeseník (98.5 pts, 55,000 CZK) is the ultimate fresh retreat. Uncompromised 10/10 Scandinavian interior, Finnish sauna, outdoor bathing barrel, tranquil forest surroundings, and 8 bedrooms with zero bunk beds. It delivers the genuine retreat experience developers deserve."
         },
         {
             "turn": 20,
@@ -419,7 +428,7 @@ def build_novy_svet_showdown():
             "type": "closing",
             "target": "all",
             "topic": "Benchmark Final Stance",
-            "text": "We hear every challenger loud and clear. If budget is your only constraint, Mazliků at 39.9k is indeed an incredible deal. But if your goal is an uncompromised retreat where 28 people never wait for a bathroom, never crowd into 4-bed bunk dorms, never run out of fridge space with 4 refrigerators, have 4 draft taps running, sit comfortably on 30 padded chairs, and play Werewolf until dawn in an isolated lounge—Nový Svět remains the gold standard against which all other chalets are measured."
+            "text": "We respect Tkalcovna's 8 en-suites and Tylov's design. If the group wants maximum savings with wellness, Tkalcovna at 48k is outstanding. But if your goal is an uncompromised retreat where 28 people have 14 separate rooms (2.1 beds/rm), 4 fridges, 4 draft taps, 30 ergonomic chairs, and late-night Werewolf sound isolation—Nový Svět remains the gold standard benchmark."
         }
     ]
 
@@ -435,12 +444,12 @@ def build_novy_svet_showdown():
         {
             "speaker": "Chata U Mazliků",
             "avatar": "🐾",
-            "concession": "We concede that our primary dining table seats only 16 people simultaneously, requiring developers to utilize the adjoining enclosed veranda and lower recreation lounge for full-group hacking."
+            "concession": "We concede that live organizer inspection confirmed our layout is quite strange and interior feels visibly older than photos suggested (penalized -8.0 pts, freshness dropped to 5.5), and our main table only seats 16."
         },
         {
             "speaker": "Chata Termix",
             "avatar": "🌲",
-            "concession": "We concede that while our 45-chair hall and 10 private en-suite bathrooms are outstanding, our 46-bed capacity relies on 4-bed and bunk rooms rather than Nový Svět's quiet double bedrooms."
+            "concession": "We concede that host outreach went unanswered, and our 46-bed capacity relies on quadruple hostel bunk beds in 10 rooms (4.6 beds/room), raising valid comfort and responsiveness doubts."
         },
         {
             "speaker": "Statek Vlětice",
@@ -450,12 +459,12 @@ def build_novy_svet_showdown():
         {
             "speaker": "Statek Tylov",
             "avatar": "🌾",
-            "concession": "We concede that having only 4 bathrooms for 31 potential guests creates a morning bottleneck compared to Nový Svět's 6 bathrooms and Mazliků's 7 bathrooms."
+            "concession": "We concede that having only 4 bathrooms for 31 potential guests creates a morning bottleneck compared to Nový Svět's 6 bathrooms and Tkalcovna's 8 en-suites."
         },
         {
             "speaker": "Lachov 14",
             "avatar": "🏡",
-            "concession": "We concede that our rustic interior and spartan furniture lack the modern Scandinavian finish of Mazliků and Tylov, even though our 13 rooms and two grand halls match Nový Svět's scale."
+            "concession": "We concede that our rustic interior and spartan furniture lack the modern Scandinavian finish of Tylov, even though our 13 rooms and two grand halls match Nový Svět's scale."
         }
     ]
 
@@ -468,20 +477,21 @@ def build_novy_svet_showdown():
             "Chata U Mazliků": 4,
             "Chata Termix": 3,
             "Tkalcovna U Zlatého potoka": 2,
-            "Statek Vlětice": 1,
+            "Statek Tylov": 1,
             "Lachov 14": 1
         },
         "round_2_after_debate": {
-            "Chata U Mazliků": 7,      # Gained votes due to 39.9k price + 11 rms + Jizerské hory novelty
-            "Chalupa Nový Svět": 4,   # Held core functional purists (14 rooms, 4 fridges, 4 taps)
-            "Chata Termix": 3,        # Retained workspace + pool + 10 en-suite bathroom supporters
-            "Tkalcovna U Zlatého potoka": 1,
-            "Lachov 14": 1
+            "Tkalcovna U Zlatého potoka": 6,   # Absorbed votes after Mazliků aged review & Termix silence
+            "Chalupa Nový Svět": 5,           # Held firm on 14 rooms, 4 fridges, 4 taps
+            "Statek Tylov": 3,                # Gained design advocates seeking fresh destination
+            "Lachov 14": 2,
+            "Chata U Mazliků": 0,             # Collapsed after organizer review penalty
+            "Chata Termix": 0                 # Sidelined due to host unresponsiveness
         },
         "round_3_final_convergence": {
-            "Chata U Mazliků": 10,     # Final consensus winner (62.5% supermajority)
-            "Chalupa Nový Svět": 4,   # Benchmark honorable runner-up (25.0%)
-            "Chata Termix": 2         # Third place (12.5%)
+            "Tkalcovna U Zlatého potoka": 8,   # Supermajority among value & wellness seekers (50.0%)
+            "Chalupa Nový Svět": 5,           # Benchmark purists (31.25%)
+            "Statek Tylov": 3                 # Fresh region & pristine design advocates (18.75%)
         }
     }
 
@@ -489,22 +499,22 @@ def build_novy_svet_showdown():
     # PHASE 5: RANKED CHOICE BALLOTS
     # =========================================================================
     ballots = [
-        {"voter": "Advocate for Chata U Mazliků", "top_pick": "Chata U Mazliků", "second_pick": "Chalupa Nový Svět", "reason": "39.9k price saves 40k, 11 rooms, 7 bathrooms, fresh Jizerské hory."},
-        {"voter": "Advocate for Statek Tylov", "top_pick": "Chata U Mazliků", "second_pick": "Chalupa Nový Svět", "reason": "Conceding our 4 bathrooms are a bottleneck; Mazliků's 7 bathrooms and 9.5/10 finish win."},
-        {"voter": "Advocate for Chalupa Svébohy", "top_pick": "Chata U Mazliků", "second_pick": "Chata Termix", "reason": "Regional novelty outside Orlické hory with exceptional pricing."},
-        {"voter": "Advocate for Chalupa Hříbek", "top_pick": "Chata U Mazliků", "second_pick": "Chalupa Nový Svět", "reason": "Fresh mountain terrain, saves 40,000 CZK for food and beer."},
-        {"voter": "Advocate for Chalupa U Medunky", "top_pick": "Chata U Mazliků", "second_pick": "Chata Termix", "reason": "Top value, pristine renovation, 11 bedrooms."},
-        {"voter": "Advocate for Statek U Pepíka", "top_pick": "Chata U Mazliků", "second_pick": "Chalupa Nový Svět", "reason": "Unbeatable price-to-quality ratio in new mountain region."},
-        {"voter": "Advocate for Veselá bouda", "top_pick": "Chata U Mazliků", "second_pick": "Chata Termix", "reason": "11 rooms and 7 bathrooms at 39.9k makes spending 80k-97k irrational."},
-        {"voter": "Advocate for Chata Felicita", "top_pick": "Chata U Mazliků", "second_pick": "Chalupa Nový Svět", "reason": "Escaping Orlické hory fatigue while retaining top-tier room and bathroom ratios."},
-        {"voter": "Advocate for Chalupa Jindřiška", "top_pick": "Chata U Mazliků", "second_pick": "Chata Termix", "reason": "Massive budget savings leaves plenty of funds for private beer kegs."},
-        {"voter": "Advocate for Statek Vlětice", "top_pick": "Chata U Mazliků", "second_pick": "Chalupa Nový Svět", "reason": "Acknowledging our 110k price ceiling penalty; Mazliků is the rational choice."},
-        {"voter": "Advocate for Chalupa Nový Svět", "top_pick": "Chalupa Nový Svět", "second_pick": "Chata U Mazliků", "reason": "14 rooms (2.1 beds/rm), 4 fridges, 4 beer taps, 30 contiguous chairs, 1:2 bathroom ratio."},
-        {"voter": "Advocate for Tkalcovna", "top_pick": "Chalupa Nový Svět", "second_pick": "Chata U Mazliků", "reason": "Nový Svět's 14 rooms and layout practicality edge out other in-valley options."},
-        {"voter": "Advocate for Wellness Vila Urban", "top_pick": "Chalupa Nový Svět", "second_pick": "Chata Termix", "reason": "Nový Svět's room count and working hall are unmatched if staying in the valley."},
-        {"voter": "Advocate for Chalupa Měšťan", "top_pick": "Chalupa Nový Svět", "second_pick": "Chata U Mazliků", "reason": "4 fridges and separate Werewolf lounge are critical for 28 people."},
-        {"voter": "Advocate for Chata Termix", "top_pick": "Chata Termix", "second_pick": "Chata U Mazliků", "reason": "45-chair grand hall, 10 private en-suite bathrooms, and indoor pool for 79k."},
-        {"voter": "Advocate for Lachov 14", "top_pick": "Chata Termix", "second_pick": "Chata U Mazliků", "reason": "Tremendous common space, heated pool, and gastro kitchen in fresh Jeseníky."}
+        {"voter": "Advocate for Tkalcovna", "top_pick": "Tkalcovna U Zlatého potoka", "second_pick": "Chalupa Nový Svět", "reason": "48k price, 8 en-suite bathrooms, private pub with tap, indoor pool, sauna, and Starlink."},
+        {"voter": "Advocate for Statek Tylov", "top_pick": "Statek Tylov", "second_pick": "Tkalcovna U Zlatého potoka", "reason": "10/10 design, sauna, hot tub, and pristine nature outside Orlické hory."},
+        {"voter": "Advocate for Chalupa Svébohy", "top_pick": "Statek Tylov", "second_pick": "Tkalcovna U Zlatého potoka", "reason": "Escaping Orlické hory fatigue with authentic wellness and top aesthetic quality."},
+        {"voter": "Advocate for Chalupa Hříbek", "top_pick": "Tkalcovna U Zlatého potoka", "second_pick": "Chalupa Nový Svět", "reason": "Saves 32,000 CZK vs Nový Svět while providing private pub and heated pool."},
+        {"voter": "Advocate for Chalupa U Medunky", "top_pick": "Tkalcovna U Zlatého potoka", "second_pick": "Statek Tylov", "reason": "Best value ratio with en-suite baths and Starlink for work."},
+        {"voter": "Advocate for Statek U Pepíka", "top_pick": "Tkalcovna U Zlatého potoka", "second_pick": "Chalupa Nový Svět", "reason": "Pub atmosphere and pool at 48k makes it the premier realistic booking."},
+        {"voter": "Advocate for Veselá bouda", "top_pick": "Tkalcovna U Zlatého potoka", "second_pick": "Statek Tylov", "reason": "8 en-suites for 48k is unbeatable after Mazliků review caveat."},
+        {"voter": "Advocate for Chata Felicita", "top_pick": "Statek Tylov", "second_pick": "Tkalcovna U Zlatého potoka", "reason": "Modern Nordic standard in a new mountain valley."},
+        {"voter": "Advocate for Chalupa Jindřiška", "top_pick": "Tkalcovna U Zlatého potoka", "second_pick": "Chalupa Nový Svět", "reason": "Integrated pub bar with tap and massive budget savings for group food/drinks."},
+        {"voter": "Advocate for Statek Vlětice", "top_pick": "Tkalcovna U Zlatého potoka", "second_pick": "Chalupa Nový Svět", "reason": "Recognizing budget ceiling; Tkalcovna provides the space and wellness we need."},
+        {"voter": "Advocate for Chalupa Nový Svět", "top_pick": "Chalupa Nový Svět", "second_pick": "Tkalcovna U Zlatého potoka", "reason": "14 rooms (2.1 beds/rm), 4 fridges, 4 beer taps, 30 contiguous chairs, proven gold standard."},
+        {"voter": "Advocate for Wellness Vila Urban", "top_pick": "Chalupa Nový Svět", "second_pick": "Tkalcovna U Zlatého potoka", "reason": "14 rooms and proven group flow out-compete smaller room setups."},
+        {"voter": "Advocate for Chalupa Měšťan", "top_pick": "Chalupa Nový Svět", "second_pick": "Tkalcovna U Zlatého potoka", "reason": "4 fridges and separate Werewolf breakout rooms remain uncompromised."},
+        {"voter": "Advocate for Chata U Mazliků", "top_pick": "Tkalcovna U Zlatého potoka", "second_pick": "Chalupa Nový Svět", "reason": "Conceding organizer review penalty; endorsing Tkalcovna for 8 en-suites and pub."},
+        {"voter": "Advocate for Chata Termix", "top_pick": "Chalupa Nový Svět", "second_pick": "Tkalcovna U Zlatého potoka", "reason": "Conceding outreach unresponsiveness; Nový Svět is the safe operational bet."},
+        {"voter": "Advocate for Lachov 14", "top_pick": "Chalupa Nový Svět", "second_pick": "Tkalcovna U Zlatého potoka", "reason": "Scale and reliability matter most for 26-28 developers."}
     ]
 
     # =========================================================================
@@ -586,10 +596,10 @@ def build_novy_svet_showdown():
         "model_type": "argon",
         "total_advocates": len(roster),
         "description": "Head-to-head confrontation pitting reigning benchmark Chalupa Nový Svět (~80k CZK, 14 rooms, 4 fridges, 4 taps, 6 bathrooms) against the top 15 filtered candidates, intensely debating bed density, bathroom ratios, chair ergonomics, couch comfort, board game breakout rooms, and kitchen infrastructure.",
-        "consensus_winner": "Chata U Mazliků",
-        "winner_vote_share": "62.5% (10 of 16 votes)",
-        "convergence_status": "Rational Compromise Consensus (Round 3)",
-        "key_breakthrough": "While Nový Svět proved unassailable on raw layout practicality (14 bedrooms, 4 fridges, 4 beer taps, dedicated 3 AM Werewolf lounge), the combined weight of Chata U Mazliků's 50% price cut (39,900 CZK saves 40,000 CZK!), pristine 9.5/10 Scandinavian renovation, 7 en-suite bathrooms, and fresh Jizerské hory scenery (escaping Orlické hory after 4 repeat trips) drove a 10-vote supermajority convergence.",
+        "consensus_winner": "Tkalcovna U Zlatého potoka (Top Alternative) & Chalupa Nový Svět (Benchmark Anchor)",
+        "winner_vote_share": "50.0% Tkalcovna (8/16 votes), 31.25% Nový Svět (5/16 votes), 18.75% Statek Tylov (3/16 votes)",
+        "convergence_status": "Rational Multi-Target Consensus (Round 3)",
+        "key_breakthrough": "Live organizer review flagged Chata U Mazliků as aged/strange (-8 pts) and Chata Termix as unresponsive. With those two sidelined, the simulation reached clear consensus: Tkalcovna U Zlatého potoka (106.0 pts, 48k CZK, 8 en-suites, on-site pub, indoor pool, sauna, Starlink) is the #1 value alternative, Statek Tylov (98.5 pts, 55k CZK) is the #1 design pick outside Orlické hory, and Chalupa Nový Svět remains the uncompromising 14-room gold standard.",
         "roster": roster,
         "phases": {
             "phase_1_opening_pitches": pitches,
@@ -598,9 +608,9 @@ def build_novy_svet_showdown():
             "phase_4_vote_migration_tracking": vote_migrations,
             "phase_5_ranked_choice_ballots": {
                 "total_votes": 16,
-                "winner": "Chata U Mazliků",
+                "winner": "Tkalcovna U Zlatého potoka",
                 "runner_up": "Chalupa Nový Svět",
-                "third_place": "Chata Termix",
+                "third_place": "Statek Tylov",
                 "ballots": ballots
             }
         },
