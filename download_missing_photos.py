@@ -19,7 +19,8 @@ import sys
 import time
 import urllib.request
 import urllib.error
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Tuple
+from download_html import solve_cloudflare_challenge
 
 try:
     from curl_cffi import requests as cffi_requests
@@ -52,18 +53,20 @@ def is_valid_image(data: bytes) -> bool:
     return False
 
 
-def download_image(url: str, dest_path: str, session: Any = None, headers: Dict[str, str] = None, timeout: int = 15) -> bool:
+def download_image(url: str, dest_path: str, session: Any = None, headers: Dict[str, str] = None, timeout: int = 15, session_file: str = ".cf_session.json") -> Tuple[bool, bool]:
+    """Returns (success, is_challenge)."""
     try:
         if session is not None:
             r = session.get(url, timeout=timeout)
+            is_challenge = r.status_code in (403, 429) or (r.content and b"Just a moment..." in r.content[:1000])
             if r.status_code == 200 and is_valid_image(r.content):
                 tmp = dest_path + ".tmp"
                 with open(tmp, "wb") as f:
                     f.write(r.content)
                 os.replace(tmp, dest_path)
-                return True
+                return True, False
             else:
-                return False
+                return False, is_challenge
         else:
             req = urllib.request.Request(url, headers=headers or {})
             with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -73,10 +76,12 @@ def download_image(url: str, dest_path: str, session: Any = None, headers: Dict[
                     with open(tmp, "wb") as f:
                         f.write(content)
                     os.replace(tmp, dest_path)
-                    return True
-                return False
+                    return True, False
+                return False, False
+    except urllib.error.HTTPError as e:
+        return False, e.code in (403, 429)
     except Exception:
-        return False
+        return False, False
 
 
 def main():
@@ -159,6 +164,7 @@ def main():
     total_downloaded = 0
     total_cached = 0
     total_failed = 0
+    challenge_attempts = 0
 
     for p_idx, prop in enumerate(properties, 1):
         name = prop.get("name", "Unknown")
@@ -184,7 +190,26 @@ def main():
                 total_cached += 1
                 continue
 
-            success = download_image(url, dest, session=session, headers=headers)
+            success, is_challenge = download_image(url, dest, session=session, headers=headers)
+            if not success and is_challenge and HAS_CURL_CFFI and challenge_attempts < 3:
+                challenge_attempts += 1
+                print(f"\n⚠️ Cloudflare challenge detected on {url}. Attempting to solve challenge (attempt {challenge_attempts}/3)...")
+                solved = solve_cloudflare_challenge(url, session_file=args.session_file)
+                if solved and os.path.exists(args.session_file):
+                    try:
+                        with open(args.session_file, "r", encoding="utf-8") as f:
+                            s_data = json.load(f)
+                        cf_cookies = s_data.get("cookies", {})
+                        cf_ua = s_data.get("user_agent", DEFAULT_USER_AGENT)
+                        headers["User-Agent"] = cf_ua
+                        session = cffi_requests.Session(impersonate="chrome120")
+                        session.headers.update(headers)
+                        session.cookies.update(cf_cookies)
+                        print("✓ Session refreshed, retrying download...")
+                        success, _ = download_image(url, dest, session=session, headers=headers)
+                    except Exception as e:
+                        print(f"Failed to reload session: {e}")
+
             if success:
                 prop_downloaded += 1
                 total_downloaded += 1

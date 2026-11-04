@@ -20,8 +20,27 @@ import re
 from typing import Dict, Any, Tuple
 
 def parse_bathrooms_count(item: Dict[str, Any]) -> int:
+    listing = str(item.get("Listing", ""))
     text = (item.get("Bedrooms_Bathrooms", "") + " " + item.get("Note", "") + " " + item.get("Common_Area_Desc", "")).lower()
     
+    # Specific known property counts verified from listings & photos
+    if "3649" in listing:
+        return 7  # 7 bathrooms (1 per apartment) + 11 WCs
+    if "5471" in listing:
+        return 18 # Penzion Malovaný: en-suite in every room
+    if "16467" in listing:
+        return 7  # Chalupa Měšťan: 7 en-suite bathrooms
+    if "10456" in listing:
+        return 7  # Chalupa Pod Slunečnou: 7 en-suite bathrooms
+    if "21177" in listing:
+        return 13 # Chata Františkov: 13 en-suite bathrooms
+    if "11079" in listing:
+        return 8  # Veselá bouda: 8 bathrooms
+    if "2940" in listing:
+        return 7  # Statek U Pepíka: 7 bathrooms with WC
+    if "2061" in listing:
+        return 5  # Statek Tylov: 5 bathrooms, 6 WCs
+
     # Check apartment count with own bathroom (e.g. Nový Svět: 7 apartments, each with own bathroom)
     m_apt = re.search(r"(\d+)\s*(?:apartmánů|apartmány|apartmáneh|apartments).*?(?:vlastní|own)\s*(?:koupeln|sociál)", text)
     if m_apt:
@@ -31,29 +50,40 @@ def parse_bathrooms_count(item: Dict[str, Any]) -> int:
     if m:
         return int(m.group(1))
     # Check if en-suite mentioned for each room
-    if "každý pokoj má vlastní koupelnu" in text or "všech 8 pokojů vždy s vlastní koupelnou" in text:
+    if "každý pokoj má vlastní koupelnu" in text or "všech 8 pokojů vždy s vlastní koupelnou" in text or "na každém pokoji" in text or "vlastní sprchou" in text:
         return item.get("Rooms_Count", 0) or 8
-    # Specific known property counts
-    if "3649" in item.get("Listing", ""):
-        return 7
+
     # Default fallback
     return 4
 
 def parse_couches_info(item: Dict[str, Any]) -> Tuple[int, str]:
     """Returns couch score (0-8) and description."""
+    listing = str(item.get("Listing", ""))
     desc = (item.get("Common_Area_Desc", "") + " " + item.get("Note", "")).lower()
     
+    # Specific photo-verified property overrides
+    if "3649" in listing:
+        return 8, "TWO distinct deep couch zones (seats 10-12+ across main hall and lounge with 2 smart TVs)"
+    if "2061" in listing: # Tylov: only bentwood chairs in 60m2 room; 2 armchairs in kids playroom
+        return 1, "No deep couches in main 60 m² hall; only wooden dining chairs (2 armchairs in kids playroom)"
+    if "16467" in listing: # Měšťan: no proper couches; daybeds & floor cushions in games hall
+        return 2, "No proper living room couches; daybed wooden benches and floor cushions only"
+    if "2940" in listing: # Statek U Pepíka: long banquet tables, secondary attic lounge
+        return 4, "Attic lounge seating + banquet dining; no large central living room sofa"
+    if "5471" in listing: # Malovaný: pension breakfast hall only
+        return 1, "Pension dining hall with ~40 chairs; no living room lounge or couches"
+
     # Check dual couch zones
-    if "two couch zones" in desc or "dvě zóny s gaučem" in desc or "dvě sedací soupravy" in desc or ("two daybed benches" in desc and "cushions" in desc):
+    if "two couch zones" in desc or "dvě zóny s gaučem" in desc or "dvě sedací soupravy" in desc:
         return 8, "TWO distinct couch zones (seats 8-12+ across main hall and lounge)"
+
+    # Penalty if only wooden chairs/benches
+    if "jen lavice" in desc or "pouze lavice" in desc or "no proper couches" in desc or ("lavice" in desc and not any(k in desc for k in ["gauč", "sofa", "pohovka", "sedací"])):
+        return 0, "No deep couch; only wooden tavern chairs/benches"
 
     has_large_couch = any(k in desc for k in ["sedací souprava", "velká sedací", "rohový gauč", "rohová sedací", "u-sofa", "u-sedací", "leather sofa", "chesterfield", "velká pohovka", "pohovky", "sofa set", "corner sofa"])
     has_couch = any(k in desc for k in ["gauč", "sofa", "pohovka", "sedací", "daybed", "couch"])
     has_secondary_lounge = item.get("Has_Secondary_Room") or any(k in desc for k in ["druhá společenská", "druhý sál", "herna", "salon", "attic lounge", "patro s posezením", "vinárna", "sklípek", "veranda", "second dining", "game room"])
-
-    # Penalty if only wooden chairs/benches
-    if "jen lavice" in desc or "pouze lavice" in desc or ("lavice" in desc and not has_couch):
-        return 0, "No deep couch; only wooden tavern chairs/benches"
 
     if has_large_couch and has_secondary_lounge:
         return 8, "Primary large lounge sofa + secondary breakout lounge/nook"
@@ -159,7 +189,11 @@ def evaluate_pragmatic_score(item: Dict[str, Any]) -> Dict[str, Any]:
     ratio = (baths / rooms) if rooms > 0 else 0.3
     bath_pts = 0.0
     bath_note = ""
-    if ratio >= 0.8:
+    if "5343" in str(item.get("Listing", "")):
+        # Chalupa Jindřiška: communal gender-segregated shower stalls on ground floor
+        bath_pts = 6.0
+        bath_note = "Hostel layout: gender-segregated communal shower stalls on ground floor (shared)"
+    elif ratio >= 0.8:
         bath_pts = 15.0
         bath_note = f"{baths} baths for {rooms} rooms (1:1 near-private en-suite; zero queues)"
     elif ratio >= 0.45:
@@ -188,6 +222,10 @@ def evaluate_pragmatic_score(item: Dict[str, Any]) -> Dict[str, Any]:
     # -------------------------------------------------------------
     # 6. Aesthetic Freshness (Ota Approved) (Max 10 pts)
     # -------------------------------------------------------------
+    # Novy Svet confirmed modern and clean by user ("everything modern for a very good price")
+    if "3649" in str(item.get("Listing", "")):
+        fresh_score = max(fresh_score, 8.5)
+
     # Penalize strange layouts or 1980s aged wood
     if fresh_score >= 8.5:
         fresh_pts = 10.0
@@ -243,13 +281,16 @@ def evaluate_pragmatic_score(item: Dict[str, Any]) -> Dict[str, Any]:
     # -------------------------------------------------------------
     folder = item.get("Photos_Folder", "")
     has_disk_photos = False
+    photo_count = 0
     if folder and os.path.exists(folder):
         files = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp'))]
-        if files:
+        photo_count = len(files)
+        # Require at least 10 photos on disk for verified status
+        if photo_count >= 10:
             has_disk_photos = True
 
     photo_status = "VERIFIED_WITH_PHOTOS" if has_disk_photos else "PRELIMINARY_PHOTOS_MISSING"
-    photo_label = "📸 Verified with Photos" if has_disk_photos else "⚠️ Preliminary - Photos Missing"
+    photo_label = f"📸 Verified with Photos ({photo_count} photos)" if has_disk_photos else f"⚠️ Preliminary - Photos Missing / Incomplete ({photo_count} photos)"
 
     # Team comments veto / rejection penalty
     team_tc = ((item.get("Team_Comment") or "") + " " + (item.get("Tivvit_Note") or "")).lower()
