@@ -2587,6 +2587,87 @@
       overflow-y: auto;
       margin: 10px 0;
     }
+
+    /* Scorer Switcher & Photo Validation Badges */
+    .scorer-selector-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      padding: 4px 8px;
+    }
+    .scorer-toggle-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #94a3b8;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .scorer-toggle-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .scorer-toggle-btn.active {
+      background: rgba(56, 189, 248, 0.16);
+      border-color: rgba(56, 189, 248, 0.5);
+      color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+    .photo-validation-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .photo-validation-tag.verified {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+    }
+    .photo-validation-tag.preliminary {
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      color: #fbbf24;
+    }
+    .pragmatic-score-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(16, 185, 129, 0.18));
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 4px 10px;
+      border-radius: 8px;
+      color: #7dd3fc;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .pragmatic-breakdown-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0;
+      font-size: 11px;
+    }
+    .pragmatic-crit-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 3px 8px;
+      color: #cbd5e1;
+    }
+    .pragmatic-crit-pill strong {
+      color: #38bdf8;
+    }
   </style>
 </head>
 <body>
@@ -2669,11 +2750,22 @@
     </div>
 
     <!-- Main controls bar: search box, sort select, mobile filter toggle button -->
-    <div class="controls-main-bar">
+    <div class="controls-main-bar" style="flex-wrap:wrap; gap:10px;">
+      <!-- Scorer Mode Selector -->
+      <div class="scorer-selector-strip">
+        <span style="font-size:11.5px; font-weight:800; color:#cbd5e1; display:flex; align-items:center; gap:4px;">🎯 Scorer:</span>
+        <button id="scorer-btn-v2" class="scorer-toggle-btn active" onclick="setScorer('v2')" title="Methodical Scorer 2026: Rooms (8-14), Couch Lounging, Food Delivery (Deal Breaker), 1:2 Baths, Trail Loop">
+          ⚡ Scorer v2: Pragmatic 2026
+        </button>
+        <button id="scorer-btn-v1" class="scorer-toggle-btn" onclick="setScorer('v1')" title="Legacy Combined Multimodal Scorer">
+          📊 Scorer v1: Combined Legacy
+        </button>
+      </div>
+
       <input type="text" id="search-box" class="search-input" placeholder="🔍 Search by name, region, equipment, or notes...">
 
       <select id="sort-select" class="select-input">
-        <option value="score_desc">Sort: Combined Score (AI + Team Boost)</option>
+        <option value="score_desc">Sort: Scorer Rating (Highest First)</option>
         <option value="model_score">Sort: AI Model Score (Highest First)</option>
         <option value="user_boost">Sort: Team Boost (Highest Endorsements First)</option>
         <option value="price_asc">Sort: Final 7-Night Price (Lowest First)</option>
@@ -2692,6 +2784,8 @@
       <div class="filter-chips-grid">
         <button class="filter-btn active" data-filter="eligible">🎯 Meets Must-Haves (<span id="btn-eligible-cnt">0</span>)</button>
         <button class="filter-btn" data-filter="outreach" style="border-color:rgba(52,211,153,0.5);color:#34d399;">📬 Outreach Targets (<span id="btn-outreach-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="photos_verified" style="border-color:rgba(16,185,129,0.4);color:#6ee7b7;">📸 Photos Verified (<span id="btn-photos-verified-cnt">0</span>)</button>
+        <button class="filter-btn" data-filter="photos_missing" style="border-color:rgba(245,158,11,0.4);color:#fbbf24;">⚠️ Photos Missing (<span id="btn-photos-missing-cnt">0</span>)</button>
         <button class="filter-btn" data-filter="disqualified" style="border-color:rgba(239,68,68,0.4);color:#f87171;">⚠️ Disqualified (<span id="btn-disqualified-cnt">0</span>)</button>
         <button class="filter-btn" data-filter="modeleval">🤖 AI Scored (<span id="btn-modeleval-cnt">0</span>)</button>
         <button class="filter-btn" data-filter="all">All (<span id="btn-total-cnt">0</span>)</button>
@@ -3083,9 +3177,22 @@
       renderCards();
     }
 
+    let activeScorer = 'v2';
+
+    function setScorer(sc) {
+      activeScorer = sc;
+      const b1 = document.getElementById('scorer-btn-v1');
+      const b2 = document.getElementById('scorer-btn-v2');
+      if (b1) b1.classList.toggle('active', sc === 'v1');
+      if (b2) b2.classList.toggle('active', sc === 'v2');
+      renderCards();
+    }
+
     const FILTER_DISPLAY_LABELS = {
       'eligible': 'Eligible',
       'outreach': 'Outreach Targets',
+      'photos_verified': 'Photos Verified',
+      'photos_missing': 'Photos Missing',
       'disqualified': 'Disqualified',
       'modeleval': 'AI Scored',
       'all': 'All 99',
@@ -3220,6 +3327,10 @@
       document.getElementById('btn-praised-cnt').textContent = praisedCnt;
       const petsCnt = allCandidates.filter(c => c.NTH_Pets_Allowed).length;
       if (document.getElementById('btn-pets-cnt')) document.getElementById('btn-pets-cnt').textContent = petsCnt;
+      const photosVerifiedCnt = allCandidates.filter(c => c.Photo_Validation_Status === 'VERIFIED_WITH_PHOTOS').length;
+      const photosMissingCnt = allCandidates.filter(c => c.Photo_Validation_Status === 'PRELIMINARY_PHOTOS_MISSING').length;
+      if (document.getElementById('btn-photos-verified-cnt')) document.getElementById('btn-photos-verified-cnt').textContent = photosVerifiedCnt;
+      if (document.getElementById('btn-photos-missing-cnt')) document.getElementById('btn-photos-missing-cnt').textContent = photosMissingCnt;
       const pendingAi = allCandidates.reduce((acc, c) => acc + (c.pending_ai_count || 0), 0);
       if (document.getElementById('stat-pending-ai')) document.getElementById('stat-pending-ai').textContent = pendingAi;
       if (document.getElementById('stat-pending-ai-mobile')) document.getElementById('stat-pending-ai-mobile').textContent = pendingAi;
@@ -3340,6 +3451,8 @@
         if (activeFilter === 'notes' && !c.Tivvit_Note && !c.Team_Comment) return false;
         if (activeFilter === 'praised' && (!c.Score_User_Notes_Sentiment || c.Score_User_Notes_Sentiment <= 0)) return false;
         if (activeFilter === 'photos' && !c.Has_Local_Photos) return false;
+        if (activeFilter === 'photos_verified' && c.Photo_Validation_Status !== 'VERIFIED_WITH_PHOTOS') return false;
+        if (activeFilter === 'photos_missing' && c.Photo_Validation_Status !== 'PRELIMINARY_PHOTOS_MISSING') return false;
 
         if (search) {
           const haystack = `${c.Name} ${c.Location} ${c.Note} ${c.Common_Area_Desc} ${c.Sauna} ${c.Pool} ${c.Kitchen} ${c.Outdoor} ${c.Bedrooms_Bathrooms} ${c.Tivvit_Note} ${c.Team_Comment} ${c.User_Top_Voters_Summary || ''} ${c.User_Notes_Sentiment_Label || ''} ${c.NTH_Wellness_Details || ''} ${c.NTH_Pool_Type || ''} ${c.NTH_Beer_Tap_Details || ''} ${c.NTH_TV_Projector_Details || ''} ${c.NTH_Catering_Details || ''} ${c.NTH_Pets_Details || ''} ${c.NTH_Pets_Allowed ? 'pets dog pes se psem' : ''} ${c.Value_Rating || ''} ${(c.Pros_Vs_Novy_Svet||[]).join(' ')} ${(c.Cons_Vs_Novy_Svet||[]).join(' ')}`.toLowerCase();
@@ -3350,7 +3463,11 @@
 
       // Sorting
       if (sort === 'score_desc') {
-        filtered.sort((a, b) => (b.Total_Score || 0) - (a.Total_Score || 0));
+        if (activeScorer === 'v2') {
+          filtered.sort((a, b) => (b.Score_Pragmatic_2026 || 0) - (a.Score_Pragmatic_2026 || 0));
+        } else {
+          filtered.sort((a, b) => (b.Total_Score || 0) - (a.Total_Score || 0));
+        }
       } else if (sort === 'model_score') {
         filtered.sort((a, b) => (b.Model_Final_Score || 0) - (a.Model_Final_Score || 0));
       } else if (sort === 'user_boost') {
@@ -3819,9 +3936,16 @@
             <div class="card-gallery-wrap">
               <div class="image-preview-wrapper" id="card-img-wrap-${safeListing}">
                 <img id="card-main-img-${safeListing}" src="${mainImgSrc}" alt="${item.Name}" onclick="openLightbox('${item.Listing}', cardPhotoIndices['${item.Listing}'] || 0)" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&auto=format&fit=crop&q=80'">
-                <div class="rank-badge">#${item.Rank || '-'}</div>
-                <div class="score-badge" style="background:${scoreColor}; color:#090e17;">
-                  ${item.Total_Score} <span style="font-size:11px;opacity:0.8;">pts</span>
+                <div class="rank-badge">#${activeScorer === 'v2' ? (item.Rank_Pragmatic_2026 || '-') : (item.Rank || '-')}</div>
+                <div class="score-badge" style="background:${activeScorer === 'v2' ? '#38bdf8' : scoreColor}; color:#090e17;" title="${activeScorer === 'v2' ? 'Scorer v2: Pragmatic Retreat 2026' : 'Scorer v1: Combined Legacy'}">
+                  ${activeScorer === 'v2' ? (item.Score_Pragmatic_2026 || item.Total_Score) : item.Total_Score} <span style="font-size:11px;opacity:0.8;">pts</span>
+                </div>
+                <div style="position:absolute; top:12px; right:12px; z-index:4;">
+                  ${item.Photo_Validation_Status === 'VERIFIED_WITH_PHOTOS' ? `
+                    <span class="photo-validation-tag verified" title="Verified with high-resolution photos on local disk">📸 Verified</span>
+                  ` : `
+                    <span class="photo-validation-tag preliminary" title="Local high-res gallery missing on disk; prelim evaluation">⚠️ Prelim (No Photos)</span>
+                  `}
                 </div>
                 ${item.Photos_List && item.Photos_List[0] && item.Photos_List[0].startsWith('http') ? `
                   <a href="${item.Url || '#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="position:absolute; top:12px; left:56px; z-index:4; background:rgba(15,23,42,0.88); color:#38bdf8; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px; text-decoration:none; border:1px solid rgba(56,189,248,0.4); backdrop-filter:blur(6px); display:flex; align-items:center; gap:4px; box-shadow:0 2px 8px rgba(0,0,0,0.4);" title="Photos hosted on e-chalupy (CDN protected) - Click to view gallery on site">
@@ -3847,6 +3971,21 @@
               ${outreachBannerHtml}
               ${mhBanner}
               ${userEndorsementHtml}
+
+              ${activeScorer === 'v2' && item.Score_Pragmatic_Breakdown ? `
+                <div class="pragmatic-breakdown-row" style="background:rgba(56,189,248,0.05); border:1px solid rgba(56,189,248,0.25); border-radius:8px; padding:8px 12px; margin:6px 0;">
+                  <div style="font-size:12px; font-weight:800; color:#38bdf8; width:100%; margin-bottom:5px; display:flex; justify-content:space-between; align-items:center;">
+                    <span>⚡ Pragmatic Scorer v2: <strong>${item.Score_Pragmatic_2026} / 100 pts</strong> (Rank #${item.Rank_Pragmatic_2026 || '-'})</span>
+                    <span style="font-size:10.5px; color:#cbd5e1;">${item.Photo_Validation_Label}</span>
+                  </div>
+                  <div class="pragmatic-crit-pill" title="${item.Score_Pragmatic_Breakdown.rooms_note || ''}">🛏️ Rooms: <strong>${item.Score_Pragmatic_Breakdown.rooms_privacy}</strong>/25</div>
+                  <div class="pragmatic-crit-pill" title="${item.Score_Pragmatic_Breakdown.common_note || ''}">🛋️ Couches &amp; Tables: <strong>${item.Score_Pragmatic_Breakdown.common_space_couches}</strong>/25</div>
+                  <div class="pragmatic-crit-pill" title="${item.Score_Pragmatic_Breakdown.catering_note || ''}">🍲 Food Delivery: <strong>${item.Score_Pragmatic_Breakdown.catering_delivery}</strong>/15</div>
+                  <div class="pragmatic-crit-pill" title="${item.Score_Pragmatic_Breakdown.bath_note || ''}">🚽 Baths: <strong>${item.Score_Pragmatic_Breakdown.bathrooms_ratio}</strong>/15</div>
+                  <div class="pragmatic-crit-pill" title="${item.Score_Pragmatic_Breakdown.loc_note || ''}">🌲 Trails/Loc: <strong>${item.Score_Pragmatic_Breakdown.location_trails}</strong>/10</div>
+                  <div class="pragmatic-crit-pill" title="${item.Score_Pragmatic_Breakdown.price_note || ''}">🏷️ Price: <strong>${item.Score_Pragmatic_Breakdown.price_modifier > 0 ? '+' : ''}${item.Score_Pragmatic_Breakdown.price_modifier}</strong> pts</div>
+                </div>
+              ` : ''}
 
               <!-- Property Name & Location & Action Buttons -->
               <div class="prop-name-row">
