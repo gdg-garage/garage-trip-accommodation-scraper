@@ -36,7 +36,14 @@ def load_legacy_comments():
     if os.path.exists(COMMENTS_FILE):
         try:
             with open(COMMENTS_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
+                data = json.load(f)
+            normalized = {}
+            for k, v in data.items():
+                if isinstance(v, list):
+                    normalized[k] = v
+                elif isinstance(v, dict):
+                    normalized[k] = [v]
+            return normalized
         except Exception:
             return {}
     return {}
@@ -103,7 +110,19 @@ class ReviewHandler(SimpleHTTPRequestHandler):
 
             for item in data:
                 listing = item.get("Listing")
-                item["team_feedback"] = legacy.get(listing, {"comment": "", "vote": "", "updated_at": ""})
+                comments_list = legacy.get(listing, [])
+                item["team_comments"] = comments_list
+                if comments_list:
+                    latest = comments_list[-1]
+                    item["team_feedback"] = {
+                        "author": latest.get("author", "Team"),
+                        "comment": latest.get("comment", ""),
+                        "vote": latest.get("vote", ""),
+                        "updated_at": latest.get("updated_at", "")
+                    }
+                else:
+                    item["team_feedback"] = {"author": "Team", "comment": "", "vote": "", "updated_at": ""}
+
                 item_threads = threads_by_listing.get(listing, [])
                 item["threads"] = item_threads
                 item["threads_count"] = len(item_threads)
@@ -171,13 +190,15 @@ class ReviewHandler(SimpleHTTPRequestHandler):
 
             lines = ["Type,Listing,Accommodation,Target_Aspect,Author,Vote_Or_Status,Comment,AI_Reply,Action_Taken,Created_At\n"]
             
-            # Legacy votes & comments
-            for listing, fb in legacy.items():
+            # Team votes & comments
+            for listing, cmts in legacy.items():
                 name = candidates.get(listing, {}).get("Name", listing).replace('"', '""')
-                vote = fb.get("vote", "")
-                comment = fb.get("comment", "").replace('"', '""')
-                updated_at = fb.get("updated_at", "")
-                lines.append(f'"vote_summary","{listing}","{name}","general","{fb.get("author","Team")}","{vote}","{comment}","","","{updated_at}"\n')
+                for fb in cmts:
+                    vote = fb.get("vote", "")
+                    comment = fb.get("comment", "").replace('"', '""')
+                    author = fb.get("author", "Team").replace('"', '""')
+                    updated_at = fb.get("updated_at", "")
+                    lines.append(f'"vote_summary","{listing}","{name}","general","{author}","{vote}","{comment}","","","{updated_at}"\n')
 
             # Threaded aspect comments and AI replies
             for t in threads:
@@ -364,29 +385,62 @@ class ReviewHandler(SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps({"status": "success" if ok else "failed"}).encode("utf-8"))
             return
 
-        # 4. Legacy vote & quick comment
+        # 4. Team vote & comment (supports multiple comments per accommodation)
         if path == "/api/comment":
             listing = payload.get("listing")
             comment = payload.get("comment", "").strip()
             vote = payload.get("vote", "").strip()
-            author = payload.get("author", "Team Member").strip()
+            author = payload.get("author", "Team Member").strip() or "Team Member"
 
-            if listing:
+            if listing and (comment or vote):
                 legacy = load_legacy_comments()
-                import datetime
-                legacy[listing] = {
+                import datetime, time
+                now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+                cmt_id = f"cmt_{int(time.time())}_{os.urandom(2).hex()}"
+
+                new_cmt = {
+                    "id": cmt_id,
                     "author": author,
                     "vote": vote,
                     "comment": comment,
-                    "updated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+                    "updated_at": now_str
                 }
+
+                if listing not in legacy:
+                    legacy[listing] = []
+                legacy[listing].append(new_cmt)
                 save_legacy_comments(legacy)
 
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json")
                 self.end_headers()
-                self.wfile.write(json.dumps({"status": "success", "listing": listing}).encode("utf-8"))
+                self.wfile.write(json.dumps({
+                    "status": "success",
+                    "listing": listing,
+                    "comment": new_cmt,
+                    "comments": legacy[listing]
+                }, ensure_ascii=False).encode("utf-8"))
                 return
+
+        # 5. Delete specific comment
+        if path == "/api/comment/delete":
+            listing = payload.get("listing")
+            cmt_id = payload.get("id")
+
+            if listing and cmt_id:
+                legacy = load_legacy_comments()
+                if listing in legacy:
+                    legacy[listing] = [c for c in legacy[listing] if c.get("id") != cmt_id]
+                    save_legacy_comments(legacy)
+                    self.send_response(200)
+                    self.send_header("Content-Type", "application/json")
+                    self.end_headers()
+                    self.wfile.write(json.dumps({
+                        "status": "success",
+                        "listing": listing,
+                        "comments": legacy[listing]
+                    }, ensure_ascii=False).encode("utf-8"))
+                    return
 
         self.send_error(404, "Unknown endpoint")
 

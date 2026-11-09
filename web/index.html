@@ -1324,6 +1324,110 @@
 
     .comment-input:focus { outline: 1px solid var(--primary); }
 
+    .team-comments-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 200px;
+      overflow-y: auto;
+      margin: 4px 0 8px 0;
+      padding-right: 2px;
+    }
+
+    .team-comment-item {
+      font-size: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-left: 3px solid var(--primary);
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .team-comment-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .team-comment-author {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .team-comment-date {
+      color: #64748b;
+      font-size: 10px;
+      margin-left: auto;
+    }
+
+    .team-comment-delete-btn {
+      background: none;
+      border: none;
+      color: #64748b;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      padding: 0 2px;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .team-comment-delete-btn:hover {
+      opacity: 1;
+      color: #ef4444;
+    }
+
+    .team-comment-body {
+      color: #cbd5e1;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .comment-add-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.4);
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .comment-meta-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .comment-author-select, .comment-vote-select {
+      background: rgba(9, 14, 23, 0.9);
+      border: 1px solid var(--card-border);
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 6px;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+    .comment-author-select:focus, .comment-vote-select:focus {
+      outline: 1px solid var(--primary);
+      color: #f1f5f9;
+    }
+
+    .vote-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .vote-pill-top { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .vote-pill-maybe { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .vote-pill-pass { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
     .saved-comment-preview {
       font-size: 12px;
       background: rgba(56, 189, 248, 0.08);
@@ -3503,6 +3607,7 @@
       container.innerHTML = pageItems.map(item => {
         const scoreColor = getScoreColor(item.Total_Score);
         const fb = item.team_feedback || { comment: '', vote: '' };
+        const cmts = item.team_comments || (fb.comment || fb.vote ? [fb] : []);
         const safeName = item.Name.replace(/'/g, "\\'");
         const safeListing = item.Listing.replace(/[^a-zA-Z0-9_-]/g, '_');
 
@@ -4045,25 +4150,57 @@
               <!-- Team Notes (Tivvit / Team review) -->
               ${notesSectionHtml}
 
-              <!-- Team Feedback & Voting Box -->
+              <!-- Team Feedback & Multiple Comments Stream -->
               <div class="feedback-box">
-                <div class="vote-buttons">
-                  <button class="vote-btn ${fb.vote === 'top' ? 'active-top' : ''}" onclick="setVote('${item.Listing}', 'top')">👍 Top Choice</button>
-                  <button class="vote-btn ${fb.vote === 'maybe' ? 'active-maybe' : ''}" onclick="setVote('${item.Listing}', 'maybe')">🤷 Maybe</button>
-                  <button class="vote-btn ${fb.vote === 'pass' ? 'active-pass' : ''}" onclick="setVote('${item.Listing}', 'pass')">👎 Pass</button>
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+                  <span style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">
+                    💬 Team Notes &amp; Reviews (${cmts.length})
+                  </span>
+                  <div class="vote-buttons" style="flex:0 0 auto;">
+                    <button class="vote-btn ${fb.vote === 'top' ? 'active-top' : ''}" style="padding:2px 8px; font-size:11px;" onclick="setVote('${item.Listing}', 'top')" title="Vote Top Choice">👍 Top</button>
+                    <button class="vote-btn ${fb.vote === 'maybe' ? 'active-maybe' : ''}" style="padding:2px 8px; font-size:11px;" onclick="setVote('${item.Listing}', 'maybe')" title="Vote Maybe">🤷 Maybe</button>
+                    <button class="vote-btn ${fb.vote === 'pass' ? 'active-pass' : ''}" style="padding:2px 8px; font-size:11px;" onclick="setVote('${item.Listing}', 'pass')" title="Vote Pass">👎 Pass</button>
+                  </div>
                 </div>
 
-                <div class="comment-input-group">
-                  <input type="text" class="comment-input" id="comment-${item.Listing}" placeholder="Leave a team review comment..." value="${fb.comment || ''}">
-                  <button class="btn" style="padding:6px 12px;font-size:12px;" onclick="submitComment('${item.Listing}')">Save</button>
-                </div>
-
-                ${fb.comment || fb.vote ? `
-                  <div class="saved-comment-preview">
-                    <span>💬 <strong>${fb.author || 'Team'}:</strong> ${fb.comment || (fb.vote ? `Voted ${fb.vote}` : '')}</span>
-                    <span style="font-size:10px;opacity:0.6;">${fb.updated_at || ''}</span>
+                ${cmts.length > 0 ? `
+                  <div class="team-comments-stream">
+                    ${cmts.map(c => `
+                      <div class="team-comment-item">
+                        <div class="team-comment-header">
+                          <span class="team-comment-author">👤 ${escapeHtml(c.author || 'Team')}</span>
+                          ${c.vote ? `<span class="vote-pill vote-pill-${c.vote}">${c.vote === 'top' ? '👍 Top' : (c.vote === 'maybe' ? '🤷 Maybe' : '👎 Pass')}</span>` : ''}
+                          <span class="team-comment-date">${c.updated_at || ''}</span>
+                          ${c.id ? `<button class="team-comment-delete-btn" onclick="deleteCardComment('${item.Listing}', '${c.id}')" title="Delete comment">×</button>` : ''}
+                        </div>
+                        <div class="team-comment-body">${escapeHtml(c.comment || (c.vote ? `Voted ${c.vote}` : ''))}</div>
+                      </div>
+                    `).join('')}
                   </div>
                 ` : ''}
+
+                <div class="comment-add-bar">
+                  <div class="comment-meta-row">
+                    <select class="comment-author-select" id="author-${safeListing}" onchange="savePreferredAuthor(this.value)">
+                      <option value="Tivvit">👤 Tivvit</option>
+                      <option value="Fiša">👤 Fiša</option>
+                      <option value="Šimon">👤 Šimon</option>
+                      <option value="Evča">👤 Evča</option>
+                      <option value="Ota">👤 Ota</option>
+                      <option value="Team">👥 Team</option>
+                    </select>
+                    <select class="comment-vote-select" id="vote-${safeListing}">
+                      <option value="">No vote</option>
+                      <option value="top">👍 Top</option>
+                      <option value="maybe">🤷 Maybe</option>
+                      <option value="pass">👎 Pass</option>
+                    </select>
+                  </div>
+                  <div class="comment-input-group">
+                    <input type="text" class="comment-input" id="comment-${safeListing}" placeholder="Add team comment or note..." onkeydown="if(event.key==='Enter') submitCardComment('${item.Listing}')">
+                    <button class="btn btn-primary" style="padding:6px 14px;font-size:12px;white-space:nowrap;" onclick="submitCardComment('${item.Listing}')">Add</button>
+                  </div>
+                </div>
               </div>
 
               <!-- Collapsible Deep-Dive 1: Must-Haves 5-Gate Audit & Score Breakdown -->
@@ -4121,6 +4258,12 @@
           </div>
         `;
       }).join('');
+
+      // Restore preferred author in all select inputs
+      const prefAuthor = getPreferredAuthor();
+      document.querySelectorAll('.comment-author-select').forEach(sel => {
+        sel.value = prefAuthor;
+      });
     }
 
     // Lightbox Modal Logic
@@ -4235,39 +4378,96 @@
       }, { passive: true });
     }
 
-    // Feedback submission
+    // Multi-Comment & Feedback Submission
+    function getPreferredAuthor() {
+      return localStorage.getItem('preferred_team_author') || 'Tivvit';
+    }
+
+    function savePreferredAuthor(author) {
+      if (author) localStorage.setItem('preferred_team_author', author);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
     async function setVote(listing, vote) {
       const item = allCandidates.find(c => c.Listing === listing);
       if (!item) return;
       const currentVote = item.team_feedback ? item.team_feedback.vote : '';
       const newVote = currentVote === vote ? '' : vote;
-      const comment = document.getElementById(`comment-${listing}`).value;
-      await postFeedback(listing, comment, newVote);
+      const safeListing = listing.replace(/[^a-zA-Z0-9_-]/g, '_');
+      const commentEl = document.getElementById(`comment-${safeListing}`);
+      const comment = commentEl ? commentEl.value.trim() : '';
+      const author = getPreferredAuthor();
+      await postFeedback(listing, comment, newVote, author);
+      if (commentEl && comment) commentEl.value = '';
     }
 
-    async function submitComment(listing) {
-      const item = allCandidates.find(c => c.Listing === listing);
-      const currentVote = item && item.team_feedback ? item.team_feedback.vote : '';
-      const comment = document.getElementById(`comment-${listing}`).value;
-      await postFeedback(listing, comment, currentVote);
+    async function submitCardComment(listing) {
+      const safeListing = listing.replace(/[^a-zA-Z0-9_-]/g, '_');
+      const commentEl = document.getElementById(`comment-${safeListing}`);
+      const voteEl = document.getElementById(`vote-${safeListing}`);
+      const authorEl = document.getElementById(`author-${safeListing}`);
+
+      const comment = commentEl ? commentEl.value.trim() : '';
+      const vote = voteEl ? voteEl.value : '';
+      const author = authorEl ? authorEl.value : getPreferredAuthor();
+
+      if (!comment && !vote) {
+        alert("Please enter a comment or choose a vote.");
+        return;
+      }
+
+      await postFeedback(listing, comment, vote, author);
+      if (commentEl) commentEl.value = '';
+      if (voteEl) voteEl.value = '';
     }
 
-    async function postFeedback(listing, comment, vote) {
+    async function deleteCardComment(listing, commentId) {
+      if (!commentId) return;
+      if (!confirm("Are you sure you want to delete this comment?")) return;
+      try {
+        const res = await fetch('/api/comment/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ listing, id: commentId })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const item = allCandidates.find(c => c.Listing === listing);
+          if (item) {
+            item.team_comments = data.comments || [];
+            item.team_feedback = item.team_comments.length > 0 ? item.team_comments[item.team_comments.length - 1] : { author: 'Team', comment: '', vote: '', updated_at: '' };
+          }
+          renderCards();
+        }
+      } catch (err) {
+        console.error("Failed to delete comment:", err);
+      }
+    }
+
+    async function postFeedback(listing, comment, vote, author) {
       try {
         const res = await fetch('/api/comment', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ listing, comment, vote, author: 'Team' })
+          body: JSON.stringify({ listing, comment, vote, author: author || getPreferredAuthor() })
         });
         if (res.ok) {
+          const data = await res.json();
           const item = allCandidates.find(c => c.Listing === listing);
           if (item) {
-            item.team_feedback = {
-              author: 'Team',
-              comment,
-              vote,
-              updated_at: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-            };
+            item.team_comments = data.comments || (item.team_comments || []);
+            if (data.comment && (!data.comments || data.comments.length === 0)) {
+              item.team_comments.push(data.comment);
+            }
+            item.team_feedback = item.team_comments.length > 0 ? item.team_comments[item.team_comments.length - 1] : { author: author || 'Team', comment, vote, updated_at: '' };
           }
           updateStats();
           renderCards();
